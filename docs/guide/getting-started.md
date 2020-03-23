@@ -9,4 +9,32 @@ export default {
 }
 ```
 
-<APIDetails/>
+:::: tabs
+
+::: tab "curl"
+
+``` bash
+DOMAIN=yyyyy
+API_KEY=xxxxx
+curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${API_KEY}
+```
+
+:::
+
+
+::: tab "python"
+
+``` python
+import requests
+
+API_KEY = "xxxxx"
+DOMAIN = "yyyyy"
+
+r = requests.get('https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={API_KEY}'.format(DOMAIN=DOMAIN, API_KEY=API_KEY)
+r.json()
+
+```
+
+:::
+
+::::
