@@ -4,6 +4,7 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  plugins: ['@dovyp/vuepress-plugin-clipboard-copy', true],
   themeConfig: {
     docsRepo: 'thinkst/canarytools-docs',
     docsDir: 'docs',
