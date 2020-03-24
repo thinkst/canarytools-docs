@@ -41,6 +41,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/api-reference/overview',
+          '/api-reference/miscellaneous',
           '/api-reference/console',
           '/api-reference/flocks',
         ]
