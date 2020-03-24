@@ -1,1 +1,83 @@
 @require '~vuepress-plugin-tabs/dist/themes/default.styl'
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,700');
+
+/*
+ *
+ * Variables
+ *
+ */
+:root {
+  --primary-color: #38D47F;
+  --primary-color-light: #e8fdeb;
+  --primary-color-code: #19a539;
+  --primary-color-code-light: #C8F7D4;
+  --secondary-color: #17A085;
+  --secondary-color-light: #B5E0D7;
+  --warning-color: #FFA72D;
+  --warning-color-dark: #DD9227;
+  --warning-color-light: #fff0db;
+  --danger-color: #FF2F2F;
+  --danger-color-dark: #DD2727;
+  --danger-color-code: #e83e8c;
+  --danger-color-light: #FFEAEA;
+  --offline-color: #B0B2B1;
+  --offline-color-dark: #9FA09F;
+  --offline-color-light: #F4F7F6;
+  --dark-color: #1F2120;
+  --dark-color-accents: #393D3B;
+  --dark-color-light: #545E58;
+  --mid-color: #718278;
+  --mid-color-accents: #7C8781;
+  --card-color-lines-light: #EDEFEE;
+  --card-color-lines: #E3E5E4;
+  --card-color-box: #F4F9F6;
+  --card-color-item: #F9FFFA;
+  --card-color: #EDF4EF;
+  --background-color:#DEE5E0;
+
+  --card-shadow: 0px 3px 12px rgba(57, 61, 59, 0.30);
+  --btn-card-shadow: 0 1px 3px rgba(0,0,0,.30);
+  --btn-card-shadow--hover: 0 2px 6px rgba(0,0,0,.30);
+  --btn-card-shadow--active: 0 1px 2px rgba(0,0,0,.15);
+  --btn-card-menu-shadow: 0 3px 8px 0 rgba(14,30,37,.42);
+  --input-tootltip-shadow: 0 5px 12px 0 rgba(14,30,37,.15);
+  --input-card-shadow: 0 1px 2px rgba(0,0,0,.20);
+  --card-item-shadow: 0 1px 1px var(--card-color-lines), 0 -1px 1px var(--card-color-lines);
+  --card-expanded-shadow: -1px 2px 8px 2px rgba(14,30,37,.12);
+}
+
+html, body
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+
+.endpoints
+    // background-color: var(--background-color);
+    border: none;
+    box-shadow: var(--card-shadow);
+    border-radius: 6px;
+    margin-bottom: 28px;
+
+.endpoints .header
+    border: none;
+    background-color: var(--primary-color)
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 8px;
+    text-transform: uppercase;
+
+.endpoints .content
+    padding: 16px;
+
+.endpoints .content .endpoint .method
+    display: inline-block;
+    width: 75px;
+    text-transform: uppercase;
+    text-align: end;
+
+.endpoints .content .endpoint .method.post
+    color: var(--danger-color)
+    
+.endpoints .content .endpoint .method.get
+    color: var(--secondary-color)    
+
+.endpoints .content .endpoint .url
+    color: #fff
