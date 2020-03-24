@@ -37,3 +37,13 @@ The API Reference includes a detailed look at each endpoint.
     </div>
 </div>
 
+::: tip
+asdfasdf
+:::
+:::danger
+sdafasdf
+:::
+::: warning wanring
+
+asdfsd
+:::

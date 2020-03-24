@@ -6,7 +6,7 @@
  * Variables
  *
  */
-:root {
+:root 
   --primary-color: #38D47F;
   --primary-color-light: #e8fdeb;
   --primary-color-code: #19a539;
@@ -44,7 +44,7 @@
   --input-card-shadow: 0 1px 2px rgba(0,0,0,.20);
   --card-item-shadow: 0 1px 1px var(--card-color-lines), 0 -1px 1px var(--card-color-lines);
   --card-expanded-shadow: -1px 2px 8px 2px rgba(14,30,37,.12);
-}
+
 
 html, body
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -58,10 +58,12 @@ html, body
 
 .endpoints .header
     border: none;
-    background-color: var(--primary-color)
+    background-color: var(--dark-color-accents)
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    color: var(--secondary-color)
     padding: 8px;
+    padding-left: 16px;
     text-transform: uppercase;
 
 .endpoints .content
@@ -69,15 +71,14 @@ html, body
 
 .endpoints .content .endpoint .method
     display: inline-block;
-    width: 75px;
+    width: 45px;
     text-transform: uppercase;
-    text-align: end;
 
 .endpoints .content .endpoint .method.post
-    color: var(--danger-color)
+    color: var(--warning-color)
     
 .endpoints .content .endpoint .method.get
-    color: var(--secondary-color)    
+    color: var(--primary-color-code)    
 
 .endpoints .content .endpoint .url
     color: #fff
