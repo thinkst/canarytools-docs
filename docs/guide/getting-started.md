@@ -65,7 +65,7 @@ If you see the `success` result you're good to go!
 
 If you instead see an `error` result, you can examine the `message` field to determine what the cause might be. For example, if you used an invalid `auth_token` you would see a response similar to:
 
-``` bash
+```json
 {
   "message": "Invalid auth_token",
   "result": "error"
@@ -110,7 +110,7 @@ r.json()
 
 ::::
 
-```
+```json
 {
   "devices": [ ... ],
   "feed": "All Devices",
