@@ -4,7 +4,17 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  plugins: ['@dovyp/vuepress-plugin-clipboard-copy', 'tabs'],
+  plugins: [
+    '@dovyp/vuepress-plugin-clipboard-copy',
+    'tabs',
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'language-picker',
+        defaultTitle: 'Chose Language',
+      },
+    ],
+  ],
   themeConfig: {
     docsRepo: 'thinkst/canarytools-docs',
     docsDir: 'docs',
