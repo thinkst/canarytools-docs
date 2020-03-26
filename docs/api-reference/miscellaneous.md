@@ -9,6 +9,7 @@ endpoints:
           required: true
           type: string
           description: A valid auth token
+      response: A json message with a response indicator.
     - name: Test
       url: /api/v1/test
       method: POST
@@ -30,16 +31,13 @@ These are a collection of endpoints that can't be grouped into a specific catego
 
 <APIDetails :endpoint="$page.frontmatter.endpoints[0]"/>
 
-#### Response
-
-A json message with a `response` indicator.
 
 
 #### Example
 
-:::: tabs
+:::: tabs :options="{ useUrlFragment: false }"
 
-::: tab "curl"
+::: tab "cURL"
 
 ``` bash
 DOMAIN=my_domain
@@ -51,7 +49,7 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
 :::
 
 
-::: tab "python"
+::: tab "Python"
 
 ``` python
 import requests

@@ -44,6 +44,10 @@
       </tbody>
     </table>
     </template>
+    <h4>
+      Response
+    </h4> 
+    <p>{{endpoint.response}}</p> 
   </div>
 </template>
 

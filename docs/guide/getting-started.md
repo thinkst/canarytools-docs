@@ -33,7 +33,7 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
 
 Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/api-reference/miscellaneous#ping) endpoint:
 
-:::: tabs tab-position:bottom stretch:true
+:::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab "cURL"
 
@@ -95,9 +95,9 @@ Now that we know we're able to connect to our Console, let's inspect our devices
 
 By calling the [All Devices](/api-reference/devices#all) endpoint, we'll get a list of our currently paired devices.
 
-:::: tabs
+:::: tabs :options="{ useUrlFragment: false }"
 
-::: tab "curl"
+::: tab "cURL"
 
 ``` bash
 DOMAIN=my_domain
@@ -109,7 +109,7 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/devices/all?auth_token=${AUTH_
 :::
 
 
-::: tab "python"
+::: tab "Python"
 
 ``` python
 import requests
