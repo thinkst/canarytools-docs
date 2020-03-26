@@ -73,11 +73,14 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
 ``` python
 import requests
 
-DOMAIN = "my_domain"
-AUTH_TOKEN = "test_auth_token"
+DOMAIN = 'my_domain'
+AUTH_TOKEN = 'test_auth_token'
 
 r = requests.get(
-  'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN))
+    'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(
+        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
+    )
+)
 r.json()
 
 ```
@@ -85,4 +88,13 @@ r.json()
 :::
 
 ::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
 
