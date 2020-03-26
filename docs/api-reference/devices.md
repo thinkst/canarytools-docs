@@ -9,6 +9,12 @@ endpoints:
           required: true
           type: string
           description: A valid auth token
+        - name: tz
+          required: false
+          type: string
+          description: Timezone for standardised timestamps (fields that end in "_std").
+                       Use the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">pytz names</a>
+                       to specify the timezone
     - name: Live Devices
       url: /api/v1/devices/live
       method: GET
@@ -18,6 +24,12 @@ endpoints:
           required: true
           type: string
           description: A valid auth token
+        - name: tz
+          required: false
+          type: string
+          description: Timezone for standardised timestamps (fields that end in "_std").
+                       Use the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">pytz names</a>
+                       to specify the timezone
     - name: Dead Devices
       url: /api/v1/devices/dead
       method: GET
@@ -27,6 +39,12 @@ endpoints:
           required: true
           type: string
           description: A valid auth token
+        - name: tz
+          required: false
+          type: string
+          description: Timezone for standardised timestamps (fields that end in "_std").
+                       Use the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">pytz names</a>
+                       to specify the timezone
 ---
 
 # Devices

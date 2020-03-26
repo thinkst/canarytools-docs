@@ -4,22 +4,41 @@
       <code>{{endpoint.method}} {{endpoint.url}}</code>
     </p> 
     <p>{{endpoint.description}}</p> 
-    <h4 id="parameters"><a href="#parameters" class="header-anchor">#</a> Parameters</h4> 
+    <h4>
+      Required Parameters
+    </h4> 
     <table>
       <thead>
         <tr>
-          <th>param</th> 
-          <th>type</th> 
-          <th>required</th>
+          <th>Name</th> 
+          <th>Type</th> 
+          <th>Description</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr v-for="param in requiredParams" :key="endpoint.name + param.name">
+          <td>{{param.name}}</td>
+          <td>{{param.type}}</td> 
+          <td v-html="param.description"></td> 
+        </tr>
+      </tbody>
+    </table>
+    <h4>
+      Optional Parameters
+    </h4> 
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th> 
+          <th>Type</th> 
           <th>description</th>
         </tr>
       </thead> 
       <tbody>
-        <tr v-for="param in endpoint.params" :key="endpoint.name + param.name">
+        <tr v-for="param in optionalParams" :key="endpoint.name + param.name">
           <td>{{param.name}}</td>
           <td>{{param.type}}</td> 
-          <td>{{param.required}}</td> 
-          <td>{{param.description}}</td> 
+          <td v-html="param.description"></td> 
         </tr>
       </tbody>
     </table>
@@ -35,5 +54,13 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    requiredParams() {
+      return this.endpoint.params.filter(p => p.required);
+    },
+    optionalParams() {
+      return this.endpoint.params.filter(p => !p.required);
+    },
+  }
 }
 </script>
