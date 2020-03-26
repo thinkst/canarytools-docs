@@ -2,7 +2,7 @@ module.exports = {
   title: 'Canarytools Docs',
   description: 'Documentation for the Canary Console.',
   markdown: {
-    lineNumbers: true
+    lineNumbers: false,
   },
   plugins: [
     '@dovyp/vuepress-plugin-clipboard-copy',
@@ -10,8 +10,25 @@ module.exports = {
     [
       'vuepress-plugin-container',
       {
-        type: 'language-picker',
-        defaultTitle: 'Chose Language',
+        type: 'api-example',
+        before: info => `<div class="api-example">
+                            <div class="api-example-header">
+                              <span class="method-type ${info.split(' ')[0]}">${info.split(' ')[0]}</span>
+                              <span class="method-url">${info.split(' ')[1]}</span>
+                            </div>
+                        `,
+        after: '</div>',
+      },
+    ],[
+      'vuepress-plugin-container',
+      {
+        type: 'api-response',
+        before: info => `<div class="api-example-response">
+                            <div class="api-example-response-header">
+                              <span class="method-type ">Response</span>
+                            </div>
+                        `,
+        after: '</div>',
       },
     ],
   ],

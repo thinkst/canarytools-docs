@@ -21,7 +21,7 @@ This is the API key that you'll need to use in order to make calls to your API. 
 
 ## Hello Console
 
-::: language-picker
+::: api-example GET /api/v1/ping
 
 ``` bash
 DOMAIN=my_domain
@@ -35,7 +35,7 @@ Let's begin by ensuring that we can successfully contact our Console. We can do 
 
 :::: tabs tab-position:bottom stretch:true
 
-::: tab "ss"
+::: tab "cURL"
 
 ``` bash
 DOMAIN=my_domain
@@ -47,7 +47,7 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
 :::
 
 
-::: tab "python"
+::: tab "Python"
 
 ``` python
 import requests
@@ -65,22 +65,26 @@ r.json()
 
 ::::
 
-``` bash
+:::  api-response 
+``` json
 {
   "result": "success"
 }
 ```
+:::
 
 If you see the `success` result you're good to go!
 
 If you instead see an `error` result, you can examine the `message` field to determine what the cause might be. For example, if you used an invalid `auth_token` you would see a response similar to:
 
+::: api-response
 ```json
 {
   "message": "Invalid auth_token",
   "result": "error"
 }
 ```
+:::
 
 ## Hello Devices
 
@@ -120,6 +124,8 @@ r.json()
 
 ::::
 
+
+::: api-response
 ```json
 {
   "devices": [ ... ],
@@ -130,3 +136,4 @@ r.json()
   "updated_timestamp": 946677600
 }
 ```
+:::

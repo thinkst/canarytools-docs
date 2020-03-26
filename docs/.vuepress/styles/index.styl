@@ -90,3 +90,51 @@ thead
 tbody
     background-color: var(--dark-color-light)
     color: #ccc
+
+.api-example-header
+.api-example-response-header
+    position: relative
+    z-index: 1
+    margin-bottom: -1.25em
+    padding: 6px
+    padding-left: 12px
+    border-top-left-radius: 6px
+    border-top-right-radius: 6px
+
+.api-example-header
+    background-color: darken($codeBgColor, 15%)
+    color: lighten($textColor, 45%)
+
+.api-example-response-header 
+    background-color: lighten($codeBgColor, 15%)
+    color: lighten($textColor, 45%)
+    text-transform: uppercase
+
+.api-example-response [class*="language-"] 
+    background-color: lighten($codeBgColor, 25%)
+    color: lighten($textColor, 45%)
+    
+.api-example-header .method-type.GET
+    color: $badgeTipColor
+
+.api-example-header .method-type.POST
+    color: $badgeWarningColor
+    
+
+.tabs-component-tabs
+    justify-content: flex-end
+
+.tabs-component-tab
+    background-color: $codeBgColor
+    color: lighten($textColor, 45%)
+    margin: 0
+    &:hover:not(.is-active)
+        color: lighten($textColor, 65%)
+
+.tabs-component-panels
+    padding: 0
+    border-radius: 6px
+
+.tabs-component-panels .tabs-component-panel [class*="language-"] 
+    margin: 0
+    border-top-right-radius: 0
