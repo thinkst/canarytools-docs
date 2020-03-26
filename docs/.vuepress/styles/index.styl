@@ -58,7 +58,7 @@ html, body
 
 .endpoints .header
     border: none;
-    background-color: var(--dark-color-accents)
+    background-color: darken($codeBgColor, 15%)
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     color: var(--secondary-color)
@@ -68,6 +68,7 @@ html, body
 
 .endpoints .content
     padding: 16px;
+    background-color: $codeBgColor
 
 .endpoints .content .endpoint .method
     display: inline-block;
@@ -95,14 +96,17 @@ table
     width: 10%
 
 thead
-    background-color: var(--dark-color-accents)
+    background-color: $codeBgColor
+    // background-color: var(--dark-color-accents)
     color: #ccc
 
 tbody
-    background-color: var(--dark-color-light)
+    background-color: lighten($codeBgColor, 15%)
+    // background-color: var(--dark-color-light)
     color: #ccc
     & tr
-        background-color: var(--dark-color-light) !important;
+        // background-color: var(--dark-color-light) !important;
+        background-color: lighten($codeBgColor, 15%)
 
 .api-example-header
 .api-example-response-header
