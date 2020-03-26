@@ -10,9 +10,9 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th> 
-          <th>Type</th> 
-          <th>Description</th>
+          <th class="w-25">Name</th> 
+          <th class="w-10">Type</th> 
+          <th class="w-65">Description</th>
         </tr>
       </thead> 
       <tbody>
@@ -23,15 +23,16 @@
         </tr>
       </tbody>
     </table>
+    <template v-if="optionalParams.length > 0">
     <h4>
       Optional Parameters
     </h4> 
     <table>
       <thead>
         <tr>
-          <th>Name</th> 
-          <th>Type</th> 
-          <th>description</th>
+          <th class="w-25">Name</th> 
+          <th class="w-10">Type</th> 
+          <th class="w-65">Description</th>
         </tr>
       </thead> 
       <tbody>
@@ -42,6 +43,7 @@
         </tr>
       </tbody>
     </table>
+    </template>
   </div>
 </template>
 
