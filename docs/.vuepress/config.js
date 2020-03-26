@@ -70,6 +70,7 @@ module.exports = {
           '/api-reference/overview',
           '/api-reference/miscellaneous',
           '/api-reference/console',
+          '/api-reference/devices',
           '/api-reference/flocks',
         ]
       },

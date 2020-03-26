@@ -8,44 +8,27 @@ endpoints:
         - name: auth_token
           required: true
           type: string
+          description: A valid auth token
     - name: Test
       url: /api/v1/test
       method: POST
       description: A test
       params:
-        - auth_token:
-            required: true
-            type: string
-            description: A valid API token
+        - name: auth_token
+          required: true
+          type: string
+          description: A valid auth token
 ---
 
 # Miscellaneous
 
 These are a collection of endpoints that can't be grouped into a specific category but provide useful actions to the end user.
 
-<div class="endpoints language-">
-    <div class="header">Endpoints</div>
-    <div class="content">
-        <div v-for="endpoint in $page.frontmatter.endpoints" class="endpoint">
-            <span class="method" :class="endpoint.method">{{endpoint.method}}</span>
-            <span class="url">{{endpoint.url}}</span>
-        </div>
-    </div>
-</div>
-
-
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
 ## Ping
 
-``{{$page.frontmatter.endpoints[0].method}} {{$page.frontmatter.endpoints[0].url}}``
-
-{{$page.frontmatter.endpoints[0].description}}
-
-#### Parameters
-
-| param | type | required |
-| ----- | ---- | -------- |
-| {{$page.frontmatter.endpoints[0].params[0].name}}| {{$page.frontmatter.endpoints[0].params[0].type}} |  {{$page.frontmatter.endpoints[0].params[0].required}} |
+<APIDetails :endpoint="$page.frontmatter.endpoints[0]"/>
 
 #### Response
 
