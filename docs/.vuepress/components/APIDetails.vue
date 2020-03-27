@@ -7,12 +7,12 @@
     <h4>
       Required Parameters
     </h4> 
-    <table>
+    <table class="table-100">
       <thead>
         <tr>
-          <th class="w-25">Name</th> 
-          <th class="w-10">Type</th> 
-          <th class="w-65">Description</th>
+          <th style="width:25%">Name</th> 
+          <th style="width:25%">Type</th> 
+          <th style="width:50%">Description</th>
         </tr>
       </thead> 
       <tbody>
@@ -30,9 +30,9 @@
     <table>
       <thead>
         <tr>
-          <th class="w-25">Name</th> 
-          <th class="w-10">Type</th> 
-          <th class="w-65">Description</th>
+          <th style="width:25%">Name</th> 
+          <th style="width:25%">Type</th> 
+          <th style="width:50%">Description</th>
         </tr>
       </thead> 
       <tbody>

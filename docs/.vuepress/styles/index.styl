@@ -35,10 +35,16 @@ html, body
         & .endpoint .url
             color: #fff
 
+.table-100 {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 table
     width:100%
     table-layout: fixed
-    border-radius: 6px
+    display: table
+    border-style: hidden;
 
 thead
     background-color: $codeBgColor
@@ -50,12 +56,20 @@ tbody
     & tr
         background-color: lighten($codeBgColor, 15%)
 
-.w-65
-    width: 65%
-.w-25
-    width: 25%
-.w-10
-    width: 10%
+td, th 
+    overflow: scroll;
+
+table tr:last-child td:first-child 
+    border-bottom-left-radius: 6px
+
+table tr:last-child td:last-child 
+    border-bottom-right-radius: 6px
+
+table tr:first-child th:first-child 
+    border-top-left-radius: 6px
+
+table tr:first-child th:last-child 
+    border-top-right-radius: 6px
 
 .api-example-response-header
     position: relative
