@@ -97,15 +97,12 @@ table
 
 thead
     background-color: $codeBgColor
-    // background-color: var(--dark-color-accents)
     color: #ccc
 
 tbody
     background-color: lighten($codeBgColor, 15%)
-    // background-color: var(--dark-color-light)
     color: #ccc
     & tr
-        // background-color: var(--dark-color-light) !important;
         background-color: lighten($codeBgColor, 15%)
 
 .api-example-header
@@ -140,21 +137,32 @@ tbody
 
 .tabs-component-tabs
     justify-content: flex-end
+    background-color: darken($codeBgColor, 15%)
+    border-top: none 
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
 
 .tabs-component-tab
-    background-color: $codeBgColor
+    background-color: darken($codeBgColor, 15%)
     color: lighten($textColor, 45%)
     margin: 0
+    border: none
     &:hover:not(.is-active)
         color: lighten($textColor, 65%)
+    &.is-active
+        background-color: $codeBgColor
 
 .tabs-component-panels
     padding: 0
+    border: none
     border-radius: 6px
+    border-top-left-radius: 0
+    border-top-right-radius: 0
 
 .tabs-component-panels .tabs-component-panel [class*="language-"] 
     margin: 0
     border-top-right-radius: 0
+    border-top-left-radius: 0
 
 .code-copy svg
     margin-top: 1.5em
