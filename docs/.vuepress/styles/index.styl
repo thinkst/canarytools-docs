@@ -23,22 +23,24 @@ html, body
         background-color: $codeBgColor
         border-bottom-left-radius: 6px
         border-bottom-right-radius: 6px
-        & .endpoint .method
-            display: inline-block
-            width: 45px
-            text-transform: uppercase
-            &.POST
-                color: #FFA72D
-            &.GET
-                color: #19a539
 
-        & .endpoint .url
-            color: #fff
+.endpoint .method
+    display: inline-block
+    width: 45px
+    text-transform: uppercase
+    &.POST
+        color: #FFA72D
+    &.GET
+        color: #19a539
 
-.table-100 {
-  width: 100%;
-  box-sizing: border-box;
-}
+.endpoint .url
+    color: $accentColor
+
+.single-endpoint
+    background-color: #4a5568;
+    display: inline-block;
+    padding: 0px 10px 0px 10px;
+    border-radius: 6px
 
 table
     width:100%
