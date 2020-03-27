@@ -5,8 +5,12 @@ module.exports = {
     lineNumbers: false,
   },
   plugins: [
-    '@dovyp/vuepress-plugin-clipboard-copy',
+    // '@dovyp/vuepress-plugin-clipboard-copy',
     'tabs',
+    ['vuepress-plugin-code-copy', {
+      align: 'top',
+      color: '#38D47F'
+    }],
     [
       'vuepress-plugin-container',
       {
