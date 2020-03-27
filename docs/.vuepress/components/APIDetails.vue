@@ -2,11 +2,6 @@
   <div>
     <p>
       <code>{{endpoint.method}} {{endpoint.url}}</code>
-       <span class="single-endpoint">
-          <div class="endpoint">
-            <span class="method GET">{{endpoint.method}}</span> <span class="url">{{endpoint.url}}</span>
-          </div>
-       </span>
     </p> 
     <p>{{endpoint.description}}</p> 
     <h4>

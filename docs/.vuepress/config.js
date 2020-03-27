@@ -5,7 +5,6 @@ module.exports = {
     lineNumbers: false,
   },
   plugins: [
-    // '@dovyp/vuepress-plugin-clipboard-copy',
     'tabs',
     ['vuepress-plugin-code-copy', {
       align: 'top',
