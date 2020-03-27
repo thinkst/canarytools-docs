@@ -21,16 +21,6 @@ This is the API key that you'll need to use in order to make calls to your API. 
 
 ## Hello Console
 
-::: api-example GET /api/v1/ping
-
-``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
-```
-:::
-
 Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/api-reference/miscellaneous#ping) endpoint:
 
 :::: tabs :options="{ useUrlFragment: false }"

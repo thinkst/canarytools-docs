@@ -14,18 +14,6 @@ module.exports = {
     [
       'vuepress-plugin-container',
       {
-        type: 'api-example',
-        before: info => `<div class="api-example">
-                            <div class="api-example-header">
-                              <span class="method-type ${info.split(' ')[0]}">${info.split(' ')[0]}</span>
-                              <span class="method-url">${info.split(' ')[1]}</span>
-                            </div>
-                        `,
-        after: '</div>',
-      },
-    ],[
-      'vuepress-plugin-container',
-      {
         type: 'api-response',
         before: info => `<div class="api-example-response">
                             <div class="api-example-response-header">
