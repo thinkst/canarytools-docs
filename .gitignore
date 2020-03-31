@@ -2,3 +2,4 @@ node_modules
 yarn-error.log
 venv/
 *.DS_Store
+docs/.vuepress/dist

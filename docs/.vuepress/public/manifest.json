@@ -1,0 +1,11 @@
+
+{
+    "name": "Canary Console API Docs",
+    "short_name": "Canary Console API Docs",
+    "icons": [
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#38D47F"
+  }
