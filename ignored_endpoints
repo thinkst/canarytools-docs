@@ -1,4 +1,5 @@
 /acknowledged_incidents.atom
+
 /all_devices.atom
 /dead_devices.atom
 /device/completemigration
@@ -7,5 +8,7 @@
 /device/migrate
 /device/triggersettings
 /devices/completemigration
+/devices/pending_migrations
+
 /fetch_incident.atom
 /unacknowledged_incidents.atom

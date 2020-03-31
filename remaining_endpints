@@ -44,22 +44,12 @@
 /console/features
 /csrf/generate
 
-/device/cancel_commission
-/device/commission
-/device/custompersonality/exists
-/device/decommission
-/device/notifications/disconnects/disable
-/device/notifications/disconnects/enable
-/device/notifications/incidents/disable
-/device/notifications/incidents/enable
-/device/notifications/reconnects/disable
-/device/notifications/reconnects/enable
+
 /device/reboot
 /device/update
 
-/devices/commission/pending
-/devices/completemigration
-/devices/pending_migrations
+
+
 /flock/create
 /flock/delete
 /flock/list

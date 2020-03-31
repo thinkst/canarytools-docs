@@ -37,7 +37,22 @@ endpoints:
         required: true
         type: string
         description: Specify the Flock which has the custom personality you would like to delete.
-    response: A JSON message with a response indicator.
+    response: A JSON message with a result indicator.
+  device_custompersonality_exists:
+    name: Device Custom Personality Exists
+    url: /api/v1/device/custompersonality/exists
+    method: GET
+    description: Checks if a custom personality exists for a specified device.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON message with a result indicator.
 ---
 
 # Device Personalities
@@ -63,3 +78,7 @@ These are a collection of endpoints that allow you interact with device personal
   :::
   
 </APIDetails>
+
+## Device Custom Personality Exists
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_custompersonality_exists"/>
