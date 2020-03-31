@@ -94,5 +94,6 @@ module.exports = {
         ]
       },
     ],
+    smoothScroll: true,
   },
 }
