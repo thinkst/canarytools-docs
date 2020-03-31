@@ -369,7 +369,7 @@ r.json()
 DOMAIN=my_domain
 AUTH_TOKEN=test_auth_token
 
-curl "https://fcc70084.canary.tools/api/v1/devices/filter?auth_token=${AUTH_TOKEN}&filter_str=nick"
+curl "https://${DOMAIN}.canary.tools/api/v1/devices/filter?auth_token=${AUTH_TOKEN}&filter_str=nick"
 ```
 :::
 
