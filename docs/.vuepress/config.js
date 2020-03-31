@@ -61,9 +61,10 @@ module.exports = {
           '/api-reference/overview',
           '/api-reference/miscellaneous',
           '/api-reference/console',
-          '/api-reference/device-configuration',
+          '/api-reference/device-notes',
           '/api-reference/device-personalities',
           '/api-reference/device-queries',
+          '/api-reference/device-service-configuration',
           '/api-reference/flocks',
         ]
       },
