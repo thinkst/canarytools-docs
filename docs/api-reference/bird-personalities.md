@@ -4,7 +4,7 @@ endpoints:
     name: List Personalities
     url: /api/v1/personalities/list
     method: GET
-    description: Returns a list of available device personalities for a specified version or device (node_id).
+    description: Returns a list of available Bird personalities for a specified version or Bird (node_id).
     params:
       - name: auth_token
         required: true
@@ -39,10 +39,10 @@ endpoints:
         description: Specify the Flock which has the custom personality you would like to delete.
     response: A JSON message with a result indicator.
   device_custompersonality_exists:
-    name: Device Custom Personality Exists
+    name: Bird Custom Personality Exists
     url: /api/v1/device/custompersonality/exists
     method: GET
-    description: Checks if a custom personality exists for a specified device.
+    description: Checks if a custom personality exists for a specified Bird.
     params:
       - name: auth_token
         required: true
@@ -55,9 +55,9 @@ endpoints:
     response: A JSON message with a result indicator.
 ---
 
-# Device Personalities
+# Bird Personalities
 
-These are a collection of endpoints that allow you interact with device personalities. This includes the built in device personalities as well as custom personalities that you create.
+These are a collection of endpoints that allow you interact with Bird personalities. This includes the built in Bird personalities as well as custom personalities that you create.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
@@ -79,6 +79,6 @@ These are a collection of endpoints that allow you interact with device personal
   
 </APIDetails>
 
-## Device Custom Personality Exists
+## Bird Custom Personality Exists
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_custompersonality_exists"/>

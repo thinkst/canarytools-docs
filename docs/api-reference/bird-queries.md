@@ -1,10 +1,10 @@
 ---
 endpoints:
   all_devices:
-    name: All Devices
+    name: All Birds
     url: /api/v1/devices/all
     method: GET
-    description: Retrieve a list of all connected devices.
+    description: Retrieve a list of all connected Birds.
     params:
       - name: auth_token
         required: true
@@ -15,12 +15,12 @@ endpoints:
         type: string
         description: Timezone for standardised timestamps (fields that end in "_std").
                   Use the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">pytz names</a> to specify the timezone
-    response: JSON Structure of all connected devices.
+    response: JSON Structure of all connected Birds.
   live_devices:
-    name: Live Devices
+    name: Live Birds
     url: /api/v1/devices/live
     method: GET
-    description: Retrieve all live devices.
+    description: Retrieve all live Birds.
     params:
       - name: auth_token
         required: true
@@ -34,10 +34,10 @@ endpoints:
                   to specify the timezone
     response: JSON Structure of live devices
   dead_devices:
-    name: Dead Devices
+    name: Dead Birds
     url: /api/v1/devices/dead
     method: GET
-    description: Retrieve all connected but offline devices.
+    description: Retrieve all connected but offline Birds.
     params:
       - name: auth_token
         required: true
@@ -49,12 +49,12 @@ endpoints:
         description: Timezone for standardised timestamps (fields that end in "_std").
                   Use the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">pytz names</a>
                   to specify the timezone
-    response: JSON Structure of dead devices
+    response: JSON Structure of dead Birds
   filter_devices:
-    name: Filter Devices
+    name: Filter Birds
     url: /api/v1/devices/filter
     method: GET
-    description: Retrieve all devices that match a specific filter.
+    description: Retrieve all Birds that match a specific filter.
     params:
       - name: auth_token
         required: true
@@ -64,12 +64,12 @@ endpoints:
         required: false
         type: string
         description: String to match on
-    response: JSON Structure of filtered devices.
+    response: JSON Structure of filtered Birds.
   device_info:
-    name: Device Info
+    name: Bird Info
     url: /api/v1/device/info
     method: GET
-    description: Retrieve device info for a specified device.
+    description: Retrieve info for a specified Bird.
     params:
       - name: auth_token
         required: true
@@ -82,21 +82,21 @@ endpoints:
       - name: settings
         required: false
         type: boolean
-        description: Whether to include a dict of the device settings (defaults to `false`)
+        description: Whether to include a dict of the Bird settings (defaults to `false`)
       - name: exclude_fixed_settings
         required: false
         type: string
         description:  Whether to include settings which the user can not change (defaults to `false`)
-    response: JSON structure of device's current information.
+    response: JSON structure of Bird's current information.
 ---
 
-# Device Queries
+# Bird Queries
 
-These are a collection of endpoints that allow you to query and retrieve devices that are connected to your Console.
+These are a collection of endpoints that allow you to query and retrieve Birds that are connected to your Console.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## All Devices
+## All Birds
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.all_devices"/>
 
@@ -179,7 +179,7 @@ r.json()
 ```
 :::
 
-## Live Devices
+## Live Birds
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.live_devices"/>
 
@@ -268,7 +268,7 @@ r.json()
 ```
 :::
 
-## Dead Devices
+## Dead Birds
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.dead_devices"/>
 
@@ -356,7 +356,7 @@ r.json()
 ```
 :::
 
-## Filter Devices
+## Filter Birds
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.all_devices"/>
 
@@ -442,7 +442,7 @@ r.json()
 :::
 
 
-## Device Info
+## Bird Info
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_info"/>
 

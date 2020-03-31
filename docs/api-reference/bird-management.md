@@ -1,10 +1,10 @@
 ---
 endpoints:
   reboot_device:
-    name: Reboot Device
+    name: Reboot Bird
     url: /api/v1/device/reboot
     method: POST
-    description: Schedule a device reboot.
+    description: Schedule a Bird reboot.
     params:
       - name: auth_token
         required: true
@@ -16,10 +16,10 @@ endpoints:
         description: A valid Canary node_id
     response: JSON structure with the result indicator.
   update_device:
-    name: Update Device
+    name: Update Bird
     url: /api/v1/device/update
     method: POST
-    description: Schedule a device update.
+    description: Schedule a Bird update.
     params:
       - name: auth_token
         required: true
@@ -32,7 +32,7 @@ endpoints:
       - name: update_tag
         required: true
         type: string
-        description: A tag of an update to push to device
+        description: A tag of an update to push to Bird
       - name: req_len
         required: false
         type: int
@@ -40,7 +40,7 @@ endpoints:
       - name: use_console_url
         required: false
         type: boolean
-        description: If True, instructs the device to update over HTTP from the Console
+        description: If True, instructs the Bird to update over HTTP from the Console
       - name: url
         required: false
         type: string
@@ -48,20 +48,20 @@ endpoints:
     response: JSON structure with the result indicator and `bundle_tag` if successful.
 ---
 
-# Device Management
+# Bird Management
 
-These are a collection of endpoints that allow you to manage your device remotely.
+These are a collection of endpoints that allow you to manage your Bird remotely.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Reboot Device 
+## Reboot Bird 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.reboot_device"/>
 
-## Update Device
+## Update Bird
 
 ::: tip
-By default, your devices will automatically update. This endpoint is only useful if you have disabled automatic updates.
+By default, your Birds will automatically update. This endpoint is only useful if you have disabled automatic updates.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.update_device">
@@ -69,7 +69,7 @@ By default, your devices will automatically update. This endpoint is only useful
   ::: slot optional-parameters-notes
 
   ::: warning 
-  Specifying `url` or `use_console_url` will allow the device to update over HTTP. The update will complete a lot quicker, but there is a chance that the connection will be blocked by your firewall. 
+  Specifying `url` or `use_console_url` will allow the Bird to update over HTTP. The update will complete a lot quicker, but there is a chance that the connection will be blocked by your firewall. 
   :::
 
   :::

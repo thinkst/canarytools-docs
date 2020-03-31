@@ -1,21 +1,21 @@
 ---
 endpoints:
   pending_commissions:
-    name: Pending Device Commissions
+    name: Pending Bird Commissions
     url: /api/v1/devices/commission/pending
     method: GET
-    description: Fetch a list of devices waiting to be registered to the Console.
+    description: Fetch a list of Birds waiting to be registered to the Console.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
-    response: JSON Structure of devices pending commissions.
+    response: JSON Structure of Birds pending commissions.
   cancel_commission:
-    name: Cancel Device Commission
+    name: Cancel Bird Commission
     url: /api/v1/device/cancel_commission
     method: POST
-    description: Cancel a device commission.
+    description: Cancel a Bird commission.
     params:
       - name: auth_token
         required: true
@@ -27,10 +27,10 @@ endpoints:
         description: A valid Canary node_id
     response: JSON structure with result indicator.
   confirm_commission:
-    name: Confirm Device Commission
+    name: Confirm Bird Commission
     url: /api/v1/device/commission
     method: POST
-    description: Confirm a device commission.
+    description: Confirm a Bird commission.
     params:
       - name: auth_token
         required: true
@@ -43,13 +43,13 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: ID of the flock to assign the device to (defaults to `flock:default`).
+        description: ID of the flock to assign the Bird to (defaults to `flock:default`).
     response: JSON structure with result indicator.
   decommission_device:
-    name: Decommission Device
+    name: Decommission Bird
     url: /api/v1/device/decommission
     method: POST
-    description: Decommission a device.
+    description: Decommission a Bird.
     params:
       - name: auth_token
         required: true
@@ -68,28 +68,28 @@ endpoints:
     response: JSON structure with result indicator.
 ---
 
-# Device Registrations
+# Bird Registrations
 
-These are a collection of endpoints that allow you to control registration aspects of devices that are (or are trying to be) registered with your Console.
+These are a collection of endpoints that allow you to control registration aspects of Birds that are (or are trying to be) registered with your Console.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Pending Device Commissions
+## Pending Bird Commissions
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.pending_commissions"/>
 
-## Cancel Device Commission
+## Cancel Bird Commission
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.cancel_commission"/>
 
-## Confirm Device Commission
+## Confirm Bird Commission
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.confirm_commission"/>
 
-## Decommission Device
+## Decommission Bird
 
 ::: warning
-Decommissioning a device will completely remove the device from your Console. This means you'll need to re-register the device with your Console if you want it back.
+Decommissioning a Bird will completely remove the Bird from your Console. This means you'll need to re-register the Bird with your Console if you want it back.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.decommission_device"/>

@@ -1,10 +1,10 @@
 ---
 endpoints:
   notifications_disconnect_disable:
-    name: Disable Device Disconnect Notifications
+    name: Disable Bird Disconnect Notifications
     url: /api/v1/device/notifications/disconnects/disable
     method: POST
-    description: Disable a device's disconnect notifications.
+    description: Disable a Bird's disconnect notifications.
     params:
       - name: auth_token
         required: true
@@ -14,12 +14,12 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
   notifications_disconnect_enable:
-    name: Enable Device Disconnect Notifications
+    name: Enable Bird Disconnect Notifications
     url: /api/v1/device/notifications/disconnects/enable
     method: POST
-    description: Enable a device's disconnect notifications.
+    description: Enable a Bird's disconnect notifications.
     params:
       - name: auth_token
         required: true
@@ -29,12 +29,12 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
   notifications_incidents_disable:
-    name: Disable Device Incident Notifications
+    name: Disable Bird Incident Notifications
     url: /api/v1/device/notifications/incidents/disable
     method: POST
-    description: Disable a device's incident notifications.
+    description: Disable a Bird's incident notifications.
     params:
       - name: auth_token
         required: true
@@ -44,12 +44,12 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
   notifications_incidents_enable:
-    name: Enable Device Incident Notifications
+    name: Enable Bird Incident Notifications
     url: /api/v1/device/notifications/incidents/enable
     method: POST
-    description: Enable a device's incident notifications.
+    description: Enable a Bird's incident notifications.
     params:
       - name: auth_token
         required: true
@@ -59,12 +59,12 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
   notifications_reconnects_disable:
-    name: Disable Device Reconnect Notifications
+    name: Disable Bird Reconnect Notifications
     url: /api/v1/device/notifications/reconnects/disable
     method: POST
-    description: Disable a device's reconnect notifications.
+    description: Disable a Bird's reconnect notifications.
     params:
       - name: auth_token
         required: true
@@ -74,12 +74,12 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
   notifications_reconnects_enable:
-    name: Enable Device Reconnect Notifications
+    name: Enable Bird Reconnect Notifications
     url: /api/v1/device/notifications/reconnects/enable
     method: POST
-    description: Enable a device's reconnect notifications.
+    description: Enable a Bird's reconnect notifications.
     params:
       - name: auth_token
         required: true
@@ -89,35 +89,35 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
-    response: JSON structure with result indicator and device data.
+    response: JSON structure with result indicator and Bird data.
 ---
 
-# Device Notifications
+# Bird Notifications
 
-These are a collection of endpoints that allow you to configure a device's notification settings.
+These are a collection of endpoints that allow you to configure a Bird's notification settings.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Disable Device Disconnect Notifications 
+## Disable Bird Disconnect Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_disable"/>
 
-## Enable Device Disconnect Notifications 
+## Enable Bird Disconnect Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_enable"/>
 
-## Disable Device Incident Notifications 
+## Disable Bird Incident Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_disable"/>
 
-## Enable Device Incident Notifications 
+## Enable Bird Incident Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_enable"/>
 
-## Disable Device Reconnect Notifications 
+## Disable Bird Reconnect Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_disable"/>
 
-## Enable Device Reconnect Notifications 
+## Enable Bird Reconnect Notifications 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_enable"/>

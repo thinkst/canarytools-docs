@@ -79,11 +79,11 @@ If you instead see an `error` result, you can examine the `message` field to det
 ```
 :::
 
-## Hello Devices
+## Hello Birds
 
-Now that we know we're able to connect to our Console, let's inspect our devices.
+Now that we know we're able to connect to our Console, let's inspect our Birds.
 
-By calling the [All Devices](/api-reference/devices#all) endpoint, we'll get a list of our currently paired devices.
+By calling the [All Birds](/api-reference/bird-queries.html#all-birds) endpoint, we'll get a list of our currently paired Birds.
 
 :::: tabs :options="{ useUrlFragment: false }"
 

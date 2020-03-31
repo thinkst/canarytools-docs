@@ -1,10 +1,10 @@
 ---
 endpoints:
   configure_device:
-    name: Configure Devices
-    url: /api/v1/devices/configure
+    name: Configure Bird
+    url: /api/v1/device/configure
     method: POST
-    description: Configure a Canary with a specified JSON settings object
+    description: Configure a Bird with a specified JSON settings object
     params:
       - name: auth_token
         required: true
@@ -17,17 +17,17 @@ endpoints:
       - name: settings
         required: true
         type: string
-        description: A serialized JSON object of device settings
+        description: A serialized JSON object of the Bird settings
       - name: custom_personality_name
         required: false
         type: string
         description: Custom personality name to save this config under
     response: JSON structure with result and bundle_tag if successful.
   configure_device_with_personality:
-    name: Configure Device with Personality
-    url: /api/v1/devices/configure_personality
+    name: Configure Bird with Personality
+    url: /api/v1/device/configure_personality
     method: POST
-    description: Configure a Canary with a with a supplied personality.
+    description: Configure a Bird with a with a supplied personality.
     params:
       - name: auth_token
         required: true
@@ -40,24 +40,24 @@ endpoints:
       - name: personality
         required: true
         type: string
-        description: A valid personality from the Canary schema or Custom saved personality
+        description: A valid personality from the Canary schema or custom saved personality
       - name: additional_settings
         required: false
         type: string
-        description: A serialized json object of additional device settings
+        description: A serialized json object of additional Bird settings
     response: JSON structure with result and bundle_tag if successful.
 ---
 
-# Device Service Configuration
+# Bird Service Configuration
 
-These are a collection of endpoints that allow you to configure devices that are connected to your Console.
+These are a collection of endpoints that allow you to configure Birds that are connected to your Console.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Configure Device
+## Configure Bird
 
 ::: tip 
-The [Configure Device with Personality](device-configuration.html#configure-device-with-personality) endpoint allows for an easier configuration process, especially if you are simply wanting to use an existing personality.
+The [Configure Bird with Personality](device-configuration.html#configure-bird-with-personality) endpoint allows for an easier configuration process, especially if you are simply wanting to use an existing personality.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.configure_device">
@@ -65,7 +65,7 @@ The [Configure Device with Personality](device-configuration.html#configure-devi
   ::: slot required-parameters-notes
 
   ::: tip Settings Object
-  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](device-configuration.html#settings-object-schema).
+  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](bird-configuration.html#settings-object-schema).
   :::
 
   :::
@@ -74,7 +74,7 @@ The [Configure Device with Personality](device-configuration.html#configure-devi
 
   ::: tip Custom Personality Name
   Providing `custom_personality_name` allows you to save the provided settings object as a custom personality. 
-  This lets you reuse the settings object easily for further device configurations. See [Custom Personalities](device-configuration.html#custom-personalities) for more information.
+  This lets you reuse the settings object easily for further Bird configurations. See [Custom Personalities](bird-configuration.html#custom-personalities) for more information.
   :::
 
   :::
@@ -83,14 +83,14 @@ The [Configure Device with Personality](device-configuration.html#configure-devi
 
 #### Example 
 
-## Configure Device with Personality
+## Configure Bird with Personality
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.configure_device_with_personality">
 
   ::: slot required-parameters-notes
 
   ::: tip Personality
-  A list of available personalities can be obtained by calling the [List Personalities](device-personalities.html#list-personalities) endpoint.
+  A list of available personalities can be obtained by calling the [List Personalities](bird-personalities.html#list-personalities) endpoint.
   :::
 
   :::
@@ -99,7 +99,7 @@ The [Configure Device with Personality](device-configuration.html#configure-devi
 
 #### Example
 
-A simple example of pushing the `osx-fileshare` personality to a device:
+A simple example of pushing the `osx-fileshare` personality to a Bird:
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -139,11 +139,11 @@ AUTH_TOKEN = 'test_auth_token'
 
 ## Settings Object
 
-Whenever providing a serialized JSON device settings object, you'll need to ensure that it contains the full device settings (this includes settings that you do not change.)
+Whenever providing a serialized JSON Bird settings object, you'll need to ensure that it contains the full Bird settings (this includes settings that you do not change.)
 
-The easiest way to achieve this is to call the [Device Info](device-queries.html#device-info) endpoint with `settings=true` and alter the returned settings object as you need.
+The easiest way to achieve this is to call the [Bird Info](bird-queries.html#bird-info) endpoint with `settings=true` and alter the returned settings object as you need.
 
-An example `bare-canary` device settings object looks like:
+An example `bare-canary` Bird settings object looks like:
 
 ```json
 "settings": {
