@@ -10,7 +10,7 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
-    response: A json message with a response indicator.
+    response: A JSON message with a response indicator.
 ---
 # Miscellaneous
 

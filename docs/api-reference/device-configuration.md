@@ -23,6 +23,78 @@ endpoints:
         type: string
         description: Custom personality name to save this config under
     response: JSON structure with result and bundle_tag if successful.
+  configure_device_with_personality:
+    name: Configure Device with Personality
+    url: /api/v1/devices/configure_personality
+    method: POST
+    description: Configure a Canary with a with a supplied personality.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+      - name: personality
+        required: true
+        type: string
+        description: A valid personality from the Canary schema or Custom saved personality
+      - name: additional_settings
+        required: false
+        type: string
+        description: A serialized json object of additional device settings
+    response: JSON structure with result and bundle_tag if successful.
+  device_note:
+    name: Get Device Note
+    url: /api/v1/device/note
+    method: GET
+    description: Retrieve a device's note.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: JSON structure with the device note.
+  device_note_add:
+    name: Add Device Note
+    url: /api/v1/device/note/add
+    method: POST
+    description: Add a note to a specified device.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+      - name: note
+        required: true
+        type: string
+        description: A note for the device
+    response: JSON structure with the result indicator.
+  device_note_delete:
+    name: Delete Device Note
+    url: /api/v1/device/note/delete
+    method: POST
+    description: Delete the note for a specified device.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: JSON structure with the result indicator.
 ---
 
 # Device Configuration
@@ -32,6 +104,10 @@ These are a collection of endpoints that allow you to configure devices that are
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
 ## Configure Device
+
+::: tip 
+The [Configure Device with Personality](device-configuration.html#configure-device-with-personality) endpoint allows for an easier configuration process, especially if you are simply wanting to use an existing personality.
+:::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.configure_device">
 
@@ -56,15 +132,77 @@ These are a collection of endpoints that allow you to configure devices that are
 
 #### Example 
 
-## Device Note
+## Configure Device with Personality
 
-## Custom Personalities
+<APIDetails :endpoint="$page.frontmatter.endpoints.configure_device_with_personality">
+
+  ::: slot required-parameters-notes
+
+  ::: tip Personality
+  A list of available personalities can be obtained by calling the [List Personalities](device-personalities.html#list-personalities) endpoint.
+  :::
+
+  :::
+
+</APIDetails>
+
+#### Example
+
+A simple example of pushing the `osx-fileshare` personality to a device:
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+``` bash
+DOMAIN=my_domain
+AUTH_TOKEN=test_auth_token
+NODE_ID=node_id
+
+curl "https://${DOMAIN}.canary.tools/api/v1/device/configure_personality?auth_token=${AUTH_TOKEN}" -d 'node_id=${NODE_ID}' -d 'personality=osx-fileshare'
+
+:::
+
+::: tab "Python"
+``` python
+import requests
+
+DOMAIN = 'my_domain'
+AUTH_TOKEN = 'test_auth_token'
+
+
+```
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "bundle_tag": "23370c",
+  "msg": "All properties are expected.",
+  "result": "success"
+}
+```
+:::
+
+## Get Device Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note"/>
+
+## Add Device Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_add"/>
+
+## Delete Device Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_delete"/>
 
 ## Settings Object
 
 Whenever providing a serialized JSON device settings object, you'll need to ensure that it contains the full device settings (this includes settings that you do not change.)
 
-The easiest way to achieve this is to [query the existing device settings](device-queries.html#device-info) and alter the returned settings object as you need.
+The easiest way to achieve this is to call the [Device Info](device-queries.html#device-info) endpoint with `settings=true` and alter the returned settings object as you need.
 
 An example `bare-canary` device settings object looks like:
 

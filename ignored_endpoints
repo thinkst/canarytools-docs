@@ -1,0 +1,11 @@
+/acknowledged_incidents.atom
+/all_devices.atom
+/dead_devices.atom
+/device/completemigration
+/device/configuration_settings
+/device/getinfo
+/device/migrate
+/device/triggersettings
+/devices/completemigration
+/fetch_incident.atom
+/unacknowledged_incidents.atom
