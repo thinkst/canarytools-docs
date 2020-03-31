@@ -16,7 +16,7 @@ export default {
   props: {
     endpoints: {
       required: true,
-      type: Array,
+      type: Object,
     },
     path: {
       required: true,

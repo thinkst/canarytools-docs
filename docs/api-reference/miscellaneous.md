@@ -1,26 +1,17 @@
 ---
 endpoints:
-    - name: Ping
-      url: /api/v1/ping
-      method: GET
-      description: A simple endpoint to test if the API is reachable.
-      params:
-        - name: auth_token
-          required: true
-          type: string
-          description: A valid auth token
-      response: A json message with a response indicator.
-    - name: Test
-      url: /api/v1/test
-      method: POST
-      description: A test
-      params:
-        - name: auth_token
-          required: true
-          type: string
-          description: A valid auth token
+  ping:
+    name: Ping
+    url: /api/v1/ping
+    method: GET
+    description: A simple endpoint to test if the API is reachable.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A json message with a response indicator.
 ---
-
 # Miscellaneous
 
 These are a collection of endpoints that can't be grouped into a specific category but provide useful actions to the end user.
@@ -29,7 +20,7 @@ These are a collection of endpoints that can't be grouped into a specific catego
 
 ## Ping
 
-<APIDetails :endpoint="$page.frontmatter.endpoints[0]"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ping"/>
 
 
 
@@ -43,7 +34,7 @@ These are a collection of endpoints that can't be grouped into a specific catego
 DOMAIN=my_domain
 AUTH_TOKEN=test_auth_token
 
-curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
+curl "https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}"
 ```
 
 :::

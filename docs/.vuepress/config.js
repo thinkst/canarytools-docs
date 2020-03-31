@@ -56,12 +56,13 @@ module.exports = {
       {
         title: 'API Reference',   // required
         collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        sidebarDepth: 3,    // optional, defaults to 1
         children: [
           '/api-reference/overview',
           '/api-reference/miscellaneous',
           '/api-reference/console',
-          '/api-reference/devices',
+          '/api-reference/device-configuration',
+          '/api-reference/device-queries',
           '/api-reference/flocks',
         ]
       },
