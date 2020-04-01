@@ -54,9 +54,58 @@ These are a collection of endpoints that allow you to manage your Bird remotely.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Reboot Bird 
+## Reboot Bird
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.reboot_device"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+DOMAIN=my_domain
+AUTH_TOKEN=test_auth_token
+NODE_ID=test_node_id
+
+curl -X POST "https://${DOMAIN}.canary.tools/api/v1/device/reboot?auth_token=${AUTH_TOKEN}&node_id=${NODE_ID}"
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+DOMAIN = 'my_domain'
+AUTH_TOKEN = 'test_auth_token'
+NODE_ID = 'test_node_id'
+
+r = requests.post(
+    'https://{DOMAIN}.canary.tools/api/v1/device/reboot?auth_token={AUTH_TOKEN}&node_id={NODE_ID}'.format(
+        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN, NODE_ID=NODE_ID
+    )
+)
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 
 ## Update Bird
 
@@ -68,8 +117,8 @@ By default, your Birds will automatically update. This endpoint is only useful i
 
   ::: slot optional-parameters-notes
 
-  ::: warning 
-  Specifying `url` or `use_console_url` will allow the Bird to update over HTTP. The update will complete a lot quicker, but there is a chance that the connection will be blocked by your firewall. 
+  ::: warning
+  Specifying `url` or `use_console_url` will allow the Bird to update over HTTP. The update will complete a lot quicker, but there is a chance that the connection will be blocked by your firewall.
   :::
 
   :::
