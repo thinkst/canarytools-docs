@@ -159,18 +159,14 @@
 /incident/delete
 /incident/fetch
 /incident/link
-/incident/slack/interactive_action
 /incident/unacknowledge
 /incidents/acknowledge
-/incidents/acknowledged
-/incidents/all
+/incidents/unacknowledge
 /incidents/delete
 /incidents/history
 /incidents/history/source
 /incidents/reset/pagination
-/incidents/search
-/incidents/unacknowledge
-/incidents/unacknowledged
+
 
 /license
 /license/detailed/info
