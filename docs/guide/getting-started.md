@@ -21,7 +21,7 @@ This is the API key that you'll need to use in order to make calls to your API. 
 
 ## Hello Console
 
-Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/api-reference/miscellaneous#ping) endpoint:
+Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/api-reference/console#ping) endpoint:
 
 :::: tabs :options="{ useUrlFragment: false }"
 

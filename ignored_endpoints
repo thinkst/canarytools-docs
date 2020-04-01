@@ -1,4 +1,6 @@
 /acknowledged_incidents.atom
+/fetch_incident.atom
+/unacknowledged_incidents.atom
 
 /all_devices.atom
 /dead_devices.atom
@@ -10,5 +12,6 @@
 /devices/completemigration
 /devices/pending_migrations
 
-/fetch_incident.atom
-/unacknowledged_incidents.atom
+/csrf/generate
+
+/test/exception/47120244c326e6ef5c8790afa8a11ae7
