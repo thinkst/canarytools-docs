@@ -91,6 +91,7 @@ module.exports = {
           '/api-reference/bird-service-configuration',
           '/api-reference/console',
           '/api-reference/flocks',
+          '/api-reference/incident-queries',
         ]
       },
     ],

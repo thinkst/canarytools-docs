@@ -15,3 +15,9 @@
 /csrf/generate
 
 /test/exception/47120244c326e6ef5c8790afa8a11ae7
+
+/incident/slack/interactive_action
+
+# this is used for detailed licenses (expiry dates etc)
+# we don't have this in use yet so the endpoint isn't going to be added for now
+/license/details
