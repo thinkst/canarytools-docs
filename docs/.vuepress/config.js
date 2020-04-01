@@ -81,7 +81,6 @@ module.exports = {
         sidebarDepth: 3,    // optional, defaults to 1
         children: [
           '/api-reference/overview',
-          '/api-reference/miscellaneous',
           '/api-reference/console',
           '/api-reference/audit-trail',
           '/api-reference/bird-management',

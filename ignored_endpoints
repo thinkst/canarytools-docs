@@ -13,3 +13,5 @@
 /devices/pending_migrations
 
 /csrf/generate
+
+/test/exception/47120244c326e6ef5c8790afa8a11ae7
