@@ -81,7 +81,6 @@ module.exports = {
         sidebarDepth: 3,    // optional, defaults to 1
         children: [
           '/api-reference/overview',
-          '/api-reference/console',
           '/api-reference/audit-trail',
           '/api-reference/bird-management',
           '/api-reference/bird-notes',
@@ -90,6 +89,7 @@ module.exports = {
           '/api-reference/bird-queries',
           '/api-reference/bird-registrations',
           '/api-reference/bird-service-configuration',
+          '/api-reference/console',
           '/api-reference/flocks',
         ]
       },
