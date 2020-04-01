@@ -1,7 +1,5 @@
 /apeeperfactory/delete
-/audit_trail/download/json
-/audit_trail/fetch
-/audit_trail/purge
+
 /bundle/cancel
 /bundle/info
 /bundles/list
@@ -42,12 +40,6 @@
 /cloudcanary/shareami/list
 /cloudcanary/shareami/remove
 /console/features
-/csrf/generate
-
-
-/device/reboot
-/device/update
-
 
 
 /flock/create

@@ -83,6 +83,7 @@ module.exports = {
           '/api-reference/overview',
           '/api-reference/miscellaneous',
           '/api-reference/console',
+          '/api-reference/audit-trail',
           '/api-reference/bird-management',
           '/api-reference/bird-notes',
           '/api-reference/bird-notifications',
