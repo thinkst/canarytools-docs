@@ -168,10 +168,6 @@
 /incidents/reset/pagination
 
 
-/license
-/license/detailed/info
-/license/details
-
 /remotead/configuration
 /remotead/newjob
 /remotead/status

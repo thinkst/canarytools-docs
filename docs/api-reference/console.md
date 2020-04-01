@@ -22,6 +22,28 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON message with result indicator and list of Console features.
+  licenses:
+    name: Bird Licenses
+    url: /api/v1/license
+    method: GET
+    description: Retrieve a summary of available Bird licenses.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure containing a list of Canary license information.
+  licenses_detailed_info:
+    name: Bird Licenses Detailed Information
+    url: /api/v1/license
+    method: GET
+    description: Retrieve a list of Cloud / Virtual license details including limits and URLs to images.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure containing detailed Canary license information.
 ---
 # Console
 
@@ -82,7 +104,7 @@ print(r.json())
 ## Console Features
 
 ::: tip
-If you notice some features that aren't enabled, contact support and we'll gladly enable them for you.
+If you notice some features that aren't enabled but may interest you, contact support and we'll gladly explain and enable them for you.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.features"/>
@@ -171,3 +193,11 @@ print(r.json())
 }
 ```
 :::
+
+## Bird Licenses
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.licenses"/>
+
+## Detailed Bird License Information
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
