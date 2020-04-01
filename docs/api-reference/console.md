@@ -125,6 +125,23 @@ curl "https://${DOMAIN}.canary.tools/api/v1/console/features?auth_token=${AUTH_T
 :::
 
 
+<APIDetails :endpoint="$page.frontmatter.endpoints.features"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+DOMAIN=my_domain
+AUTH_TOKEN=test_auth_token
+
+curl "https://${DOMAIN}.canary.tools/api/v1/console/features?auth_token=${AUTH_TOKEN}"
+```
+
+:::
+
 ::: tab "Python"
 
 ``` python
@@ -201,3 +218,4 @@ print(r.json())
 ## Detailed Bird License Information
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
+
