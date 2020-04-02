@@ -65,11 +65,11 @@ These are a collection of endpoints that allow you to manage your Bird remotely.
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-NODE_ID=test_node_id
 
-curl -X POST "https://${DOMAIN}.canary.tools/api/v1/device/reboot?auth_token=${AUTH_TOKEN}&node_id=${NODE_ID}"
+curl https://EXAMPLE.canary.tools/api/v1/device/reboot \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID
+
 ```
 
 :::
@@ -80,15 +80,15 @@ curl -X POST "https://${DOMAIN}.canary.tools/api/v1/device/reboot?auth_token=${A
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
-NODE_ID = 'test_node_id'
+url = 'https://EXAMPLE.canary.tools/api/v1/device/reboot'
 
-r = requests.post(
-    'https://{DOMAIN}.canary.tools/api/v1/device/reboot?auth_token={AUTH_TOKEN}&node_id={NODE_ID}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN, NODE_ID=NODE_ID
-    )
-)
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID'
+}
+
+r = requests.post(url, data=payload)
+
 print(r.json())
 
 ```
