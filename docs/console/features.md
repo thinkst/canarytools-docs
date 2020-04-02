@@ -33,28 +33,10 @@ If you notice some features that aren't enabled but may interest you, contact su
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
 
-curl "https://${DOMAIN}.canary.tools/api/v1/console/features?auth_token=${AUTH_TOKEN}"
-```
-
-:::
-
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.features"/>
-
-#### Example
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-
-``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/console/features?auth_token=${AUTH_TOKEN}"
+curl https://EXAMPLE.canary.tools/api/v1/console/features \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -64,14 +46,14 @@ curl "https://${DOMAIN}.canary.tools/api/v1/console/features?auth_token=${AUTH_T
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/console/features'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/console/features?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
 print(r.json())
 
 ```
@@ -93,7 +75,7 @@ print(r.json())
     "canary_firewall": false,
     "canary_smb_login": false,
     "canarytokens": true,
-    "canaryvm": true,
+    "canaryvm": false,
     "cloud_canary": false,
     "console_api": true,
     "enable_auto_updates": false,
@@ -113,7 +95,7 @@ print(r.json())
     "rss_feeds": false,
     "saml": false,
     "skip_gateway_subnet_check": false,
-    "slackapitoken": false,
+    "slackapitoken": true,
     "snmp": false,
     "snmp_oid_whitelist": false,
     "ssh_credential_watches": false,
