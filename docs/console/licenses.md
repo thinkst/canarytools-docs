@@ -33,7 +33,133 @@ These are a collection of endpoints that allow you query your existing Bird lice
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/license \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/license'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "cloud": {
+    "total": 5,
+    "used": 0
+  },
+  "devices": {
+    "total": 0,
+    "used": 1
+  },
+  "vm": {
+    "total": 5,
+    "used": 0
+  },
+  "result": "success",
+}
+```
+:::
+
 ## Detailed Bird License Information
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/license/detailed/info \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/license/detailed/info'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "azurecanary_details": {},
+  "canaryvm_details": {
+    "canaryvm_count": 0,
+    "canaryvm_license_count": 5,
+    "canaryvm_remaining_licenses": 5,
+    "canaryvm_version_details": [
+      {
+        "commit": "8a06e02",
+        "link": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary_8a06e02_Template_VMX.zip",
+        "ovalink": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary_8a06e02.ova",
+        "password": "ve9aith9La",
+        "seedlink": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary-8a06e02-disk2.vmdk",
+        "version": "2.2.1"
+      }
+    ]
+  },
+  "cloudcanary_details": {
+    "cloudcanary_count": 0,
+    "cloudcanary_license_count": 5,
+    "cloudcanary_remaining_licenses": 5
+  },
+  "gcpcanary_details": {},
+  "hypervcanary_details": {},
+  "result": "success"
+}
+```
+:::
