@@ -245,9 +245,33 @@ These are a collection of endpoints that allow you to deal with user management.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.add_user"/>
 
+## Add User Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.add_user_note"/>
+
+## Assign User to Flocks
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.assign_user_flocks"/>
+
 ## Disable User
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.disable_user"/>
+
+## Disable User's TOTP
+
+::: tip
+This is useful for when a user loses access to their Two Factor authentication app (for example losing their phone) and cannot log in to the Console. Temporarily disabling their TOTP will allow them to log back into the Console and reset it.
+:::
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_2fa"/>
+
+## Disable User's WebAuthn
+
+::: tip
+This is useful for when a user loses access to their WebAuthn authenticator (for example losing their YubiKey) and cannot log in to the Console. Temporarily disabling their WebAuthn will allow them to log back into the Console and reset it.
+:::
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_webauthn"/>
 
 ## Edit User
 
@@ -261,25 +285,13 @@ These are a collection of endpoints that allow you to deal with user management.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.enable_user"/>
 
-## Disable User's TOTP
+## Remove User
 
-::: tip
-This is useful for when a user loses access to their Two Factor authentication app (for example losing their phone) and cannot log in to the Console. Temporarily disabling their TOTP will allow them to log back into the Console and reset it.
-:::
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_2fa"/>
-
-## Assign User to Flocks
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.assign_user_flocks"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.remove_user"/>
 
 ## Remove User from Flocks
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.unassign_user_flocks"/>
-
-## Add User Note
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.add_user_note"/>
 
 ## Remove User Note
 
@@ -293,14 +305,3 @@ When resetting a user's password, they'll receive a "Password Reset" email.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.reset_user_password"/>
 
-## Remove User
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.remove_user"/>
-
-## Disable User's WebAuthn
-
-::: tip
-This is useful for when a user loses access to their WebAuthn authenticator (for example losing their YubiKey) and cannot log in to the Console. Temporarily disabling their WebAuthn will allow them to log back into the Console and reset it.
-:::
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_webauthn"/>
