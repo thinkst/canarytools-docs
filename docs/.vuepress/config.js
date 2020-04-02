@@ -44,10 +44,9 @@ module.exports = {
     docsBranch: 'master',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
-    lastUpdated: 'Last Updated', // string | boolean
+    lastUpdated: 'Last Updated',
     logo: '/logo.png',
     nav: [
-      { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'canary.tools', link: 'https://canary.tools' },
       { text: 'github', link: 'https://github.com/thinkst/canarytools-docs' },
@@ -58,6 +57,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 1,
         children: [
+          '/',
           '/guide/getting-started',
         ]
       },
