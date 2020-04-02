@@ -27,3 +27,15 @@
 # this is used for detailed licenses (expiry dates etc)
 # we don't have this in use yet so the endpoint isn't going to be added for now
 /license/details
+
+
+# these are helper endpoints that shouldn't be called by a user
+/user/help/mark_as_seen
+/user/help/seen
+/user/tour/mark_as_seen
+/user/tour/seen
+
+# this requires a current_user object to make sense
+/user/profile
+/user/sessions
+/user/password/change

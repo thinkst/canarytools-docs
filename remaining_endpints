@@ -149,6 +149,8 @@
 /flocks/info
 /flocks/list
 /flocks/summary
+/users/flock/assign/managers
+/users/flock/assign/watchers
 
 /global/search
 
@@ -234,36 +236,25 @@
 /update/updating_devices
 /updates/list
 
+/user/add
+/user/edit
+/user/edit/access_level
+/user/disable
+/user/enable
+
+
 /user/2fa/disable
 /user/2fa/enable
 /user/2fa/verify
-/user/add
-/user/auth
-/user/disable
-/user/edit
-/user/edit/access_level
-/user/enable
 /user/flock/assign
 /user/flock/unassign
-/user/get
-/user/help/mark_as_seen
-/user/help/seen
 /user/note/add
 /user/note/delete
-/user/password/change
 /user/password/reset
-/user/profile
 /user/remove
-/user/sessions
 /user/summary_email/disable
 /user/summary_email/enable
-/user/tour/mark_as_seen
-/user/tour/seen
 /user/webauthn/disable
-/users/filter
-/users/flock/assign/managers
-/users/flock/assign/watchers
-/users/list
 
 /webauthn/add_authenticator
 /webauthn/begin_assertion

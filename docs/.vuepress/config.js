@@ -96,6 +96,14 @@ module.exports = {
         ]
       },
       {
+        title: 'Users',
+        collapsable: false,
+        sidebarDepth: 3,
+        children: [
+          '/users/queries',
+        ]
+      },
+      {
         title: 'Flocks',
         collapsable: false,
         sidebarDepth: 3,
