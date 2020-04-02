@@ -47,7 +47,8 @@ module.exports = {
     lastUpdated: 'Last Updated', // string | boolean
     logo: '/logo.png',
     nav: [
-      { text: 'Guide', link: '/guide/' },
+      { text: 'Home', link: '/' },
+      { text: 'Guide', link: '/guide/getting-started' },
       { text: 'canary.tools', link: 'https://canary.tools' },
       { text: 'github', link: 'https://github.com/thinkst/canarytools-docs' },
     ],
@@ -57,7 +58,6 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 1,
         children: [
-          '/guide/',
           '/guide/getting-started',
         ]
       },
