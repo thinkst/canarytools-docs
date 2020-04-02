@@ -144,10 +144,10 @@ print(r.json())
     "canaryvm_version_details": [
       {
         "commit": "8a06e02",
-        "link": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary_8a06e02_Template_VMX.zip",
-        "ovalink": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary_8a06e02.ova",
-        "password": "ve9aith9La",
-        "seedlink": "s3://canaryvm-fdf6fb01da58-instance-eu-west-1/918E5FAEECB0B203F77B2F60B1CC1B4094B2A8B357C2B26B47E474E918DBA1AF951EFF8B11A51EFB1EF62264ADB16D626EA4A607C7C6AD8D590D7BB97F2A9ED8/2020_03_30_16h02/VirtualCanary-8a06e02-disk2.vmdk",
+        "link": "<unique_link>",
+        "ovalink": "<unique_link>",
+        "password": "<password>",
+        "seedlink": "<unique_link>",
         "version": "2.2.1"
       }
     ]
