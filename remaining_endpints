@@ -155,14 +155,6 @@
 /hypervcanary/download
 /hypervcanary/downloadseed
 
-/incident/acknowledge
-/incident/delete
-/incident/fetch
-/incident/link
-/incident/unacknowledge
-/incidents/acknowledge
-/incidents/unacknowledge
-/incidents/delete
 /incidents/history
 /incidents/history/source
 /incidents/reset/pagination

@@ -73,6 +73,133 @@ endpoints:
         type: string
         description: A valid incident key
     response: JSON structure with result indicator.
+  acknowledge_incidents:
+    name: Acknowledge Multiple Incidents
+    url: /api/v1/incidents/acknowledge
+    method: POST
+    description: Acknowledge multiple incidents.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: false
+        type: string
+        description: Acknowledge incidents for a specific flock
+      - name: node_id
+        required: false
+        type: string
+        description: Acknowledge incidents for a specific node
+                     (cannot be used in conjunction with src_host)
+      - name: src_host
+        required: false
+        type: string
+        description: Acknowledge incidents for a specific source IP address
+                     (cannot be used in conjunction with src_host)
+      - name: older_than
+        required: false
+        type: string
+        description: Acknowledge incidents older than the
+                     provided period. Periods are "[quantity][unit]", where
+                     "[unit]" is one of 'h', 'd', 'w' (hours, days or weeks)
+                     e.g. 1h or 1d or 1w
+      - name: filter_str
+        required: false
+        type: string
+        description: The string used when searching for incidents to be acknowledged.
+                     This string will attempt to match against incident details such
+      - name: filter_logtypes
+        required: false
+        type: string
+        description: The logtype of the incidents to be acknowledged
+    response: JSON structure with result indicator.
+  delete_incidents:
+    name: Delete Multiple Incidents
+    url: /api/v1/incidents/delete
+    method: POST
+    description: Delete multiple acknowledged incidents.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: false
+        type: string
+        description: Delete incidents for a specific flock
+      - name: node_id
+        required: false
+        type: string
+        description: Delete incidents for a specific node
+                     (cannot be used in conjunction with src_host)
+      - name: src_host
+        required: false
+        type: string
+        description: Delete incidents for a specific source IP address
+                     (cannot be used in conjunction with src_host)
+      - name: older_than
+        required: false
+        type: string
+        description: Delete incidents older than the
+                     provided period. Periods are "[quantity][unit]", where
+                     "[unit]" is one of 'h', 'd', 'w' (hours, days or weeks)
+                     e.g. 1h or 1d or 1w
+      - name: filter_str
+        required: false
+        type: string
+        description: The string used when searching for incidents to be deleted.
+                     This string will attempt to match against incident details such
+      - name: filter_logtypes
+        required: false
+        type: string
+        description: The logtype of the incidents to be deleted
+      - name: include_unacknowledged
+        required: false
+        type: boolean
+        description: Include unacknowledged incidents when deleting
+    response: JSON structure with result indicator.
+  unacknowledge_incidents:
+    name: Unacknowledge Multiple Incidents
+    url: /api/v1/incidents/unacknowledge
+    method: POST
+    description: Unacknowledge multiple incidents.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: false
+        type: string
+        description: Unacknowledge incidents for a specific flock
+      - name: node_id
+        required: false
+        type: string
+        description: Unacknowledge incidents for a specific node
+                     (cannot be used in conjunction with src_host)
+      - name: src_host
+        required: false
+        type: string
+        description: Unacknowledge incidents for a specific source IP address
+                     (cannot be used in conjunction with src_host)
+      - name: older_than
+        required: false
+        type: string
+        description: Unacknowledge incidents older than the
+                     provided period. Periods are "[quantity][unit]", where
+                     "[unit]" is one of 'h', 'd', 'w' (hours, days or weeks)
+                     e.g. 1h or 1d or 1w
+      - name: filter_str
+        required: false
+        type: string
+        description: The string used when searching for incidents to be unacknowledged.
+                     This string will attempt to match against incident details such
+      - name: filter_logtypes
+        required: false
+        type: string
+        description: The logtype of the incidents to be unacknowledged
+    response: JSON structure with result indicator.
 ---
 
 # Actions
@@ -106,3 +233,15 @@ Either `incident` or `hash_id` is required.
 ## Unacknowledge Incident
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.unacknowledge"/>
+
+## Acknowledge Multiple Incidents
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.acknowledge_incidents"/>
+
+## Delete Multiple Incidents
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete_incidents"/>
+
+## Unacknowledge Multiple Incidents
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.unacknowledge_incidents"/>
