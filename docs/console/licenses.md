@@ -33,7 +33,133 @@ These are a collection of endpoints that allow you query your existing Bird lice
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/license \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/license'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "cloud": {
+    "total": 5,
+    "used": 0
+  },
+  "devices": {
+    "total": 0,
+    "used": 1
+  },
+  "vm": {
+    "total": 5,
+    "used": 0
+  },
+  "result": "success",
+}
+```
+:::
+
 ## Detailed Bird License Information
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/license/detailed/info \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/license/detailed/info'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "azurecanary_details": {},
+  "canaryvm_details": {
+    "canaryvm_count": 0,
+    "canaryvm_license_count": 5,
+    "canaryvm_remaining_licenses": 5,
+    "canaryvm_version_details": [
+      {
+        "commit": "8a06e02",
+        "link": "<unique_link>",
+        "ovalink": "<unique_link>",
+        "password": "<password>",
+        "seedlink": "<unique_link>",
+        "version": "2.2.1"
+      }
+    ]
+  },
+  "cloudcanary_details": {
+    "cloudcanary_count": 0,
+    "cloudcanary_license_count": 5,
+    "cloudcanary_remaining_licenses": 5
+  },
+  "gcpcanary_details": {},
+  "hypervcanary_details": {},
+  "result": "success"
+}
+```
+:::

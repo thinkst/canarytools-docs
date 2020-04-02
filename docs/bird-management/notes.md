@@ -61,10 +61,155 @@ These are a collection of endpoints that allow you to configure Bird notes.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_note"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/device/note \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/note'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "note": "Example Bird Note",
+  "result": "success"
+}
+```
+:::
+
 ## Add Bird Note
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_note_add"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/device/note/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID \
+  -d note='Example Bird Note'
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/note/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID',
+  'note': 'Example bird note'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 ## Delete Bird Note
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_note_delete"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/device/note/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/note/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID',
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
