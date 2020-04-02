@@ -18,6 +18,12 @@
 
 /incident/slack/interactive_action
 
+# this returns all incident history which is huge and doesn't seem useful for now
+/incidents/history
+
+# ignoring this for now
+/incidents/reset/pagination
+
 # this is used for detailed licenses (expiry dates etc)
 # we don't have this in use yet so the endpoint isn't going to be added for now
 /license/details

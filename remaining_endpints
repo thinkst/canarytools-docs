@@ -155,10 +155,6 @@
 /hypervcanary/download
 /hypervcanary/downloadseed
 
-/incidents/history
-/incidents/history/source
-/incidents/reset/pagination
-
 
 /remotead/configuration
 /remotead/newjob
