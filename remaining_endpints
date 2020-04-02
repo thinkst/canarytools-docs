@@ -236,25 +236,7 @@
 /update/updating_devices
 /updates/list
 
-/user/add
-/user/edit
-/user/edit/access_level
-/user/disable
-/user/enable
 
-
-/user/2fa/disable
-/user/2fa/enable
-/user/2fa/verify
-/user/flock/assign
-/user/flock/unassign
-/user/note/add
-/user/note/delete
-/user/password/reset
-/user/remove
-/user/summary_email/disable
-/user/summary_email/enable
-/user/webauthn/disable
 
 /webauthn/add_authenticator
 /webauthn/begin_assertion

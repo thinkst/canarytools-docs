@@ -39,3 +39,7 @@
 /user/profile
 /user/sessions
 /user/password/change
+/user/2fa/enable
+/user/2fa/verify
+/user/summary_email/disable
+/user/summary_email/enable

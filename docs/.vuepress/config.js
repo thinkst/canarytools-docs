@@ -100,6 +100,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 3,
         children: [
+          '/users/management',
           '/users/queries',
         ]
       },
