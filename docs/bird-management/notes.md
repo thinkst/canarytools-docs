@@ -125,7 +125,7 @@ print(r.json())
 curl https://EXAMPLE.canary.tools/api/v1/device/note/add \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID \
-  -d note=EXAMPLE NOTE
+  -d note='Example Bird Note'
 ```
 
 :::
@@ -141,7 +141,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/device/note/add'
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
   'node_id': 'EXAMPLE_NODE_ID',
-  'note': 'EXAMPLE_NOTE'
+  'note': 'Example bird note'
 }
 
 r = requests.post(url, data=payload)
