@@ -10,18 +10,18 @@ Before being able to use the examples, you're going to need to find out your `DO
 
 This is the unique identifying hash for your Console. It can be trivially determined by navigating to your Console and extracting the leading sub-domain from the url:
 
-![An image](../images/get-domain.png)
+![Get Domain](../images/get-domain.png)
 
 #### AUTH_TOKEN
 
 This is the API key that you'll need to use in order to make calls to your API. In order to find your API key, you can navigate to `/settings` in your Console and look for the API section:
 
-![An image](../images/get-api-key.png)
+![Get API Key](../images/get-api-key.png)
 
 
 ## Hello Console
 
-Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/api-reference/console#ping) endpoint:
+Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/console/testing.html#ping) endpoint:
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -83,7 +83,7 @@ If you instead see an `error` result, you can examine the `message` field to det
 
 Now that we know we're able to connect to our Console, let's inspect our Birds.
 
-By calling the [All Birds](/api-reference/bird-queries.html#all-birds) endpoint, we'll get a list of our currently paired Birds.
+By calling the [All Birds](/bird-management/queries.html#all-birds) endpoint, we'll get a list of our currently paired Birds.
 
 :::: tabs :options="{ useUrlFragment: false }"
 

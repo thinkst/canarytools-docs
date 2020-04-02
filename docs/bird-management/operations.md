@@ -48,7 +48,7 @@ endpoints:
     response: JSON structure with the result indicator and `bundle_tag` if successful.
 ---
 
-# Bird Management
+# Operations
 
 These are a collection of endpoints that allow you to manage your Bird remotely.
 

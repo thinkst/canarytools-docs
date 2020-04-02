@@ -51,7 +51,7 @@ endpoints:
     response: JSON structure with the result indicator.
 ---
 
-# Bird Notes
+# Notes
 
 These are a collection of endpoints that allow you to configure Bird notes.
 

@@ -1,16 +1,5 @@
 ---
 endpoints:
-  ping:
-    name: Ping
-    url: /api/v1/ping
-    method: GET
-    description: A simple endpoint to test if the API is reachable.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-    response: A JSON message with a response indicator.
   features:
     name: Console Features
     url: /api/v1/console/features
@@ -22,84 +11,12 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON message with result indicator and list of Console features.
-  licenses:
-    name: Bird Licenses
-    url: /api/v1/license
-    method: GET
-    description: Retrieve a summary of available Bird licenses.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-    response: A JSON structure containing a list of Canary license information.
-  licenses_detailed_info:
-    name: Bird Licenses Detailed Information
-    url: /api/v1/license
-    method: GET
-    description: Retrieve a list of Cloud / Virtual license details including limits and URLs to images.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-    response: A JSON structure containing detailed Canary license information.
 ---
-# Console
+# Features
 
-These are a collection of endpoints that allow you to obtain information about your Console and it's configuration.
+These are a collection of endpoints that allow you to obtain information about features that are enabled on your Console.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
-
-## Ping
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.ping"/>
-
-#### Example
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-
-``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}"
-```
-
-:::
-
-
-::: tab "Python"
-
-``` python
-import requests
-
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
-
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-print(r.json())
-
-```
-
-:::
-
-::::
-
-
-::: api-response
-```json
-{
-  "result": "success"
-}
-```
-:::
 
 ## Console Features
 
@@ -210,12 +127,3 @@ print(r.json())
 }
 ```
 :::
-
-## Bird Licenses
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.licenses"/>
-
-## Detailed Bird License Information
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
-

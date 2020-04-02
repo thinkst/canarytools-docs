@@ -48,7 +48,7 @@ endpoints:
     response: JSON structure with result and bundle_tag if successful.
 ---
 
-# Bird Service Configuration
+# Configure Services
 
 These are a collection of endpoints that allow you to configure Birds that are connected to your Console.
 
@@ -57,7 +57,7 @@ These are a collection of endpoints that allow you to configure Birds that are c
 ## Configure Bird
 
 ::: tip 
-The [Configure Bird with Personality](device-configuration.html#configure-bird-with-personality) endpoint allows for an easier configuration process, especially if you are simply wanting to use an existing personality.
+The [Configure Bird with Personality](service-configuration.html#configure-bird-with-personality) endpoint allows for an easier configuration process, especially if you are simply wanting to use an existing personality.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.configure_device">
@@ -65,7 +65,7 @@ The [Configure Bird with Personality](device-configuration.html#configure-bird-w
   ::: slot required-parameters-notes
 
   ::: tip Settings Object
-  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](bird-configuration.html#settings-object-schema).
+  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](service-configuration.html#settings-object-schema).
   :::
 
   :::
@@ -74,8 +74,7 @@ The [Configure Bird with Personality](device-configuration.html#configure-bird-w
 
   ::: tip Custom Personality Name
   Providing `custom_personality_name` allows you to save the provided settings object as a custom personality. 
-  This lets you reuse the settings object easily for further Bird configurations. See [Custom Personalities](bird-configuration.html#custom-personalities) for more information.
-  :::
+  This lets you reuse the settings object easily for further Bird configurations.
 
   :::
 
@@ -90,7 +89,7 @@ The [Configure Bird with Personality](device-configuration.html#configure-bird-w
   ::: slot required-parameters-notes
 
   ::: tip Personality
-  A list of available personalities can be obtained by calling the [List Personalities](bird-personalities.html#list-personalities) endpoint.
+  A list of available personalities can be obtained by calling the [List Personalities](personalities.html#list-personalities) endpoint.
   :::
 
   :::
@@ -141,7 +140,7 @@ AUTH_TOKEN = 'test_auth_token'
 
 Whenever providing a serialized JSON Bird settings object, you'll need to ensure that it contains the full Bird settings (this includes settings that you do not change.)
 
-The easiest way to achieve this is to call the [Bird Info](bird-queries.html#bird-info) endpoint with `settings=true` and alter the returned settings object as you need.
+The easiest way to achieve this is to call the [Bird Info](queries.html#bird-info) endpoint with `settings=true` and alter the returned settings object as you need.
 
 An example `bare-canary` Bird settings object looks like:
 

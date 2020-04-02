@@ -68,7 +68,7 @@ endpoints:
     response: JSON structure with result indicator.
 ---
 
-# Bird Registrations
+# Registrations
 
 These are a collection of endpoints that allow you to control registration aspects of Birds that are (or are trying to be) registered with your Console.
 

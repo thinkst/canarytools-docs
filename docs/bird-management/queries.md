@@ -90,7 +90,7 @@ endpoints:
     response: JSON structure of Bird's current information.
 ---
 
-# Bird Queries
+# Queries
 
 These are a collection of endpoints that allow you to query and retrieve Birds that are connected to your Console.
 

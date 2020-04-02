@@ -193,7 +193,7 @@ endpoints:
     response: JSON structure with all incidents that match the search criteria.
 ---
 
-# Incident Queries
+# Queries
 
 These are a collection of endpoints that allow you to interact with incidents.
 

@@ -92,7 +92,7 @@ endpoints:
     response: JSON structure with result indicator and Bird data.
 ---
 
-# Bird Notifications
+# Notifications
 
 These are a collection of endpoints that allow you to configure a Bird's notification settings.
 
