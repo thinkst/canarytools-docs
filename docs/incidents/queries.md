@@ -195,7 +195,7 @@ endpoints:
 
 # Queries
 
-These are a collection of endpoints that allow you to interact with incidents.
+These are a collection of endpoints that allow you to query incidents.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 

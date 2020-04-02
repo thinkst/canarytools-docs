@@ -91,6 +91,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 3,
         children: [
+          '/incidents/actions',
           '/incidents/queries',
         ]
       },
