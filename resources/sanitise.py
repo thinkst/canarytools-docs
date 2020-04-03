@@ -22,19 +22,21 @@ sanitise_dict = {
 
 def cleanse(rvar):
     for k,v in rvar.items():
-        if(isinstance(v,dict)):
+        if isinstance(v,dict):
             cleanse(v)
-        elif(isinstance(v,list)):
+        elif isinstance(v,list):
             if v and isinstance(v[0], dict):
                 for element in v:
                     cleanse(element)
+        elif k == 'id' and isinstance(v,int):
+            continue
         elif k in sanitise_dict:
             rvar[k] = sanitise_dict[k]
         # Replace emails in audit trail messages    
         elif k == 'message':
-            if('ayteecee@gmail.com' in v):
+            if 'ayteecee@gmail.com' in v:
                 rvar[k] = v.replace('ayteecee@gmail.com','<user_email>')
-            elif('nick@thinkst.com' in v):
+            elif 'nick@thinkst.com' in v:
                 rvar[k] = v.replace('nick@thinkst.com','<user_email>')
     return rvar  
 
