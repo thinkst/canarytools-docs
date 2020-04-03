@@ -1,20 +1,22 @@
+# deprecating atom endpoints
 /acknowledged_incidents.atom
 /fetch_incident.atom
 /unacknowledged_incidents.atom
-
 /all_devices.atom
 /dead_devices.atom
+
+
+# currently leaving migration to UI management
 /device/completemigration
-/device/configuration_settings
-/device/getinfo
-/device/migrate
-/device/triggersettings
 /devices/completemigration
 /devices/pending_migrations
+/device/migrate
+
+/device/configuration_settings
+/device/getinfo
+/device/triggersettings
 
 /csrf/generate
-
-/test/exception/47120244c326e6ef5c8790afa8a11ae7
 
 /incident/slack/interactive_action
 
@@ -27,7 +29,6 @@
 # this is used for detailed licenses (expiry dates etc)
 # we don't have this in use yet so the endpoint isn't going to be added for now
 /license/details
-
 
 # these are helper endpoints that shouldn't be called by a user
 /user/help/mark_as_seen
@@ -43,7 +44,6 @@
 /user/2fa/verify
 /user/summary_email/disable
 /user/summary_email/
-
 
 # requires logged in user
 /webauthn/add_authenticator
