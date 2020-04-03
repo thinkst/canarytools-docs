@@ -48,8 +48,8 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
+      { text: 'Knowledge Base', link: 'https://help.canary.tools' },
       { text: 'canary.tools', link: 'https://canary.tools' },
-      { text: 'github', link: 'https://github.com/thinkst/canarytools-docs' },
     ],
     sidebar: [
       {
@@ -74,6 +74,7 @@ module.exports = {
           '/bird-management/queries',
           '/bird-management/registrations',
           '/bird-management/updates',
+          '/bird-management/virtual-canaries',
         ]
       },
       {

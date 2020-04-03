@@ -34,8 +34,7 @@
 /canarytokens/paginate
 /canarytokens/search
 
-/canaryvm/download
-/canaryvm/downloadseed
+
 
 /cloudcanary/add
 /cloudcanary/images
@@ -153,10 +152,6 @@
 /users/flock/assign/watchers
 
 /global/search
-
-/hypervcanary/download
-/hypervcanary/downloadseed
-
 
 /remotead/configuration
 /remotead/newjob
