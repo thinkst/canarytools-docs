@@ -83,6 +83,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 3,
         children: [
+          '/canarytokens/actions',
           '/canarytokens/queries',
         ]
       },

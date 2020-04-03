@@ -18,7 +18,7 @@ endpoints:
         required: false
         type: string
         description: Include factory endpoints (such as ApeeperFactory)
-    response: A JSON structure with list of all Canarytokens
+    response: A JSON structure with list of all Canarytokens.
   paginate:
     name: Paginate Canarytokens
     url: /api/v1/canarytokens/paginate

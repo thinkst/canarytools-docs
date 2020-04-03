@@ -5,6 +5,8 @@
 /bundles/list
 /bundles/list/all
 
+
+/canarytoken/fetch
 /canarytoken/create
 /canarytoken/create_factory
 /canarytoken/delete
@@ -15,7 +17,6 @@
 /canarytoken/factory
 /canarytoken/factorydoc/generate
 /canarytoken/factorydoc/sharehistory
-/canarytoken/fetch
 /canarytoken/office365/create
 /canarytoken/office365/email
 /canarytoken/office365/email
@@ -30,9 +31,6 @@
 /canarytokens/clonedsite/ignorelist/enable
 /canarytokens/clonedsite/ignorelist/fetch
 /canarytokens/clonedsite/ignorelist/save
-/canarytokens/fetch
-/canarytokens/paginate
-/canarytokens/search
 
 
 /flock/create
