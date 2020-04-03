@@ -109,7 +109,6 @@ These are a collection of endpoints that allow you to configure a Bird's notific
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/disconnects/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -133,7 +132,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -196,7 +194,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/disconnects/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -220,7 +217,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -283,7 +279,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/incidents/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -307,7 +302,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -371,7 +365,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/incidents/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -395,7 +388,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -459,7 +451,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/reconnects/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -483,7 +474,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -548,7 +538,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/notifications/reconnects/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -572,7 +561,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
