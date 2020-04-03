@@ -64,6 +64,72 @@ These are a collection of endpoints that allow you interact with the Audit Trail
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+
+curl https://EXAMPLE.canary.tools/api/v1/audit_trail/fetch \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d limit=EXAMPLE_INTEGER
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/audit_trail/features'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "audit_trail": [
+    {
+      "action_type": "user_login",
+      "additional_information": null,
+      "flock_id": null,
+      "id": 72,
+      "message": "User <user_name> logged in",
+      "timestamp": "2020-04-03 09:53:59 UTC+0000",
+      "user": "<user_name>",
+      "user_browser_agent": "EXAMPLE BROWSER DETAIL",
+      "user_browser_language": "en-US,en;q=0.9",
+      "user_ip": "192.168.1.2"
+    }
+  ],
+  "cursor": {
+    "next": "MDo3MjoxOjM6Mjo3Mg==",
+    "prev": null
+  },
+  "page_count": 72,
+  "page_number": 1,
+  "result": "success"
+}
+```
+:::
+
 ## Purge Audit Trail Logs
 
 ::: danger
