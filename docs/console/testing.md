@@ -10,7 +10,33 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
-    response: A JSON message with a response indicator.
+    response: A JSON message with a result indicator.
+  syslog_fake_alerts:
+    name: Send Fake Syslog Alerts
+    url: /api/v1/syslog/fake_alert/<incident_count>
+    method: GET
+    description: Send fake alerts to your syslog setup.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: alert_all_devices
+        required: false
+        type: boolean
+        description: Create a fake alert for all Birds connected to your Console
+    response: A JSON message with a result indicator.
+  syslog_test:
+    name: Send Syslog Test Message
+    url: /api/v1/syslog/test
+    method: GET
+    description: Test your syslog setup by sending a dummy test message.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON message with a result indicator.
 ---
 # Testing
 
@@ -67,3 +93,11 @@ print(r.json())
 }
 ```
 :::
+
+## Send Fake Syslog Alerts
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_fake_alerts"/>
+
+## Send Syslog Test Message
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_test"/>
