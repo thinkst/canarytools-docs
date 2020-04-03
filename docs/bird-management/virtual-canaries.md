@@ -64,7 +64,7 @@ endpoints:
 
 # Virtual Canaries
 
-These are a collection of endpoints that allow you to view Bird related updates.
+These are a collection of endpoints related to Virtual Canaries. Currently this includes **CanaryVM** (for VMWare) and **Hyper-V** Canaries.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 

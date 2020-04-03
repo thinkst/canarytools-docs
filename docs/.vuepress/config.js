@@ -67,6 +67,7 @@ module.exports = {
         sidebarDepth: 3,
         children: [
           '/bird-management/service-configuration',
+          '/bird-management/cloud-canaries',
           '/bird-management/notes',
           '/bird-management/notifications',
           '/bird-management/operations',
