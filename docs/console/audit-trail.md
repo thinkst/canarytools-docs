@@ -74,7 +74,7 @@ These are a collection of endpoints that allow you interact with the Audit Trail
 
 curl https://EXAMPLE.canary.tools/api/v1/audit_trail/fetch \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d limit=EXAMPLE_INTEGER
+  -d limit=5
   -G
 ```
 
@@ -114,7 +114,7 @@ print(r.json())
       "message": "User <user_name> logged in",
       "timestamp": "2020-04-03 09:53:59 UTC+0000",
       "user": "<user_name>",
-      "user_browser_agent": "EXAMPLE BROWSER DETAIL",
+      "user_browser_agent": "<browser_agent_string>",
       "user_browser_language": "en-US,en;q=0.9",
       "user_ip": "192.168.1.2"
     }
