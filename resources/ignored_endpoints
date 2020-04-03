@@ -42,4 +42,11 @@
 /user/2fa/enable
 /user/2fa/verify
 /user/summary_email/disable
-/user/summary_email/enable
+/user/summary_email/
+
+
+# requires logged in user
+/webauthn/add_authenticator
+/webauthn/begin_assertion
+/webauthn/pubkey_cred_create_options
+/webauthn/remove_authenticator

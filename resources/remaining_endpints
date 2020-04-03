@@ -228,18 +228,6 @@
 /token/download
 /token/remove
 
-/update/fetch
-/update/updatable_birds
-/update/updating_devices
-/updates/list
-
-
-
-/webauthn/add_authenticator
-/webauthn/begin_assertion
-/webauthn/pubkey_cred_create_options
-/webauthn/remove_authenticator
-
 /webrootupload/end
 /webrootupload/start
 /webrootupload/status
