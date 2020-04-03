@@ -6,14 +6,6 @@
 /bundles/list/all
 
 
-/canarytoken/fetch
-/canarytoken/create
-/canarytoken/create_factory
-/canarytoken/delete
-/canarytoken/delete_factory
-/canarytoken/disable
-/canarytoken/download
-/canarytoken/enable
 /canarytoken/factory
 /canarytoken/factorydoc/generate
 /canarytoken/factorydoc/sharehistory
