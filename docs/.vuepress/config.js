@@ -85,6 +85,7 @@ module.exports = {
         children: [
           '/console/audit-trail',
           '/console/features',
+          '/console/global-search',
           '/console/licenses',
           '/console/testing',
         ]

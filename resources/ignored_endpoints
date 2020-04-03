@@ -50,3 +50,9 @@
 /webauthn/begin_assertion
 /webauthn/pubkey_cred_create_options
 /webauthn/remove_authenticator
+
+
+# not including these for now
+/cloudcanary/shareami/add
+/cloudcanary/shareami/list
+/cloudcanary/shareami/remove

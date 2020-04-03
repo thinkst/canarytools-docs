@@ -35,11 +35,6 @@
 /canarytokens/search
 
 
-
-/cloudcanary/shareami/add
-/cloudcanary/shareami/list
-/cloudcanary/shareami/remove
-
 /flock/create
 /flock/delete
 /flock/list
