@@ -84,6 +84,8 @@ module.exports = {
         sidebarDepth: 3,
         children: [
           '/canarytokens/actions',
+          '/canarytokens/clonedweb-ignorelist',
+          '/canarytokens/factory',
           '/canarytokens/queries',
         ]
       },

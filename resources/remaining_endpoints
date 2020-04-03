@@ -6,25 +6,6 @@
 /bundles/list/all
 
 
-/canarytoken/factory
-/canarytoken/factorydoc/generate
-/canarytoken/factorydoc/sharehistory
-/canarytoken/office365/create
-/canarytoken/office365/email
-/canarytoken/office365/email
-/canarytoken/office365/initiate
-/canarytoken/office365/oauth/token
-/canarytoken/office365/status
-/canarytoken/office365/users/list
-/canarytoken/registerdoc
-/canarytoken/remove/s3
-/canarytoken/update
-/canarytokens/clonedsite/ignorelist/disable
-/canarytokens/clonedsite/ignorelist/enable
-/canarytokens/clonedsite/ignorelist/fetch
-/canarytokens/clonedsite/ignorelist/save
-
-
 /flock/create
 /flock/delete
 /flock/list

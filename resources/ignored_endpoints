@@ -56,3 +56,19 @@
 /cloudcanary/shareami/add
 /cloudcanary/shareami/list
 /cloudcanary/shareami/remove
+
+
+# currently not being exposed
+/canarytoken/office365/create
+/canarytoken/office365/email
+/canarytoken/office365/email
+/canarytoken/office365/initiate
+/canarytoken/office365/oauth/token
+/canarytoken/office365/status
+/canarytoken/office365/users/list
+
+
+# this is a utility endpoint not reachable by an api token
+/canarytoken/registerdoc
+/canarytoken/factorydoc/generate
+/canarytoken/factorydoc/sharehistory

@@ -17,7 +17,7 @@ endpoints:
       - name: memo
         required: true
         type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken.
+        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken
       - name: kind
         required: true
         type: string
@@ -61,40 +61,6 @@ endpoints:
         description: AWS ID Username is optional if the client wants to create an AWS API key linked to certain NameError
                      otherwise its randomly generated (optional when creating aws-id tokens)
     response: A JSON structure with the created Canarytoken information.
-  create_factory:
-    name: Create Canarytoken Factory
-    url: /api/v1/canarytoken/create_factory
-    method: POST
-    description: Create an auth string for the Canarytoken Factory endpoint.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: flock_id
-        required: false
-        type: string
-        description: A valid flock_id (defaults to the Default Flock)
-      - name: memo
-        required: true
-        type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken.
-    response: A JSON structure with auth string and Canarytoken factory endpoint.
-  delete_factory:
-    name: Delete Canarytoken Factory
-    url: /api/v1/canarytoken/delete_factory
-    method: DELETE
-    description: Delete an auth string for the Canarytoken Factory endpoint.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: factory_auth
-        required: true
-        type: string
-        description: An existing factory auth string
-    response: A JSON structure with result indicator.
   disable:
     name: Disable Canarytoken
     url: /api/v1/canarytoken/disable
@@ -140,34 +106,6 @@ endpoints:
         type: string
         description: A valid Canarytoken
     response: A JSON structure with result indicator.
-  factory:
-    name: Create Canarytokens Using Factory
-    url: /api/v1/canarytoken/factory
-    method: POST
-    description: Create an auth string for the Canarytoken Factory endpoint.
-    params:
-      - name: factory_auth
-        required: true
-        type: string
-        description: A valid factory_auth string
-      - name: flock_id
-        required: false
-        type: string
-        description: A valid flock_id (defaults to the Default Flock)
-      - name: memo
-        required: true
-        type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken.
-      - name: kind
-        required: true
-        type: string
-        description: Specifies the type of Canarytoken (currently only supports aws-id)
-      - name: aws_id_username
-        required: false
-        type: string
-        description: AWS ID Username is optional if you want to create an AWS API key linked to 
-                     certain Name otherwise it is randomly generated.
-    response: A JSON structure with the generated Canarytoken.
   fetch:
     name: Fetch Canarytoken
     url: /api/v1/canarytoken/fetch
@@ -183,6 +121,68 @@ endpoints:
         type: string
         description: A valid Canarytoken
     response: A JSON structure with the Canarytoken.
+  remove_s3:
+    name: Remove AWS S3 Canarytoken
+    url: /api/v1/canarytoken/remove/s3
+    method: POST
+    description: Remove an AWS S3 Canarytoken from your Amazon console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Canarytoken
+      - name: aws_access_key
+        required: true
+        type: string
+        description: AWS Access Key ID (this is not stored on the Console and is only used for
+                     the duration of the operation)
+      - name: aws_secret_key
+        required: true
+        type: string
+        description: AWS Secret Access Key (this is not stored on the Console and is only used 
+                     for the duration of the operation)
+      - name: aws_access_key
+        required: true
+        type: string
+        description: AWS Access Key ID (this is not stored on the Console and is only used for
+                     the duration of the operation)
+      - name: aws_region
+        required: true
+        type: string
+        description: AWS Region where the token is located
+      - name: delete_buckets
+        required: false
+        type: boolean
+        description: Boolean indicating if buckets must be deleted (defaults to false)
+      - name: s3_source_bucket
+        required: false
+        type: string
+        description: Name of the S3 bucket which was being monitored
+                     (required if delete_buckets is true)
+    response: A JSON structure with result indicator.
+  update:
+    name: Update Canarytoken Memo
+    url: /api/v1/canarytoken/update
+    method: POST
+    description: Update the memo of a Canarytoken.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Canarytoken
+      - name: memo
+        required: true
+        type: string
+        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken
+    response: A JSON structure with result indicator.
 ---
 
 # Actions
@@ -211,22 +211,12 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
 
-## Factory
+## Remove AWS S3 Canarytoken
 
-Sometimes you want to automate the creation of Canarytokens across your fleet. Perhaps you want every EC2 instance to reach out and fetch a token on creation (or startup). The Canary Console API allows for the automation, but it seems a bad idea to use your API key on every host.
+<APIDetails :endpoint="$page.frontmatter.endpoints.remove_s3"/>
 
-The Canarytoken factory gives you a limited use key that is able to create other tokens. You can leave this key on a host knowing that even if an attacker were able to grab it, he'd be able to create new tokens but not remove (or alter) anything else.
+## Update Canarytoken Memo
 
-### Create Canarytokens Using Factory
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.factory"/>
-
-### Create Canarytoken Factory Auth String
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.create_factory"/>
-
-### Delete Canarytoken Factory Auth String
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete_factory"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.update"/>
 
 
