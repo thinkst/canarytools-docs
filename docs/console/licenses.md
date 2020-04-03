@@ -40,7 +40,6 @@ These are a collection of endpoints that allow you query your existing Bird lice
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/license \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -G
@@ -63,7 +62,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -102,7 +100,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/license/detailed/info \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -G
@@ -125,7 +122,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::

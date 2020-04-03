@@ -71,7 +71,6 @@ These are a collection of endpoints that allow you interact with the Audit Trail
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/audit_trail/fetch \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d limit=5
@@ -94,7 +93,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::

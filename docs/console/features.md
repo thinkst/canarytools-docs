@@ -33,7 +33,6 @@ If you notice some features that aren't enabled but may interest you, contact su
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/console/features \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -G
@@ -55,7 +54,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::
