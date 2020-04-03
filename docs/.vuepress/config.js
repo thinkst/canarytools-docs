@@ -79,6 +79,14 @@ module.exports = {
         ]
       },
       {
+        title: 'Canarytokens',
+        collapsable: false,
+        sidebarDepth: 3,
+        children: [
+          '/canarytokens/queries',
+        ]
+      },
+      {
         title: 'Console Resources',
         collapsable: false,
         sidebarDepth: 3,
