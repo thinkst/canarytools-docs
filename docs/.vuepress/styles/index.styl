@@ -86,6 +86,11 @@ table tr:first-child th:last-child
 .api-example-response [class*="language-"] 
     background-color: lighten($codeBgColor, 25%)
     color: lighten($textColor, 45%)
+    & pre
+        padding-left: 1.5rem !important 
+    & .line-numbers-wrapper
+        display: none !important 
+
     
 .tabs-component-tabs
     justify-content: flex-end
@@ -114,6 +119,15 @@ table tr:first-child th:last-child
         margin: 0
         border-top-right-radius: 0
         border-top-left-radius: 0
+
+div[class*="language-"].line-numbers-mode
+    & pre
+        padding-left: 3rem
+    & .line-numbers-wrapper
+        width: 2.5rem
+    &:after
+        width: 0rem
+        border: none
 
 .code-copy svg
     margin-top: 1.5em
