@@ -224,9 +224,6 @@
 
 /smbfileupload
 
-/syslog/fake_alert/<incident_count>
-/syslog/test
-
 /token/add
 /token/download
 /token/remove

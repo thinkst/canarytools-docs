@@ -73,6 +73,7 @@ module.exports = {
           '/bird-management/personalities',
           '/bird-management/queries',
           '/bird-management/registrations',
+          '/bird-management/updates',
         ]
       },
       {
@@ -96,7 +97,7 @@ module.exports = {
         ]
       },
       {
-        title: 'Users',
+        title: 'User Management',
         collapsable: false,
         sidebarDepth: 3,
         children: [
