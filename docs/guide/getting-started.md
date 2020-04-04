@@ -51,7 +51,6 @@ r = requests.get(
     )
 )
 r.json()
-
 ```
 
 :::

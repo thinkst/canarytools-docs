@@ -78,7 +78,6 @@ r = requests.get(
     )
 )
 print(r.json())
-
 ```
 
 :::

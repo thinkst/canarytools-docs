@@ -2,7 +2,7 @@ module.exports = {
   title: 'Canary API Docs',
   description: 'Documentation for the Canary Console.',
   markdown: {
-    lineNumbers: false,
+    lineNumbers: true,
   },
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }],

@@ -65,7 +65,6 @@ These are a collection of endpoints that allow you to manage your Bird remotely.
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/reboot \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -90,7 +89,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::

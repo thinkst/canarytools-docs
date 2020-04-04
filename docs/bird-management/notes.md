@@ -68,7 +68,6 @@ These are a collection of endpoints that allow you to configure Bird notes.
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/note \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID \
@@ -93,7 +92,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -121,7 +119,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/note/add \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID \
@@ -147,7 +144,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
@@ -174,7 +170,6 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-
 curl https://EXAMPLE.canary.tools/api/v1/device/note/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
@@ -198,7 +193,6 @@ payload = {
 r = requests.post(url, data=payload)
 
 print(r.json())
-
 ```
 
 :::
