@@ -1,11 +1,5 @@
 /apeeperfactory/delete
 
-/bundle/cancel
-/bundle/info
-/bundles/list
-/bundles/list/all
-
-
 /flock/create
 /flock/delete
 /flock/list
@@ -115,10 +109,6 @@
 /users/flock/assign/managers
 /users/flock/assign/watchers
 
-/remotead/configuration
-/remotead/newjob
-/remotead/status
-
 /schema/fetch
 
 /settings
@@ -175,16 +165,8 @@
 /settings/whitelisting/whitelist_ips
 /settings/whitelisting/whitelist_oids
 
-/shareupload/end
-/shareupload/start
-/shareupload/status
-
 /smbfileupload
 
 /token/add
 /token/download
 /token/remove
-
-/webrootupload/end
-/webrootupload/start
-/webrootupload/status

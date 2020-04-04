@@ -72,3 +72,8 @@
 /canarytoken/registerdoc
 /canarytoken/factorydoc/generate
 /canarytoken/factorydoc/sharehistory
+
+# this will be added once we have a clean way to demonstrate the process
+/remotead/configuration
+/remotead/newjob
+/remotead/status
