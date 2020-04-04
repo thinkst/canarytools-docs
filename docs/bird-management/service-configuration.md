@@ -46,6 +46,100 @@ endpoints:
         type: string
         description: A serialized json object of additional Bird settings
     response: JSON structure with result and bundle_tag if successful.
+  shareupload_end:
+    name: End Share Upload
+    url: /api/v1/shareupload/end
+    method: POST
+    description: End and save the share upload on a Bird.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+      - name: cancel
+        required: false
+        type: boolean
+        description: Ignore changes made to the writable upload share when parameter is present
+    response: A JSON structure with result indicator.
+  shareupload_start:
+    name: Start Share Upload
+    url: /api/v1/shareupload/start
+    method: POST
+    description: Start a share upload for a Bird.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON structure with result indicator.
+  shareupload_status:
+    name: Check Share Upload Status
+    url: /api/v1/shareupload/status
+    method: GET
+    description: Check the status of a Bird's share upload.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON structure with the current share upload status.
+  webroot_end:
+    name: End Webroot Upload
+    url: /api/v1/webroot/end
+    method: POST
+    description: Cancel the webroot upload for a Bird.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON structure with result indicator.
+  webroot_start:
+    name: Start Webroot Upload
+    url: /api/v1/webroot/start
+    method: POST
+    description: Start a webroot upload for a Bird.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON structure with result indicator.
+  webroot_status:
+    name: Check Webroot Upload Status
+    url: /api/v1/webroot/status
+    method: GET
+    description: Check the status of a Bird's webroot upload.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+    response: A JSON structure with the current webroot upload status.
 ---
 
 # Configure Services
@@ -336,3 +430,43 @@ An example `bare-canary` Bird settings object looks like:
   "vnc.port": 5900
 }
 ```
+
+## Share Upload
+
+Although we allow for uploading and pushing files through the [Configure Bird](service-configuration.html#configure-bird) endpoint, it is size-constrained as pushing large files over DNS isn't ideal (and takes a considerable amount of time.).
+
+To get around this, you can remotely enable Share Upload on a Bird (from version 2.2 onwards). This temporarily enables a writable share on the Bird that you can connect to over the network and upload files to.
+
+### Check Share Upload Status
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_status"/>
+
+### End Share Upload
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_end"/>
+
+### Start Share Upload
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_start"/>
+
+## Webroot Upload
+
+Using the [Configure Bird](service-configuration.html#configure-bird) endpoint, you are able to select a pre-defined site to expose on your HTTP service. These pre-defined webroots are useful and mimic a multitude of existing systems that you'd expect to find on a network.
+
+However, if you'd like to expose your own site, we allow you to upload your own custom webroot to your Birds (from version 2.2 onwards). In order to do this, you can enable a temporary endpoint on your Bird that will allow you access it over the network, and upload a zip containing your site. 
+
+::: tip
+For details about how the zip should be structured, you can look at [our help article](https://help.canary.tools/help/creating-a-customized-page-for-my-canarys-web-server).
+:::
+
+### Check Webroot Upload Status
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_status"/>
+
+### End Webroot Upload
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_end"/>
+
+### Start Webroot Upload
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_start"/>
