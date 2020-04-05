@@ -1,7 +1,5 @@
 # Getting Started
 
-Welcome to the Canarytools docs!
-
 In this section we'll walk through the basics of connecting to your Console using the API.
 
 Before being able to use the examples, you're going to need to find out your `DOMAIN` and `AUTH_TOKEN`.
