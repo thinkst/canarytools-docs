@@ -130,14 +130,6 @@ module.exports = {
           '/users/queries',
         ]
       },
-      {
-        title: 'Flocks',
-        collapsable: false,
-        sidebarDepth: 3,
-        children: [
-          '/flocks/',
-        ]
-      },
     ],
     smoothScroll: true,
   },
