@@ -83,7 +83,7 @@ This will generate a new API token for you, overwriting the existing token if th
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.download"/>
 
-## Enable te API
+## Enable the API
 
 ::: tip
 Since we currently only allow for a single API key, this can only be achieved by logging into the Console and enabling the setting from your Global Settings page.

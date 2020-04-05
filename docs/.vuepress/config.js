@@ -108,6 +108,7 @@ module.exports = {
         sidebarDepth: 3,
         children: [
           '/console-settings/api',
+          '/console-settings/ignore-lists',
           '/console-settings/notifications',
         ]
       },

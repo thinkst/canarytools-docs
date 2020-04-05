@@ -77,3 +77,9 @@
 /remotead/configuration
 /remotead/newjob
 /remotead/status
+
+# we don't enable this by default
+/settings/smtp_test
+/settings/snmp_whitelisting_oid/disable
+/settings/snmp_whitelisting_oid/enable
+/settings/whitelisting/whitelist_oids

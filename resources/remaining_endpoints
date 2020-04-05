@@ -123,14 +123,6 @@
 /settings/generic/add
 /settings/generic/remove
 /settings/generic/test
-/settings/ignore_hostnames
-/settings/ignore_hostnames/disable
-/settings/ignore_hostnames/enable
-/settings/ignorelist_src_port
-/settings/ignorelist_src_port/disable
-/settings/ignorelist_src_port/enable
-/settings/is_hostname_whitelisted
-/settings/is_ip_whitelisted
 /settings/ms_teams/add
 /settings/ms_teams/remove
 /settings/ms_teams/test
@@ -149,20 +141,7 @@
 /settings/slack/initiate
 /settings/slack/remove
 /settings/slack/test
-/settings/smtp_test
-/settings/snmp_whitelisting_oid/disable
-/settings/snmp_whitelisting_oid/enable
 /settings/usermanagement/globally_enforce_2fa/disable
 /settings/usermanagement/globally_enforce_2fa/enable
-/settings/whitelist_ip_port
-/settings/whitelisting/disable
-/settings/whitelisting/enable
-/settings/whitelisting/remove_whitelist_ip
-/settings/whitelisting/whitelist_ips
-/settings/whitelisting/whitelist_oids
 
 /smbfileupload
-
-/token/add
-/token/download
-/token/remove
