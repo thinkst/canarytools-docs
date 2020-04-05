@@ -1,5 +1,20 @@
 ---
 endpoints:
+  delete_apeeper:
+    name: Delete Apeeper Canarytoken Factory
+    url: /api/v1/apeeperfactory/delete
+    method: POST
+    description: Delete an Apeeper Canarytoken factory.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: hash
+        required: true
+        type: string
+        description:  A valid ApeeperFactory hash
+    response: A JSON structure with result indicator.
   create:
     name: Create Canarytoken
     url: /api/v1/canarytoken/create
@@ -209,6 +224,10 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 ## Create Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.create"/>
+
+## Delete Apeeper Canarytoken Factory
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete_apeeper"/>
 
 ## Delete Canarytoken
 
