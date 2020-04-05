@@ -103,6 +103,15 @@ module.exports = {
         ]
       },
       {
+        title: 'Console Settings',
+        collapsable: false,
+        sidebarDepth: 3,
+        children: [
+          '/console-settings/api',
+          '/console-settings/notifications',
+        ]
+      },
+      {
         title: 'Incidents',
         collapsable: false,
         sidebarDepth: 3,

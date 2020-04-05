@@ -1,5 +1,3 @@
-/apeeperfactory/delete
-
 /flock/create
 /flock/delete
 /flock/list
@@ -112,8 +110,6 @@
 /schema/fetch
 
 /settings
-/settings/api/disable
-/settings/api/enable
 /settings/canarytokens/user_domains/disable
 /settings/canarytokens/user_domains/enable
 /settings/canarytokens/user_domains/save
