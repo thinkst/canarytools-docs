@@ -108,8 +108,8 @@ module.exports = {
         sidebarDepth: 3,
         children: [
           '/console-settings/api',
+          '/console-settings/canarytokens',
           '/console-settings/ignore-lists',
-          '/console-settings/notifications',
         ]
       },
       {

@@ -109,13 +109,6 @@
 
 /schema/fetch
 
-/settings
-/settings/canarytokens/user_domains/disable
-/settings/canarytokens/user_domains/enable
-/settings/canarytokens/user_domains/save
-/settings/canarytokens/webroot/disable
-/settings/canarytokens/webroot/enable
-/settings/canarytokens/webroot/save
 /settings/console_settings_change/disable
 /settings/console_settings_change/enable
 /settings/device_settings_change/disable
