@@ -61,6 +61,21 @@ endpoints:
         description: AWS ID Username is optional if the client wants to create an AWS API key linked to certain NameError
                      otherwise its randomly generated (optional when creating aws-id tokens)
     response: A JSON structure with the created Canarytoken information.
+  delete:
+    name: Delete Canarytoken
+    url: /api/v1/canarytoken/delete
+    method: POST
+    description: Delete a Canarytoken.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Canarytoken
+    response: A JSON structure with result indicator.
   disable:
     name: Disable Canarytoken
     url: /api/v1/canarytoken/disable
@@ -194,6 +209,10 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 ## Create Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.create"/>
+
+## Delete Canarytoken
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete"/>
 
 ## Disable Canarytoken
 
