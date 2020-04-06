@@ -96,7 +96,6 @@ payload = {
 r = requests.get(url, params=payload)
 
 print(r.json())
-
 ```
 
 :::

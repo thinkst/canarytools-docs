@@ -4,18 +4,15 @@ In this section we'll walk through the basics of connecting to your Console usin
 
 Before being able to use the examples, you're going to need to find out your `DOMAIN` and `AUTH_TOKEN`.
 
-#### DOMAIN
+## API Details
 
-This is the unique identifying hash for your Console. It can be trivially determined by navigating to your Console and extracting the leading sub-domain from the url:
+`DOMAIN` is the unique hash identifying your Console. In our examples, we'll be using `EXAMPLE`.
 
-![Get Domain](../images/get-domain.png)
+`AUTH_TOKEN` is the API key that you'll need to use in order to make calls to your API. We'll use `EXAMPLE_AUTH_TOKEN` throughout the examples.
 
-#### AUTH_TOKEN
+Both of these can be obtained by navigating to `/settings` on your Console, and looking at the API section:
 
-This is the API key that you'll need to use in order to make calls to your API. In order to find your API key, you can navigate to `/settings` in your Console and look for the API section:
-
-![Get API Key](../images/get-api-key.png)
-
+![Get API Details](../images/get-api-details.png)
 
 ## Hello Console
 
@@ -26,10 +23,9 @@ Let's begin by ensuring that we can successfully contact our Console. We can do 
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
+curl https://EXAMPLE.canary.tools/api/v1/ping \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -40,15 +36,15 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/ping'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 
 :::
@@ -87,10 +83,9 @@ By calling the [All Birds](/bird-management/queries.html#all-birds) endpoint, we
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl -x GET https://${DOMAIN}.canary.tools/api/v1/devices/all?auth_token=${AUTH_TOKEN}
+curl https://EXAMPLE.canary.tools/api/v1/devices/all \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -101,16 +96,15 @@ curl -x GET https://${DOMAIN}.canary.tools/api/v1/devices/all?auth_token=${AUTH_
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/devices/all'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(
-      DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
 
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 
 :::
