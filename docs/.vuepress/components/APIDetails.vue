@@ -3,32 +3,21 @@
     <p>
       <code>{{endpoint.method}} {{endpoint.url}}</code>
     </p> 
-    <p>{{endpoint.description}}</p> 
-    <h4>
-      Required Parameters
-    </h4> 
-    <table class="table-100">
-      <thead>
-        <tr>
-          <th style="width:25%">Name</th> 
-          <th style="width:25%">Type</th> 
-          <th style="width:50%">Description</th>
-        </tr>
-      </thead> 
-      <tbody>
-        <tr v-for="param in requiredParams" :key="endpoint.name + param.name">
-          <td>{{param.name}}</td>
-          <td>{{param.type}}</td> 
-          <td v-html="param.description"></td> 
-        </tr>
-      </tbody>
-    </table>
-    <slot name="required-parameters-notes"></slot>
-    <template v-if="optionalParams.length > 0">
+    <slot name="description">
+      <p>{{endpoint.description}}</p> 
+    </slot>
+    <button
+      class="collapsible"
+      :class="{ 'active': expand }"
+      @click="toggle"
+      >
+      {{ expand ? 'Hide details' : 'Show details'}}
+    </button>
+    <div class="content" ref="content">
       <h4>
-        Optional Parameters
+        Required Parameters
       </h4> 
-      <table>
+      <table class="table-100">
         <thead>
           <tr>
             <th style="width:25%">Name</th> 
@@ -37,19 +26,47 @@
           </tr>
         </thead> 
         <tbody>
-          <tr v-for="param in optionalParams" :key="endpoint.name + param.name">
+          <tr v-for="param in requiredParams" :key="endpoint.name + param.name">
             <td>{{param.name}}</td>
             <td>{{param.type}}</td> 
             <td v-html="param.description"></td> 
           </tr>
         </tbody>
       </table>
-      <slot name="optional-parameters-notes"></slot>
-    </template>
-    <h4>
-      Response
-    </h4> 
-    <p>{{endpoint.response}}</p> 
+      <slot name="required-parameters-notes"></slot>
+      <template v-if="optionalParams.length > 0">
+        <h4>
+          Optional Parameters
+        </h4> 
+        <table>
+          <thead>
+            <tr>
+              <th style="width:25%">Name</th> 
+              <th style="width:25%">Type</th> 
+              <th style="width:50%">Description</th>
+            </tr>
+          </thead> 
+          <tbody>
+            <tr v-for="param in optionalParams" :key="endpoint.name + param.name">
+              <td>{{param.name}}</td>
+              <td>{{param.type}}</td> 
+              <td v-html="param.description"></td> 
+            </tr>
+          </tbody>
+        </table>
+        <slot name="optional-parameters-notes"></slot>
+      </template>
+      <h4>
+        Response
+      </h4> 
+      <slot name="response">
+         <p>{{endpoint.response}}</p> 
+      </slot>
+
+      <h4 v-if="$slots.example">Example</h4>
+      <slot name="example"></slot>
+
+    </div>
   </div>
 </template>
 
@@ -62,6 +79,11 @@ export default {
       type: Object,
     },
   },
+  data() {
+    return {
+      expand: false,
+    };
+  },
   computed: {
     requiredParams() {
       return this.endpoint.params.filter(p => p.required);
@@ -69,6 +91,46 @@ export default {
     optionalParams() {
       return this.endpoint.params.filter(p => !p.required);
     },
+  },
+  methods: {
+    toggle() {
+      this.expand = !this.expand;
+      if (this.$refs.content.style.maxHeight){
+        this.$refs.content.style.maxHeight = null;
+      } else {
+        this.$refs.content.style.maxHeight = this.$refs.content.scrollHeight + "px";
+      }
+    }
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+
+.collapsible
+  cursor: pointer
+  display: inline-block
+  padding: 10px
+  border-radius: 6px
+  color: $textColor
+  border: none
+  box-shadow:  $boxShadow
+  font-size: 16px
+  width 150px
+
+.content 
+  max-height: 0
+  overflow: hidden
+  transition: max-height 0.2s ease-out
+
+.collapsible:after 
+  content: '\02795'
+  font-size: 13px
+  color: #ccc
+  float: right
+  margin-left: 5px
+
+.active:after 
+  content: '\2796'
+  
+</style>

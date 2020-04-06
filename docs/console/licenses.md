@@ -31,9 +31,9 @@ These are a collection of endpoints that allow you query your existing Bird lice
 
 ## Bird Licenses
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.licenses"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.licenses">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -89,11 +89,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Detailed Bird License Information
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -159,3 +163,7 @@ print(r.json())
 }
 ```
 :::
+
+::::::
+
+</APIDetails>

@@ -62,9 +62,9 @@ These are a collection of endpoints that allow you interact with the Audit Trail
 
 ## Fetch Audit Trail Logs
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
 
-#### Example
+::::: slot example
 
 In this example, we're going to query the Audit Logs, but we'll set the `limit` to 5 to only return 5 entries at a time. We'll then use the `cursor` to navigate our way through the logs.
 
@@ -408,15 +408,19 @@ We can see from the response that we are now back on page number 1.
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Purge Audit Trail Logs
 
 ::: danger
 Purging logs will permanently remove them and they will not be recoverable.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.purge"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.purge">
 
-#### Example
+::::: slot example
 
 In this example, we'll start by querying the Audit Logs, with `limit` set to 5. From there, we will select a single entry using the `id` parameter, and delete all of the logs older than this entry.
 
@@ -666,11 +670,15 @@ In the response below we see that a total of 3 entries remain, the earliest of w
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Download Audit Trail Logs
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.download"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.download">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -701,3 +709,11 @@ print(r.json())
 ```
 
 :::
+
+::::
+
+The output of this response would be a downloaded file.
+
+:::::
+
+</APIDetails>

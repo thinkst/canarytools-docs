@@ -6,7 +6,7 @@ html, body
 
 .endpoints
     border: none
-    box-shadow:  0px 3px 12px rgba(57, 61, 59, 0.30)
+    box-shadow:  $boxShadow
     border-radius: 6px
     margin-bottom: 28px
     & .header
@@ -55,7 +55,6 @@ tbody
     & tr:nth-child(2n) 
         background-color: lighten($codeBgColor, 15%)
     
-
 td, th 
     overflow: scroll;
 
@@ -90,7 +89,6 @@ table tr:first-child th:last-child
         padding-left: 1.5rem !important 
     & .line-numbers-wrapper
         display: none !important 
-
     
 .tabs-component-tabs
     justify-content: flex-end
@@ -140,6 +138,17 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
 
 .sidebar-group a.sidebar-link
     padding-left: 1.25rem !important
+
+.custom-block.details
+    background-color: inherit
+    padding: 0
+    & summary 
+        display: inline-block
+        padding: 10px
+        border-radius: 6px
+        background-color: lighten($codeBgColor, 15%)
+        color: #ccc
+        box-shadow:  $boxShadow
 
 @media (max-width: 419px)
     .api-example-response-header 
