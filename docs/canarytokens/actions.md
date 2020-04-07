@@ -225,6 +225,68 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.create"/>
 
+#### Example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/create \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d memo='Example Memo' \
+  -d kind=EXAMPLE_KIND 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/create'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'memo': 'Example Memo',
+  'kind': 'EXAMPLE_TOKEN_KIND'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "canarytoken": {
+    "browser_scanner_enabled": true,
+    "canarytoken": "<token_code>",
+    "created": "1586161315.087693",
+    "created_printable": "2020-04-06 08:21:55 (UTC)",
+    "enabled": true,
+    "flock_id": "flock:default",
+    "hostname": "<token_hostname>",
+    "key": "<token_key>",
+    "kind": "http",
+    "memo": "Example Memo",
+    "triggered_count": 0,
+    "updated_id": 7,
+    "url": "<token_url>"
+  },
+  "result": "success"
+}
+```
+:::
+
 ## Delete Apeeper Canarytoken Factory
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.delete_apeeper"/>
@@ -233,21 +295,258 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.delete"/>
 
+#### Example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 ## Disable Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.disable"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
 
 ## Download Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.download"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/download \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+  -G -L -O -J
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/download'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.get(url, allow_redirects=True, params=payload)
+filename = re.findall("filename=(.+)", r.headers["Content-Disposition"])[0]
+with open(filename, 'wb') as f:
+    f.write(r.content)
+```
+
+:::
+
+::::
+
+::: api-response
+```bash
+$ ls -l
+-rw-r--r--  1 user  thinkst  5095 Apr  7 12:29 <filename>
+```
+:::
+
+
 ## Enable Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.enable"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 ## Fetch Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/fetch \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/fetch'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+  "token": {
+    "canarytoken": "<token_code>",
+    "created": "1585947523.255526",
+    "created_printable": "2020-04-03 20:58:43 (UTC)",
+    "enabled": true,
+    "flock_id": "flock:default",
+    "hostname": "<token_hostname>",
+    "key": "<token_key>",
+    "kind": "dns",
+    "memo": "Example Memo",
+    "triggered_count": 0,
+    "updated_id": 4,
+    "url": "<token_url>"
+  }
+}
+```
+:::
 
 ## Remove AWS S3 Canarytoken
 
@@ -257,4 +556,63 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.update"/>
 
+#### Example
 
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/update \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
+  -d memo='Example Memo' 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/update'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN',
+  'memo': 'Example Memo'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+  "token": {
+    "canarytoken": "<token_code>",
+    "created": "1585947523.255526",
+    "created_printable": "2020-04-03 20:58:43 (UTC)",
+    "enabled": true,
+    "flock_id": "flock:default",
+    "hostname": "<token_hostname>",
+    "key": "<token_key>",
+    "kind": "dns",
+    "memo": "Updated Example Memo",
+    "triggered_count": 0,
+    "updated_id": 4,
+    "url": "<token_url>"
+  }
+}
+```
+:::

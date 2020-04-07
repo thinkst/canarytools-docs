@@ -17,7 +17,16 @@ sanitise_dict = {
     'seedlink':'<unique_link>',
     'user_ip':'<user_ip>',
     'user':'<user_email>', 
-    'user_browser_agent':'<browser_agent_string>'   
+    'user_browser_agent':'<browser_agent_string>',
+    'url':'<token_url>',
+    'canarytoken':'<token_code>',
+    'key':'<token_key>',
+    'hostname':'<token_hostname>',
+    'secret_access_key': '<aws_secret_access_key>',
+    'username': '<user_name>',
+    'factory_auth': '<factory_auth_token>',
+    'access_key_id': '<access_key_id>',
+    'secret_access_key': '<aws_secret_access_key>'
 }
 
 def cleanse(rvar):
