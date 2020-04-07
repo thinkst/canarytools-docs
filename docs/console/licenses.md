@@ -93,10 +93,6 @@ print(r.json())
 
 </APIDetails>
 
-:::::
-
-</APIDetails>
-
 ## Detailed Bird License Information
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.licenses_detailed_info">
@@ -169,9 +165,5 @@ print(r.json())
 :::
 
 :::::
-
-</APIDetails>
-
-::::::
 
 </APIDetails>
