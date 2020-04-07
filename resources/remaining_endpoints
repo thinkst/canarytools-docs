@@ -109,32 +109,4 @@
 
 /schema/fetch
 
-/settings/console_settings_change/disable
-/settings/console_settings_change/enable
-/settings/device_settings_change/disable
-/settings/device_settings_change/enable
-/settings/generic/add
-/settings/generic/remove
-/settings/generic/test
-/settings/ms_teams/add
-/settings/ms_teams/remove
-/settings/ms_teams/test
-/settings/notifications/email/disable
-/settings/notifications/email/enable
-/settings/notifications/email/save
-/settings/notifications/info
-/settings/notifications/masking/disable
-/settings/notifications/masking/enable
-/settings/notifications/sms/disable
-/settings/notifications/sms/enable
-/settings/notifications/sms/save
-/settings/notifications/summary_email/disable
-/settings/notifications/summary_email/enable
-/settings/notifications/summary_email/save
-/settings/slack/initiate
-/settings/slack/remove
-/settings/slack/test
-/settings/usermanagement/globally_enforce_2fa/disable
-/settings/usermanagement/globally_enforce_2fa/enable
-
 /smbfileupload

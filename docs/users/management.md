@@ -1,5 +1,27 @@
 ---
 endpoints:
+  globally_enforce_2fa_disable:
+    name: Disable Globally Enforcing 2FA
+    url: /api/v1/settings/usermanagement/globally_enforce_2fa/disable
+    method: POST
+    description: Do not force users to use 2FA when logging into your Console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: JSON structure with result indicator.
+  globally_enforce_2fa_enable:
+    name: Enable Globally Enforcing 2FA
+    url: /api/v1/settings/usermanagement/globally_enforce_2fa/enable
+    method: POST
+    description: Force users to use 2FA when logging into your Console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: JSON structure with result indicator.
   add_user:
     name: Add User
     url: /api/v1/user/add
@@ -240,6 +262,18 @@ endpoints:
 These are a collection of endpoints that allow you to deal with user management.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+
+## 2FA
+
+Currently we support TOTP and WebAuthn as Two-factor Authentication methods. Enforcing users to use one of these is a great way to ensure that extra bit of security for your users.
+
+### Disable Globally Enforcing 2FA
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable"/>
+
+### Enable Globally Enforcing 2FA
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable"/>
 
 ## Add User
 

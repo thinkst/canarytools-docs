@@ -110,6 +110,8 @@ module.exports = {
           '/console-settings/api',
           '/console-settings/canarytokens',
           '/console-settings/ignore-lists',
+          '/console-settings/notification-channels',
+          '/console-settings/notification-settings',
         ]
       },
       {
