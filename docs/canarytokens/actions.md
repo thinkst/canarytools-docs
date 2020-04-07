@@ -235,7 +235,7 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/create \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d memo=EXAMPLE_MEMO \
+  -d memo='Example Memo' \
   -d kind=EXAMPLE_KIND 
 ```
 
@@ -250,7 +250,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/create'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'memo': 'EXAMPLE_TOKEN_MEMO',
+  'memo': 'Example Memo',
   'kind': 'EXAMPLE_TOKEN_KIND'
 }
 
@@ -305,7 +305,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN
 ```
 
 :::
@@ -319,7 +319,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/delete'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
 }
 
 r = requests.post(url, data=payload)
@@ -353,7 +353,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN
 ```
 
 :::
@@ -367,7 +367,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/disable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
 }
 
 r = requests.post(url, data=payload)
@@ -401,7 +401,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/download \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN
   -G -L -O -J
 ```
 
@@ -416,17 +416,25 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/download'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
 }
 
 r = requests.get(url, allow_redirects=True, params=payload)
 filename = re.findall("filename=(.+)", r.headers["Content-Disposition"])[0]
-open(filename, 'wb').write(r.content)
+with open(filename, 'wb') as f:
+    f.write(r.content)
 ```
 
 :::
 
 ::::
+
+::: api-response
+```bash
+$ ls -l
+-rw-r--r--  1 user  thinkst  5095 Apr  7 12:29 <filename>
+```
+:::
 
 
 ## Enable Canarytoken
@@ -442,7 +450,7 @@ open(filename, 'wb').write(r.content)
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN
 ```
 
 :::
@@ -456,7 +464,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/enable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
 }
 
 r = requests.post(url, data=payload)
@@ -490,7 +498,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/fetch \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
   -G
 ```
 
@@ -505,7 +513,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/fetch'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
 }
 
 r = requests.get(url, params=payload)
@@ -531,7 +539,7 @@ print(r.json())
     "hostname": "<token_hostname>",
     "key": "<token_key>",
     "kind": "dns",
-    "memo": "Example DNS Token",
+    "memo": "Example Memo",
     "triggered_count": 0,
     "updated_id": 4,
     "url": "<token_url>"
@@ -558,8 +566,8 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/update \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARY_TOKEN \
-  -d memo=EXAMPLE_MEMO 
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
+  -d memo='Example Memo' 
 ```
 
 :::
@@ -573,8 +581,8 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/update'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'canarytoken': 'EXAMPLE_CANARY_TOKEN',
-  'memo': 'EXAMPLE_TOKEN_MEMO'
+  'canarytoken': 'EXAMPLE_CANARYTOKEN',
+  'memo': 'Example Memo'
 }
 
 r = requests.post(url, data=payload)
@@ -600,7 +608,7 @@ print(r.json())
     "hostname": "<token_hostname>",
     "key": "<token_key>",
     "kind": "dns",
-    "memo": "Updated Example Token Memo",
+    "memo": "Updated Example Memo",
     "triggered_count": 0,
     "updated_id": 4,
     "url": "<token_url>"

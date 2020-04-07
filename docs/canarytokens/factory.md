@@ -85,7 +85,7 @@ The Canarytoken factory gives you a limited use key that is able to create other
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory \
   -d factory_auth=EXAMPLE_FACTORY_AUTH_TOKEN \
-  -d memo=EXAMPLE_MEMO \
+  -d memo='Example Memo' \
   -d kind=EXAMPLE_KIND
 ```
 
@@ -100,7 +100,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/factory'
 
 payload = {
   'factory_auth': 'EXAMPLE_FACTORY_AUTH_TOKEN',
-  'memo': 'EXAMPLE_MEMO',
+  'memo': 'Example Memo',
   'kind': 'EXAMPLE_KIND'
 }
 
@@ -128,7 +128,7 @@ print(r.json())
     "hostname": "<token_hostname>",
     "key": "canarydrop:<key>",
     "kind": "aws-id",
-    "memo": "EXAMPLE_MEMO",
+    "memo": "Example Memo",
     "renders": {
       "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key>\n    aws_secret_access_key = <aws_secret_access_key>"
     },
@@ -156,7 +156,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/create_factory \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d memo=EXAMPLE_MEMO 
+  -d memo='Example Memo' 
 ```
 
 :::
@@ -170,7 +170,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/create_factory'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'memo': 'EXAMPLE_MEMO'
+  'memo': 'Example Memo'
 }
 
 r = requests.post(url, data=payload)

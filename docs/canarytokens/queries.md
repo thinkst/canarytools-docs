@@ -148,64 +148,13 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "http",
-      "memo": "Example Web Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "triggered_count": 0,
       "updated_id": 2,
       "url": "<token_url>"
     },
-    {
-      "canarytoken": "<token_code>",
-      "created": "1585947523.255526",
-      "created_printable": "2020-04-03 20:58:43 (UTC)",
-      "enabled": true,
-      "flock_id": "flock:default",
-      "hostname": "<token_hostname>",
-      "key": "<token_key>",
-      "kind": "dns",
-      "memo": "Example DNS Token",
-      "node_id": "<node_id>",
-      "triggered_count": 0,
-      "updated_id": 4,
-      "url": "<token_url>"
-    },
-    {
-      "canarytoken": "<token_code>",
-      "created": "1586172436.249071",
-      "created_printable": "2020-04-06 11:27:16 (UTC)",
-      "enabled": true,
-      "flock_id": "flock:default",
-      "hostname": "<token_hostname>",
-      "key": "<token_key>",
-      "kind": "pdf-acrobat-reader",
-      "memo": "Example PDF Token",
-      "node_id": "<node_id>",
-      "triggered_count": 0,
-      "updated_id": 9,
-      "url": "<token_url>"
-    },
-    {
-      "access_key_id": "<access_key_id>",
-      "canarytoken": "<token_code>",
-      "created": "1586246956.323499",
-      "created_printable": "2020-04-07 08:09:16 (UTC)",
-      "enabled": true,
-      "factory_auth": "<factory_auth_token>",
-      "flock_id": "flock:default",
-      "hostname": "<token_hostname>",
-      "key": "<token_key>",
-      "kind": "aws-id",
-      "memo": "Example AWS Token",
-      "node_id": "<node_id>",
-      "renders": {
-        "aws-id": "\n    [default]\n    aws_access_key_id = <access_key_id>\n    aws_secret_access_key = <aws_secret_access_key>"
-      },
-      "secret_access_key": "<aws_secret_access_key>",
-      "triggered_count": 4,
-      "updated_id": 14,
-      "url": "<token_url>",
-      "username": "<token_user_name>"
-    }
+    ...
   ]
 }
 ```
@@ -267,7 +216,7 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "aws-id",
-      "memo": "Example AWS Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "renders": {
         "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key_id>\n    aws_secret_access_key = <aws_secret_access_key>"
@@ -289,7 +238,7 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "aws-id",
-      "memo": "Example AWS Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "renders": {
         "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key_id>\n    aws_secret_access_key = <aws_secret_access_key>"
@@ -389,7 +338,7 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "aws-id",
-      "memo": "Example AWS Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "renders": {
         "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key>\n    aws_secret_access_key = <aws_secret_access_key>"
@@ -410,7 +359,7 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "dns",
-      "memo": "Example DNS Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "triggered_count": 0,
       "unacked_alert_count": 0,
@@ -427,7 +376,7 @@ print(r.json())
       "hostname": "<token_hostname>",
       "key": "<token_key>",
       "kind": "http",
-      "memo": "Example Web Token",
+      "memo": "Example Memo",
       "node_id": "<node_id>",
       "triggered_count": 0,
       "unacked_alert_count": 0,
