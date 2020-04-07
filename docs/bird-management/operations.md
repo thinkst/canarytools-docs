@@ -56,9 +56,9 @@ These are a collection of endpoints that allow you to manage your Bird remotely.
 
 ## Reboot Bird
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.reboot_device"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.reboot_device">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -103,6 +103,10 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>
 
 
 ## Update Bird

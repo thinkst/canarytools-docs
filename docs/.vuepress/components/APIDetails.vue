@@ -98,7 +98,11 @@ export default {
       if (this.$refs.content.style.maxHeight){
         this.$refs.content.style.maxHeight = null;
       } else {
-        this.$refs.content.style.maxHeight = this.$refs.content.scrollHeight + "px";
+        // We add an extra 500px here to cater for python examples being longer.
+        // Since it is `max-height` this wan't make a difference to the rendered layout,
+        // but if there is a cleaner way, feel free to replace this hastily put together
+        // hack.
+        this.$refs.content.style.maxHeight = this.$refs.content.scrollHeight + 500 + "px";
       }
     }
   }
@@ -121,7 +125,7 @@ export default {
 .content 
   max-height: 0
   overflow: hidden
-  transition: max-height 0.2s ease-out
+  transition: max-height 0.4s ease-out
 
 .collapsible:after 
   content: '\02795'

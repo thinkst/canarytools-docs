@@ -59,9 +59,9 @@ These are a collection of endpoints that allow you to configure Bird notes.
 
 ## Get Bird Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_note"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -108,11 +108,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Add Bird Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_add">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -159,11 +163,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Delete Bird Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_delete"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_note_delete">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -207,3 +215,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

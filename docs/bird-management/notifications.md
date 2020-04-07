@@ -100,9 +100,9 @@ These are a collection of endpoints that allow you to configure a Bird's notific
 
 ## Disable Bird Disconnect Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_disable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -183,11 +183,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Enable Bird Disconnect Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_disconnect_enable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -268,11 +272,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Disable Bird Incident Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_disable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -354,11 +362,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Enable Bird Incident Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_incidents_enable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -440,11 +452,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Disable Bird Reconnect Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_disable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -527,11 +543,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Enable Bird Reconnect Notifications 
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.notifications_reconnects_enable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -613,3 +633,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

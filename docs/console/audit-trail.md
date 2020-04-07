@@ -179,6 +179,7 @@ print(r.json())
 ```
 :::
 
+
 From the above response, we'll extract the `next` cursor, in this case `MDo2OTo1OjM6MjoxNQ==`.
 We'll use this to navigate to the next 5 audit entries as follows:
 
@@ -579,6 +580,7 @@ print(r.json())
 }
 ```
 :::
+
 
 We can see from the response that 72 logs were purged. Below, we confirm this by querying the Audit Logs again.
 

@@ -98,9 +98,9 @@ These are a collection of endpoints that allow you to query and retrieve Birds t
 
 ## All Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.all_devices"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.all_devices">
 
-#### Example 
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -179,11 +179,15 @@ r.json()
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Live Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.live_devices"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.live_devices">
 
-#### Example 
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -268,11 +272,15 @@ r.json()
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Dead Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.dead_devices"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.dead_devices">
 
-#### Example 
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -356,11 +364,15 @@ r.json()
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Filter Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.all_devices"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.all_devices">
 
-#### Example 
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -441,12 +453,16 @@ r.json()
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 
 ## Bird Info
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_info"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_info">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -712,3 +728,7 @@ curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

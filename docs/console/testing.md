@@ -46,9 +46,9 @@ These are a collection of endpoints that allow you to test connectivity with you
 
 ## Ping
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ping"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ping">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -92,6 +92,10 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>
 
 ## Send Fake Syslog Alerts
 

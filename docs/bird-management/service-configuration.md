@@ -174,8 +174,6 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
 
 </APIDetails>
 
-#### Example 
-
 ## Configure Bird with Personality
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.configure_device_with_personality">
@@ -188,47 +186,50 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
 
   :::
 
+  ::::: slot example
+
+  A simple example of pushing the `osx-fileshare` personality to a Bird:
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  DOMAIN=my_domain
+  AUTH_TOKEN=test_auth_token
+  NODE_ID=node_id
+
+  curl "https://${DOMAIN}.canary.tools/api/v1/device/configure_personality?auth_token=${AUTH_TOKEN}" -d 'node_id=${NODE_ID}' -d 'personality=osx-fileshare'
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  DOMAIN = 'my_domain'
+  AUTH_TOKEN = 'test_auth_token'
+
+
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "bundle_tag": "23370c",
+    "msg": "All properties are expected.",
+    "result": "success"
+  }
+  ```
+  :::
+
+  :::::
+
 </APIDetails>
 
-#### Example
-
-A simple example of pushing the `osx-fileshare` personality to a Bird:
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-NODE_ID=node_id
-
-curl "https://${DOMAIN}.canary.tools/api/v1/device/configure_personality?auth_token=${AUTH_TOKEN}" -d 'node_id=${NODE_ID}' -d 'personality=osx-fileshare'
-
-:::
-
-::: tab "Python"
-``` python
-import requests
-
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
-
-
-```
-:::
-
-::::
-
-::: api-response
-
-```json
-{
-  "bundle_tag": "23370c",
-  "msg": "All properties are expected.",
-  "result": "success"
-}
-```
-:::
 
 ## Settings Object
 

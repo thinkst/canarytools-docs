@@ -24,9 +24,9 @@ These are a collection of endpoints that allow you to obtain information about f
 If you notice some features that aren't enabled but may interest you, contact support and we'll gladly explain and enable them for you.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.features"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.features">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -107,3 +107,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>
