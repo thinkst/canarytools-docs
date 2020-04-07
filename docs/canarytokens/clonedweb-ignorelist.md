@@ -94,9 +94,9 @@ This is useful if you see that your Cloned Web token is generating alerts that y
 
 ## Disable Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -142,11 +142,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Enable Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.enable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -192,11 +196,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Fetch Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -247,6 +255,10 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Save Ignore List
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.save">
@@ -259,9 +271,7 @@ Sending through a save without `ignores`, will assume you want to blank previous
 
 :::
 
-</APIDetails>
-
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -308,3 +318,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

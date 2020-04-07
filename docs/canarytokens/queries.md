@@ -96,9 +96,9 @@ This will return all your Canarytokens in a single list. This may cause issues i
 minted on your Console. A cleaner option is to use [Search Canarytokens](#search-canarytokens) or [Paginate Canarytokens](#paginate-canarytokens) as they will paginate the results and allow you to cycle through them.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -160,11 +160,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Paginate Canarytokens
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.paginate"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.paginate">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -282,11 +286,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Search Canarytokens
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.search"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.search">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -397,3 +405,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

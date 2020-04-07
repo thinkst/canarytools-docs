@@ -223,9 +223,9 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 ## Create Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.create"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.create">
 
-#### Example
+::::: slot example
 
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -287,15 +287,19 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Delete Apeeper Canarytoken Factory
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.delete_apeeper"/>
 
 ## Delete Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete">
 
-#### Example
+::::: slot example
 
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -340,11 +344,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Disable Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -388,11 +396,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Download Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.download"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.download">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -436,12 +448,15 @@ $ ls -l
 ```
 :::
 
+:::::
+
+</APIDetails>
 
 ## Enable Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.enable">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -485,11 +500,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Fetch Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
 
-#### Example
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -548,15 +567,19 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Remove AWS S3 Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.remove_s3"/>
 
 ## Update Canarytoken Memo
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.update"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.update">
 
-#### Example
+::::: slot example
 
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -616,3 +639,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>

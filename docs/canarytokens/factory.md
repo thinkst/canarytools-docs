@@ -74,9 +74,9 @@ The Canarytoken factory gives you a limited use key that is able to create other
 
 ## Create Canarytokens Using Factory
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.factory"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.factory">
 
-#### Example
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -143,11 +143,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Create Canarytoken Factory Auth String
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.create_factory"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.create_factory">
 
-#### Example
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -193,11 +197,15 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
+
 ## Delete Canarytoken Factory Auth String
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete_factory"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete_factory">
 
-#### Example
+::::: slot example 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -241,3 +249,7 @@ print(r.json())
 }
 ```
 :::
+
+:::::
+
+</APIDetails>
