@@ -96,13 +96,156 @@ This is useful if you see that your Cloned Web token is generating alerts that y
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.disable"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=flock:default \
+  -d canarytoken=EXAMPLE_CANARY_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'flock:default',
+  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 ## Enable Ignore List
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.enable"/>
 
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=flock:default \
+  -d canarytoken=EXAMPLE_CANARY_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'flock:default',
+  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
 ## Fetch Ignore List
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch"/>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/fetch \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=flock:default \
+  -d canarytoken=EXAMPLE_CANARY_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/fetch'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'flock:default',
+  'canarytoken': 'EXAMPLE_CANARY_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "ignore_lists": {
+    "enabled": "true",
+    "ignores": "^https?://web.archive.org,^https?://[a-z]{2}.hideproxy.me/"
+  },
+  "result": "success"
+}
+```
+:::
 
 ## Save Ignore List
 
@@ -117,3 +260,51 @@ Sending through a save without `ignores`, will assume you want to blank previous
 :::
 
 </APIDetails>
+
+#### Example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=flock:default \
+  -d canarytoken=EXAMPLE_CANARY_TOKEN \
+  -d ignores='^https?://web.archive.org','^https?://[a-z]{2}.hideproxy.me/'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/clonedsite/ignorelist/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'flock:default',
+  'canarytoken': 'EXAMPLE_CANARY_TOKEN',
+  'ignores':'^https?://web.archive.org,^https?://[a-z]{2}.hideproxy.me/'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
