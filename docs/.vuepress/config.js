@@ -115,6 +115,16 @@ module.exports = {
         ]
       },
       {
+        title: 'Flocks',
+        collapsable: false,
+        sidebarDepth: 3,
+        children: [
+          '/flocks/actions',
+          '/flocks/notes',
+          '/flocks/queries',
+        ]
+      },
+      {
         title: 'Incidents',
         collapsable: false,
         sidebarDepth: 3,

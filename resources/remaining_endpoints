@@ -1,12 +1,3 @@
-/flock/create
-/flock/delete
-/flock/list
-/flock/move
-/flock/note
-/flock/note/add
-/flock/note/delete
-/flock/rename
-/flock/settings
 /flock/settings/change_control/device_settings/disable
 /flock/settings/change_control/device_settings/enable
 /flock/settings/change_control/device_settings/is_enabled
@@ -98,14 +89,6 @@
 /flock/settings/whitelisting/ip/string
 /flock/settings/whitelisting/ip/use_global
 /flock/settings/whitelisting/ip/whitelist_ip_port
-/flock/summary
-/flock/users
-/flocks/filter
-/flocks/info
-/flocks/list
-/flocks/summary
-/users/flock/assign/managers
-/users/flock/assign/watchers
 
 /schema/fetch
 
