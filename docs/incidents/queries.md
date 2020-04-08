@@ -232,6 +232,7 @@ These are a collection of endpoints that allow you to query incidents.
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -248,6 +249,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'shrink':'true',
   'limit':'1'
 }
 
@@ -265,56 +267,11 @@ print(r.json())
 ```json
 {
   "cursor": {
-    "next": "MTM3OjEzNjoxMzg6MToxOjA6Mjoz",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged?cursor=MTM3OjEzNjoxMzg6MToxOjA6Mjoz&auth_token=<auth_token>",
+    "next": "MTQzOjE0MjoxNDQ6MToxOjA6Mjoz",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged?cursor=MTQzOjE0MjoxNDQ6MToxOjA6Mjoz&auth_token=<auth_token>&shrink=true",
     "prev": null,
     "prev_link": null
   },
-  "devices": [
-    {
-      "description": {
-        "acknowledged": "True",
-        "created": "1586338742",
-        "created_std": "2020-04-08 09:39:02 UTC+0000",
-        "description": "HTTP Login Attempt",
-        "dst_host": "<destination_ip>",
-        "dst_port": "80",
-        "events": [
-          {
-            "HOSTNAME": "<hostname>",
-            "METHOD": "POST",
-            "PASSWORD": "<password>",
-            "PATH": "/index.html",
-            "RESPONSE": 200,
-            "SKIN": "nasLogin",
-            "USERAGENT": "<user_agent>",
-            "USERNAME": "<username>",
-            "timestamp": 1586338742,
-            "timestamp_std": "2020-04-08 09:39:02 UTC+0000"
-          }
-        ],
-        "events_count": "1",
-        "ip_address": "",
-        "ippers": "",
-        "local_time": "2020-04-08 09:39:01",
-        "logtype": "3001",
-        "mac_address": "",
-        "name": "ExampleBird",
-        "node_id": "<node_id>",
-        "notified": "False",
-        "src_host": "<source_ip>",
-        "src_host_reverse": "<source_hostname>",
-        "src_port": "60961"
-      },
-      "hash_id": "<hash_id>",
-      "id": "<incident_key>",
-      "summary": "HTTP Login Attempt",
-      "updated": "Wed, 08 Apr 2020 10:25:36 GMT",
-      "updated_id": 136,
-      "updated_std": "2020-04-08 10:25:36 UTC+0000",
-      "updated_time": "1586341536"
-    }
-  ],
   "feed": "Acknowledged Incidents",
   "incidents": [
     {
@@ -355,17 +312,17 @@ print(r.json())
       "hash_id": "<hash_id>",
       "id": "<incident_key>",
       "summary": "HTTP Login Attempt",
-      "updated": "Wed, 08 Apr 2020 10:25:36 GMT",
-      "updated_id": 136,
-      "updated_std": "2020-04-08 10:25:36 UTC+0000",
-      "updated_time": "1586341536"
+      "updated": "Wed, 08 Apr 2020 10:55:09 GMT",
+      "updated_id": 142,
+      "updated_std": "2020-04-08 10:55:09 UTC+0000",
+      "updated_time": "1586343309"
     }
   ],
-  "max_updated_id": 136,
+  "max_updated_id": 142,
   "result": "success",
-  "updated": "Wed, 08 Apr 2020 10:25:36 GMT",
-  "updated_std": "2020-04-08 10:25:36 UTC+0000",
-  "updated_timestamp": 1586341536
+  "updated": "Wed, 08 Apr 2020 10:55:09 GMT",
+  "updated_std": "2020-04-08 10:55:09 UTC+0000",
+  "updated_timestamp": 1586343309
 }
 ```
 :::
@@ -387,6 +344,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/all \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -403,6 +361,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/all'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'shrink':'true',
   'limit':'1'
 }
 
@@ -420,56 +379,11 @@ print(r.json())
 ```json
 {
   "cursor": {
-    "next": "MTE6MTA6NDA6MToyOjA6MjoxMQ==",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/all?cursor=MTE6MTA6NDA6MToyOjA6MjoxMQ%3D%3D&auth_token=<auth_token>",
+    "next": "MTE6MTA6MTQ0OjE6MjowOjI6NQ==",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/all?cursor=MTE6MTA6MTQ0OjE6MjowOjI6NQ%3D%3D&auth_token=<auth_token>&shrink=true",
     "prev": null,
     "prev_link": null
   },
-  "devices": [
-    {
-      "description": {
-        "acknowledged": "False",
-        "created": "1586249623",
-        "created_std": "2020-04-07 08:53:43 UTC+0000",
-        "description": "Canarytoken triggered",
-        "dst_host": "<destination_ip>",
-        "dst_port": "80",
-        "events": [
-          {
-            "canarytoken": "<token_code>",
-            "dst_port": 80,
-            "event_name": "",
-            "headers": {
-              "Accept": "*/*",
-              "Accept-Encoding": "gzip, deflate",
-              "Connection": "close",
-              "User-Agent": ""
-            },
-            "src_host": "",
-            "timestamp": 1586249623,
-            "timestamp_std": "2020-04-07 08:53:43 UTC+0000",
-            "type": "aws-id"
-          }
-        ],
-        "events_count": "1",
-        "local_time": "2020-04-07 08:53:43 (UTC)",
-        "logtype": "17012",
-        "memo": "Example Memo",
-        "name": "N/A",
-        "node_id": "<node_id>",
-        "notified": "False",
-        "src_host": "",
-        "src_port": "0"
-      },
-      "hash_id": "<hash_id>",
-      "id": "<incident_id>",
-      "summary": "Canarytoken triggered",
-      "updated": "Tue, 07 Apr 2020 08:53:43 GMT",
-      "updated_id": 10,
-      "updated_std": "2020-04-07 08:53:43 UTC+0000",
-      "updated_time": "1586249623"
-    }
-  ],
   "feed": "All Incidents",
   "incidents": [
     {
@@ -508,7 +422,7 @@ print(r.json())
         "src_port": "0"
       },
       "hash_id": "<hash_id>",
-      "id": "<incident_id>",
+      "id": "<incident_key>",
       "summary": "Canarytoken triggered",
       "updated": "Tue, 07 Apr 2020 08:53:43 GMT",
       "updated_id": 10,
@@ -765,6 +679,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -781,6 +696,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'shrink':'true',
   'limit':'1'
 }
 
@@ -798,99 +714,62 @@ print(r.json())
 ```json
 {
   "cursor": {
-    "next": "MTc6MTY6Mzk6MTowOjA6Mjo4",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged?cursor=MTc6MTY6Mzk6MTowOjA6Mjo4&auth_token=<auth_token>",
+    "next": "MTE6MTA6MTE6MTowOjA6Mjoy",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged?cursor=MTE6MTA6MTE6MTowOjA6Mjoy&auth_token=<auth_token>&shrink=true",
     "prev": null,
     "prev_link": null
   },
-  "devices": [
-    {
-      "description": {
-        "acknowledged": "False",
-        "created": "1586260854",
-        "created_std": "2020-04-07 12:00:54 UTC+0000",
-        "description": "Telnet Login Attempt",
-        "dst_host": "<destination_ip>",
-        "dst_port": "23",
-        "events": [
-          {
-            "PASSWORD": "<password>",
-            "TERMSIZE": "91x44",
-            "TERMTYPE": "XTERM-256COLOR",
-            "USERNAME": "<username>",
-            "timestamp": 1586260854,
-            "timestamp_std": "2020-04-07 12:00:54 UTC+0000"
-          }
-        ],
-        "events_count": "1",
-        "ip_address": "",
-        "ippers": "",
-        "local_time": "2020-04-07 12:00:53",
-        "logtype": "6001",
-        "mac_address": "",
-        "name": "ExampleBird",
-        "node_id": "<node_id>",
-        "notified": "False",
-        "src_host": "<source_ip>",
-        "src_host_reverse": "<source_hostname>",
-        "src_port": "54968"
-      },
-      "hash_id": "<hash_id>",
-      "id": "<incident_id>",
-      "summary": "Telnet Login Attempt",
-      "updated": "Tue, 07 Apr 2020 12:01:48 GMT",
-      "updated_id": 16,
-      "updated_std": "2020-04-07 12:01:48 UTC+0000",
-      "updated_time": "1586260908"
-    }
-  ],
   "feed": "Unacknowledged Incidents",
   "incidents": [
     {
       "description": {
         "acknowledged": "False",
-        "created": "1586260854",
-        "created_std": "2020-04-07 12:00:54 UTC+0000",
-        "description": "Telnet Login Attempt",
+        "created": "1586249623",
+        "created_std": "2020-04-07 08:53:43 UTC+0000",
+        "description": "Canarytoken triggered",
         "dst_host": "<destination_ip>",
-        "dst_port": "23",
+        "dst_port": "80",
         "events": [
           {
-            "PASSWORD": "<password>",
-            "TERMSIZE": "91x44",
-            "TERMTYPE": "XTERM-256COLOR",
-            "USERNAME": "<username>",
-            "timestamp": 1586260854,
-            "timestamp_std": "2020-04-07 12:00:54 UTC+0000"
+            "canarytoken": "<token_code>",
+            "dst_port": 80,
+            "event_name": "",
+            "headers": {
+              "Accept": "*/*",
+              "Accept-Encoding": "gzip, deflate",
+              "Connection": "close",
+              "User-Agent": ""
+            },
+            "src_host": "",
+            "timestamp": 1586249623,
+            "timestamp_std": "2020-04-07 08:53:43 UTC+0000",
+            "type": "aws-id"
           }
         ],
         "events_count": "1",
-        "ip_address": "",
-        "ippers": "",
-        "local_time": "2020-04-07 12:00:53",
-        "logtype": "6001",
-        "mac_address": "",
-        "name": "ExampleBird",
+        "local_time": "2020-04-07 08:53:43 (UTC)",
+        "logtype": "17012",
+        "memo": "Example Memo",
+        "name": "N/A",
         "node_id": "<node_id>",
         "notified": "False",
-        "src_host": "<source_ip>",
-        "src_host_reverse": "<source_hostname>",
-        "src_port": "54968"
+        "src_host": "",
+        "src_port": "0"
       },
       "hash_id": "<hash_id>",
-      "id": "<incident_id>",
-      "summary": "Telnet Login Attempt",
-      "updated": "Tue, 07 Apr 2020 12:01:48 GMT",
-      "updated_id": 16,
-      "updated_std": "2020-04-07 12:01:48 UTC+0000",
-      "updated_time": "1586260908"
+      "id": "<incident_key>",
+      "summary": "Canarytoken triggered",
+      "updated": "Tue, 07 Apr 2020 08:53:43 GMT",
+      "updated_id": 10,
+      "updated_std": "2020-04-07 08:53:43 UTC+0000",
+      "updated_time": "1586249623"
     }
   ],
-  "max_updated_id": 16,
+  "max_updated_id": 10,
   "result": "success",
-  "updated": "Tue, 07 Apr 2020 12:01:48 GMT",
-  "updated_std": "2020-04-07 12:01:48 UTC+0000",
-  "updated_timestamp": 1586260908
+  "updated": "Tue, 07 Apr 2020 08:53:43 GMT",
+  "updated_std": "2020-04-07 08:53:43 UTC+0000",
+  "updated_timestamp": 1586249623
 }
 ```
 :::
