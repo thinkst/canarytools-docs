@@ -49,7 +49,7 @@ A user can be a Manager for multiple Flocks. They can also be a Watcher for some
 
 ## Sensors
 
-<sub>Also known by: [Sensors](#sensors)</sub>
+<sub>Also known by: [Birds](#sensors), [Devices](#devices), [Canarytokens](#canarytokens)</sub>
 
 Sensors is the general term used to indicate either Birds and/or Canarytokens.  They can be seen as anything that is placed around your network and will trigger an alert when accessed.
 
