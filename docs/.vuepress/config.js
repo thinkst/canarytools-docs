@@ -59,6 +59,7 @@ module.exports = {
         children: [
           '/',
           '/guide/getting-started',
+          '/guide/terminology',
         ]
       },
       {
