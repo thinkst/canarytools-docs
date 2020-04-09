@@ -141,4 +141,14 @@ button:focus
 .active:after 
   content: '\2796'
 
+
+.theme-dark
+  .collapsible
+    box-shadow: none;
+    border-style: solid;
+    border-width: 1px;
+    background-color: $nightBgcolor
+    &:hover
+      color: lighten($nightFontcolor, 5%)
+
 </style>

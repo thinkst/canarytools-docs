@@ -11,6 +11,13 @@ main
         border-width: 1px
         border-color: $borderColor
 
+* 
+  transition: background-color 0.5s ease
+
+.site-name 
+    background-color: inherit !important
+    
+
 .endpoints
     border: none
     box-shadow:  $boxShadow
@@ -185,3 +192,13 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
         & tr:first-child th:first-child 
         & tr:first-child th:last-child 
             border-radius: 0
+
+@require './dark'
+
+.theme-dark
+    bgcolor()
+    fontcolor()
+    bordercolor()
+
+html.theme-dark
+    bgcolor() 

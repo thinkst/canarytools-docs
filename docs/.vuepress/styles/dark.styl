@@ -1,0 +1,112 @@
+bgcolor()
+  background-color $nightBgcolor
+
+fontcolor()
+  color $nightFontcolor
+
+bordercolor()
+  border-color $nightBordercolor
+
+
+.theme-dark
+  blockquote
+    border-color #666
+
+  {$contentClass}
+    code
+      color #999
+      background-color #333
+
+.theme-dark
+  .navbar
+    bgcolor()
+    border-bottom 1px solid $nightBordercolor
+
+    .site-name, .links
+      bgcolor()
+      fontcolor()
+
+    .nav-links a
+      fontcolor()
+
+    @media (min-width: $MQMobile)
+      &:hover, &.router-link-active
+        borderColor()
+
+  @media (min-width: $MQMobile)
+    .dropdown-wrapper .nav-dropdown
+      bgcolor()
+      border 1px solid $nightBordercolor !important
+
+  .dropdown-wrapper .dropdown-title .title
+    fontcolor()
+
+  .search-box
+    input
+      fontcolor()
+      background-color $nightBgcolor !important
+
+      @media (min-width: $MQNarrow)
+        bordercolor()
+        background-color lighten($nightBgcolor, 10%) !important
+
+      &:focus
+        background-color lighten($nightBgcolor, 10%) !important
+        border-color $accentColor
+
+    .suggestions
+      background-color #000
+
+    .suggestion.focused
+      background-color #0c0b0a
+
+.theme-dark
+  .sidebar
+    bgcolor()
+    bordercolor()
+
+    .nav-links a
+      fontcolor()
+
+  .sidebar-heading
+    color $nightFontcolor
+
+  a.sidebar-link
+    fontcolor()
+
+.theme-dark
+  .custom-block
+    &.tip, &.warning, &.danger, &.details
+      background-color lighten($nightBgcolor, 15%)
+
+      a
+        color $accentColor
+
+    &.warning
+      color darken(#ffe564, 50%)
+
+      .custom-block-title
+        color darken(#ffe564, 40%)
+
+    &.danger
+      color darken(red, 30%)
+
+      .custom-block-title
+        color darken(red, 20%)
+
+    &.details
+      fontcolor()
+
+.theme-dark
+  .sw-update-popup
+    background-color $nightBgcolor !important
+    color $nightFontcolor !important
+    box-shadow none
+    border 1px solid
+    bordercolor()
+
+.theme-dark
+  .bsa-cpc
+    background-color #070707
+    a._default_
+      color #999
