@@ -57,14 +57,162 @@ These are a collection of endpoints that allow you to configure Flock notes.
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
 
-## Get FLock Note
+## Get Flock Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note">
 
-## Add FLock Note
+::::: slot example
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note_add"/>
+:::: tabs :options="{ useUrlFragment: false }"
 
-## Delete FLock Note
+::: tab "cURL"
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note_delete"/>
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/note \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/note'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id':'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "note": "Example Flock Note",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Add Flock Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/note/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d note='EXAMPLE_FLOCK_NOTE'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/note/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id':'EXAMPLE_FLOCK_ID',
+  'note': 'EXAMPLE_FLOCK_NOTE'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Delete Flock Note
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_note_delete">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/flock/note/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/note/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id':'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
