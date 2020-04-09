@@ -82,7 +82,7 @@ endpoints:
     response: A JSON structure with result indicator.
 ---
 
-# Cloned Web Ignore list
+# Cloned Web Ignore List
 
 We have added the ability to add your own regex or website to be ignored when alerting for Cloned web Canarytokens.
 

@@ -116,13 +116,24 @@ module.exports = {
         ]
       },
       {
-        title: 'Flocks',
+        title: 'Flock Management',
         collapsable: false,
         sidebarDepth: 3,
         children: [
           '/flocks/actions',
           '/flocks/notes',
           '/flocks/queries',
+        ]
+      },
+      {
+        title: 'Flock Settings',
+        collapsable: false,
+        sidebarDepth: 3,
+        children: [
+          '/flocks-settings/flock-settings',
+          '/flocks-settings/ignore-lists',
+          '/flocks-settings/notification-channels',
+          '/flocks-settings/notification-settings',
         ]
       },
       {

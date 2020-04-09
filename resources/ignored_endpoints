@@ -86,3 +86,13 @@
 
 # currently requires a multi-step process and slack auth
 /settings/slack/initiate
+
+# we've moved summary email opt-ins to the profile page
+/flock/settings/notifications/summary_email
+/flock/settings/notifications/summary_email/add
+/flock/settings/notifications/summary_email/disable
+/flock/settings/notifications/summary_email/enable
+/flock/settings/notifications/summary_email/is_enabled
+/flock/settings/notifications/summary_email/is_global
+/flock/settings/notifications/summary_email/save
+/flock/settings/notifications/summary_email/use_global
