@@ -145,6 +145,55 @@ The supplied list will overwrite the existing Managers list, meaning it'll remov
 
 :::::
 
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/users/flock/assign/managers \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL' 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/users/flock/assign/managers'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'emails': 'EXAMPLE_EMAIL,EXAMPLE_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
 </APIDetails>
 
 ## Assign Flock Watchers
@@ -164,6 +213,55 @@ The supplied list will overwrite the existing Watchers list, meaning it'll remov
 
 :::::
 
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/users/flock/assign/watchers \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL' 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/users/flock/assign/watchers'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'emails': 'EXAMPLE_EMAIL,EXAMPLE_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
 </APIDetails>
 
 ## Create Flock
@@ -172,9 +270,57 @@ The supplied list will overwrite the existing Watchers list, meaning it'll remov
 
 ::::: slot description
 
-A [FLock](/guide/terminology.html#flocks) allows you to group [Sensors](/guide/terminology.html#sensors) and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.
+A [Flock](/guide/terminology.html#flocks) allows you to group [Sensors](/guide/terminology.html#sensors) and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.
 
 Flocks are defined by a unique `flock_id` which is returned in the response when calling this endpoint.
+
+:::::
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/create \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d name='EXAMPLE_FLOCK_NAME' 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/create'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'name': 'EXAMPLE_FLOCK_NAME'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "flock_id": "<flock_id>",
+  "result": "success"
+}
+```
+:::
 
 :::::
 
@@ -192,6 +338,53 @@ Deleting a Flock will remove it from your Console. You can only delete an empty 
 You cannot delete the [Default Flock](/guide/terminology.html#default-flock), but you can [Rename](#rename-flock) it if you want to.
 :::::
 
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
 
 </APIDetails>
 
@@ -201,7 +394,57 @@ You cannot delete the [Default Flock](/guide/terminology.html#default-flock), bu
 
 ::::: slot description
 
-Move a specified [Sensor](/guide/terminology.html#sensors) to a Flock. You can optionally delete all incidents before moving the Sensor by specifying `clear_incidents=true` (this would usually be recommended to ensure sensitive information doesn't get spilled across Flocks).
+Move a specified [Sensor](/guide/terminology.html#sensors) to a Flock. You'll need to delete all incidents before moving a [Sensor](/guide/terminology.html#sensors) between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify `clear_incidents=true` to clear all of those incidents.
+
+:::::
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/move \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d dest_flock_id=EXAMPLE_DESTINATION_FLOCK_ID \
+  -d node_id=EXAMPLE_NODE_ID
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/move'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'dest_flock_id': 'EXAMPLE_DESTINATION_FLOCK_ID',
+  'node_id': 'EXAMPLE_NODE_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "flock_id": "<flock_id>",
+  "result": "success"
+}
+```
+:::
 
 :::::
 
@@ -210,4 +453,55 @@ Move a specified [Sensor](/guide/terminology.html#sensors) to a Flock. You can o
 ## Rename Flock
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.rename">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/rename \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d name='EXAMPLE_NAME'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/rename'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'name': 'EXAMPLE_NAME'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "flock_id": "<flock_id>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
 </APIDetails>
