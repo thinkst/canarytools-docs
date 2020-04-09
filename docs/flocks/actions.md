@@ -394,7 +394,7 @@ print(r.json())
 
 ::::: slot description
 
-You'll need to delete all incidents before moving a [Sensor](/guide/terminology.html#sensors) between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify `clear_incidents=true` to clear all of those incidents.
+Move a specified [Sensor](/guide/terminology.html#sensors) to a Flock. You'll need to delete all incidents before moving a [Sensor](/guide/terminology.html#sensors) between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify `clear_incidents=true` to clear all of those incidents.
 
 :::::
 

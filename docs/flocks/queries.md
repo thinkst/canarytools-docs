@@ -510,7 +510,7 @@ print(r.json())
 {
   "flocks": {
     "<flock_id>": "Example Flock Name",
-    "<flock_id>": "Example Flock Name"
+    "<flock_id>": "Another Example Flock Name"
   },
   "result": "success"
 }
