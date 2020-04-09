@@ -175,6 +175,8 @@ endpoints:
 
 Unexpected changes to Bird or Flock settings can be a sign that someone is playing around where they shouldn't be. We allow for you to enable alerting in these cases, letting you know as soon as someone makes a change.
 
+Viewing a Flock's current change alert settings can be achieved by calling the [View Flock Change Control Settings](#view-flock-change-control-settings) endpoint.
+
 ### Disable Flock Settings Change Alerts
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_settings_change_disable"/>
