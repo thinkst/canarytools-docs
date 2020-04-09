@@ -111,16 +111,20 @@ export default {
 
 <style lang="stylus" scoped>
 
+button:focus 
+  outline:0
+
 .collapsible
   cursor: pointer
   display: inline-block
-  padding: 10px
+  padding: 5px
   border-radius: 6px
   color: $textColor
   border: none
   box-shadow:  $boxShadow
-  font-size: 16px
-  width 150px
+  font-size: 12px
+  width 100px
+
 
 .content 
   max-height: 0
@@ -129,12 +133,12 @@ export default {
 
 .collapsible:after 
   content: '\02795'
-  font-size: 13px
+  font-size: 9px
   color: #ccc
   float: right
   margin-left: 5px
 
 .active:after 
   content: '\2796'
-  
+
 </style>
