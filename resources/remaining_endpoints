@@ -15,27 +15,6 @@
 /flock/settings/notifications/sms/save
 /flock/settings/notifications/sms/use_global
 
-/flock/settings/webhooks/disable
-/flock/settings/webhooks/enable
-/flock/settings/webhooks/generic
-/flock/settings/webhooks/generic/add
-/flock/settings/webhooks/generic/remove
-/flock/settings/webhooks/generic/test
-/flock/settings/webhooks/hipchat
-/flock/settings/webhooks/hipchat/add
-/flock/settings/webhooks/hipchat/remove
-/flock/settings/webhooks/is_enabled
-/flock/settings/webhooks/is_global
-/flock/settings/webhooks/ms_teams
-/flock/settings/webhooks/ms_teams/add
-/flock/settings/webhooks/ms_teams/remove
-/flock/settings/webhooks/ms_teams/test
-/flock/settings/webhooks/slack
-/flock/settings/webhooks/slack/add
-/flock/settings/webhooks/slack/initiate
-/flock/settings/webhooks/slack/remove
-/flock/settings/webhooks/slack/test
-/flock/settings/webhooks/use_global
 
 /schema/fetch
 

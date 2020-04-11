@@ -132,11 +132,12 @@ module.exports = {
         children: [
           '/flocks-settings/overview',
           '/flocks-settings/info',
-          '/flocks-settings/notification-settings',
+          '/flocks-settings/notification-channels',
           '/flocks-settings/change-alerts',
           '/flocks-settings/default-ignore-list',
           '/flocks-settings/hostname-ignore-list',
           '/flocks-settings/source-port-ignore-list',
+          '/flocks-settings/webhooks',
         ]
       },
       {
