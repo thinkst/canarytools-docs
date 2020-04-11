@@ -205,7 +205,7 @@ There are times when you see alerts that are generated from known, expected sour
 
 ## Default Ignore Lists
 
-You can add IP addresses and optional ports to this list to ignore traffic that originates from the specified IP + port combination.
+You can add IP addresses and optional destination ports to this list to ignore traffic that originates from the specified IP. If a ports are specified, we'll only ignore the traffic from the specified IP to the destination port.
 
 ### Ignore IP and Port
 

@@ -17,3 +17,4 @@ This gives you the ability to configure settings on a Console-wide level, as wel
 Visually, on the Flocks UI, it'll look similar to:
 
 ![Flock Enabled State](../images/flocks-enabled-state.png)
+

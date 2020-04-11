@@ -6,7 +6,6 @@
 /flock/settings/notifications/email/is_global
 /flock/settings/notifications/email/save
 /flock/settings/notifications/email/use_global
-/flock/settings/notifications/info
 /flock/settings/notifications/sms
 /flock/settings/notifications/sms/add
 /flock/settings/notifications/sms/disable
@@ -15,6 +14,7 @@
 /flock/settings/notifications/sms/is_global
 /flock/settings/notifications/sms/save
 /flock/settings/notifications/sms/use_global
+
 /flock/settings/webhooks/disable
 /flock/settings/webhooks/enable
 /flock/settings/webhooks/generic
@@ -24,7 +24,6 @@
 /flock/settings/webhooks/hipchat
 /flock/settings/webhooks/hipchat/add
 /flock/settings/webhooks/hipchat/remove
-/flock/settings/webhooks/info
 /flock/settings/webhooks/is_enabled
 /flock/settings/webhooks/is_global
 /flock/settings/webhooks/ms_teams
@@ -37,19 +36,6 @@
 /flock/settings/webhooks/slack/remove
 /flock/settings/webhooks/slack/test
 /flock/settings/webhooks/use_global
-/flock/settings/whitelisting/info
-/flock/settings/whitelisting/ip/disable
-/flock/settings/whitelisting/ip/enable
-/flock/settings/whitelisting/ip/inherit_global/disable
-/flock/settings/whitelisting/ip/inherit_global/enable
-/flock/settings/whitelisting/ip/is_enabled
-/flock/settings/whitelisting/ip/is_global
-/flock/settings/whitelisting/ip/is_ip_whitelisted
-/flock/settings/whitelisting/ip/sanitized
-/flock/settings/whitelisting/ip/save
-/flock/settings/whitelisting/ip/string
-/flock/settings/whitelisting/ip/use_global
-/flock/settings/whitelisting/ip/whitelist_ip_port
 
 /schema/fetch
 

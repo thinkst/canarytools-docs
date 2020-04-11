@@ -131,8 +131,11 @@ module.exports = {
         sidebarDepth: 3,
         children: [
           '/flocks-settings/overview',
-          '/flocks-settings/hostname-ignore-list',
+          '/flocks-settings/info',
           '/flocks-settings/notification-settings',
+          '/flocks-settings/change-alerts',
+          '/flocks-settings/default-ignore-list',
+          '/flocks-settings/hostname-ignore-list',
           '/flocks-settings/source-port-ignore-list',
         ]
       },
