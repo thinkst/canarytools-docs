@@ -1,4 +1,4 @@
-# Flock Settings Info
+# Overview
  
 A Flock's settings can be in one of three states:
 

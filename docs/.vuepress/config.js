@@ -130,9 +130,10 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 3,
         children: [
-          '/flocks-settings/flock-settings',
-          '/flocks-settings/ignore-lists',
+          '/flocks-settings/overview',
+          '/flocks-settings/hostname-ignore-list',
           '/flocks-settings/notification-settings',
+          '/flocks-settings/source-port-ignore-list',
         ]
       },
       {
