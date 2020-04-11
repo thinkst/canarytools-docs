@@ -1,20 +1,3 @@
-/flock/settings/notifications/email
-/flock/settings/notifications/email/add
-/flock/settings/notifications/email/disable
-/flock/settings/notifications/email/enable
-/flock/settings/notifications/email/is_enabled
-/flock/settings/notifications/email/is_global
-/flock/settings/notifications/email/save
-/flock/settings/notifications/email/use_global
-/flock/settings/notifications/sms
-/flock/settings/notifications/sms/add
-/flock/settings/notifications/sms/disable
-/flock/settings/notifications/sms/enable
-/flock/settings/notifications/sms/is_enabled
-/flock/settings/notifications/sms/is_global
-/flock/settings/notifications/sms/save
-/flock/settings/notifications/sms/use_global
-
 
 /schema/fetch
 
