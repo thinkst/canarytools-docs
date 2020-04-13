@@ -129,7 +129,7 @@ table tr:first-child th:last-child
 .tabs-component-tabs
     justify-content: flex-end
     background-color: darken($codeBgColor, 15%)
-    border-top: none 
+    border: none 
     border-bottom-left-radius: 0
     border-bottom-right-radius: 0
 
@@ -188,17 +188,14 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
 
 @media (max-width: 419px)
     .api-example-response-header 
-        margin-left: -1.5rem
-        margin-right: -1.5rem
         border-radius: 0    
     
-    .tabs-component
-        margin-left: -1.5rem
-        margin-right: -1.5rem
+    .api-example-response [class*="language-"]
+        margin-left: 0 !important
     
     .tabs-component-tabs
         border: none
-        border-bottom: solid 1px #ddd
+        border-bottom: solid 1px 
         margin-bottom: 0px
 
     .code-copy svg
