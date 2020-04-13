@@ -13,7 +13,7 @@
       >
       {{ expand ? 'Hide details' : 'Show details'}}
     </button>
-    <div class="content" ref="content">
+    <div class="section-container content" ref="content">
       <div class="details-content">
         <h4 class="details-heading">Required Parameters</h4> 
         <div class="param-section">
@@ -107,12 +107,6 @@ export default {
 .details-heading
   text-transform: uppercase
 
-// .param-section
-//   padding: 5px;
-//   border: 1px solid;
-//   border-radius: 6px
-//   background-color: lighten($borderColor, 20%)
-
 .endpoint-details
   border-bottom: 1px solid lighten($borderColor, 10%)
   padding-top: 10px
@@ -148,24 +142,9 @@ button:focus
 
 
 .content 
-  display: flex
-  justify-content: space-between
-  flex-wrap: wrap
   max-height: 0
   overflow: hidden
   transition: max-height 0.4s ease-out
-
-.details-content
-  flex-grow: 1
-  min-width: 200px
-  width: 200px
-  padding-right: 2em
-
-.example-content 
-  flex-grow: 1
-  min-width: 380px
-  width: 380px
-
 
 .collapsible:after 
   content: '\02795'

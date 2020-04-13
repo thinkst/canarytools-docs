@@ -6,17 +6,38 @@ Before being able to use the examples, you're going to need to find out your `DO
 
 ## API Details
 
+<div class="section-container">
+
+  <div class="details-content">
+
 `DOMAIN` is the unique hash identifying your Console. In our examples, we'll be using `EXAMPLE`.
 
 `AUTH_TOKEN` is the API key that you'll need to use in order to make calls to your API. We'll use `EXAMPLE_AUTH_TOKEN` throughout the examples.
 
-Both of these can be obtained by navigating to `/settings` on your Console, and looking at the API section:
+Both of these can be obtained by navigating to `/settings` on your Console, and looking at the API section.
+
+  </div>
+
+  <div class="example-content">
 
 ![Get API Details](../images/get-api-details.png)
 
+  </div>
+</div>
+
 ## Hello Console
 
-Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/console/testing.html#ping) endpoint:
+
+<div class="section-container">
+
+  <div class="details-content">
+
+Let's begin by ensuring that we can successfully contact our Console. We can do this by calling the [Ping](/console/testing.html#ping) endpoint.
+
+If you see the `success` result you're good to go!
+
+  </div>
+  <div class="example-content">
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -59,9 +80,18 @@ print(r.json())
 ```
 :::
 
-If you see the `success` result you're good to go!
+  </div>
+</div>
+<div class="section-container">
+  <div class="details-content">
+
+
 
 If you instead see an `error` result, you can examine the `message` field to determine what the cause might be. For example, if you used an invalid `auth_token` you would see a response similar to:
+
+  </div>
+
+  <div class="example-content">
 
 ::: api-response
 ```json
@@ -72,11 +102,22 @@ If you instead see an `error` result, you can examine the `message` field to det
 ```
 :::
 
+  </div>
+</div>
+
 ## Hello Birds
+
+<div class="section-container">
+
+  <div class="details-content">
 
 Now that we know we're able to connect to our Console, let's inspect our Birds.
 
 By calling the [All Birds](/bird-management/queries.html#all-birds) endpoint, we'll get a list of our currently paired Birds.
+
+  </div>
+
+  <div class="example-content">
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -124,3 +165,6 @@ print(r.json())
 }
 ```
 :::
+
+  </div>
+</div>
