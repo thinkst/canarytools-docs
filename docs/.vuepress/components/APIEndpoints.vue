@@ -32,3 +32,15 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.endpoints
+  max-width: 800px
+  overflow: hidden;
+
+.endpoint
+  display: flex
+  & .method
+    min-width: 70px
+  
+</style>
