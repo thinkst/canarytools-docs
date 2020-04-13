@@ -103,15 +103,11 @@ input[type=checkbox]
   left: 12px
   position: absolute
   width: 20px
-  height: 20px*.35
-  border-radius: 20px*.33
-  margin: 20px*.55 auto 20px
+  height: 7px
+  border-radius: 6px
+  margin: 11px auto 20px
   background:#f2f9ff
-  background: 
-    linear-gradient(top, #f2f9ff 65%, #b6cdd8 100%)
   
-  box-shadow: 4px 20px 20px 0px rgba(0, 0, 0, 0.4)
-
   transition: 0.5s
   transition-delay: 0s
 
@@ -127,18 +123,18 @@ input[type=checkbox]
     background: #f2f9ff
   
   &:after 
-    width: 20px*.33
-    height: 20px*.33
-    top: -20px*.15
-    left: 20px*.15
-    border-radius: 20px*.33
+    width: 6px
+    height: 6px
+    top: -3px
+    left: 3px
+    border-radius: 6px
   
   &:before 
-    width: 20px*.5
-    height: 20px*.5
-    top: -20px*.25
-    right: 20px*.13
-    border-radius: 20px*.66
+    width: 10px
+    height: 10px
+    top: -5px
+    right: 3px
+    border-radius: 13px
 
 .stars
   opacity: 0
