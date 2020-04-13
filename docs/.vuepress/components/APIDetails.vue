@@ -14,57 +14,50 @@
       {{ expand ? 'Hide details' : 'Show details'}}
     </button>
     <div class="content" ref="content">
-      <h4>
-        Required Parameters
-      </h4> 
-      <table class="table-100">
-        <thead>
-          <tr>
-            <th style="width:25%">Name</th> 
-            <th style="width:25%">Type</th> 
-            <th style="width:50%">Description</th>
-          </tr>
-        </thead> 
-        <tbody>
-          <tr v-for="param in requiredParams" :key="endpoint.name + param.name">
-            <td>{{param.name}}</td>
-            <td>{{param.type}}</td> 
-            <td v-html="param.description"></td> 
-          </tr>
-        </tbody>
-      </table>
-      <slot name="required-parameters-notes"></slot>
-      <template v-if="optionalParams.length > 0">
-        <h4>
-          Optional Parameters
-        </h4> 
-        <table>
-          <thead>
-            <tr>
-              <th style="width:25%">Name</th> 
-              <th style="width:25%">Type</th> 
-              <th style="width:50%">Description</th>
-            </tr>
-          </thead> 
-          <tbody>
-            <tr v-for="param in optionalParams" :key="endpoint.name + param.name">
-              <td>{{param.name}}</td>
-              <td>{{param.type}}</td> 
-              <td v-html="param.description"></td> 
-            </tr>
-          </tbody>
-        </table>
-        <slot name="optional-parameters-notes"></slot>
-      </template>
-      <h4>
-        Response
-      </h4> 
-      <slot name="response">
-         <p>{{endpoint.response}}</p> 
-      </slot>
+      <div class="details-content">
+        <h4 class="details-heading">Required Parameters</h4> 
+        <div class="param-section">
+          <div 
+            v-for="param in requiredParams"
+            :key="endpoint.name + param.name"
+            class="endpoint-details"
+          >
+            <div class="endpoint-details-heading">
+              <span class="endpoint-details-name">{{param.name}}</span>
+              <span class="endpoint-details-type">{{param.type}}</span>
+            </div>
+            <div class="endpoint-details-description" v-html="param.description">
+            </div>
+          </div>
+        </div>
+        <slot name="required-parameters-notes"></slot>
+        <template v-if="optionalParams.length > 0">
+          <h4 class="details-heading">Optional Parameters</h4> 
+          <div class="param-section">
+            <div 
+              v-for="param in optionalParams" :key="endpoint.name + param.name"
+              class="endpoint-details"
+            >
+              <div class="endpoint-details-heading">
+                <span class="endpoint-details-name">{{param.name}}</span>
+                <span class="endpoint-details-type">{{param.type}}</span>
+              </div>
+              <div class="endpoint-details-description" v-html="param.description">
+              </div>
+            </div>
+          </div>
+          <slot name="optional-parameters-notes"></slot>
+        </template>
+        <h4 class="details-heading">Response</h4> 
+        <slot name="response">
+          <p>{{endpoint.response}}</p> 
+        </slot>
+      </div>
 
-      <h4 v-if="$slots.example">Example</h4>
-      <slot name="example"></slot>
+      <div class="example-content">
+        <h4 v-if="$slots.example" class="details-heading">Example</h4>
+        <slot name="example"></slot>
+      </div>
 
     </div>
   </div>
@@ -111,6 +104,34 @@ export default {
 
 <style lang="stylus" scoped>
 
+.details-heading
+  text-transform: uppercase
+
+// .param-section
+//   padding: 5px;
+//   border: 1px solid;
+//   border-radius: 6px
+//   background-color: lighten($borderColor, 20%)
+
+.endpoint-details
+  border-bottom: 1px solid lighten($borderColor, 10%)
+  padding-top: 10px
+  padding-bottom: 10px
+
+.theme-dark .endpoint-details
+  border-bottom: 1px solid darken($borderColor, 40%)
+
+.endpoint-details-name
+  font-weight: bold
+  font-size: 1.1em
+
+.endpoint-details-type
+  font-style: italic 
+  font-size: 0.8em
+
+.endpoint-details-description
+  font-size: 0.9em
+
 button:focus 
   outline:0
 
@@ -127,9 +148,24 @@ button:focus
 
 
 .content 
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
   max-height: 0
   overflow: hidden
   transition: max-height 0.4s ease-out
+
+.details-content
+  flex-grow: 1
+  min-width: 200px
+  width: 200px
+  padding-right: 2em
+
+.example-content 
+  flex-grow: 1
+  min-width: 380px
+  width: 380px
+
 
 .collapsible:after 
   content: '\02795'
