@@ -18,6 +18,7 @@
   "dependencies": {
     "vue-tabs-component": "^1.5.0",
     "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-medium-zoom": "^1.1.8",
     "vuepress-plugin-tabs": "^0.3.0"
   }
 }
