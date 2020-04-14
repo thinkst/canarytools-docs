@@ -14,8 +14,8 @@ main
 * 
   transition: background-color 0.5s ease
 
-.theme-default-content
-    max-width: none !important
+.theme-default-content, .page-nav
+    max-width: 1450px !important
     padding-left: 2em
     padding-right: 2em
 
@@ -25,19 +25,21 @@ main
 
 .section-container
     display: flex
-    justify-content: space-between
+    justify-content: space-evenly
     flex-wrap: wrap
     margin-bottom: 2em
 
 .details-content
     flex-grow: 1
     min-width: 200px
+    max-width: 700px
     width: 200px
     padding-right: 2em
 
 .example-content 
     flex-grow: 1
     min-width: 380px
+    max-width: 700px
     width: 380px
 
 .endpoints
