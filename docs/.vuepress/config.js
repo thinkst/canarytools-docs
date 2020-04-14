@@ -37,6 +37,17 @@ module.exports = {
         updatePopup: true
       }
     ],
+    [
+      'vuepress-plugin-medium-zoom',
+      {
+        delay: 500,
+        options: {
+          margin: 24,
+          background: 'transparent',
+          scrollOffset: 0,
+        },
+      },
+    ],
   ],
   themeConfig: {
     docsRepo: 'thinkst/canarytools-docs',
