@@ -81,7 +81,7 @@ main
     position: relative
     z-index: 1
     margin-bottom: -1.25em
-    padding: 6px
+    padding: 4px
     padding-left: 12px
     border-top-left-radius: 6px
     border-top-right-radius: 6px
@@ -92,17 +92,26 @@ main
 .api-example-response [class*="language-"] 
     background-color: lighten($codeBgColor, 25%)
     color: lighten($textColor, 45%)
+    border-top-left-radius: 0
+    border-top-right-radius: 0
     & pre
         padding-left: 1.5rem !important 
+        margin-top: 1.25em;
     & .line-numbers-wrapper
         display: none !important 
     
 .tabs-component-tabs
+    // ensure tabs don't change layout on small media
+    display: flex !important
+    margin-bottom: -1px
+
     justify-content: flex-end
     background-color: darken($codeBgColor, 15%)
     border: none 
     border-bottom-left-radius: 0
     border-bottom-right-radius: 0
+    & .tabs-component-tab:last-child
+        margin-right: 40px
 
 .tabs-component-tab
     background-color: darken($codeBgColor, 15%)
@@ -137,8 +146,21 @@ div[class*="language-"].line-numbers-mode
 
 .code-copy svg
     margin-top: 1.5em
+    top: -50px !important
+    z-index: 999999;
+    opacity: 1 !important
+    position: absolute;
+    border-left: 1px solid;
+    padding-left: 5px;
+
 .code-copy span
     margin-top: 1.75em
+    right: 0px
+    top: -75px !important
+
+// allows us to reposition the copy button
+pre.code-copy-added
+    position: initial !important
 
 div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
     display: none
