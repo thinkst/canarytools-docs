@@ -175,11 +175,6 @@ endpoints:
         type: string
         description: AWS Secret Access Key (this is not stored on the Console and is only used 
                      for the duration of the operation)
-      - name: aws_access_key
-        required: true
-        type: string
-        description: AWS Access Key ID (this is not stored on the Console and is only used for
-                     the duration of the operation)
       - name: aws_region
         required: true
         type: string
