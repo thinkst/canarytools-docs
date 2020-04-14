@@ -44,6 +44,10 @@ endpoints:
         required: true
         type: string
         description: A valid Hyper-V Canary version
+      - name: format
+        required: true
+        type: string
+        description: "Format of the Hyper-V Canary archive. Options are: `zip`"
     response: A JSON Structure containing the download URL for the specified version of the Hyper-V Canary image.
   hypervcanary_download_seed:
     name: Download Hyper-V Canary Image Seed Data
@@ -70,7 +74,53 @@ These are a collection of endpoints related to Virtual Canaries. Currently this 
 
 ## Download CanaryVM Image
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.canaryvm_download"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.canaryvm_download">
+
+::::: slot example 
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canaryvm/download \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d version=EXAMPLE_VERSION \
+  -G
+```
+:::
+
+::: tab "Python"
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canaryvm/download'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'version': 'EXAMPLE_VERSION'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "link": "<download_link>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Download CanaryVM Image Seed Data
 
@@ -79,11 +129,105 @@ You are likely looking for [Download CanaryVM Image](#download-canaryvm-image). 
 the seed data that gets attached to the 2nd hard drive in very rare cases where you need to replace it.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.canaryvm_download_seed"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.canaryvm_download_seed">
+
+::::: slot example 
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canaryvm/downloadseed \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d version=EXAMPLE_VERSION \
+  -G
+```
+:::
+
+::: tab "Python"
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canaryvm/downloadseed'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'version': 'EXAMPLE_VERSION'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "result": "success",
+  "seedlink": "<seed_link>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Download Hyper-V Canary Image
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.hypervcanary_download"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.hypervcanary_download">
+
+::::: slot example 
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/hypervcanary/download \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d version=EXAMPLE_VERSION \
+  -d format=zip
+  -G
+```
+:::
+
+::: tab "Python"
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/hypervcanary/download'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'version': 'EXAMPLE_VERSION',
+  'format': 'zip'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "link": "<download_link>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Download Hyper-V Canary Image Seed Data
 
@@ -92,4 +236,50 @@ You are likely looking for [Download Hyper-V Canary Image](#download-hyper-v-can
 the seed data that gets attached to the 2nd hard drive in very rare cases where you need to replace it.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.hypervcanary_download_seed"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.hypervcanary_download_seed">
+
+::::: slot example 
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/hypervcanary/downloadseed \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d version=EXAMPLE_VERSION \
+  -G
+```
+:::
+
+::: tab "Python"
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/hypervcanary/downloadseed'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'version': 'EXAMPLE_VERSION'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "result": "success",
+  "seedlink": "<seed_link>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>

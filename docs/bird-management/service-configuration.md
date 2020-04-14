@@ -97,7 +97,7 @@ endpoints:
     response: A JSON structure with the current share upload status.
   webroot_end:
     name: End Webroot Upload
-    url: /api/v1/webroot/end
+    url: /api/v1/webrootupload/end
     method: POST
     description: Cancel the webroot upload for a Bird.
     params:
@@ -112,7 +112,7 @@ endpoints:
     response: A JSON structure with result indicator.
   webroot_start:
     name: Start Webroot Upload
-    url: /api/v1/webroot/start
+    url: /api/v1/webrootupload/start
     method: POST
     description: Start a webroot upload for a Bird.
     params:
@@ -127,7 +127,7 @@ endpoints:
     response: A JSON structure with result indicator.
   webroot_status:
     name: Check Webroot Upload Status
-    url: /api/v1/webroot/status
+    url: /api/v1/webrootupload/status
     method: GET
     description: Check the status of a Bird's webroot upload.
     params:
@@ -159,7 +159,7 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
   ::: slot required-parameters-notes
 
   ::: tip Settings Object
-  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](service-configuration.html#settings-object-schema).
+  The settings object currently requires you to provide a full, valid settings object that conforms to our [settings object](service-configuration.html#settings-object).
   :::
 
   :::
@@ -171,6 +171,57 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
   This lets you reuse the settings object easily for further Bird configurations.
 
   :::
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/device/configure \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -d settings=EXAMPLE_SETTINGS_OBJECT
+  ```
+
+  :::
+
+  ::: tab "Python"
+
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/device/configure'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID',
+    'settings': 'EXAMPLE_SETTINGS_OBJECT'
+  }
+
+  r = requests.post(url, data=payload)
+
+  print(r.json())
+  ```
+
+  :::
+
+  ::::
+
+
+  ::: api-response
+  ```json
+  {
+    "bundle_tag": "<bundle_tag>",
+    "custom_personality_name": null,
+    "msg": "All properties are expected.",
+    "result": "success"
+  }
+  ```
+  :::
+
+  :::::
 
 </APIDetails>
 
@@ -194,11 +245,11 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
 
   ::: tab "cURL"
   ``` bash
-  DOMAIN=my_domain
-  AUTH_TOKEN=test_auth_token
-  NODE_ID=node_id
-
-  curl "https://${DOMAIN}.canary.tools/api/v1/device/configure_personality?auth_token=${AUTH_TOKEN}" -d 'node_id=${NODE_ID}' -d 'personality=osx-fileshare'
+  curl https://EXAMPLE.canary.tools/api/v1/device/configure_personality \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -d personality=osx-fileshare
+  ```
 
   :::
 
@@ -206,10 +257,17 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
   ``` python
   import requests
 
-  DOMAIN = 'my_domain'
-  AUTH_TOKEN = 'test_auth_token'
+  url = 'https://EXAMPLE.canary.tools/api/v1/device/configure_personality'
 
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID',
+    'personality': 'osx-fileshare'
+  }
 
+  r = requests.post(url, data=payload)
+
+  print(r.json())
   ```
   :::
 
@@ -219,7 +277,7 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
 
   ```json
   {
-    "bundle_tag": "23370c",
+    "bundle_tag": "<bundle_tag>",
     "msg": "All properties are expected.",
     "result": "success"
   }
@@ -242,15 +300,15 @@ An example `bare-canary` Bird settings object looks like:
 ```json
 "settings": {
   "device.ad_pubkey": "<ad_pubkey>",
-  "device.desc": "in the jhb office",
+  "device.desc": "SVR Room",
   "device.dhcp.enabled": true,
   "device.dns1": "192.168.0.1",
   "device.dns2": "192.168.0.2",
   "device.gw": "192.168.0.1",
-  "device.ip_address": "192.168.0.3",
+  "device.ip_address": "192.168.1.2",
   "device.ippers": "win2012",
   "device.mac": "00:00:00:00:00:00",
-  "device.name": "nick-office-test",
+  "device.name": "ExampleBird",
   "device.netmask": "255.255.255.0",
   "device.personality": "bare",
   "device.usermodule": [],
@@ -440,15 +498,163 @@ To get around this, you can remotely enable Share Upload on a Bird (from version
 
 ### Check Share Upload Status
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_status"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_status">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/shareupload/status \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -G
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/shareupload/status'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.get(url, params=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "job_id": "<job_id>",
+    "password": "<password>",
+    "pid": "691",
+    "result": "progress",
+    "type": "Start"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>
 
 ### End Share Upload
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_end"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_end">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/shareupload/end \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID 
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/shareupload/end'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.post(url, data=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "job_id": "<job_id>",
+    "password": "<password>",
+    "pid": "691",
+    "result": "progress",
+    "type": "RequestEnd"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>
 
 ### Start Share Upload
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_start"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.shareupload_start">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/shareupload/status \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -G
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/shareupload/status'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.get(url, params=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "job_id": "<job_id>",
+    "password": "<password>",
+    "result": "progress",
+    "type": "RequestStart"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>
 
 ## Webroot Upload
 
@@ -462,12 +668,151 @@ For details about how the zip should be structured, you can look at [our help ar
 
 ### Check Webroot Upload Status
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_status"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_status">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/webrootupload/status \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -G
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/webrootupload/status'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.get(url, params=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "result": "progress",
+    "type": "RequestStart"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>
 
 ### End Webroot Upload
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_end"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_end">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/webrootupload/end \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID 
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/webrootupload/end'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.post(url, data=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "result": "progress",
+    "type": "RequestCancel"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>
 
 ### Start Webroot Upload
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_start"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webroot_start">
+
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/webrootupload/start \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID 
+  ```
+
+  :::
+
+  ::: tab "Python"
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/webrootupload/start'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID'
+  }
+
+  r = requests.post(url, data=payload)
+
+  print(r.json())
+  ```
+  :::
+
+  ::::
+
+  ::: api-response
+
+  ```json
+  {
+    "result": "progress",
+    "type": "RequestStart"
+  }
+  ```
+  :::
+
+  :::::
+
+</APIDetails>

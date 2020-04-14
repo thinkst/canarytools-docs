@@ -423,6 +423,8 @@ curl https://EXAMPLE.canary.tools/api/v1/canarytoken/download \
 
 ``` python
 import requests
+import re
+
 
 url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/download'
 

@@ -70,16 +70,226 @@ These are a collection of endpoints that allow you to view Bird related updates.
 By default, your Birds will automatically update. Downloading an update would only be useful if you've disabled remote updates on a specific Bird.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch_update"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.fetch_update">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/update/fetch \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d update_tag=EXAMPLE_UPDATE_TAG \
+  -G -O -J
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+import re
+
+url = 'https://EXAMPLE.canary.tools/api/v1/update/fetch'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'update_tag': 'EXAMPLE_UPDATE_TAG'
+}
+
+r = requests.get(url, params=payload)
+filename = re.findall("filename=(.+)", r.headers["Content-Disposition"])[0]
+with open(filename, 'wb') as f:
+    f.write(r.content)
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Updatable Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.updatable_birds"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.updatable_birds">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/update/updatable_birds \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/update/updatable_birds'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "automatic_updates_enabled": true,
+  "result": "success",
+  "updatable_devices": null
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Updating Birds
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.updating_birds"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.updating_birds">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/update/updating_devices \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/update/updating_devices'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+  "updating_devices": []
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Updates
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.list_updates"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_updates">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/updates/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/updates/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "updates": [
+    {
+      "description": "Fix to Canary sandbox configuration",
+      "filename": "canary_2.3.1_prod.upd",
+      "ignore": false,
+      "supported_versions": [
+        "2.3"
+      ],
+      "tag": "<update_tag>",
+      "target_sensors": [
+        "rpi3_jessie"
+      ],
+      "version": "2.3.1"
+    },
+    ...
+  ]
+}
+```
+:::
+
+:::::
+
+</APIDetails>
