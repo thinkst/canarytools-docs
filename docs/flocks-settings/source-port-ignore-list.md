@@ -177,13 +177,19 @@ endpoints:
 
 # Source Port Ignore List
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 There are times when you may expect traffic from a specific port from a specific IP address (such as a scanner). Instead of ignoring the IP address as a whole, you can chose to simply ignore traffic from the expected port. The following endpoints allow you to interact with a Flock's Source Port Ignore List.
 
 ::: tip
 These endpoints will set the Ignore Lists for specified Flocks. For Globally defined Ignore lists, you can take a look at the [Console Settings](/console-settings/ignore-lists.html#source-port-ignore-lists).
 :::
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 
 ## Add Source Port to Ignore List

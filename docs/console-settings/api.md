@@ -59,9 +59,15 @@ endpoints:
 
 # API
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 Currently your Console can only have a single API key (auth_token). Managing this key, as well as enabling and disabling the use of the API can be done using the following endpoints.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Add an API token
 

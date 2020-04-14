@@ -23,9 +23,15 @@ endpoints:
 ---
 # Global Search
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 A search that spans all entities in your Console.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.global_search"/>

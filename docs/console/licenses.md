@@ -25,9 +25,15 @@ endpoints:
 ---
 # Licenses
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints that allow you query your existing Bird licenses attached to your Console.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Bird Licenses
 

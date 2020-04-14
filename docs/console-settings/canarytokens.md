@@ -78,10 +78,15 @@ endpoints:
 
 # Canarytokens Settings
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 Apart from the [Canarytokens](/canarytokens/actions.html) section which allows you to create and manage Canarytokens, the following endpoints allow you to configure the Console-side settings for Canarytokens.
 
+:::::
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+</APIEndpoints>
 
 ## Custom Webroot
 

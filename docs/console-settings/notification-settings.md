@@ -111,12 +111,17 @@ endpoints:
 
 # Notification Settings
  
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 Setting up ways for you to receive your notifications is explained in [Notification Channels](/console-settings/notification-channels.html), but for configuring those notifications, you can look at the following endpoints.
 
 From [Data Masking](#masking) and [Summary Emails](#summary-emails), to [Alerting on Console Changes](#change-alerts) and [Alerting on Device Changes](#change-alerts), you'll be able to manage them all through these endpoints.
 
+:::::
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+</APIEndpoints>
 
 ## Change Alerts
 

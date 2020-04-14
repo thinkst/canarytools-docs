@@ -1,5 +1,8 @@
 # Overview
  
+<div class="section-container">
+  <div class="details-content">
+  
 A Flock's settings can be in one of three states:
 
   - `enabled`
@@ -14,7 +17,10 @@ If set to `disabled`, it will be disabled for that Flock.
 
 This gives you the ability to configure settings on a Console-wide level, as well as individual Flock-level if you see fit.
 
-Visually, on the Flocks UI, it'll look similar to:
+  </div>
+  <div class="example-content">
 
 ![Flock Enabled State](../images/flocks-enabled-state.png)
 
+  </div>
+</div>

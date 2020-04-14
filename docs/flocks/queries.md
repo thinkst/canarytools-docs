@@ -109,9 +109,15 @@ endpoints:
 
 # Queries
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 The following endpoints allow you to query your Flocks.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## List Flock Sensors
 

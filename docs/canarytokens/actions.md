@@ -217,9 +217,15 @@ endpoints:
 
 # Actions
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints that allow you mint new, interact with, and view your existing Canarytokens.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Create Canarytoken
 

@@ -106,6 +106,7 @@ export default {
 
 .details-heading
   text-transform: uppercase
+  padding-top: 15px
 
 .endpoint-details
   border-bottom: 1px solid lighten($borderColor, 10%)

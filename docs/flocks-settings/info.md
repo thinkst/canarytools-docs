@@ -49,7 +49,16 @@ endpoints:
 
 # Flock Settings Info
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 You an easily query a Flock's individual settings config by calling the below endpoints. For a Flock's full settings, you can call the [Flock Settings](/flocks/queries.html#flock-settings) endpoint.
+
+:::::
+
+</APIEndpoints>
+
 
 ## Fetch Ignore List Info
 

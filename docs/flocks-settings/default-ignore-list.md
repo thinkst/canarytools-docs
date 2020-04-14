@@ -208,6 +208,10 @@ endpoints:
 
 # Default Ignore List
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 If you want to ignore traffic from a specific IP address and/or traffic hitting a specific port on your Birds, you can use these endpoints.
 
 There are times when you see alerts that are generated from known, expected IPs (such as scanners). In cases like this, you can add the known IP to an Ignore List which allows your Flock to filter traffic and only alerted you on unexpected incidents.
@@ -216,7 +220,9 @@ There are times when you see alerts that are generated from known, expected IPs 
 These endpoints will set the Ignore Lists for specified Flocks. For Globally defined Ignore lists, you can take a look at the [Console Settings](/console-settings/ignore-lists.html#default-ignore-lists).
 :::
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 
 ## Add IP and Port to Ignore List

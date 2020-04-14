@@ -279,10 +279,16 @@ endpoints:
 ---
 
 # Webhooks
+ 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
 
 You can send Flock notifications to different services using Webhooks. These include [Slack](#slack), [MS Teams](#ms-teams), and simply a [Generic](#generic) endpoint that accepts POSTed data. 
- 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+
+:::::
+
+</APIEndpoints>
 
 ## Check if Webhooks are Enabled
 

@@ -260,9 +260,15 @@ endpoints:
 
 # Notifications
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 Below are endpoints that allow you to configure your Email and SMS notification settings for a Flock. We do also have a section for [Webhooks](/flock-settings/webhooks.html) if you need to configure webhook settings.
- 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+
+:::::
+
+</APIEndpoints>
 
 ## Emails
 

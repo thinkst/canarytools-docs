@@ -60,9 +60,15 @@ endpoints:
 
 # Queries
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints that allow you to view users on your Console.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Get User
 

@@ -14,9 +14,15 @@ endpoints:
 ---
 # Features
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints that allow you to obtain information about features that are enabled on your Console.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Console Features
 

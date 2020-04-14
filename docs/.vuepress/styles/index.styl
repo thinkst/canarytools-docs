@@ -10,7 +10,7 @@ main
         border-style: solid 
         border-width: 1px
         border-color: $borderColor
-        max-width: 700px !important
+        max-width: 95% !important
 
 * 
   transition: background-color 0.5s ease
@@ -39,7 +39,7 @@ main
 
 .example-content 
     flex-grow: 1
-    min-width: 380px
+    min-width: 200px
     max-width: 700px
     width: 380px
 
@@ -76,38 +76,6 @@ main
 
 .endpoint .url
     color: $accentColor
-
-table
-    width:100%
-    table-layout: fixed
-    display: table
-    border-style: hidden;
-
-thead
-    background-color: $codeBgColor
-    color: #ccc
-
-tbody
-    background-color: lighten($codeBgColor, 15%)
-    color: #ccc
-    & tr
-    & tr:nth-child(2n) 
-        background-color: lighten($codeBgColor, 15%)
-    
-td, th 
-    overflow: scroll;
-
-table tr:last-child td:first-child 
-    border-bottom-left-radius: 6px
-
-table tr:last-child td:last-child 
-    border-bottom-right-radius: 6px
-
-table tr:first-child th:first-child 
-    border-top-left-radius: 6px
-
-table tr:first-child th:last-child 
-    border-top-right-radius: 6px
 
 .api-example-response-header
     position: relative
@@ -194,11 +162,21 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
         box-shadow:  $boxShadow
 
 @media (max-width: 419px)
+    .section-container
+        margin-left: -1.25em;
+        margin-right: -1.25em;
+        & .details-content
+            margin-left: 1em
+        & .example-content
+            margin-left: 0
+            margin-right: 0
+
     .api-example-response-header 
         border-radius: 0    
     
     .api-example-response [class*="language-"]
         margin-left: 0 !important
+        margin-right: 0 !important
     
     .tabs-component-tabs
         border: none
@@ -207,17 +185,6 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
 
     .code-copy svg
         opacity: 0.75 !important
-
-    table
-        width: auto
-        margin-left: -1.5rem
-        margin-right: -1.5rem
-
-        & tr:last-child td:first-child 
-        & tr:last-child td:last-child 
-        & tr:first-child th:first-child 
-        & tr:first-child th:last-child 
-            border-radius: 0
 
 .sidebar-links 
     padding-top: 0 !important

@@ -221,6 +221,10 @@ endpoints:
 
 # Notification Channels
  
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 When an alert is triggered on your Birds, or a change happens on your Console, we can send you a notification to let you know something is up.
 
 These notifications can be sent to different channels and they can also be customized so that you only receive the notifications that matter to you (take a look at [Ignore Lists](/console-settings/ignore-lists.html) to filter alerts generated from your Birds).
@@ -231,8 +235,9 @@ The following endpoints will allow you to configure your notification channels s
 Viewing your Console's current notification setup is as easy as querying the [Info](#info) endpoint.
 :::
 
+:::::
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+</APIEndpoints>
 
 ## Email
 

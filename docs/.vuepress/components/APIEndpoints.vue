@@ -1,11 +1,18 @@
 <template>
-  <div class="endpoints language-">
-    <div class="header">Endpoints</div>
-    <div class="content">
-        <div v-for="endpoint in $page.frontmatter.endpoints" class="endpoint">
-            <span class="method" :class="endpoint.method">{{endpoint.method}}</span>
-            <span class="url"><a :href="pathToEndpoint(endpoint.name)">{{endpoint.url}}</a></span>
+  <div class="section-container content" ref="content">
+    <div class="details-content">
+      <slot name="details"></slot>
+    </div>
+    <div class="example-content">
+      <div class="endpoints language-">
+        <div class="header">Endpoints</div>
+        <div class="content">
+            <div v-for="endpoint in $page.frontmatter.endpoints" class="endpoint">
+                <span class="method" :class="endpoint.method">{{endpoint.method}}</span>
+                <span class="url"><a :href="pathToEndpoint(endpoint.name)">{{endpoint.url}}</a></span>
+            </div>
         </div>
+      </div>
     </div>
   </div>
 </template>

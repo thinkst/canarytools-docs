@@ -122,11 +122,17 @@ endpoints:
 
 # Actions
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 [Flocks](/guide/terminology.html#flocks) allow you to organize Console entities into separate groups. This allows you to create separate Flocks for different teams or locations, splitting access and management between the Flocks.
 
 The following endpoints allow you to perform actions against Flocks on your Consoles, including actions like [Creating](#create-flock) a new Flock, [Deleting](#delete-flock) a Flock, [Moving Sensors](#move-sensor-to-flock) to a Flock, and [Renaming](#rename-flock) a Flock.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Assign Flock Managers
 

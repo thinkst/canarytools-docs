@@ -84,13 +84,20 @@ endpoints:
 
 # Cloned Web Ignore List
 
+
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 We have added the ability to add your own regex or website to be ignored when alerting for Cloned web Canarytokens.
 
 This is useful if you see that your Cloned Web token is generating alerts that you deem "safe".
 
 ![Cloned Web Ignore](../images/cloned-web-ignore.png)
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Disable Ignore List
 
