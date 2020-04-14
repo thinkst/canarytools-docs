@@ -21,5 +21,53 @@ These are a collection of endpoints related to Cloud Canaries. Currently this in
 
 ## List Cloud Canary Images
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.cloudcanary_images"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.cloudcanary_images">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/cloudcanary/images \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/cloudcanary/images'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "aws": {},
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 

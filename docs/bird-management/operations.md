@@ -125,4 +125,53 @@ By default, your Birds will automatically update. This endpoint is only useful i
 
   :::
 
+  ::::: slot example
+
+  :::: tabs :options="{ useUrlFragment: false }"
+
+  ::: tab "cURL"
+
+  ``` bash
+  curl https://EXAMPLE.canary.tools/api/v1/device/update \
+    -d auth_token=EXAMPLE_AUTH_TOKEN \
+    -d node_id=EXAMPLE_NODE_ID \
+    -d update_tag=EXAMPLE_UPDATE_TAG
+  ```
+
+  :::
+
+
+  ::: tab "Python"
+
+  ``` python
+  import requests
+
+  url = 'https://EXAMPLE.canary.tools/api/v1/device/update'
+
+  payload = {
+    'auth_token': 'EXAMPLE_AUTH_TOKEN',
+    'node_id': 'EXAMPLE_NODE_ID',
+    'update_tag': 'EXAMPLE_UPDATE_TAG'
+  }
+
+  r = requests.post(url, data=payload)
+
+  print(r.json())
+  ```
+
+  :::
+
+  ::::
+
+
+  ::: api-response
+  ```json
+  {
+    "result": "success"
+  }
+  ```
+  :::
+
+  :::::
+
 </APIDetails>

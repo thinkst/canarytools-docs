@@ -106,10 +106,9 @@ These are a collection of endpoints that allow you to query and retrieve Birds t
 
 ::: tab "cURL"
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/devices/all?auth_token=${AUTH_TOKEN}"
+curl https://EXAMPLE.canary.tools/api/v1/devices/all \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 :::
 
@@ -117,15 +116,15 @@ curl "https://${DOMAIN}.canary.tools/api/v1/devices/all?auth_token=${AUTH_TOKEN}
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/devices/all'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/devices/all?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 :::
 
@@ -142,7 +141,7 @@ r.json()
       "first_seen_std": "2019-10-23 11:58:56 UTC+0000",
       "gcp_project": "",
       "gcp_zone": "",
-      "id": "00000000XXXXXXXX",
+      "id": "<node_id>",
       "ignore_notifications": false,
       "ignore_notifications_disconnects": false,
       "ignore_notifications_reconnects": false,
@@ -154,9 +153,9 @@ r.json()
       "live": true,
       "local_time": "2020-03-13 04:37:47",
       "location": "SRV Room",
-      "mac_address": "XX:XX:XX:XX:XX:XX",
+      "mac_address": "00:00:00:00:00:00",
       "migration_status": "",
-      "name": "Example Device",
+      "name": "ExampleBird",
       "note": "",
       "public_ip": "",
       "region_id": "",
@@ -194,10 +193,9 @@ r.json()
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/devices/live?auth_token=${AUTH_TOKEN}"
+curl https://EXAMPLE.canary.tools/api/v1/devices/live \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -208,16 +206,15 @@ curl "https://${DOMAIN}.canary.tools/api/v1/devices/live?auth_token=${AUTH_TOKEN
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/devices/live'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/devices/live?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
 
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 
 :::
@@ -235,7 +232,7 @@ r.json()
       "first_seen_std": "2019-10-23 11:58:56 UTC+0000",
       "gcp_project": "",
       "gcp_zone": "",
-      "id": "00000000XXXXXXXX",
+      "id": "<node_id>",
       "ignore_notifications": false,
       "ignore_notifications_disconnects": false,
       "ignore_notifications_reconnects": false,
@@ -247,9 +244,9 @@ r.json()
       "live": true,
       "local_time": "2020-03-13 04:37:47",
       "location": "SRV Room",
-      "mac_address": "XX:XX:XX:XX:XX:XX",
+      "mac_address": "00:00:00:00:00:00",
       "migration_status": "",
-      "name": "Example Device",
+      "name": "ExampleBird",
       "note": "",
       "public_ip": "",
       "region_id": "",
@@ -287,10 +284,9 @@ r.json()
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/devices/dead?auth_token=${AUTH_TOKEN}"
+curl https://EXAMPLE.canary.tools/api/v1/devices/dead \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -301,16 +297,15 @@ curl "https://${DOMAIN}.canary.tools/api/v1/devices/dead?auth_token=${AUTH_TOKEN
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/devices/dead'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/devices/dead?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
 
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 
 :::
@@ -323,12 +318,12 @@ r.json()
 {
   "devices": [
     {
-      "description": "JHB office",
+      "description": "SVR Room",
       "first_seen": "Tue Jan 28 2020 10:04:33 GMT+0000 (UTC)",
       "first_seen_std": "2020-01-28 10:04:33 UTC+0000",
       "gcp_project": "",
       "gcp_zone": "",
-      "id": "00000000YYYYYYYY",
+      "id": "<node_id>",
       "ignore_notifications": false,
       "ignore_notifications_disconnects": false,
       "ignore_notifications_reconnects": false,
@@ -340,9 +335,9 @@ r.json()
       "live": false,
       "local_time": "2019-11-30 02:09:33",
       "location": "JHB office",
-      "mac_address": "YY:YY:YY:YY:YY:YY",
+      "mac_address": "00:00:00:00:00:00",
       "migration_status": "",
-      "name": "Example dead device",
+      "name": "ExampleBird",
       "note": "",
       "public_ip": "",
       "region_id": "",
@@ -378,10 +373,9 @@ r.json()
 
 ::: tab "cURL"
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/devices/filter?auth_token=${AUTH_TOKEN}&filter_str=nick"
+curl https://EXAMPLE.canary.tools/api/v1/devices/all \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 :::
 
@@ -389,15 +383,15 @@ curl "https://${DOMAIN}.canary.tools/api/v1/devices/filter?auth_token=${AUTH_TOK
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/devices/all'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/devices/all?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
-r.json()
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 :::
 
@@ -410,10 +404,10 @@ r.json()
   "devices": [
     {
       "autoreg_time": "1580205358.394564",
-      "current_settings": "devicesettings:1111111111111111111111111:1580205876",
-      "description": "in the jhb office",
-      "device_id": "00000000XXXXXXXX",
-      "device_id_hash": "1111111111111111111111111",
+      "current_settings": "devicesettings:<device_hash>:1580205876",
+      "description": "SVR Room",
+      "device_id": "<node_id>",
+      "device_id_hash": "<device_hash>",
       "device_live": "False",
       "device_version": "2.2.5",
       "first_seen": "1580205873",
@@ -422,7 +416,7 @@ r.json()
       "first_seen_std": "2020-01-28 10:04:33 UTC+0000",
       "flock_id": "flock:default",
       "ghost": "False",
-      "id": "00000000XXXXXXXX",
+      "id": "<node_id>",
       "ignore_notifications_disconnect": "False",
       "ignore_notifications_general": "False",
       "ip_address": "192.168.1.2",
@@ -437,9 +431,9 @@ r.json()
       "logtype": "1004",
       "mac": "00:00:00:00:00:00",
       "mac_address": "00:00:00:00:00:00",
-      "name": "nick-office-test",
+      "name": "ExampleBird",
       "netmask": "24",
-      "node_id": "00000000XXXXXXXX",
+      "node_id": "<node_id>",
       "reconnect_count": "0",
       "sensor": "thinkstcanary",
       "service_count": "8",
@@ -457,7 +451,6 @@ r.json()
 
 </APIDetails>
 
-
 ## Bird Info
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.device_info">
@@ -469,11 +462,10 @@ r.json()
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-NODE_ID=node_id
-
-curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}&node_id=${NODE_ID}&settings=true&exclude_fixed_settings=true"
+curl https://EXAMPLE.canary.tools/api/v1/device/info \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID \
+  -G
 ```
 
 :::
@@ -482,7 +474,18 @@ curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}
 ::: tab "Python"
 
 ``` python
+import requests
 
+url = 'https://EXAMPLE.canary.tools/api/v1/device/info'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID"
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
 ```
 
 :::
@@ -495,10 +498,10 @@ curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}
 {
   "device": {
     "autoreg_time": "1580205358.394564",
-    "current_settings": "devicesettings:1111111111111111111111111:1580205876",
-    "description": "in the jhb office",
-    "device_id": "00000000XXXXXXXX",
-    "device_id_hash": "1111111111111111111111111",
+    "current_settings": "devicesettings:<device_hash>:1580205876",
+    "description": "SVR Room",
+    "device_id": "<node_id>",
+    "device_id_hash": "<device_hash>",
     "device_live": "False",
     "device_version": "2.2.5",
     "first_seen": "1580205873",
@@ -507,10 +510,10 @@ curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}
     "first_seen_std": "2020-01-28 10:04:33 UTC+0000",
     "flock_id": "flock:default",
     "ghost": "False",
-    "id": "00000000XXXXXXXX",
+    "id": "<node_id>",
     "ignore_notifications_disconnect": "False",
     "ignore_notifications_general": "False",
-    "ip_address": "192.168.0.3",
+    "ip_address": "192.168.1.2",
     "ippers": "win2012",
     "last_dns_settings_message_time": "2019-11-29 16:22:31",
     "last_heartbeat": "1580240613",
@@ -523,23 +526,23 @@ curl "https://${DOMAIN}.canary.tools/api/v1/device/info?auth_token=${AUTH_TOKEN}
     "logtype": "1004",
     "mac": "00:00:00:00:00:00",
     "mac_address": "00:00:00:00:00:00",
-    "name": "nick-office-test",
+    "name": "ExampleBird",
     "netmask": "24",
-    "node_id": "00000000XXXXXXXX",
+    "node_id": "<node_id>",
     "reconnect_count": "0",
     "sensor": "thinkstcanary",
     "service_count": "8",
     "settings": {
-      "device.ad_pubkey": "<AD_PUB_KEY>",
-      "device.desc": "in the jhb office",
+      "device.ad_pubkey": "<ad_pub_key>",
+      "device.desc": "SVR Room",
       "device.dhcp.enabled": true,
       "device.dns1": "192.168.0.1",
       "device.dns2": "192.168.0.2",
       "device.gw": "192.168.0.1",
-      "device.ip_address": "192.168.0.3",
+      "device.ip_address": "192.168.1.2",
       "device.ippers": "win2012",
       "device.mac": "00:00:00:00:00:00",
-      "device.name": "nick-office-test",
+      "device.name": "ExampleBird",
       "device.netmask": "255.255.255.0",
       "device.personality": "",
       "device.usermodule": [],

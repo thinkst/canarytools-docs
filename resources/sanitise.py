@@ -4,7 +4,7 @@ import json
 import sys
 
 sanitise_dict = {
-    'device_id':'<device_id>',
+    'device_id':'<node_id>',
     'device_id_hash':'<device_hash>',
     'id':'<node_id>',
     'ip_address':'192.168.1.2',
