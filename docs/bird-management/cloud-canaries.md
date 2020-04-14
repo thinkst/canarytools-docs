@@ -15,9 +15,15 @@ endpoints:
 
 # Cloud Canaries
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints related to Cloud Canaries. Currently this includes **Azure**, **AWS EC2**, and **GCP** Canaries.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## List Cloud Canary Images
 

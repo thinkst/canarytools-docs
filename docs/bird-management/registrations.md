@@ -70,9 +70,15 @@ endpoints:
 
 # Registrations
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 These are a collection of endpoints that allow you to control registration aspects of Birds that are (or are trying to be) registered with your Console.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Pending Bird Commissions
 

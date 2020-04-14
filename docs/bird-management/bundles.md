@@ -68,11 +68,17 @@ endpoints:
 
 # Bundles
 
+<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
+
+::::: slot details
+
 When pushing updates or settings to a Bird, we bundle the data up, chunk it, and send it through to the Bird. 
 
 You can query the progress of the push by querying the bundle status. Similarly, we can cancel a push by cancelling the bundle.
 
-<APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath"/>
+:::::
+
+</APIEndpoints>
 
 ## Cancel Bundle
 
