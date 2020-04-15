@@ -13,7 +13,7 @@ endpoints:
     response: A JSON structure with result indicator.
   custom_domains_enable:
     name: Enable Custom User Domains
-    url: /api/v1/settings/canarytokens/user_domains/disable
+    url: /api/v1/settings/canarytokens/user_domains/enable
     method: POST
     description: Enable custom user domains for your Console.
     params:
@@ -107,15 +107,152 @@ docs-ns.your.custom.domain A x.x.x.x
 
 ### Disable Custom User Domains
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Custom User Domains
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Custom User Domains
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_save">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d user_domains=EXAMPLE_DOMAIN_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'user_domains': 'EXAMPLE_DOMAINS_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Custom Site
 
@@ -125,12 +262,147 @@ This is usually sufficient (as you won't usually have people browsing to the sit
 
 ### Disable Custom Canarytokens Site
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Custom Canarytokens Site
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Custom Canarytokens Site
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_webroot_save">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>

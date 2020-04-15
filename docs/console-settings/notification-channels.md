@@ -245,19 +245,219 @@ Whenever an alert comes in, we can send you a notification directly to your inbo
 
 #### Disable Email Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.email_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.email_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Enable Email Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.email_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.email_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Set Email Notifications List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.email_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.email_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d addresses=EXAMPLE_ADDRESSES_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'addresses': 'EXAMPLE_ADDRESSES_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "emails": "<email_address>,<email_address>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Info
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.info"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.info">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/info \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/info'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "emails": {
+    "addresses": "fail@domain.com,test@domain.com",
+    "enabled": "True"
+  },
+  "result": "success",
+  "sms": {
+    "enabled": "False",
+    "numbers": ""
+  }
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## SMS
 
@@ -265,15 +465,158 @@ Whenever an alert comes in, we can send you a notification directly to your cell
 
 #### Disable SMS Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.sms_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.sms_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Enable SMS Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.sms_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.sms_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Set SMS Notifications List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.sms_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.sms_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d numbers=EXAMPLE_CELLPHONE_NUMBERS_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/sms/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'numbers': 'EXAMPLE_CELLPHONE_NUMBERS_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Syslog
 
@@ -287,15 +630,158 @@ If you simply want us to POST JSON data to a URL, the Generic Webhook is perfect
 
 #### Add a Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/generic/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/generic/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Remove a Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/generic/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/generic/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Test an Existing Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/generic/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/generic/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### MS Teams
 
@@ -303,15 +789,158 @@ Have an MS Teams account and want us to pipe notifications directly into your ch
 
 #### Add an MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Remove an MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Test an Existing MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ms_teams/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Slack
 
@@ -327,8 +956,105 @@ A step-by-step guide to adding a Slack webhook via the Console UI can be found [
 
 #### Remove an Existing Slack Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.slack_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.slack_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/slack/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d team=EXAMPLE_TEAM \
+  -d channel=EXAMPLE_CHANNEL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/slack/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'team': 'EXAMPLE_TEAM',
+  'channel': 'EXAMPLE_CHANNEL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 #### Test an Existing Slack Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.slack_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.slack_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/slack/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/slack/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>

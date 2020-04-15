@@ -75,19 +75,206 @@ Currently your Console can only have a single API key (auth_token). Managing thi
 This will generate a new API token for you, overwriting the existing token if there is one.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/token/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/token/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "token": "<auth_token>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Delete the API Token
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/token/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/token/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable the API
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/api/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/api/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Download the API Configuration File
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.download"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.download">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/token/download \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G -O -J
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+import re
+
+url = 'https://EXAMPLE.canary.tools/api/v1/token/download'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+filename = re.findall("filename=(.+)", r.headers["Content-Disposition"])[0]
+with open(filename, 'wb') as f:
+    f.write(r.content)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable the API
 
@@ -95,4 +282,50 @@ This will generate a new API token for you, overwriting the existing token if th
 Since we currently only allow for a single API key, this can only be achieved by logging into the Console and enabling the setting from your Global Settings page.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.enable">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/api/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/api/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>

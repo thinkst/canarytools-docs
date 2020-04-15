@@ -215,23 +215,263 @@ You can add IP addresses and optional destination ports to this list to ignore t
 
 ### Ignore IP and Port
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/whitelist_ip_port \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d src_ip=EXAMPLE_SOURCE_IP
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/whitelist_ip_port'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'src_ip': 'EXAMPLE_SOURCE_IP'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "message": "Whitelist added",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Disable Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Remove an Ignored IP
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/remove_whitelist_ip \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d src_ip=EXAMPLE_SOURCE_IP
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/remove_whitelist_ip'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'src_ip': 'EXAMPLE_SOURCE_IP'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_list"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_list">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/whitelist_ips \
+  -d auth_token=EXAMPLE_AUTH_TOKEN /
+  -d whitelist_ips=EXAMPLE_WHITELIST_IP_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/whitelisting/whitelist_ips'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'whitelist_ips': 'EXAMPLE_WHITELIST_IP_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Hostname Ignore Lists
 
@@ -239,15 +479,152 @@ If you want to ignore traffic from a specific, known hostname, you can use these
 
 ### Disable Hostname Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Hostname Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Hostname Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_set"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_set">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d hostnames=EXAMPLE_HOSTNAMES
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignore_hostnames'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'hostnames': 'EXAMPLE_HOSTNAMES'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Source Port Ignore Lists
 
@@ -259,11 +636,103 @@ If you want to ignore traffic that originates from a known source port, you can 
 
 ### Enable Source Port Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_srcport_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_srcport_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignorelist_src_port/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignorelist_src_port/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Source Port Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_srcport_set"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_srcport_set">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignorelist_src_port \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d ignorelist_src_port_ips=EXAMPLE_IGNORELIST_SOURCE_PORT_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignorelist_src_port'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'ignorelist_src_port_ips': 'EXAMPLE_IGNORELIST_SOURCE_PORT_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Test Ignore Lists
 
@@ -271,8 +740,106 @@ Using the below endpoints, you can easily test if given hostnames and IP address
 
 ### Test If Hostname is Ignored
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.test_hostname_ignored"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.test_hostname_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/is_hostname_whitelisted \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -d hostname=EXAMPLE_HOSTNAME \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/is_hostname_whitelisted'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'hostname': 'EXAMPLE_HOSTNAME'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_hostname_whitelisted": true,
+  "is_whitelist_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Test If IP is Ignored
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.test_ip_ignored"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.test_ip_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/is_ip_whitelisted \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -d src_ip=EXAMPLE_SOURCE_IP \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/is_ip_whitelisted'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'src_ip': 'EXAMPLE_SOURCE_IP'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_ip_whitelisted": true,
+  "is_whitelist_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
