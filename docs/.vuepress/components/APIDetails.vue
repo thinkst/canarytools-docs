@@ -25,10 +25,16 @@
             <div class="endpoint-details-heading">
               <span class="endpoint-details-name">{{param.name}}</span>
               <span class="endpoint-details-type">{{param.type}}</span>
+              <span v-if="param.deprecated" class="endpoint-details-deprecated">DEPRECATED</span>
             </div>
-            <div v-if="param.default" class="endpoint-details-default">
+            <div v-if="typeof param.default !== 'undefined'" class="endpoint-details-default">
               Default: {{param.default}}
             </div>
+            <div
+              v-if="typeof param.deprecated_message !== 'undefined'"
+              class="endpoint-details-deprecated-message"
+              v-html="transform(param.deprecated_message)"
+            ></div>
             <div class="endpoint-details-description" v-html="transform(param.description)">
             </div>
           </div>
@@ -44,11 +50,17 @@
               <div class="endpoint-details-heading">
                 <span class="endpoint-details-name">{{param.name}}</span>
                 <span class="endpoint-details-type">{{param.type}}</span>
+                <span v-if="param.deprecated" class="endpoint-details-deprecated">DEPRECATED</span>
               </div>
-              <div v-if="param.default" class="endpoint-details-default">
+              <div v-if="typeof param.default !== 'undefined'" class="endpoint-details-default">
                 <span class="heading">Defaults to: </span>
                 <span>{{param.default}}</span>
               </div>
+              <div
+                v-if="typeof param.deprecated_message !== 'undefined'"
+                class="endpoint-details-deprecated-message"
+                v-html="transform(param.deprecated_message)"
+              ></div>
               <div class="endpoint-details-description" v-html="transform(param.description)">
               </div>
             </div>
@@ -145,9 +157,21 @@ export default {
   & .heading
     font-style: italic 
 
+.endpoint-details-deprecated
+  color: $badgeErrorColor
+  font-size: 0.8em
+
+.endpoint-details-deprecated-message
+  color: $badgeErrorColor
+  font-size: 0.8em
+  font-style: italic 
+  margin-top: 1em
+  margin-bottom: 1em
+
+
 .endpoint-details-description
   font-size: 0.9em
-
+  
 button:focus 
   outline:0
 

@@ -74,6 +74,14 @@ endpoints:
         description: Only return incidents whose updated_id is greater than this
                      integer. The returned feed includes a max_updated_id field if the incident
                      list has entries
+      - name: newer_than
+        required: false
+        type: int
+        deprecated: true
+        deprecated_message: This parameter is deprecated as it may not function as expected in all cases.
+                            Rather use `incidents_since`.
+        description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
+                     after this timestamp will be returned. 
       - name: event_limit
         required: false
         type: int
