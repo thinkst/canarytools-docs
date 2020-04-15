@@ -51,7 +51,8 @@ endpoints:
       - name: send_welcome_mail
         required: false
         type: boolean
-        description: Whether to send the user an email with the login link or not (defaults to 'True')
+        default: true
+        description: Whether to send the user an email with the login link or not
     response: JSON structure with result indicator.
   disable_user:
     name: Disable User

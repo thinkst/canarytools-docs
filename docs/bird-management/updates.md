@@ -43,7 +43,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: ID of the flock to assign the Bird to (defaults to `flock:default`).
+        default: "'flock:default'"
+        description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: A JSON structure with the list of Birds that are currently updating.
   list_updates:
     name: List Updates

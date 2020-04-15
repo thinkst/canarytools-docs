@@ -30,6 +30,16 @@ All your [Sensors](#sensors) will reach out to your Console to check in and rela
 
 These are the Canary devices that you purchase and connect to your Console. These currently could be one of: hardware, cloud (Azure, AWS EC2, GCP), or VM (VMWare, Hyper-V).
 
+## Default Flock
+
+The `Default Flock` is the original [Flock](#flocks) where all [Sensors](#sensors) will be placed. All newly added [Birds](#birds) that aren't tied to a specific Flock will be added here.
+
+It's `flock_id` will always be `flock:default`, so it is easily queryable.
+
+::: tip
+You **cannot delete** the Default Flock, but you can easily change its name using the [Rename Flock](/flocks/actions.html#rename-flock) endpoint.
+:::
+
 ## Flocks
 
 Flocks let you place Birds, Canarytokens, and users into logical groups (with different management or alerting rules).

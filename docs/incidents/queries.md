@@ -41,6 +41,7 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
+        default: false
         description: A 'true' value will remove duplicated entries  (defaults to 'false' for backwards
                     compatibility but you really want this to be true)
       - name: tz
@@ -90,6 +91,7 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
+        default: false
         description: A 'true' value will remove duplicated entries  (defaults to 'false' for backwards
                     compatibility but you really want this to be true)
       - name: tz
@@ -148,14 +150,14 @@ endpoints:
       - name: filter_incident_state
         required: false
         type: string
-        description: Only return incidents in a specific state {all, unacknowledged, acknowledged}.
-                     (defaults to 'unacknowledged')   
+        default: "'unacknowledged'"
+        description: Only return incidents in a specific state, one of `all`, `unacknowledged`, or `acknowledged`
       - name: limit
         required: false
         type: int
         description: Parameter used to initiate cursor pagination. The limit is used to specify
                     the page sizes returned when iterating through the pages representing all
-                    *filter_incident_state* incidents.
+                    `filter_incident_state` incidents.
       - name: cursor
         required: false
         type: string
@@ -203,7 +205,8 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
-        description: A 'true' value will remove duplicated entries  (defaults to 'false' for backwards
+        default: false
+        description: A 'true' value will remove duplicated entries  (defaults to `false` for backwards
                     compatibility but you really want this to be true)
       - name: tz
         required: false

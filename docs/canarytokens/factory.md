@@ -13,7 +13,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: A valid flock_id (defaults to the Default Flock)
+        default: "'flock:default'"
+        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
       - name: memo
         required: true
         type: string
@@ -47,7 +48,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: A valid flock_id (defaults to the Default Flock)
+        default: "'flock:default'"
+        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
       - name: memo
         required: true
         type: string

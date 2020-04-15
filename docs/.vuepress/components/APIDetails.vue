@@ -26,6 +26,9 @@
               <span class="endpoint-details-name">{{param.name}}</span>
               <span class="endpoint-details-type">{{param.type}}</span>
             </div>
+            <div v-if="param.default" class="endpoint-details-default">
+              Default: {{param.default}}
+            </div>
             <div class="endpoint-details-description" v-html="transform(param.description)">
             </div>
           </div>
@@ -41,6 +44,10 @@
               <div class="endpoint-details-heading">
                 <span class="endpoint-details-name">{{param.name}}</span>
                 <span class="endpoint-details-type">{{param.type}}</span>
+              </div>
+              <div v-if="param.default" class="endpoint-details-default">
+                <span class="heading">Defaults to: </span>
+                <span>{{param.default}}</span>
               </div>
               <div class="endpoint-details-description" v-html="transform(param.description)">
               </div>
@@ -87,7 +94,12 @@ export default {
   },
   methods: {
     transform(description) {
-      return description.replace (/`(.*?)`/g, "<code>$1</code>");
+
+      // replace code
+      description = description.replace (/`(.*?)`/g, "<code>$1</code>");
+      // replace links
+      description = description.replace (/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+      return description
     },
     toggle() {
       this.expand = !this.expand;
@@ -126,6 +138,12 @@ export default {
 .endpoint-details-type
   font-style: italic 
   font-size: 0.8em
+
+.endpoint-details-default
+  color: $badgeWarningColor
+  font-size: 0.8em
+  & .heading
+    font-style: italic 
 
 .endpoint-details-description
   font-size: 0.9em

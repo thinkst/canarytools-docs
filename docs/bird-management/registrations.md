@@ -43,7 +43,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: ID of the flock to assign the Bird to (defaults to `flock:default`).
+        default: "'flock:default'"
+        description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: JSON structure with result indicator.
   decommission_device:
     name: Decommission Bird
@@ -62,9 +63,10 @@ endpoints:
       - name: skip_poweroff
         required: false
         type: boolean
+        default: false
         description: In 2.1.3 Canaries or newer, requesting a decommission
                 will first attempt to poweroff the Canary if it's online. Pass in the value
-                'true' to skip the poweroff step and immediately decommission the bird (defaults to `false`).
+                'true' to skip the poweroff step and immediately decommission the bird.
     response: JSON structure with result indicator.
 ---
 

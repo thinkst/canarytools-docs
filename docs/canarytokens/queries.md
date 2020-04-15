@@ -36,7 +36,8 @@ endpoints:
       - name: limit
         required: false
         type: string
-        description: The size of the pages (defaults to 10)
+        default: 10
+        description: The size of the pages
       - name: cursor
         required: false
         type: string
@@ -73,7 +74,8 @@ endpoints:
       - name: limit
         required: false
         type: string
-        description: The size of the pages (defaults to 10)
+        default: 10
+        description: The size of the pages
       - name: cursor
         required: false
         type: string

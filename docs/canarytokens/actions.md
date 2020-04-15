@@ -28,7 +28,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: A valid flock_id (defaults to the Default Flock)
+        default: "'flock:default'"
+        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
       - name: memo
         required: true
         type: string
@@ -68,8 +69,9 @@ endpoints:
       - name: browser_scanner_enabled
         required: false
         type: boolean
+        default: true
         description: Enables a Javascript scanner to retrieve more information
-                     (only valid with 'http' Canarytokens, defaults to true)
+                     (only valid with 'http' Canarytokens)
       - name: aws_id_username
         required: false
         type: string
@@ -182,7 +184,8 @@ endpoints:
       - name: delete_buckets
         required: false
         type: boolean
-        description: Boolean indicating if buckets must be deleted (defaults to false)
+        default: false
+        description: Boolean indicating if buckets must be deleted
       - name: s3_source_bucket
         required: false
         type: string

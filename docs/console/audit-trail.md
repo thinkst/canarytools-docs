@@ -18,7 +18,8 @@ endpoints:
       - name: limit
         required: false
         type: int
-        description: Number of audit logs returned in each page of results (defaults to 100).
+        default: 100
+        description: Number of audit logs returned in each page of results.
                      Cannot be used with a cursor.
       - name: cursor
         required: false
