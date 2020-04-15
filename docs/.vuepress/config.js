@@ -119,6 +119,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 3,
         children: [
+          '/console-settings/overview',
           '/console-settings/api',
           '/console-settings/canarytokens',
           '/console-settings/ignore-lists',

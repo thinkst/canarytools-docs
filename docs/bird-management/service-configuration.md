@@ -297,11 +297,19 @@ The [Configure Bird with Personality](service-configuration.html#configure-bird-
 
 ## Settings Object
 
+<div class="section-container margin-top--20">
+  <div class="details-content">
+
 Whenever providing a serialized JSON Bird settings object, you'll need to ensure that it contains the full Bird settings (this includes settings that you do not change.)
 
 The easiest way to achieve this is to call the [Bird Info](queries.html#bird-info) endpoint with `settings=true` and alter the returned settings object as you need.
 
-An example `bare-canary` Bird settings object looks like:
+We've provided a full example `bare-canary` Bird settings object for you to inspect.
+
+  </div>
+  <div class="example-content">
+
+::: api-response
 
 ```json
 "settings": {
@@ -495,6 +503,11 @@ An example `bare-canary` Bird settings object looks like:
   "vnc.port": 5900
 }
 ```
+
+:::
+
+  </div>
+</div>
 
 ## Share Upload
 
