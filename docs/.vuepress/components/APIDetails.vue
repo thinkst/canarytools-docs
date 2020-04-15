@@ -26,7 +26,7 @@
               <span class="endpoint-details-name">{{param.name}}</span>
               <span class="endpoint-details-type">{{param.type}}</span>
             </div>
-            <div class="endpoint-details-description" v-html="param.description">
+            <div class="endpoint-details-description" v-html="transform(param.description)">
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
                 <span class="endpoint-details-name">{{param.name}}</span>
                 <span class="endpoint-details-type">{{param.type}}</span>
               </div>
-              <div class="endpoint-details-description" v-html="param.description">
+              <div class="endpoint-details-description" v-html="transform(param.description)">
               </div>
             </div>
           </div>
@@ -86,6 +86,9 @@ export default {
     },
   },
   methods: {
+    transform(description) {
+      return description.replace (/`(.*?)`/g, "<code>$1</code>");
+    },
     toggle() {
       this.expand = !this.expand;
       if (this.$refs.content.style.maxHeight){

@@ -25,6 +25,11 @@ endpoints:
         type: string
         description: The cursor string retrieved from the cursor element returned along with a page
                      while doing pagination.
+      - name: action_filter
+        required: false
+        type: string
+        description: Only return logs from this action type (example values are `user_login`,
+                    `device_push_settings`, `user_assign_to_flock`, `flock_move`)
     response: JSON structure with list of logs and the previous and next cursor.
   purge:
     name: Purge Audit Trail Logs
