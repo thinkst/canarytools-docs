@@ -61,10 +61,9 @@ These are a collection of endpoints that allow you to test connectivity with you
 ::: tab "cURL"
 
 ``` bash
-DOMAIN=my_domain
-AUTH_TOKEN=test_auth_token
-
-curl "https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}"
+curl https://EXAMPLE.canary.tools/api/v1/ping \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
 ```
 
 :::
@@ -75,21 +74,20 @@ curl "https://${DOMAIN}.canary.tools/api/v1/ping?auth_token=${AUTH_TOKEN}"
 ``` python
 import requests
 
-DOMAIN = 'my_domain'
-AUTH_TOKEN = 'test_auth_token'
+url = 'https://EXAMPLE.canary.tools/api/v1/ping'
 
-r = requests.get(
-    'https://{DOMAIN}.canary.tools/api/v1/ping?auth_token={AUTH_TOKEN}'.format(
-        DOMAIN=DOMAIN, AUTH_TOKEN=AUTH_TOKEN
-    )
-)
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
 print(r.json())
 ```
 
 :::
 
 ::::
-
 
 ::: api-response
 ```json
@@ -105,8 +103,102 @@ print(r.json())
 
 ## Send Fake Syslog Alerts
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_fake_alerts"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_fake_alerts">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/syslog/fake_alert/1 \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/syslog/fake_alert/1'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Send Syslog Test Message
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/syslog/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/syslog/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>

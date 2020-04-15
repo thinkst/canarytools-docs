@@ -129,19 +129,199 @@ Unexpected changes to Bird or Console settings can be a sign that someone is pla
 
 ### Disable Console Settings Change Alerts
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.console_settings_change_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.console_settings_change_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/console_settings_change/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/console_settings_change/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Console Settings Change Alerts
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.console_settings_change_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.console_settings_change_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/console_settings_change/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/console_settings_change/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Disable Device Settings Change Alerts
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_settings_change_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_settings_change_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/device_settings_change/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/device_settings_change/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Device Settings Change Alerts
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.device_settings_change_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_settings_change_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/device_settings_change/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/device_settings_change/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Data Masking
 
@@ -149,11 +329,101 @@ When we create alerts, they will include sensitive information such as the crede
 
 ### Disable Data Masking
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.masking_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.masking_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/masking/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/masking/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Data Masking
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.masking_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.masking_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/masking/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/masking/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Summary Emails
 
@@ -163,12 +433,156 @@ Simply [enable](#enable-summary-emails) and [set a list of email addresses](#set
 
 ### Disable Summary Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Summary Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Set Summary Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.summary_email_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d addresses=EXAMPLE_ADDRESSES_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/summary_email/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'addresses': 'EXAMPLE_ADDRESSES_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "emails": "<email_address>,<email_address>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
