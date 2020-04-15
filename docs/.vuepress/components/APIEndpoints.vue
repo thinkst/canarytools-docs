@@ -49,5 +49,11 @@ export default {
   display: flex
   & .method
     min-width: 70px
+
+@media (max-width: 419px)
+  .endpoints 
+    margin: 0 !important
+    & .content
+      overflow: scroll
   
 </style>
