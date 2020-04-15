@@ -110,7 +110,7 @@ print(r.json())
     "devices": [
       {
         "autoreg_time": "1586902237.728621",
-        "current_settings": "devicesettings:2dae15019fdbb0452a3054c3:1586902278",
+        "current_settings": "devicesettings:<device_hash>:1586902278",
         "description": "SVR Room",
         "device_id": "<node_id>",
         "device_id_hash": "<device_hash>",
