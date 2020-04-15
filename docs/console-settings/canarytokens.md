@@ -370,7 +370,8 @@ print(r.json())
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/save \
-  -d auth_token=EXAMPLE_AUTH_TOKEN 
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d webroot='<html><body>example!</body></html>'
 ```
 
 :::
@@ -383,7 +384,8 @@ import requests
 url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/webroot/save'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'webroot': '<html><body>example!</body></html>'
 }
 
 r = requests.post(url, data=payload)
