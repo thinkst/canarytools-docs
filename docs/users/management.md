@@ -893,7 +893,7 @@ payload = {
   'email': 'EXAMPLE_USER_EMAIL'
 }
 
-r = requests.delete(url, data=payload)
+r = requests.post(url, data=payload)
 
 print(r.json())
 ```
@@ -949,7 +949,7 @@ payload = {
   'flock_access_level': 'manager'
 }
 
-r = requests.delete(url, data=payload)
+r = requests.post(url, data=payload)
 
 print(r.json())
 ```
