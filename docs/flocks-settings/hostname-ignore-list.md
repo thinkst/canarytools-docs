@@ -188,40 +188,530 @@ These endpoints will set the Ignore Lists for specified Flocks. For Globally def
 
 ## Add Hostname to Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_ignore_hostname"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_ignore_hostname">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/ignorelist_hostname \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d hostname=EXAMPLE_HOSTNAME 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/ignorelist_hostname'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'hostname': 'EXAMPLE_HOSTNAME'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Hostname Ignoring is Enabled
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_is_enabled"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_is_enabled">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_enabled \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_enabled'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_enabled": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Hostname Ignoring is Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_is_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_is_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_global": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Hostname is Ignored
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_ignore_hostname"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_is_hostname_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_hostname_ignorelisted \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d hostname=EXAMPLE_HOSTNAME \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/is_hostname_ignorelisted'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'hostname': 'EXAMPLE_HOSTNAME'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_ignorelist_enabled": true,
+  "is_ignorelisted": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable Hostname Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable Hostname Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Fetch Unsanitized Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_string"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_string">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/string \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/string'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignorelist": "<hostname>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Ignored Hostnames
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_sanitized"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_sanitized">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/sanitized \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/sanitized'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignorelist": [
+    "<hostname>",
+    "<hostname>"
+  ],
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignored Hostnames
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_save">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d ignorelist=$'FIRST_HOSTNAME\nSECONDHOSTNAME'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'ignorelist': 'FIRST_HOSTNAME\nSECOND_HOSTNAME'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignore List to Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_use_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_hostnames_use_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/use_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/hostname/use_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
