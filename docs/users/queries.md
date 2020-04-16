@@ -72,17 +72,254 @@ These are a collection of endpoints that allow you to view users on your Console
 
 ## Get User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.get_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.get_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/get \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -d email=EXAMPLE_EMAIL \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/get'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_EMAIL'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "user": {
+    "access_level": "admin",
+    "disabled": false,
+    "email": "<user_email>",
+    "id": "<user_id>",
+    "managed_flocks": "",
+    "no_direct_login": false,
+    "note": "Example User Note",
+    "saml_provisioned": false,
+    "summary_email_enabled": true,
+    "supervisor": false,
+    "totp_enabled": true,
+    "watched_flocks": "",
+    "webauthn_credential": "",
+    "webauthn_enabled": false
+  }
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Get User Auth
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.get_user_auth"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.get_user_auth">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/auth \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -d email=EXAMPLE_EMAIL \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/auth'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_EMAIL'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "access_level": 1,
+  "email": "<user_email>",
+  "is_sso_login": false,
+  "managed_flocks": [],
+  "result": "success",
+  "saml_login": false,
+  "watched_flocks": []
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Filter Users
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.filter_users"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.filter_users">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/users/filter \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -d filter_str='EXAMPLE_FILTER_STRING' \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/users/filter'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'filter_str': 'EXAMPLE_FILTER_STRING'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "users": [
+    {
+      "access_level": "1",
+      "disabled": "None",
+      "email": "<user_email>",
+      "id": "<user_id>",
+      "note": "",
+      "supervisor": "False",
+      "totp_enabled": "True"
+    }
+  ]
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Users
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.list_users"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_users">
 
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/users/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN  \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/users/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "users": [
+    {
+      "access_level": "1",
+      "disabled": "None",
+      "email": "<user_email>",
+      "id": "<user_id>",
+      "managed_flocks": "",
+      "note": "",
+      "supervisor": "False",
+      "totp_enabled": "True",
+      "watched_flocks": "",
+      "webauthn_enabled": false
+    },
+    ...
+  ]
+}
+```
+:::
+
+:::::
+
+</APIDetails>
