@@ -2,6 +2,20 @@
 
 We welcome all contributions and will work with you to get them incorporated if possible. Below are some guidelines on how to go about making changes.
 
+## Locally Running and Testing
+
+In order to get a local copy of the docs running on your machine, you can follow the below steps (you'll need `yarn` installed):
+
+```bash
+git clone https://github.com/thinkst/canarytools-docs.git
+
+cd canarytools-docs
+
+yarn install
+
+yarn docs:dev
+```
+
 ## Markdown
 
 Most of the work is done in some form of Markdown. Altering / fixing / adding paragraphs should be simple enough if you know _Markdown_ (otherwise you can take a look at this nifty [Cheat-sheet](https://www.markdownguide.org/cheat-sheet/)).
