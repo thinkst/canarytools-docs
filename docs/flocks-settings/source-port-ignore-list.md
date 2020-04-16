@@ -194,40 +194,551 @@ These endpoints will set the Ignore Lists for specified Flocks. For Globally def
 
 ## Add Source Port to Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_ignore_src_port"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_ignore_src_port">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/ignorelist_src_port \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d ip=EXAMPLE_IP \
+  -d port=EXAMPLE_PORT 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/ignorelist_src_port'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'ip': 'EXAMPLE_IP',
+  'port': EXAMPLE_PORT
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Source Port Ignoring is Enabled
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_is_enabled"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_is_enabled">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_enabled \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_enabled'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_enabled": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Source Port Ignoring is Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_is_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_is_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_global": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Source Port is Ignored
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_ignore_src_port"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_is_src_port_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_src_port_ignorelisted \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d ip=EXAMPLE_IP \
+  -d port=EXAMPLE_PORT \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/is_src_port_ignorelisted'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'ip': 'EXAMPLE_IP',
+  'port': EXAMPLE_PORT
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_ignorelist_enabled": true,
+  "is_ignorelisted": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable Source Port Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable Source Port Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Fetch Unsanitized Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_string"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_string">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/string \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/string'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignorelist": "<ip_address>:<port>\n<ip_address>:<port>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Ignored Source Ports
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_sanitized"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_sanitized">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/sanitized \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/sanitized'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignorelist": [
+    {
+      "<ip_address>": {
+        "both": [
+          <port>
+        ]
+      },
+      "<ip_address>": {
+        "both": [
+          <port>
+        ]
+      }
+    },
+    []
+  ],
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignored Source Ports
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+One of the optional parameters is required.
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d ignorelist=$'FIRST_IP_ADDRESS:PORT\nSECOND_IP_ADDRESS:PORT'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'ignorelist': 'FIRST_IP_ADDRESS:PORT\nSECOND_IP_ADDRESS:PORT'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignore List to Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_use_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_src_port_use_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/use_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/ignorelist/src_port/use_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
