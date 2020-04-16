@@ -200,8 +200,8 @@ endpoints:
         type: string
         description: The source IP to ignore
       - name: dst_port
-        required: int
-        type: false
+        required: false
+        type: int
         description: The destination port to ignore
     response: A JSON structure with result indicator.
 ---
