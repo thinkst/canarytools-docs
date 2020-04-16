@@ -96,6 +96,10 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+      - name: email
+        required: true
+        type: string
+        description: The email address of the user to be edited
       - name: access_level
         required: true
         type: string
@@ -277,27 +281,317 @@ Currently we support TOTP and WebAuthn as Two-factor Authentication methods. Enf
 
 ### Disable Globally Enforcing 2FA
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/usermanagement/globally_enforce_2fa/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/usermanagement/globally_enforce_2fa/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Globally Enforcing 2FA
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/usermanagement/globally_enforce_2fa/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/usermanagement/globally_enforce_2fa/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Add User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.add_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.add_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d access_level=user
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'access_level': 'user'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) successfully created.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Add User Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.add_user_note"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.add_user_note">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/note/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d note=EXAMPLE_NOTE
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/note/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'note': 'EXAMPLE_NOTE'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) note successfully added.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Assign User to Flocks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.assign_user_flocks"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.assign_user_flocks">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/flock/assign \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d flock_id_list='flock:default,EXAMPLE_FLOCK_ID' \
+  -d flock_access_level=watcher
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/flock/assign'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'flock_id_list': 'flock:default,EXAMPLE_FLOCK_ID',
+  'flock_access_level': 'watcher'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg":"User <user_email> successfully assigned to watcher flock(s) [u'flock:default', u'<flock_id>']",
+  "result":"success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) successfully disabled.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable User's TOTP
 
@@ -305,7 +599,55 @@ Currently we support TOTP and WebAuthn as Two-factor Authentication methods. Enf
 This is useful for when a user loses access to their Two Factor authentication app (for example losing their phone) and cannot log in to the Console. Temporarily disabling their TOTP will allow them to log back into the Console and reset it.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_2fa"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_2fa">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/2fa/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/2fa/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "Successfully disabled two-factor authentication for user <user_email>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable User's WebAuthn
 
@@ -313,31 +655,373 @@ This is useful for when a user loses access to their Two Factor authentication a
 This is useful for when a user loses access to their WebAuthn authenticator (for example losing their YubiKey) and cannot log in to the Console. Temporarily disabling their WebAuthn will allow them to log back into the Console and reset it.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_webauthn"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_webauthn">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/webauthn/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/webauthn/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Edit User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.edit_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.edit_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/edit \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d note='Example note'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/edit'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'note': 'Example note'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) successfully edited.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Edit User Access Level
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.edit_user_access_level"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.edit_user_access_level">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/edit/access_level \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d access_level=admin
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/edit/access_level'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'access_level': 'admin'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.enable_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.enable_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) successfully enabled.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Remove User
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.remove_user"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.remove_user">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) successfully removed.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Remove User from Flocks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.unassign_user_flocks"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.unassign_user_flocks">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/flock/unassign \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL \
+  -d flock_id_list='flock:default,EXAMPLE_FLOCK_ID' \
+  -d flock_access_level=manager
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/flock/unassign'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL',
+  'flock_id_list': 'flock:default,EXAMPLE_FLOCK_ID',
+  'flock_access_level': 'manager'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User <user_email> successfully unassigned from manager flock(s) [u'flock:default', u'<flock_id>']",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Remove User Note
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete_user_note"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.delete_user_note">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/user/note/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/note/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "User (<user_email>) note successfully removed.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Reset User Password
 
@@ -345,5 +1029,52 @@ This is useful for when a user loses access to their WebAuthn authenticator (for
 When resetting a user's password, they'll receive a "Password Reset" email.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.reset_user_password"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.reset_user_password">
 
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/password/reset \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/password/reset'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "Password reset email sent to <user_email>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
