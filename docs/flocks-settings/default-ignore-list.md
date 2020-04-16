@@ -109,7 +109,7 @@ endpoints:
         type: string
         description: The source IP to check
       - name: dst_port
-        required: true
+        required: int
         type: int
         description: The destination port to check
     response: A JSON structure with the ignored state.
@@ -200,7 +200,7 @@ endpoints:
         type: string
         description: The source IP to ignore
       - name: dst_port
-        required: true
+        required: int
         type: false
         description: The destination port to ignore
     response: A JSON structure with result indicator.
@@ -256,7 +256,7 @@ payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
   'flock_id': 'EXAMPLE_FLOCK_ID',
   'src_ip': 'EXAMPLE_SOURCE_IP',
-  'dst_port': 'EXAMPLE_DESTINATION_PORT'
+  'dst_port': EXAMPLE_DESTINATION_PORT
 }
 
 r = requests.post(url, data=payload)
@@ -417,7 +417,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_ip_
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
   'flock_id': 'EXAMPLE_FLOCK_ID',
-  'dst_port': 'EXAMPLE_DESTINATION_PORT',
+  'dst_port': EXAMPLE_DESTINATION_PORT,
   'src_ip': 'EXAMPLE_SOURCE_IP'
 }
 
@@ -770,6 +770,14 @@ print(r.json())
 ## Set Ignored IPs
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+:::
 
 ::::: slot example
 
