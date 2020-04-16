@@ -292,23 +292,262 @@ You can send Flock notifications to different services using Webhooks. These inc
 
 ## Check if Webhooks are Enabled
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_enabled"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_enabled">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/is_enabled \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/is_enabled'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_enabled": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if Webhooks are Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/is_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/is_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_global": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable Flock Webhooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable Flock Wehooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Use Global for Flock Wehooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_use_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_use_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/use_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/use_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Generic Webhooks
 
@@ -316,19 +555,220 @@ If you have an endpoint that accepts JSON data, we can setup a webhook to POST a
 
 ### Add Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### List Generic Webhooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "generic_webhooks": [
+    "<webhook_url>",
+    "<webhook_url>"
+  ],
+  "result": "success",
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Remove Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Test Generic Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<webhook_url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## MS Teams Webhooks
 
@@ -336,19 +776,220 @@ Have an MS Teams account and want us to pipe Flock notifications directly into y
 
 ### Add MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_add"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### List MS Teams Webhooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_get"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ms_teams_webhooks": [
+    "<ms_teams_webhook_url>",
+    "<ms_teams_webhook_url>"
+  ],
+  "result": "success",
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Remove MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Test MS Teams Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.msteams_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/ms_teams/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<ms_teams_webhook_url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Slack Webhooks
 
@@ -362,12 +1003,168 @@ A step-by-step guide to adding a Slack webhook via the Console UI can be found [
 
 ### List Slack Webhooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.slack_get"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.slack_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "slack_webhooks": [
+    {
+      "channel": "<channel>",
+      "configuration_url": "<config_url>",
+      "team": "<team_name>",
+      "url": "<slack_webhook_url>"
+    }
+  ],
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Remove Slack Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.slack_remove"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.slack_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Test Slack Webhook
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.slack_test"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.slack_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d url=EXAMPLE_URL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/slack/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'url': 'EXAMPLE_URL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "webhook": "<slack_webhook_url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
