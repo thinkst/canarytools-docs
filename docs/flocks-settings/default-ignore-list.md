@@ -109,7 +109,7 @@ endpoints:
         type: string
         description: The source IP to check
       - name: dst_port
-        required: int
+        required: true
         type: int
         description: The destination port to check
     response: A JSON structure with the ignored state.
