@@ -227,52 +227,646 @@ These endpoints will set the Ignore Lists for specified Flocks. For Globally def
 
 ## Add IP and Port to Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_ignore_ip_port"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_ignore_ip_port">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/whitelist_ip_port \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d src_ip=EXAMPLE_SOURCE_IP \
+  -d dst_port=EXAMPLE_DESTINATION_PORT
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/whitelist_ip_port'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'src_ip': 'EXAMPLE_SOURCE_IP',
+  'dst_port': 'EXAMPLE_DESTINATION_PORT'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if IP Ignoring is Enabled
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_enabled"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_enabled">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_enabled \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_enabled'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_enabled": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if IP Ignoring is Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_global": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Check if IP is Ignored
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_ip_ignored"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_is_ip_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_ip_whitelisted \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d dst_port=EXAMPLE_DESTINATION_PORT \
+  -d src_ip=EXAMPLE_SOURCE_IP \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/is_ip_whitelisted'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'dst_port': 'EXAMPLE_DESTINATION_PORT',
+  'src_ip': 'EXAMPLE_SOURCE_IP'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "is_whitelist_enabled": true,
+  "is_whitelisted": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Disable IP Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Enable IP Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Fetch Unsanitized Ignore List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_string"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_string">
 
-## Inherit GLobal List
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/string \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/string'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "whitelist": "<ip_address>:<port>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Inherit Global List
 
 By default, enabling the IP Ignore List for a Flock will ignore the Global settings and only use the Flock's settings. You can optionally chose to allow the Flock to set it's own custom Ignore List and still inherit from the Global IP Ignore List.
 
 ### Disable Inherit From Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_inherit_global_disable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_inherit_global_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/inherit_global/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/inherit_global/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ### Enable Inherit From Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_inherit_global_enable"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_inherit_global_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/inherit_global/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/inherit_global/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## List Ignored IPs
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_sanitized"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_sanitized">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1//flock/settings/whitelisting/ip/sanitized \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1//flock/settings/whitelisting/ip/sanitized'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "whitelist": [
+    {
+      "<ip_address>": {
+        "both": [
+          <port>
+        ]
+      }
+    },
+    []
+  ]
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignored IPs
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_save"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_save">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d whitelist=EXAMPLE_IP_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'whitelist': 'EXAMPLE_IP_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Set Ignore List to Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_use_global"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignore_ip_use_global">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/use_global \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/use_global'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
