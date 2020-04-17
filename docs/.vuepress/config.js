@@ -74,6 +74,14 @@ module.exports = {
         ]
       },
       {
+        title: 'Common Examples',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+          '/common-tasks/overview',
+        ]
+      },
+      {
         title: 'Bird Management',
         collapsable: false,
         sidebarDepth: 3,
