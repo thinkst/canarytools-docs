@@ -78,8 +78,6 @@ These are a collection of endpoints that allow you interact with the Audit Trail
 
 ::::: slot example
 
-In this example, we're going to query the Audit Logs, but we'll set the `limit` to 5 to only return 5 entries at a time. 
-
 :::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab "cURL"
@@ -113,7 +111,6 @@ print(r.json())
 :::
 
 ::::
-
 
 ::: api-response
 ```json
@@ -191,6 +188,9 @@ print(r.json())
 ```
 :::
 
+:::::
+
+</APIDetails>
 
 ## Purge Audit Trail Logs
 
@@ -199,6 +199,8 @@ Purging logs will permanently remove them and they will not be recoverable.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.purge">
+
+::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -233,15 +235,16 @@ print(r.json())
 
 ::::
 
-
 ::: api-response
-```json {2}
+```json
 {
   "msg": "72 logs purged successfully",
   "result": "success"
 }
 ```
 :::
+
+:::::
 
 </APIDetails>
 
