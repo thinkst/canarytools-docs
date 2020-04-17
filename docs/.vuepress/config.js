@@ -79,6 +79,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           '/common-tasks/overview',
+          '/common-tasks/audit-trail',
         ]
       },
       {

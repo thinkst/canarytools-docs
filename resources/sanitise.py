@@ -29,7 +29,7 @@ sanitise_dict = {
     'secret_access_key': '<aws_secret_access_key>'
 }
 
-def cleanse(rvar):
+def cleanse(rvar):    
     for k,v in rvar.items():
         if isinstance(v,dict):
             cleanse(v)
@@ -52,4 +52,4 @@ def cleanse(rvar):
 if __name__ == "__main__":
     for line in sys.stdin:
         sanitized = cleanse(json.loads(line))
-        print(json.dumps(sanitized, indent=2, sort_keys=True))  
+        print(json.dumps(sanitized, indent=2, sort_keys=True)) 
