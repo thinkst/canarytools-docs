@@ -80,6 +80,7 @@ module.exports = {
         children: [
           '/common-tasks/overview',
           '/common-tasks/audit-trail',
+          '/common-tasks/incidents',
         ]
       },
       {
