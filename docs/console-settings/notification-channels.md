@@ -217,6 +217,47 @@ endpoints:
         type: string
         description: The URL of the Slack webhook that we'll send test data to
     response: A JSON structure with result indicator.
+  pubsub_new_subscription:
+    name: Add a Google Pub/Sub subscriber
+    url: /api/v1/pubsub/new_subscription
+    method: POST
+    description: Adds a new Pub/Sub subscriber.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: subscription_name
+        required: true
+        type: string
+        description: The name of the subscriber
+    response: A JSON structure with result indicator.
+  pubsub_remove_subscription:
+    name: Remove an existing Google Pub/Sub subscriber
+    url: /api/v1/pubsub/remove_subscription
+    method: DELETE
+    description: Removes a Pub/Sub subscriber.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: subscription_name
+        required: true
+        type: string
+        description: The name of the subscriber
+    response: A JSON structure with result indicator.
+  pubsub_test:
+    name: Sends a test message to subscribers
+    url: /api/v1/pubsub/test
+    method: POST
+    description: Sends a test message to subscribers.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
 ---
 
 # Notification Channels
@@ -1051,6 +1092,164 @@ print(r.json())
 {
   "result": "success",
   "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Google Cloud Pub/Sub
+
+We totally understand the need to fit notifications into existing pipelines, so in addition
+to email, SMS, webhooks, and using the API, we also have Pub/Sub.
+
+If you'd like to have this enabled on your Console [drop us a mail](mailto:support@canary.tools) and we'll get you sorted!
+
+#### Add a Subscriber
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_new_subscription">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/pubsub/new_subscription \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d subscription_name=EXAMPLE_SUB_NAME
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/pubsub/new_subscription'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'subscription_name': 'EXAMPLE_SUB_NAME'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Remove a Subscriber
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_remove_subscription">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/pubsub/remove_subscription \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d subscription_name=EXAMPLE_SUB_NAME
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/pubsub/remove_subscription'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'subscription_name': 'EXAMPLE_SUB_NAME'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Send a test message to Subscribers
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/pubsub/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/pubsub/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
 }
 ```
 :::
