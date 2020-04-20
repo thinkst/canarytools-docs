@@ -1,13 +1,11 @@
 # View and Maintain Incident Records
 
-In this example we'll show you how to view incidents from your console, download them as a json file, followed by acknowledging and deleting them from your console.
-
-Before we get stuck in, it's worth mentioning that we have a host of [Useful Scripts](https://github.com/thinkst/canary-utils) that are worth looking into.
+In this example we'll show you how to view incidents from your Console, download them as a json file, followed by acknowledging and deleting them from your console.
 
 <div class="section-container">
   <div class="details-content">
 
-We'll start by using the [Unacknowledged-Incidents](/incidents/queries.html#unacknowledged-incidents) API to obtain list of Incidents
+We'll start by using the [Unacknowledged Incidents](/incidents/queries.html#unacknowledged-incidents) API to obtain a list of Incidents
 
 To make handling a little easier, we'll set the optional `limit` parameter to 5.
 
@@ -277,9 +275,9 @@ print(r.json())
 <div class="section-container">
   <div class="details-content">
 
-After viewing the incidents, we'll use the [Acknowledged-Multiple-Incidents](/incidents/actions.html#acknowledge-multiple-incidents) API to acknowledge all of the incidents on the Console.
+After viewing the incidents, we'll use the [Acknowledge Multiple-Incidents](/incidents/actions.html#acknowledge-multiple-incidents) API to acknowledge all of the incidents on the Console.
 
-To do this, we'll use the `older_than` optional parameter, which we'll see to a period that encompasses all of the incidents. In this case, to ensure we achnowledge all of the incidents, we'll use `0h`.
+To do this, we'll use the `older_than` optional parameter, which we'll see to a period that encompasses all of the incidents. In this case, to ensure we acknowledge all of the incidents, we'll use `0h`.
 
 
   </div>
@@ -341,7 +339,7 @@ print(r.json())
 <div class="section-container">
   <div class="details-content">
 
-Before deleting these incidents from the Console, we'll use [Incidents-All](/incidents/queries.html#all-incidents) API to write the incidents to an output file, archiving them for future reference.
+Before deleting these incidents from the Console, we'll use [Incidents All](/incidents/queries.html#all-incidents) API to write the incidents to an output file, archiving them for future reference.
 
 We'll also include the archive date in the filename.
 
@@ -406,7 +404,7 @@ with open('incident_archive_04102020.txt', 'wb') as f:
 <div class="section-container">
   <div class="details-content">
 
-Finally, with all of the incidents safely archived, we will used the [Delete_Multiple_Incidents](/incidents/actions.html#delete-multiple-incidents) API to remove the incidents from the Console.
+Finally, with all of the incidents safely archived, we will used the [Delete Multiple Incidents](/incidents/actions.html#delete-multiple-incidents) API to remove the incidents from the Console.
 
 Once again, we'll set the optional `older_than` parameter to `0h`.
 
