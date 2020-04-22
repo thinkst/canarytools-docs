@@ -41,9 +41,10 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
-        default: false
-        description: A 'true' value will remove duplicated entries  (defaults to 'false' for backwards
-                    compatibility but you really want this to be true)
+        default: true
+        description: A 'true' value will remove duplicated entries  
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+                     it if you’re on one of those consoles)
       - name: tz
         required: false
         type: string
@@ -99,9 +100,10 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
-        default: false
-        description: A 'true' value will remove duplicated entries  (defaults to 'false' for backwards
-                    compatibility but you really want this to be true)
+        default: true
+        description: A 'true' value will remove duplicated entries  
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+                     it if you’re on one of those consoles)
       - name: tz
         required: false
         type: string
@@ -213,9 +215,10 @@ endpoints:
       - name: shrink
         required: false
         type: boolean
-        default: false
-        description: A 'true' value will remove duplicated entries  (defaults to `false` for backwards
-                    compatibility but you really want this to be true)
+        default: true
+        description: A 'true' value will remove duplicated entries  
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+                     it if you’re on one of those consoles)
       - name: tz
         required: false
         type: string
@@ -249,7 +252,6 @@ These are a collection of endpoints that allow you to query incidents.
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -266,7 +268,6 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'shrink':'true',
   'limit':'1'
 }
 
@@ -285,7 +286,7 @@ print(r.json())
 {
   "cursor": {
     "next": "MTQzOjE0MjoxNDQ6MToxOjA6Mjoz",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged?cursor=MTQzOjE0MjoxNDQ6MToxOjA6Mjoz&auth_token=<auth_token>&shrink=true",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/acknowledged?cursor=MTQzOjE0MjoxNDQ6MToxOjA6Mjoz&auth_token=<auth_token>",
     "prev": null,
     "prev_link": null
   },
@@ -361,7 +362,6 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/all \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -378,7 +378,6 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/all'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'shrink':'true',
   'limit':'1'
 }
 
@@ -397,7 +396,7 @@ print(r.json())
 {
   "cursor": {
     "next": "MTE6MTA6MTQ0OjE6MjowOjI6NQ==",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/all?cursor=MTE6MTA6MTQ0OjE6MjowOjI6NQ%3D%3D&auth_token=<auth_token>&shrink=true",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/all?cursor=MTE6MTA6MTQ0OjE6MjowOjI6NQ%3D%3D&auth_token=<auth_token>",
     "prev": null,
     "prev_link": null
   },
@@ -696,7 +695,6 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d shrink=true \
   -d limit=1 \
   -G
 ```
@@ -713,7 +711,6 @@ url = 'https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'shrink':'true',
   'limit':'1'
 }
 
@@ -732,7 +729,7 @@ print(r.json())
 {
   "cursor": {
     "next": "MTE6MTA6MTE6MTowOjA6Mjoy",
-    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged?cursor=MTE6MTA6MTE6MTowOjA6Mjoy&auth_token=<auth_token>&shrink=true",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/incidents/unacknowledged?cursor=MTE6MTA6MTE6MTowOjA6Mjoy&auth_token=<auth_token>",
     "prev": null,
     "prev_link": null
   },
