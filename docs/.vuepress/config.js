@@ -169,6 +169,7 @@ module.exports = {
         children: [
           '/incidents/actions',
           '/incidents/queries',
+          '/incidents/incident-objects',
         ]
       },
       {
