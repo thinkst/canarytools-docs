@@ -61,15 +61,22 @@ There are two types of Canarytokens, HTML and DNS.
 <div class="section-container">
   <div class="details-content">
 
+::: attribute-details
 
-**type** <br>
-<span style="font-size:0.9em;">A string containing the token type (`html` or `dns`)</span><br>
+**type** 
+Test test
+
+**test**
+Test test test
+<!-- <span style="font-size:0.9em;">A string containing the token type (`html` or `dns`)</span><br>
 **canarytoken** <br>
 <span style="font-size:0.9em;">Unique string that acts as the Canarytoken.</span><br>
 **headers** <br>
 <span style="font-size:0.9em;">Headers is a dict. Only present for HTTP Canarytokens.</span><br>
 **url** <br>
-<span style="font-size:0.9em;">URL of the HTTP Canarytoken</span>
+<span style="font-size:0.9em;">URL of the HTTP Canarytoken</span> -->
+
+:::
 
   </div>
   <div class="example-content">

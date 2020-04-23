@@ -95,7 +95,7 @@ main
     border-top-right-radius: 0
     & pre
         padding-left: 1.5rem !important 
-        margin-top: 1.25em;
+        margin-top: 1.25em
     & .line-numbers-wrapper
         display: none !important 
     
@@ -144,13 +144,13 @@ div[class*="language-"].line-numbers-mode
         border: none
 
 .code-copy svg
-    position: absolute;
+    position: absolute
     margin-top: 1.5em
     top: -48px !important
-    z-index: 2;
+    z-index: 2
     opacity: 1 !important
-    border-left: 1px solid;
-    padding-left: 5px;
+    border-left: 1px solid
+    padding-left: 5px
     height: 18px
     width: 18px
 
@@ -187,10 +187,21 @@ div[class*=language-].line-numbers-mode .highlight-lines .highlighted:before
 .margin-top--20
     margin-top: 20px
 
+.attribute-details
+    & strong
+        font-size: 1rem
+        &:after
+            content: '\a'
+            white-space: pre
+    & p
+        font-size: 0.9rem
+        line-height: 1.2
+
+
 @media (max-width: 419px)
     .section-container
-        margin-left: -1.25em;
-        margin-right: -1.25em;
+        margin-left: -1.25em
+        margin-right: -1.25em
         & .details-content
             margin-left: 1em
         & .example-content

@@ -31,6 +31,14 @@ module.exports = {
       },
     ],
     [
+      'vuepress-plugin-container',
+      {
+        type: 'attribute-details',
+        before: info => `<div class="attribute-details">`,
+        after: '</div>',
+      },
+    ],
+    [
       '@vuepress/pwa',
       {
         serviceWorker: true,
