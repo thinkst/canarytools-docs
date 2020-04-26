@@ -134,7 +134,7 @@ Hostname of the DNS Canarytoke <br><br>
 
 There are six types of port scans incidents.
 
- 1. A host port scan is occurs when a single Canary is port scanned by a single source.
+ 1. A host port scan occurs when a single Canary is port scanned by a single source.
  2. A consolidated network port scan occurs when multiple Canaries are scanned by a single source.
  3. An NMAP FIN scan was run against the Canary.
  4. An NMAP NULL scan was run against the Canary.
@@ -150,9 +150,9 @@ There are six types of port scans incidents.
 **ports** 
 List of comma-separated ports.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197.<br><br>
+The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000<br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -227,13 +227,13 @@ Length of IP packet <br><br>
 **MAC** 
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
 **PREC** 
-Precedent bits, almost always 0x00 <br><br>
+Precedent bits, almost always `0x00` <br><br>
 **PROTO** 
 The protocol used <br><br>
 **RES** 
-Reserved bits, almost always 0x0  <br><br>
+Reserved bits, almost always `0x0`  <br><br>
 **TOS** 
-IP Type of Service field, almost always 0x00 <br><br>
+IP Type of Service field, almost always `0x00` <br><br>
 **TTL** 
 Time-to-live on the IP packet <br><br>
 **URGP** 
@@ -245,9 +245,9 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197.<br><br>
+The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000<br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -294,17 +294,17 @@ Length of IP packet <br><br>
 **MAC** 
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
 **PREC** 
-Precedent bits, almost always 0x00 <br><br>
+Precedent bits, almost always `0x00` <br><br>
 **PROTO** 
 The protocol used <br><br>
 **RES** 
-Reserved bits, almost always 0x0  <br><br>
+Reserved bits, almost always `0x0`  <br><br>
 **TOS** 
-IP Type of Service field, almost always 0x00 <br><br>
+IP Type of Service field, almost always `0x00` <br><br>
 **TTL** 
 Time-to-live on the IP packet <br><br>
 **URGP** 
-Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. 0 indicates it’s not used. <br><br>
+Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
 **WINDOW** 
 TCP Window size  <br><br>
 **SYN** 
@@ -312,9 +312,9 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197.<br><br>
+The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000<br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -361,17 +361,17 @@ Length of IP packet <br><br>
 **MAC** 
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
 **PREC** 
-Precedent bits, almost always 0x00 <br><br>
+Precedent bits, almost always `0x00` <br><br>
 **PROTO** 
 The protocol used <br><br>
 **RES** 
-Reserved bits, almost always 0x0  <br><br>
+Reserved bits, almost always `0x0`  <br><br>
 **TOS** 
-IP Type of Service field, almost always 0x00 <br><br>
+IP Type of Service field, almost always `0x00` <br><br>
 **TTL** 
 Time-to-live on the IP packet <br><br>
 **URGP** 
-Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. 0 indicates it’s not used. <br><br>
+Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
 **WINDOW** 
 TCP Window size  <br><br>
 **SYN** 
@@ -379,9 +379,9 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197.<br><br>
+The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000<br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -428,17 +428,17 @@ Length of IP packet <br><br>
 **MAC** 
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
 **PREC** 
-Precedent bits, almost always 0x00 <br><br>
+Precedent bits, almost always `0x00` <br><br>
 **PROTO** 
 The protocol used <br><br>
 **RES** 
-Reserved bits, almost always 0x0  <br><br>
+Reserved bits, almost always `0x0`  <br><br>
 **TOS** 
-IP Type of Service field, almost always 0x00 <br><br>
+IP Type of Service field, almost always `0x00` <br><br>
 **TTL** 
 Time-to-live on the IP packet <br><br>
 **URGP** 
-Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. 0 indicates it’s not used. <br><br>
+Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
 **WINDOW** 
 TCP Window size  <br><br>
 **SYN** 
@@ -446,9 +446,9 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197.<br><br>
+The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000<br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -521,9 +521,9 @@ Attacker supplied username. <br><br>
 **PASSWORD** 
 Attacker supplied password. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -559,9 +559,9 @@ Git client's view of the Canary's hostname. <br><br>
 **REPO** 
 Name of the repository the client attempted to clone. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -604,17 +604,17 @@ Web path requested by the source. <br><br>
 **USERAGENT** 
 Useragent of the source's browser. <br><br>
 **CHANNEL** 
-Optional. Set to 'TLS' if an encrypted site is configured, otherwise absent. <br><br>
+Optional. Set to `'TLS'` if an encrypted site is configured, otherwise absent. <br><br>
 **METHOD** 
-The HTTP request method used eg. GET/POST/DELETE <br><br>
+The HTTP request method used eg. `GET/POST/DELETE` <br><br>
 **RESPONSE** 
 The response code eg. `200` <br><br>
 **SKIN** 
 Which Webserver skin was used eg. `nasLogin` <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -658,17 +658,17 @@ Web path requested by the source. <br><br>
 **USERAGENT** 
 Useragent of the source's browser. <br><br>
 **CHANNEL** 
-Optional. Set to 'TLS' if an encrypted site is configured, otherwise absent. <br><br>
+Optional. Set to `'TLS'` if an encrypted site is configured, otherwise absent. <br><br>
 **METHOD** 
-The HTTP request method used eg. GET/POST/DELETE <br><br>
+The HTTP request method used eg. `GET/POST/DELETE` <br><br>
 **RESPONSE** 
 The response code eg. `200` <br><br>
 **SKIN** 
 Which Webserver skin was used eg. `nasLogin` <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -716,9 +716,9 @@ URL requested by the source. <br><br>
 **USERAGENT** 
 Useragent of the source's browser. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -754,7 +754,7 @@ Triggered by scans for HTTP services
 ::: attribute-details
 
 **METHOD** 
-The HTTP request method used eg. GET/POST/DELETE <br><br>
+The HTTP request method used eg. `GET/POST/DELETE` <br><br>
 **PATH** 
 Web path requested by the source. <br><br>
 **RESPONSE** 
@@ -810,9 +810,9 @@ Hostname of the attacker <br><br>
 **SERVERNAME** 
 IP address of the attacker <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -865,9 +865,9 @@ Optional. ModBus subfunction code, if available. <br><br>
 **SFUNC_NAME** 
 Optional. ModBus subfunction name, if available. <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -913,9 +913,9 @@ Attacker supplied database password hash salt. <br><br>
 **PASSWORD** 
 Recovered password if possible, otherwise <br>`<Password not in common list>` <br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -950,11 +950,11 @@ Triggered by the NTP Monlist command.
 ::: attribute-details
 
 **NTP_CMD** 
-Name of the NTP command sent. Currently is 'monlist'.<br><br>
+Name of the NTP command sent. Currently is `'monlist'`.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -990,9 +990,9 @@ Redis command issued by the attacker.<br><br>
 **ARGS** 
 Arguments to the command.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1064,13 +1064,13 @@ Username supplied by the attacker.<br><br>
 **FILENAME** 
 Name of file on the Canary that was accessed.<br><br>
 **AUDITACTION** 
-Type of file action. Currently only 'pread'.<br><br>
+Type of file action. Currently only `'pread'`.<br><br>
 **DOMAIN** 
 Name of domain or workgroup.<br><br>
 **LOCALNAME** 
 Windows Name of Canary machine.<br><br>
 **MODE** 
-'workgroup' or 'domain'<br><br>
+`'workgroup'` or `'domain'`<br><br>
 **OFFSET** 
 Starting position of the read.<br><br>
 **REMOTENAME** 
@@ -1084,11 +1084,11 @@ Guess of the remote machine's Windows version.<br><br>
 **SMBVER** 
 Version of the SMB protocol that was used.<br><br>
 **STATUS** 
-Result of the file read. Currently only 'ok'.<br><br>
+Result of the file read. Currently only `'ok'`.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1136,9 +1136,9 @@ SNMP community string supplied by attacker.<br><br>
 **REQUESTS** 
 SNMP OID requested by the attacker.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1183,11 +1183,11 @@ Attacker's supplied version string.<br><br>
 **KEY** 
 Optional. Attacker's supplied public key in key-based auth.<br><br>
 **WATCHED_CREDENTIALS** 
-Optional. Set to 'Yes' if Watched Credentials are enabled.<br><br>
+Optional. Set to `'Yes'` if Watched Credentials are enabled.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1231,11 +1231,11 @@ Multiple banners are supported, the id identifies which banner service was trigg
 **DATA** 
 Optional. Attacker's supplied data.<br><br>
 **FUNCTION** 
-Indicates which trigger fired, either 'DATA_RECEIVED' for when a banner was sent after the attacker sent data, or 'CONNECTION_MADE' for when a banner was sent immediately on connection.<br><br>
+Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was sent after the attacker sent data, or `'CONNECTION_MADE'` for when a banner was sent immediately on connection.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1272,13 +1272,13 @@ Triggered by a TFTP request against the Canary.
 **FILENAME** 
 Name of file the attacker tried to act on.<br><br>
 **OPCODE** 
-File action, either 'READ' or 'WRITE'<br><br>
+File action, either `'READ'` or `'WRITE'`<br><br>
 **MODE** 
-TFTP defines three modes of transfer: netascii, octet, and mail.<br><br>
+TFTP defines three modes of transfer: `netascii`, `octet`, and `mail`.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1320,9 +1320,9 @@ The size of the terminal<br><br>
 **TERMTYPE** 
 The terminal type<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1365,9 +1365,9 @@ VNC password hashing parameter.<br><br>
 **CLIENT_RESPONSE** 
 VNC password hashing parameter.<br><br>
 **timestamp** 
-The timestamp of the request eg. 1580378197 <br><br>
+The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. 2020-01-30 09:56:37 UTC+0000 <br><br>
+Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
