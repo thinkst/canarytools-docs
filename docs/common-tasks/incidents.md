@@ -1,4 +1,4 @@
-# View and Maintain Incident Records
+# Backup and Clear Incidents
 
 In this example we'll show you how to view incidents from your Console, download them as a json file, followed by acknowledging and deleting them from your Console.
 
