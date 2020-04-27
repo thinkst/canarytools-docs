@@ -8,7 +8,46 @@ The incident object contains a record of the individual events that constitute t
 
 Incident feeds have this basic structure:
 
-:::  api-response
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**updated** 
+Human readible date when the incident was updated<br><br>
+**updated_std**
+The date/time when the incident was updated in the format `YYYY-MM-DD HH:MM:SS TZ` <br><br>
+**updated_time**
+Timestamp of the updated time eg. `1574945951` <br><br>
+**created**
+Timestamp of the incident creation time eg. `1574945951` <br><br>
+**created_std**
+The date/time when the incident was created in the format `YYYY-MM-DD HH:MM:SS TZ` <br><br>
+**dst_host**
+Optional - The destination IP address of the attack <br><br>
+**dst_port**
+Optional - The destination port of the attack <br><br>
+**events_count**
+Number of events for the incident <br><br>
+**name**
+Optional - The name of the device on which the incident occurred <br><br>
+**node_id**
+Optional - The node_id of the device on which the incident occurred <br><br>
+**src_host**
+The source IP address of the attacker <br><br>
+**src_host_reverse**
+The source hostname of the attacker<br><br>
+**src_port**
+The source port of the attacker <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
 ``` json
 {
   "feed": "Unacknowledged Incidents",
@@ -17,37 +56,39 @@ Incident feeds have this basic structure:
     {
       "id": "...",
       "summary": "<EVENT_DESCRIPTION>",
-      "updated": "...",           /* Human readible date when the incident was updated */
-      "updated_std": "...",       /* The date/time when the incident was updated in the format "YYYY-MM-DD HH:MM:SS TZ" */
-      "updated_time": "..."       /* Timestamp of the updated time eg. "1574945951" */
+      "updated": "...",           
+      "updated_std": "...",       
+      "updated_time": "..."       
 [...]
       "description": {
 [...]
         "logtype": "<LOGTYPE>",
         "description": "<EVENT_DESCRIPTION>",
-        "created": "...",         /* Timestamp of the incident cretaion time eg. "1574945951" */
-        "created_std": "...",     /* The date/time when the incident was created in the format "YYYY-MM-DD HH:MM:SS TZ" */
-        "dst_host": "...",        /* Optional - The destination IP address of the attack */
-        "dst_port": "...",        /* Optional - The destination port of the attack */
+        "created": "...",         
+        "created_std": "...",     
+        "dst_host": "...",        
+        "dst_port": "...",        
         "events": [
           <EVENT_DICT>,
           <EVENT_DICT>,
           ...,
         ]
-        "events_count": "...",      /* Number of events for the incident */
-        "name": "...",              /* Optional - The name of the device on which the incident occurred */
-        "node_id": "...",           /* Optional - The node_id of the device on which the incident occurred */
-        "src_host": "...",          /* The source IP address of the attacker */
-        "src_host_reverse": "...",  /* The source hostname of the attacker */
-        "src_port": "..."           /* The source port of the attacker */
+        "events_count": "...",      
+        "name": "...",              
+        "node_id": "...",           
+        "src_host": "...",          
+        "src_host_reverse": "...",  
+        "src_port": "..."           
       }
     }
   ]
 }
 ```
 :::
+  </div>
+</div>
 
-The “events” field contains a list of <EVENT_DICT> s. In the incident types below, only the <EVENT_DESCRIPTION> and <EVENT_DICT> values are defined as the rest of the incident object is the same across the various incident types.
+The “events” field contains a list of `<EVENT_DICT>` s. In the incident types below, only the `<EVENT_DESCRIPTION>` and `<EVENT_DICT>` values are defined as the rest of the incident object is the same across the various incident types.
 
 All fields will be present in each incident, unless noted otherwise.
 
@@ -237,7 +278,7 @@ IP Type of Service field, almost always `0x00` <br><br>
 **TTL** 
 Time-to-live on the IP packet <br><br>
 **URGP** 
-Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. 0 indicates it’s not used. <br><br>
+Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
 **WINDOW** 
 TCP Window size  <br><br>
 **SYN** 
