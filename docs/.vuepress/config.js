@@ -79,6 +79,7 @@ module.exports = {
           '/',
           '/guide/getting-started',
           '/guide/terminology',
+          '/guide/list-of-endpoints',
         ]
       },
       {

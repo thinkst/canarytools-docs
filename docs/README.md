@@ -2,7 +2,7 @@
 
 Welcome to the Canarytools API Documentation.
 
-If you're new here, take a look at our [Getting Started](/guide/getting-started) section which will walk you through finding your API key, determining your Console's unique domain, and making your first calls to the API.
+If you're new here, take a look at our [Getting Started](guide/getting-started) section which will walk you through finding your API key, determining your Console's unique domain, and making your first calls to the API.
 
 For FAQs, step-by-step Bird and Console setup instructions, and other support issues, head on over to our [Help Page](https://help.canary.tools/).
 

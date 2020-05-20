@@ -159,7 +159,7 @@ endpoints:
         description: The type of privileges the user should have (Either 'manager' or 'watcher')
     response: JSON structure with result indicator.
   unassign_user_flocks:
-    name: Remove a User from flocks
+    name: Remove User from flocks
     url: /api/v1/user/flock/unassign
     method: POST
     description: Remove a user to one or more flocks.
