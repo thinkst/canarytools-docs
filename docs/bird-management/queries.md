@@ -90,6 +90,32 @@ endpoints:
         default: false
         description:  Whether to include settings which the user can not change
     response: JSON structure of Bird's current information.
+  device_ips:
+    name: Device IPs
+    url: /api/v1/device/ips
+    method: GET
+    description: Retrieve a list of Device IP addresses.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: download
+        required: false
+        type: boolean
+        default: false
+        description: Whether to return a simply structured .txt file of the IPs
+      - name: include_annotations
+        required: false
+        type: boolean
+        default: false
+        description: Whether to include Flock and Device names
+      - name: flock_id
+        required: false
+        type: string
+        default: false
+        description:  Limits the returned list to a single Flock
+    response: JSON structure of Device IP addresses
 ---
 
 # Queries
@@ -558,6 +584,73 @@ print(r.json())
   },
   "result": "success"
 }
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Device IPs
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.device_ips">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/device/ips \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/ips'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "ips": {
+    "flock:a7d0649a9d990c260d9602310ec8f88f": {
+      "name": "London HQ",
+      "devices": {
+        "00000000f9495cec": {
+          "ip_address": "192.168.1.123",
+          "name": "NAS01"
+        },
+        ...
+      }
+    },
+    ...
+  },
+  "result": "success"
+}
+
+
 ```
 :::
 
