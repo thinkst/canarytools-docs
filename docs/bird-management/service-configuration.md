@@ -467,7 +467,7 @@ Using the [Configure Bird](service-configuration.html#configure-bird) endpoint, 
 However, if you'd like to expose your own site, we allow you to upload your own custom webroot to your Birds (from version 2.2 onwards). In order to do this, you can enable a temporary endpoint on your Bird that will allow you access it over the network, and upload a zip containing your site. 
 
 ::: tip
-For details about how the zip should be structured, you can look at [our help article](https://help.canary.tools/help/creating-a-customized-page-for-my-canarys-web-server).
+For details about how the zip should be structured, you can look at [our help article](https://help.canary.tools/hc/en-gb/articles/360002426457-Creating-a-customized-page-for-my-Canary-s-web-server).
 :::
 
 ### Check Webroot Upload Status

@@ -661,13 +661,13 @@ print(r.json())
 
 ## Syslog
 
-We don't currently have endpoints publicly available to enable and manage your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from your to get it done. We have a KB article that will [explain the setup process](https://help.canary.tools/help/syslog-configuration).
+We don't currently have endpoints publicly available to enable and manage your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from you to get it done. We have a KB article that will [explain the setup process](https://help.canary.tools/hc/en-gb/articles/360002432118-How-can-I-get-alerts-via-Syslog).
 
 ## Webhooks
 
 ### Generic
 
-If you simply want us to POST JSON data to a URL, the Generic Webhook is perfect for you. 
+If you simply want us to POST JSON data to a URL, the Generic Webhook is perfect for you.
 
 #### Add a Generic Webhook
 
@@ -993,7 +993,7 @@ Within a few clicks (we currently don't expose the [Add](#add-a-slack-webhook) f
 
 We currently don't expose the Slack add process via the API directly as it requires a multi-step process which includes Authenticating with Slack and granting permissions for the webhook to POST data to your channels.
 
-A step-by-step guide to adding a Slack webhook via the Console UI can be found [here](https://help.canary.tools/help/edit-delete-how-do-i-webhook-notifications).
+A step-by-step guide to adding a Slack webhook via the Console UI can be found [here](https://help.canary.tools/hc/en-gb/articles/360002432278-How-do-I-configure-Slack-Webhook-notifications).
 
 #### Remove an Existing Slack Webhook
 
