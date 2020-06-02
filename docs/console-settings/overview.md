@@ -30,7 +30,7 @@ can individually configure a Flock's settings using the [Flock Settings](/flocks
 
 You can inspect all global settings using the the [Fetch Console Settings](#fetch-console-settings) endpoint.
 
-This will include global configuration for your [API](/console-settings/api.html), [Canarytokens](/console-settings/canarytokens.html), [Ignore Lists](/console-settings/ignore-lists.html),
+This will include global configuration for your [API](/console-settings/api.html), [Canarytokens](/console-settings/canarytokens.html), [Ignore Lists](/console-settings/ignore-lists.html), [Integrations](/console-settings/integrations.html),
 [Notification Channels](/console-settings/notification-channels.html), and [Notification Settings](/console-settings/notification-settings.html).
 
 :::::
