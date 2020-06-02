@@ -41,7 +41,7 @@ endpoints:
 
 ::::: slot details
 
-Integrations are enhancement to your Console which tie into third party systems. 
+Integrations are enhancements to your Console which tie into third-party systems. 
 
 :::::
 
