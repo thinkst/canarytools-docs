@@ -189,7 +189,7 @@ endpoints:
       - name: whitelist_ips
         required: false
         type: string
-        description: Comma separated list of IP addresses to ignore
+        description: Newline separated list of IP addresses to ignore
       - name: clear
         required: false
         type: boolean
@@ -418,13 +418,28 @@ print(r.json())
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.default_ignore_ip_port_list">
 
-::: slot optional-parameters-notes
+:::: slot optional-parameters-notes
 
 ::: tip
 At least one of the optional parameters is required.
 :::
 
+::: tip
+You can add comments to your list of ignored IPs by prefixing a line with '#'
+
+For example, to set your ignore list to the below:
+```
+# test comment
+1.2.3.4
+10.10.10.10
+
+```
+You would send through:
+
+`-d $'# test comment\n1.2.3.4\n10.10.10.10'`
 :::
+
+::::
 
 ::::: slot example
 
