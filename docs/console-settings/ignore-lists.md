@@ -432,7 +432,6 @@ For example, to set your ignore list to the below:
 # test comment
 1.2.3.4
 10.10.10.10
-
 ```
 You would send through:
 
