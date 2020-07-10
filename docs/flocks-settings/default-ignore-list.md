@@ -117,7 +117,7 @@ endpoints:
     name: List Ignored IPs
     url: /api/v1/flock/settings/whitelisting/ip/sanitized
     method: GET
-    description: Fetch a sanitized list of ignored IPs for a Flock.
+    description: Fetch a sanitized list of ignored IPs and ports for a Flock.
     params:
       - name: auth_token
         required: true
@@ -127,7 +127,7 @@ endpoints:
         required: true
         type: string
         description: A valid flock_id
-    response: A JSON structure with a list of ignored IPs for a Flock.
+    response: A JSON structure with the ignored IPs for a Flock and the globally ignored ports for a Flock.
   ignore_ip_save:
     name: Set Ignored IPs
     url: /api/v1/flock/settings/whitelisting/ip/save
@@ -757,7 +757,7 @@ print(r.json())
         ]
       }
     },
-    []
+    [<port>]
   ]
 }
 ```
