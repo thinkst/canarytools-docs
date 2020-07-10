@@ -115,7 +115,7 @@ endpoints:
     response: A JSON structure with the ignored state.
   ignore_ip_sanitized:
     name: List Ignored IPs
-    url: /api/v1//flock/settings/whitelisting/ip/sanitized
+    url: /api/v1/flock/settings/whitelisting/ip/sanitized
     method: GET
     description: Fetch a sanitized list of ignored IPs for a Flock.
     params:
@@ -716,7 +716,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1//flock/settings/whitelisting/ip/sanitized \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/sanitized \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
   -G
@@ -729,7 +729,7 @@ curl https://EXAMPLE.canary.tools/api/v1//flock/settings/whitelisting/ip/sanitiz
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1//flock/settings/whitelisting/ip/sanitized'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/whitelisting/ip/sanitized'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
