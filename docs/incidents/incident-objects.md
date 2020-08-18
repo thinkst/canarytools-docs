@@ -29,6 +29,10 @@ Optional - The destination IP address of the attack <br><br>
 Optional - The destination port of the attack <br><br>
 **events_count**
 Number of events for the incident <br><br>
+**flock_id**
+ID of the Flock in which the incident occurred <br><br>
+**flock_name**
+Name of the Flock in which the incident occurred <br><br>
 **name**
 Optional - The name of the device on which the incident occurred <br><br>
 **node_id**
@@ -74,6 +78,8 @@ The source port of the attacker <br><br>
           ...,
         ]
         "events_count": "...",      
+        "flock_id": "...",
+        "flock_name": "...",
         "name": "...",              
         "node_id": "...",           
         "src_host": "...",          
