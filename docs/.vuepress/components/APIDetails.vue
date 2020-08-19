@@ -2,9 +2,9 @@
   <div>
     <p>
       <code>{{endpoint.method}} {{endpoint.url}}</code>
-    </p> 
+    </p>
     <slot name="description">
-      <p>{{endpoint.description}}</p> 
+      <p>{{endpoint.description}}</p>
     </slot>
     <button
       class="collapsible"
@@ -15,9 +15,9 @@
     </button>
     <div class="section-container content" ref="content">
       <div class="details-content">
-        <h4 class="details-heading">Required Parameters</h4> 
+        <h4 class="details-heading">Required Parameters</h4>
         <div class="param-section">
-          <div 
+          <div
             v-for="param in requiredParams"
             :key="endpoint.name + param.name"
             class="endpoint-details"
@@ -41,9 +41,9 @@
         </div>
         <slot name="required-parameters-notes"></slot>
         <template v-if="optionalParams.length > 0">
-          <h4 class="details-heading">Optional Parameters</h4> 
+          <h4 class="details-heading">Optional Parameters</h4>
           <div class="param-section">
-            <div 
+            <div
               v-for="param in optionalParams" :key="endpoint.name + param.name"
               class="endpoint-details"
             >
@@ -67,9 +67,9 @@
           </div>
           <slot name="optional-parameters-notes"></slot>
         </template>
-        <h4 class="details-heading">Response</h4> 
+        <h4 class="details-heading">Response</h4>
         <slot name="response">
-          <p>{{endpoint.response}}</p> 
+          <p>{{endpoint.response}}</p>
         </slot>
       </div>
 
@@ -113,6 +113,9 @@ export default {
       description = description.replace (/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
       return description
     },
+    to_array(s) {
+      return s.split(',')
+    },
     toggle() {
       this.expand = !this.expand;
       if (this.$refs.content.style.maxHeight){
@@ -148,14 +151,14 @@ export default {
   font-size: 1.1em
 
 .endpoint-details-type
-  font-style: italic 
+  font-style: italic
   font-size: 0.8em
 
 .endpoint-details-default
   color: $badgeWarningColor
   font-size: 0.8em
   & .heading
-    font-style: italic 
+    font-style: italic
 
 .endpoint-details-deprecated
   color: $badgeErrorColor
@@ -164,15 +167,15 @@ export default {
 .endpoint-details-deprecated-message
   color: $badgeErrorColor
   font-size: 0.8em
-  font-style: italic 
+  font-style: italic
   margin-top: 1em
   margin-bottom: 1em
 
 
 .endpoint-details-description
   font-size: 0.9em
-  
-button:focus 
+
+button:focus
   outline:0
 
 .collapsible
@@ -187,19 +190,19 @@ button:focus
   width 100px
 
 
-.content 
+.content
   max-height: 0
   overflow: hidden
   transition: max-height 0.4s ease-out
 
-.collapsible:after 
+.collapsible:after
   content: '\02795'
   font-size: 9px
   color: #ccc
   float: right
   margin-left: 5px
 
-.active:after 
+.active:after
   content: '\2796'
 
 
