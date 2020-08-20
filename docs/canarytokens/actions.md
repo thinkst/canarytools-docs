@@ -1,5 +1,16 @@
 ---
 endpoints:
+  list_canarytokens:
+    name: List available Canarytokens
+    url: /api/v1/canarytokens/list
+    method: GET
+    description: Lists the available Canarytokens on your Canary Console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator and Canarytokens information.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -37,10 +48,8 @@ endpoints:
       - name: kind
         required: true
         type: string
-        description: Specifies the type of Canarytoken. Supported classes include
-                        http, dns, cloned-web, doc-msword, web-image, windows-dir, aws-s3,
-                        pdf-acrobat-reader, msword-macro, msexcel-macro, aws-id, apeeper, qr-code,
-                        svn, sql, fast-redirect, slow-redirect
+        description: Specifies the type of Canarytoken. Please check "[List Canarytokens](/canarytokens/actions.html#list-canarytokens)" for available
+                     Canarytoken kind values.
       - name: web_image
         required: false
         type: string
@@ -77,6 +86,42 @@ endpoints:
         type: string
         description: AWS ID Username is optional if the client wants to create an AWS API key linked to certain NameError
                      otherwise its randomly generated (optional when creating aws-id tokens)
+      - name: browser_redirect_url
+        required: false
+        type: string
+        description: Browser redirect URL is the URL you want your Canarytoken server to redirect attackers to after they have
+                     triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
+      - name: trigger_type
+        required: false
+        type: string
+        description: SQL action that triggers the SQL Canarytoken - these can be `SELECT`, `INSERT`, `UPDATE` or `DELETE`
+                     (required when creating sql tokens)
+      - name: trigger_name
+        required: false
+        type: string
+        description: Name of the trigger we will create (required when creating sql tokens with `trigger_type` as `INSERT`, `UPDATE` or `DELETE`)
+      - name: table_name
+        required: false
+        type: string
+        description: Name of table that will activate the trigger when the `trigger_type` action is executed on this table (required when creating
+                     sql tokens with `trigger_type` as `INSERT`, `UPDATE` or `DELETE`)
+      - name: view_name
+        required: false
+        type: string
+        description: Name of the view that will be created to call your specified function (from `function_name`) and trigger the embedded
+                     Canarytoken (required when creating sql tokens with `trigger_type` as `SELECT`)
+      - name: function_name
+        required: false
+        type: string
+        description: Name of the table-view function created to trigger your Canarytoken (required when creating sql tokens with `trigger_type` as `SELECT`)
+      - name: exe
+        required: false
+        type: string
+        description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
+      - name: web_image
+        required: false
+        type: string
+        description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
@@ -175,7 +220,7 @@ endpoints:
       - name: aws_secret_key
         required: true
         type: string
-        description: AWS Secret Access Key (this is not stored on the Console and is only used 
+        description: AWS Secret Access Key (this is not stored on the Console and is only used
                      for the duration of the operation)
       - name: aws_region
         required: true
@@ -225,6 +270,91 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 </APIEndpoints>
 
+## List Canarytokens
+
+::: tip
+The values returned by this Canarytokens API correspond to the `kind` parameter used to create
+Canarytokens. As an example, if you wanted to create a Cloned Web Canarytoken, you would check the
+response to this Canarytokens API and use `cloned-web` to define the Canarytoken type you wish to create.
+:::
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_canarytokens">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "canarytokens":{
+    "apeeper":"EC2 Meta-data Service",
+    "autoreg-google-docs":"Google Document",
+    "autoreg-google-sheets":"Google Sheet",
+    "aws-id":"Amazon API Key",
+    "aws-s3":"Amazon S3",
+    "cloned-web":"Cloned Website",
+    "dns":"DNS",
+    "doc-msword":"MS Word .docx Document",
+    "fast-redirect":"Fast HTTP Redirect",
+    "google-docs":"Google Document",
+    "google-sheets":"Google Sheet",
+    "googledocs_factorydoc":"Document Factory",
+    "googlesheets_factorydoc":"Document Factory",
+    "http":"Web",
+    "msexcel-macro":"MS Excel .xlsm Document",
+    "msword-macro":"MS Word .docm Document",
+    "office365mail":"Office 365 email token",
+    "pdf-acrobat-reader":"Acrobat Reader PDF Document",
+    "qr-code":"QR Code",
+    "signed-exe":"Signed Exe",
+    "slack-api":"Slack API Key",
+    "slow-redirect":"Slow HTTP Redirect",
+    "sql":"SQL Server",
+    "svn":"SVN Repo",
+    "web-image":"Remote Web Image",
+    "windows-dir":"Windows Directory Browsing"
+  },
+  "result":"success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
 ## Create Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.create">
@@ -240,7 +370,7 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/create \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d memo='Example Memo' \
-  -d kind=EXAMPLE_KIND 
+  -d kind=EXAMPLE_KIND
 ```
 
 :::
@@ -596,7 +726,7 @@ print(r.json())
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/update \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d canarytoken=EXAMPLE_CANARYTOKEN \
-  -d memo='Example Memo' 
+  -d memo='Example Memo'
 ```
 
 :::
