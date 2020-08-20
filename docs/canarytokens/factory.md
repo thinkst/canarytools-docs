@@ -111,7 +111,6 @@ endpoints:
         type: string
         description: Name of table that will activate the trigger when the `trigger_type` action is executed on this table (required when creating
                      sql tokens with `trigger_type` as `INSERT`, `UPDATE` or `DELETE`)
-        expected_values: zxc, asd, qwe
       - name: view_name
         required: false
         type: string
