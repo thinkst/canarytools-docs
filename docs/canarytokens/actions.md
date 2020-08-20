@@ -4,7 +4,7 @@ endpoints:
     name: List available Canarytokens
     url: /api/v1/canarytokens/list
     method: GET
-    description: List the available Canarytokens on your Canary Console.
+    description: Lists the available Canarytokens on your Canary Console.
     params:
       - name: auth_token
         required: true
@@ -274,8 +274,8 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 ::: tip
 The values returned by this Canarytokens API correspond to the `kind` parameter used to create
-Canarytokens. As an example, if I wanted to create a Cloned Web Canarytoken, I would check the
-response to this Canarytokens API and use `cloned-web` to define the Canarytoken type I wish to create.
+Canarytokens. As an example, if you wanted to create a Cloned Web Canarytoken, you would check the
+response to this Canarytokens API and use `cloned-web` to define the Canarytoken type you wish to create.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.list_canarytokens">

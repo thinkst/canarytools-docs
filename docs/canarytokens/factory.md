@@ -4,7 +4,7 @@ endpoints:
     name: List Canarytokens available via Canarytoken Factory
     url: /api/v1/canarytokens/factory/list
     method: GET
-    description: List the Canarytokens available via your Canarytokens Factory.
+    description: Lists the Canarytokens available via your Canarytokens Factory.
     params:
       - name: auth_token
         required: true
@@ -149,8 +149,8 @@ The Canarytoken factory gives you a limited use key that is able to create other
 
 ::: tip
 The values returned by this Canarytokens Factory API correspond to the `kind` parameter used to create
-Canarytokens via the Canarytokens Factory. As an example, if I wanted to create a Cloned Web Canarytoken, I would check the
-response to this Canarytoken Factory API and use `cloned-web` to define the Canarytoken type I wish to create.
+Canarytokens via the Canarytokens Factory. As an example, if you wanted to create a Cloned Web Canarytoken, you would check the
+response to this Canarytoken Factory API and use `cloned-web` to define the Canarytoken type you wish to create via the Canarytoken Factory.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.list_factory_canarytokens">
