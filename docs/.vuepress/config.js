@@ -119,6 +119,8 @@ module.exports = {
           '/canarytokens/clonedweb-ignorelist',
           '/canarytokens/factory',
           '/canarytokens/queries',
+          '/canarytokens/office365',
+          '/canarytokens/googledocs'
         ]
       },
       {
