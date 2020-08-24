@@ -4,7 +4,7 @@ endpoints:
     name: Initiate Office365 Canarytoken creation
     url: /api/v1/canarytoken/office365/initiate
     method: POST
-    description: Initiates the creation of an Office365 Canarytoken
+    description: Initiates the creation of an Office365 Canarytoken.
     params:
       - name: auth_token
         required: true
@@ -49,7 +49,7 @@ endpoints:
     name: Insert Office365 mail Canarytokens
     url: /api/v1/canarytoken/office365/create
     method: POST
-    description: Inserts the Office365 mail Canarytoken into specified email addresses
+    description: Inserts the Office365 mail Canarytoken into specified email addresses.
     params:
       - name: auth_token
         required: true
@@ -82,7 +82,7 @@ endpoints:
     name: Save Office365 mail template
     url: /api/v1/canarytoken/office365/email
     method: POST
-    description: Saves the Office365 mail template to be used when tokening Office365 mailboxes
+    description: Saves the Office365 mail template to be used when tokening Office365 mailboxes.
     params:
       - name: auth_token
         required: true
@@ -106,7 +106,7 @@ endpoints:
     name: Get Office365 mail template
     url: /api/v1/canarytoken/office365/email
     method: GET
-    description: Gets the Office365 mail template to be used when tokening Office365 mailboxes
+    description: Gets the Office365 mail template to be used when tokening Office365 mailboxes.
     params:
       - name: auth_token
         required: true
@@ -119,15 +119,15 @@ endpoints:
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
     response: A JSON structure with the html and subject information with a result indicator
   office_365_oauth_token:
-    name: Get Office365 oauth token
+    name: Request Office365 oauth token
     url: /api/v1/canarytoken/office365/oauth/token
     method: POST
-    description: Gets the Office365 access token
+    description: Requests the Office365 access token.
     params:
       - name: code
         required: true
         type: string
-        description: value returned after sign in with Office365 is successful and redirects
+        description: Value returned after sign in with Office365 is successful and redirects
       - name: user_email
         required: true
         type: string
@@ -135,13 +135,13 @@ endpoints:
       - name: state
         required: true
         type: string
-        description: value returned after sign in with Office365 is successful and redirects
+        description: Value returned after sign in with Office365 is successful and redirects
     response: A JSON structure with a result indicator
   office_365_status:
     name: Get status of Office365 tokening
     url: /canarytoken/office365/status
     method: GET
-    description: Gets the status of the Office365 tokening process
+    description: Gets the status of the Office365 tokening process.
     params:
         - name: flock_id
           required: false
@@ -188,7 +188,7 @@ flows and parameters needed, making your life a lot easier.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.save_office_365_mail_template"></APIDetails>
 
-## Get Office365 oauth access token
+## Requests Office365 oauth access token
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.office_365_oauth_token"></APIDetails>
 

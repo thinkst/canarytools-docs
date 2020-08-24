@@ -4,7 +4,7 @@ endpoints:
     name: Generate a Google Document or Sheet Canarytoken Factory
     url: /api/v1/canarytoken/factorydoc/generate
     method: POST
-    description: Generates a Google Document or Google Sheet Canarytoken Factory
+    description: Generates a Google Document or Google Sheet Canarytoken Factory.
     params:
       - name: auth_token
         required: true
@@ -52,7 +52,7 @@ endpoints:
     name: Auto register endpoint for new Google Document or Sheet Canarytokens
     url: /api/v1/canarytoken/registerdoc
     method: POST
-    description: Auto registers a new Google Document or Sheet to an existing Google Document or Sheet Factory
+    description: Auto registers a new Google Document or Sheet to an existing Google Document or Sheet Factory.
     params:
       - name: autoreg_id
         required: true
