@@ -91,29 +91,6 @@ endpoints:
         type: string
         description: Browser redirect URL is the URL you want your Canarytoken server to redirect attackers to after they have
                      triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
-      - name: trigger_type
-        required: false
-        type: string
-        description: SQL action that triggers the SQL Canarytoken - these can be `SELECT`, `INSERT`, `UPDATE` or `DELETE`
-                     (required when creating sql tokens)
-      - name: trigger_name
-        required: false
-        type: string
-        description: Name of the trigger we will create (required when creating sql tokens with `trigger_type` as `INSERT`, `UPDATE` or `DELETE`)
-      - name: table_name
-        required: false
-        type: string
-        description: Name of table that will activate the trigger when the `trigger_type` action is executed on this table (required when creating
-                     sql tokens with `trigger_type` as `INSERT`, `UPDATE` or `DELETE`)
-      - name: view_name
-        required: false
-        type: string
-        description: Name of the view that will be created to call your specified function (from `function_name`) and trigger the embedded
-                     Canarytoken (required when creating sql tokens with `trigger_type` as `SELECT`)
-      - name: function_name
-        required: false
-        type: string
-        description: Name of the table-view function created to trigger your Canarytoken (required when creating sql tokens with `trigger_type` as `SELECT`)
       - name: exe
         required: false
         type: string
@@ -341,8 +318,6 @@ print(r.json())
     "signed-exe":"Signed Exe",
     "slack-api":"Slack API Key",
     "slow-redirect":"Slow HTTP Redirect",
-    "sql":"SQL Server",
-    "svn":"SVN Repo",
     "web-image":"Remote Web Image",
     "windows-dir":"Windows Directory Browsing"
   },
