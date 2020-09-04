@@ -50,7 +50,7 @@ endpoints:
     name: Create Canarytokens Using Factory
     url: /api/v1/canarytoken/factory
     method: POST
-    description: Create an auth string for the Canarytoken Factory endpoint.
+    description: Create Canarytokens using a Canarytokens Factory auth string
     params:
       - name: factory_auth
         required: true
