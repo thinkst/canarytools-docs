@@ -120,6 +120,7 @@ module.exports = {
           '/canarytokens/factory',
           '/canarytokens/queries',
           '/canarytokens/office365',
+          '/canarytokens/gmail',
           '/canarytokens/googledocs'
         ]
       },
