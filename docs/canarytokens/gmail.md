@@ -10,6 +10,9 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
       - name: domain
         required: true
         type: string
@@ -32,8 +35,6 @@ endpoints:
       - name: flock_id
         required: true
         type: string
-        default: "'flock:default'"
-        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
       - name: emails
         required: false
         type: string
