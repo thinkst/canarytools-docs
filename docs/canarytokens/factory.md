@@ -48,7 +48,7 @@ endpoints:
     response: A JSON structure with result indicator.
   factory:
     name: Create Canarytokens Using Factory
-    url: /api/v1/canarytoken/factory
+    url: /api/v1/canarytoken/factory/create
     method: POST
     description: Create Canarytokens using a Canarytokens Factory auth string
     params:
@@ -106,6 +106,21 @@ endpoints:
         type: string
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
     response: A JSON structure with the generated Canarytoken.
+  factory_download:
+    name: Download Canarytoken using Factory auth string
+    url: /api/v1/canarytoken/factory/download
+    method: GET
+    description: Download the generated file (if one exists) for the supplied Canarytoken using Factory auth string
+    params:
+      - name: factory_auth
+        required: true
+        type: string
+        description: A valid Canarytoken factory auth string
+      - name: canarytoken
+        required: true
+        type: string
+        description: An identifier for a Canarytoken that supports downloadable files
+    response: A file if the Canarytoken supports file generation, otherwise an error.
 ---
 
 # Factory
@@ -207,7 +222,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory \
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory/create \
   -d factory_auth=EXAMPLE_FACTORY_AUTH_TOKEN \
   -d memo='Example Memo' \
   -d kind=EXAMPLE_KIND
@@ -220,7 +235,7 @@ curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory \
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/factory'
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/factory/create'
 
 payload = {
   'factory_auth': 'EXAMPLE_FACTORY_AUTH_TOKEN',
@@ -264,6 +279,60 @@ print(r.json())
   },
   "result": "success"
 }
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Download Canarytoken using Factory Auth String
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.factory_download">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory/download \
+  -d factory_auth=EXAMPLE_FACTORY_AUTH \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+  -G -L -O -J
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+import re
+
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/factory/download'
+
+payload = {
+  'factory_auth': 'EXAMPLE_FACTORY_AUTH',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.get(url, allow_redirects=True, params=payload)
+filename = re.findall("filename=(.+)", r.headers["Content-Disposition"])[0]
+with open(filename, 'wb') as f:
+    f.write(r.content)
+```
+
+:::
+
+::::
+
+::: api-response
+```bash
+$ ls -l
+-rw-r--r--  1 user  thinkst  5095 Apr  7 12:29 <filename>
 ```
 :::
 
