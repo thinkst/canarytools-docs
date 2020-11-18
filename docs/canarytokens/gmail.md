@@ -13,6 +13,7 @@ endpoints:
       - name: flock_id
         required: true
         type: string
+        description: A valid flock_id
       - name: domain
         required: true
         type: string
@@ -35,6 +36,7 @@ endpoints:
       - name: flock_id
         required: true
         type: string
+        description: A valid flock_id
       - name: emails
         required: false
         type: string
