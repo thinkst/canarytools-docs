@@ -252,7 +252,7 @@ Once again, we'll set the optional `older_than` parameter to `0h`.
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/incidents/delete \
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incidents/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d older_than='0h'
 ```
@@ -270,7 +270,7 @@ payload = {
   'older_than': '0h'
 }
 
-r = requests.get(url, params=payload)
+r = requests.delete(url, params=payload)
 
 print(r.json())
 ```

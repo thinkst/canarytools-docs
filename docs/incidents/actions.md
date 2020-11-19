@@ -117,7 +117,7 @@ endpoints:
   delete_incidents:
     name: Delete Multiple Incidents
     url: /api/v1/incidents/delete
-    method: POST
+    method: DELETE
     description: Delete multiple acknowledged incidents.
     params:
       - name: auth_token
@@ -561,7 +561,7 @@ At least one of the optional parameters is required.
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/incidents/delete \
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incidents/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
 ```
@@ -581,7 +581,7 @@ payload = {
   'node_id':'EXAMPLE_NODE_ID'
 }
 
-r = requests.post(url, data=payload)
+r = requests.delete(url, data=payload)
 
 print(r.json())
 ```
