@@ -83,7 +83,7 @@ endpoints:
         description: A valid auth token
     response: JSON structure with result indicator.
   test_hostname_ignored:
-    name: Test If Hostname is Ignored
+    name: Test if Hostname is Ignored
     url: /api/v1/settings/is_hostname_whitelisted
     method: GET
     description: Test if a given hostname has been ignored.
@@ -102,8 +102,8 @@ endpoints:
         description: The destination port to test
     response: A JSON structure with the test result.
   test_ip_ignored:
-    name: Test If IP is Ignored
-    url: /api/v1/settings/is_ip_whitelisted
+    name: Test if IP is Ignored
+    url: /api/v1/settings/is_ip_ignored
     method: GET
     description: Test if a given IP address has been ignored.
     params:
@@ -752,7 +752,7 @@ print(r.json())
 
 Using the below endpoints, you can easily test if given hostnames and IP addresses are already ignored on your Console.
 
-### Test If Hostname is Ignored
+### Test if Hostname is Ignored
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.test_hostname_ignored">
 
@@ -805,7 +805,7 @@ print(r.json())
 
 </APIDetails>
 
-### Test If IP is Ignored
+### Test if IP is Ignored
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.test_ip_ignored">
 
@@ -816,7 +816,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/settings/is_ip_whitelisted \
+curl https://EXAMPLE.canary.tools/api/v1/settings/is_ip_ignored \
   -d auth_token=EXAMPLE_AUTH_TOKEN  \
   -d src_ip=EXAMPLE_SOURCE_IP \
   -G
