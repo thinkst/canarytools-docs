@@ -161,7 +161,7 @@ endpoints:
         description: A valid Canarytoken
     response: A JSON structure with result indicator.
   fetch:
-    name: Fetch Canarytoken
+    name: Fetch a Canarytoken
     url: /api/v1/canarytoken/fetch
     method: GET
     description: Fetch information about a specific Canarytoken.
@@ -171,7 +171,7 @@ endpoints:
         type: string
         description: A valid auth token
       - name: canarytoken
-        required: false
+        required: true
         type: string
         description: A valid Canarytoken
     response: A JSON structure with the Canarytoken.
@@ -247,7 +247,7 @@ These are a collection of endpoints that allow you mint new, interact with, and 
 
 </APIEndpoints>
 
-## List Canarytokens
+## List Kinds of Canarytokens
 
 ::: tip
 The values returned by this Canarytokens API correspond to the `kind` parameter used to create
@@ -615,7 +615,7 @@ print(r.json())
 
 </APIDetails>
 
-## Fetch Canarytoken
+## Fetch a Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
 
