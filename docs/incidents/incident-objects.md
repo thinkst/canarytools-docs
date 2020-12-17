@@ -1,6 +1,6 @@
 # Incident Objects
 
-Each log entry is termed an event, and consists of actions such as a single SSH login attempt, or a single POST to a web site, or a single SIP request. An event will result in an incident being created, but subsequent similar events from the same source will be bundle together if they occur in close proximity. This means that if someone launches a brute-force attack, there is a single incident created with an event assigned to each login attempt.
+Each log entry is termed an event, and consists of actions such as a single SSH login attempt, or a single POST to a web site, or a single SIP request. An event will result in an incident being created, but subsequent similar events from the same source will be bundled together if they occur in close proximity. This means that if someone launches a brute-force attack, there is a single incident created with an event assigned to each login attempt.
 
 The incident object contains a record of the individual events that constitute the incident.
 
@@ -14,7 +14,7 @@ Incident feeds have this basic structure:
 ::: attribute-details
 
 **updated** 
-Human readible date when the incident was updated<br><br>
+Human readable date when the incident was updated<br><br>
 **updated_std**
 The date/time when the incident was updated in the format `YYYY-MM-DD HH:MM:SS TZ` <br><br>
 **updated_time**
@@ -102,16 +102,16 @@ The actual data returned by the API may include additional fields. However any f
 
 ## Canarytokens
 
-There are two types of Canarytokens, HTML and DNS.
+There are two types of Canarytokens, HTTP and DNS.
 
-### HTML
+### HTTP
 <div class="section-container">
   <div class="details-content">
 
 ::: attribute-details
 
 **type** 
-A string containing the token type [`html` or `dns`]<br><br>
+A string containing the token type [`http` or `dns`]<br><br>
 **canarytoken**
 Unique string that acts as the Canarytoken <br><br>
 **headers**
@@ -150,7 +150,7 @@ URL of the HTTP Canarytoken
 ::: attribute-details
 
 **type** 
-A string containing the toke type (`html` or `dns`) <br><br>
+A string containing the token type (`http` or `dns`) <br><br>
 **canarytoken** 
 Unique string that acts as the Canarytoken. <br><br>
 **hostname** 
@@ -199,7 +199,7 @@ List of comma-separated ports.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -294,7 +294,7 @@ Indicates whether the ACK flag is set. Present if the flag is there, absent othe
 **timestamp** 
 The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -361,7 +361,7 @@ Indicates whether the ACK flag is set. Present if the flag is there, absent othe
 **timestamp** 
 The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -428,7 +428,7 @@ Indicates whether the ACK flag is set. Present if the flag is there, absent othe
 **timestamp** 
 The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -495,7 +495,7 @@ Indicates whether the ACK flag is set. Present if the flag is there, absent othe
 **timestamp** 
 The timestamp of the request eg. `1580378197`.<br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
 
@@ -570,7 +570,7 @@ Attacker supplied password. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -608,7 +608,7 @@ Name of the repository the client attempted to clone. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -661,7 +661,7 @@ Which Webserver skin was used eg. `nasLogin` <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -715,7 +715,7 @@ Which Webserver skin was used eg. `nasLogin` <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -765,7 +765,7 @@ Useragent of the source's browser. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -859,7 +859,7 @@ IP address of the attacker <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -914,7 +914,7 @@ Optional. ModBus subfunction name, if available. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -962,7 +962,7 @@ Recovered password if possible, otherwise <br>`<Password not in common list>` <b
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1001,7 +1001,7 @@ Name of the NTP command sent. Currently is `'monlist'`.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1039,7 +1039,7 @@ Arguments to the command.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1135,7 +1135,7 @@ Result of the file read. Currently only `'ok'`.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1185,7 +1185,7 @@ SNMP OID requested by the attacker.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1234,7 +1234,7 @@ Optional. Set to `'Yes'` if Watched Credentials are enabled.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1282,7 +1282,7 @@ Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was se
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1325,7 +1325,7 @@ TFTP defines three modes of transfer: `netascii`, `octet`, and `mail`.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1369,7 +1369,7 @@ The terminal type<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1414,7 +1414,7 @@ VNC password hashing parameter.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
-Human readble timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 

@@ -241,7 +241,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you mint new, interact with, and view your existing Canarytokens.
+These are a collection of endpoints that allow you to mint new, interact with, and view your existing Canarytokens.
 
 :::::
 
@@ -305,6 +305,7 @@ print(r.json())
     "dns":"DNS",
     "doc-msword":"MS Word .docx Document",
     "fast-redirect":"Fast HTTP Redirect",
+    "gmail":"Gmail",
     "google-docs":"Google Document",
     "google-sheets":"Google Sheet",
     "googledocs_factorydoc":"Document Factory",
