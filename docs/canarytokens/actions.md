@@ -266,7 +266,7 @@ response to this Canarytokens API and use `cloned-web` to define the Canarytoken
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytokens/list \
-  -d auth_token=EXAMPLE_AUTH_TOKEN
+  -d auth_token=EXAMPLE_AUTH_TOKEN -G
 ```
 
 :::
