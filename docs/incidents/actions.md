@@ -96,7 +96,7 @@ endpoints:
         required: false
         type: string
         description: Acknowledge incidents for a specific source IP address
-                     (cannot be used in conjunction with src_host)
+                     (cannot be used in conjunction with node_id)
       - name: older_than
         required: false
         type: string
