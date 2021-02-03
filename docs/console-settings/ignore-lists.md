@@ -259,7 +259,7 @@ endpoints:
     response: JSON structure with a list of ignored annotations.
   ignored_annotations_is_ignored:
     name: Check If Annotation Is Ignored
-    url: /api/v1/settings/ignored_annotations
+    url: /api/v1/settings/ignored_annotations/is_annotation_ignored
     method: GET
     description: Check if a supplied annotation is ignored.
     params:
