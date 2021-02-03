@@ -195,6 +195,117 @@ endpoints:
         type: boolean
         description: Clear the ignore list
     response: A JSON structure with result indicator.
+  ignored_annotations_disable:
+    name: Disable Annotation Ignoring List
+    url: /api/v1/settings/ignored_annotations/disable
+    method: POST
+    description: Disable ignoring based on alert annotations.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: JSON structure with result indicator.
+  ignored_annotations_enable:
+    name: Enable Annotation Ignoring List
+    url: /api/v1/settings/ignored_annotations/enable
+    method: POST
+    description: Enable ignoring based on alert annotations.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: JSON structure with result indicator.
+  ignored_annotations_ignore:
+    name: Ignore an Alert Annotation
+    url: /api/v1/settings/ignored_annotations/ignore
+    method: POST
+    description: Add an alert annotation to the ignore list.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: annotation
+        required: true
+        type: string
+        description: A valid annotation to ignore
+  ignored_annotations_remove:
+    name: Remove Ignored Alert Annotation
+    url: /api/v1/settings/ignored_annotations/remove
+    method: DELETE
+    description: Remove an alert annotation from the ignore list.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: annotation
+        required: true
+        type: string
+        description: A valid annotation to remove
+    response: JSON structure with result indicator.
+  ignored_annotations:
+    name: Fetch Ignored Annotations
+    url: /api/v1/settings/ignored_annotations
+    method: GET
+    description: Fetch the list of ignored annotations.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: JSON structure with a list of ignored annotations.
+  ignored_annotations_is_ignored:
+    name: Check If Annotation Is Ignored
+    url: /api/v1/settings/ignored_annotations
+    method: GET
+    description: Check if a supplied annotation is ignored.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: annotation
+        required: true
+        type: string
+        description: A valid annotation to check
+    response: JSON structure with a boolean indicator.
+  ignored_annotations_incident_count:
+    name: Get Ignored Incident Count
+    url: /api/v1/settings/ignored_annotations/incidents/count
+    method: GET
+    description: Return the count of incidents that have been ignored for an annotation.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: annotation
+        required: true
+        type: string
+        description: A valid annotation to check
+    response: JSON structure with a count of ignored incidents.
+  ignored_annotations_incidents:
+    name: Get Ignored Incidents
+    url: /api/v1/settings/ignored_annotations/incidents
+    method: GET
+    description: Return a paginated list of incidents ignored by an annotation.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: annotation
+        required: true
+        type: string
+        description: A valid annotation to check
+      - name: page
+        required: false
+        type: int
+        description: The result page to return
+    response: JSON structure with a list of ignored incidents, as well as the total incident count and current page, previous page and next page links.
 ---
 
 # Ignore Lists
@@ -850,6 +961,461 @@ print(r.json())
 {
   "is_ip_whitelisted": true,
   "is_whitelist_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Annotation-based Ignore Lists
+
+You can ignore incidents based on matched annotations. Currently, this is only available for PDF token triggers that match our Palo Alto Wildfire annotation (you can read more about it [here](https://help.canary.tools/hc/en-gb/articles/360013051378-Alert-Annotation-Palo-Alto-Wildfire-PDF-Token)).
+
+### Disable Annotation Ignore List
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Enable Annotation Ignore List
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Fetch Annotation Ignore List
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X GET https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignored_annotations": [
+    {
+      "kb_link": "https://help.canary.tools/hc/en-gb/articles/360013051378",
+      "name": "palo_alto_pdf_token_trigger",
+      "nice_name": "Palo Alto WildFire PDF Scan",
+      "text": "This looks like it was automatically triggered by Palo Alto's WildFire service."
+    }
+  ],
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Ignore an Annotation
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_ignore">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/ignore \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d annotation=EXAMPLE_ANNOTATION
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/ignore'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'annotation': 'EXAMPLE_ANNOTATION'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "message": "Annotation successfully ignored",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Remove an Ignored Annotation
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d annotation=EXAMPLE_ANNOTATION
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'annotation': 'EXAMPLE_ANNOTATION'
+}
+
+r = requests.delete(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "message": "Annotation removed successfully",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Is Annotation Ignored
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_is_ignored">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/is_annotation_ignored \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d annotation=EXAMPLE_ANNOTATION \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/is_annotation_ignored'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'annotation': 'EXAMPLE_ANNOTATION'
+}
+
+r = requests.get(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignored": true,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Ignored Incident Count
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_incident_count">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/incidents/count \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d annotation=EXAMPLE_ANNOTATION \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/incidents/count'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'annotation': 'EXAMPLE_ANNOTATION'
+}
+
+r = requests.get(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "count": 5,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Ignored Incidents
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_incidents">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/incidents \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d annotation=EXAMPLE_ANNOTATION \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/ignored_annotations/incidents'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'annotation': 'EXAMPLE_ANNOTATION'
+}
+
+r = requests.get(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "ignored_incidents": [
+    {
+      "acknowledged": false,
+      "created": 1612270411,
+      "created_std": "2021-02-02 12:53:31 UTC+0000",
+      "description": "Canarytoken triggered",
+      "dst_host": "1.1.1.1",
+      "dst_port": 80,
+      "events": [
+        ...
+      ],
+      "events_count": 1,
+      "events_list": "1612270411",
+      "local_time": "2021-02-02 12:53:31 (UTC)",
+      "logtype": 16008,
+      "matched_annotations": {
+        "palo_alto_pdf_token_trigger": [
+          "This looks like it was automatically triggered by Palo Alto's WildFire service.",
+          "https://help.canary.tools/hc/en-gb/articles/360013051378"
+        ]
+      },
+      "memo": "Example Annotation",
+      "name": "Acrobat PDF",
+      "node_id": "<node_id>",
+      "notified": false,
+      "src_host": "<src_ip>",
+      "src_port": 0
+    },
+    ...
+  ],
+  "next_page": 2,
+  "page": 1,
+  "prev_page": null,
+  "result": "success",
+  "total_incidents": 24
 }
 ```
 :::
