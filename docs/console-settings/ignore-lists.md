@@ -230,7 +230,7 @@ endpoints:
       - name: annotation
         required: true
         type: string
-        description: A valid annotation to ignore
+        description: The name of a valid annotation to ignore
   ignored_annotations_remove:
     name: Remove Ignored Alert Annotation
     url: /api/v1/settings/ignored_annotations/remove
@@ -244,7 +244,7 @@ endpoints:
       - name: annotation
         required: true
         type: string
-        description: A valid annotation to remove
+        description: The name of a valid annotation to remove
     response: JSON structure with result indicator.
   ignored_annotations:
     name: Fetch Ignored Annotations
@@ -270,7 +270,7 @@ endpoints:
       - name: annotation
         required: true
         type: string
-        description: A valid annotation to check
+        description: The name of a valid annotation to check
     response: JSON structure with a boolean indicator.
   ignored_annotations_incident_count:
     name: Get Ignored Incident Count
@@ -285,7 +285,7 @@ endpoints:
       - name: annotation
         required: true
         type: string
-        description: A valid annotation to check
+        description: The name of a valid annotation to check
     response: JSON structure with a count of ignored incidents.
   ignored_annotations_incidents:
     name: Get Ignored Incidents
@@ -300,7 +300,7 @@ endpoints:
       - name: annotation
         required: true
         type: string
-        description: A valid annotation to check
+        description: The name of a valid annotation to check
       - name: page
         required: false
         type: int
