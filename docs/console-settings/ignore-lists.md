@@ -196,7 +196,7 @@ endpoints:
         description: Clear the ignore list
     response: A JSON structure with result indicator.
   ignored_annotations_disable:
-    name: Disable Annotation Ignoring List
+    name: Disable Annotation Ignore List
     url: /api/v1/settings/ignored_annotations/disable
     method: POST
     description: Disable ignoring based on alert annotations.
@@ -207,7 +207,7 @@ endpoints:
         description: A valid auth token
     response: JSON structure with result indicator.
   ignored_annotations_enable:
-    name: Enable Annotation Ignoring List
+    name: Enable Annotation Ignore List
     url: /api/v1/settings/ignored_annotations/enable
     method: POST
     description: Enable ignoring based on alert annotations.
@@ -232,7 +232,7 @@ endpoints:
         type: string
         description: The name of a valid annotation to ignore
   ignored_annotations_remove:
-    name: Remove Ignored Alert Annotation
+    name: Remove an Ignored Alert Annotation
     url: /api/v1/settings/ignored_annotations/remove
     method: DELETE
     description: Remove an alert annotation from the ignore list.
@@ -258,7 +258,7 @@ endpoints:
         description: A valid auth token
     response: JSON structure with a list of ignored annotations.
   ignored_annotations_is_ignored:
-    name: Check If Annotation Is Ignored
+    name: Check if Annotation is Ignored
     url: /api/v1/settings/ignored_annotations/is_annotation_ignored
     method: GET
     description: Check if a supplied annotation is ignored.
@@ -1128,7 +1128,7 @@ print(r.json())
 
 </APIDetails>
 
-### Ignore an Annotation
+### Ignore an Alert Annotation
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_ignore">
 
@@ -1180,7 +1180,7 @@ print(r.json())
 
 </APIDetails>
 
-### Remove an Ignored Annotation
+### Remove an Ignored Alert Annotation
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_remove">
 
@@ -1232,7 +1232,7 @@ print(r.json())
 
 </APIDetails>
 
-### Is Annotation Ignored
+### Check if Annotation is Ignored
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_is_ignored">
 
@@ -1285,7 +1285,7 @@ print(r.json())
 
 </APIDetails>
 
-### Ignored Incident Count
+### Get Ignored Incident Count
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_incident_count">
 
@@ -1338,7 +1338,7 @@ print(r.json())
 
 </APIDetails>
 
-### Ignored Incidents
+### Fetch Ignored Annotations
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.ignored_annotations_incidents">
 
