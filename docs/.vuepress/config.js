@@ -103,6 +103,7 @@ module.exports = {
           '/bird-management/notes',
           '/bird-management/notifications',
           '/bird-management/operations',
+          '/bird-management/outside-birds',
           '/bird-management/personalities',
           '/bird-management/queries',
           '/bird-management/registrations',
