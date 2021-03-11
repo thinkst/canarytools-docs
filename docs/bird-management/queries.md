@@ -505,7 +505,7 @@ print(r.json())
 curl https://EXAMPLE.canary.tools/api/v1/device/info \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID \
-  -d setting=true \
+  -d settings=true \
   -G
 ```
 
