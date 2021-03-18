@@ -941,7 +941,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
-## MSSQL Login Attempt
+## MySQL Login Attempt
 Triggered by an authentication attempt against the MySQL service.
 
 The client sends a hashed password, not a cleartext password. The Canary will try crack the hash with passwords one might expect in a brute-force.
