@@ -145,7 +145,7 @@ endpoints:
       - name: whitelist
         required: false
         type: string
-        description: A newline separated list of IPs and ports to ignore
+        description: A comma separated list of IPs and ports to ignore
       - name: clear
         required: false
         type: boolean
