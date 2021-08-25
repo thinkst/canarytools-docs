@@ -92,7 +92,7 @@ endpoints:
     response: A JSON structure with the html, sender and subject information with a result indicator
   gmail_status:
     name: Get status of Gmail tokening
-    url: /canarytoken/gmail/status
+    url: /api/v1/canarytoken/gmail/status
     method: GET
     description: Gets the status of the Gmail tokening process.
     params:

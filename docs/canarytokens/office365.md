@@ -139,7 +139,7 @@ endpoints:
     response: A JSON structure with a result indicator
   office_365_status:
     name: Get status of Office365 tokening
-    url: /canarytoken/office365/status
+    url: /api/v1/canarytoken/office365/status
     method: GET
     description: Gets the status of the Office365 tokening process.
     params:
