@@ -511,7 +511,8 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "result": "success",
+  "deleted": 2, 
+  "result": "success"
 }
 ```
 :::
