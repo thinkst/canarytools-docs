@@ -31,6 +31,20 @@ endpoints:
         type: string
         description: Only return logs from this action type (example values are `user_login`,
                     `device_push_settings`, `user_assign_to_flock`, `flock_move`)
+      - name: search_term
+        required: false
+        type: string
+        description: Only return logs that have a field matching this query term. '%20' should be used in place of any spaces between words.
+
+      - name: start_date
+        required: false
+        type: string 
+        description: Only return logs that were created after the given date. This should be in the format "yyyy-mm-dd".
+
+      - name: end_date
+        required: false
+        type: string
+        description: Only return logs that were created before the given date. This should be in the format "yyyy-mm-dd".
     response: JSON structure with list of logs and the previous and next cursor.
   purge:
     name: Purge Audit Trail Logs
