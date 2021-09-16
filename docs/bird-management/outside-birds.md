@@ -88,7 +88,7 @@ endpoints:
         required: true
         type: string
         description: The node_id of a device
-    response: JSON structure with result indicator
+    response: JSON structure with result indicator and the number of source IPs from deleted incidents.
   outside_bird_enable:
     name: Make a Canary an Outside Bird
     url: /api/v1/device/outside_bird/enable
@@ -511,7 +511,8 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "result": "success",
+  "deleted": 2, 
+  "result": "success"
 }
 ```
 :::
