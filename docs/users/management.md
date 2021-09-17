@@ -330,7 +330,7 @@ print(r.json())
 
 ### Enable Globally Enforcing 2FA
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_disable">
+<APIDetails :endpoint="$page.frontmatter.endpoints.globally_enforce_2fa_enable">
 
 ::::: slot example
 
