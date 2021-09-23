@@ -96,10 +96,14 @@ endpoints:
     method: GET
     description: Gets the status of the Gmail tokening process.
     params:
-        - name: flock_id
-          required: true
-          type: string
-          description: A valid flock_id
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
     response: A JSON structure with a result indicator, successful, failed and total users.
 ---
 
