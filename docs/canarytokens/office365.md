@@ -101,7 +101,12 @@ endpoints:
         required: true
         type: string
         description: The subject of the email
-    response: A JSON structure with the html and subject information with a result indicator
+      - name: email_sender
+        required: false
+        type: string
+        default: "'security@{yourdomain}'"
+        description: The "from" address of the email
+    response: A JSON structure with the html, subject and sender information with a result indicator
   get_office_365_mail_template:
     name: Get Office365 mail template
     url: /api/v1/canarytoken/office365/email
@@ -117,7 +122,7 @@ endpoints:
         type: string
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
-    response: A JSON structure with the html and subject information with a result indicator
+    response: A JSON structure with the html, subject and sender information with a result indicator
   office_365_oauth_token:
     name: Request Office365 oauth token
     url: /api/v1/canarytoken/office365/oauth/token
