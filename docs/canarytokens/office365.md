@@ -103,8 +103,9 @@ endpoints:
         description: The subject of the email
       - name: email_sender
         required: false
-        default: 'security@{yourdomain}'
         type: string
+        default: "'security@{yourdomain}'"
+        description: The "from" address of the email
     response: A JSON structure with the html, subject and sender information with a result indicator
   get_office_365_mail_template:
     name: Get Office365 mail template
