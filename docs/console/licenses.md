@@ -163,6 +163,29 @@ print(r.json())
     "cloudcanary_license_count": 5,
     "cloudcanary_remaining_licenses": 5
   },
+  "containercanary_details": {
+    "containercanary_count": 1, 
+    "containercanary_image_details": {
+      "docker": [
+        {
+          "arch": "amd64", 
+          "namespace": "<Docker Hub namespace>",
+          "pull_credentials": {
+            "token": "<Docker Hub token>", 
+            "username": "<Docker Hub username>"
+          }, 
+          "registry": "https://index.docker.io/v1/", 
+          "repo": "<Docker Hub repo>", 
+          "sha256": "<Container digest>", 
+          "tags": [
+            "<Container version>", 
+            "latest"
+          ], 
+          "version": "<Container version>"
+        }
+      ]
+    }
+  },
   "gcpcanary_details": {},
   "hypervcanary_details": {},
   "result": "success"

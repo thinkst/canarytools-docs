@@ -100,6 +100,7 @@ module.exports = {
           '/bird-management/bundles',
           '/bird-management/service-configuration',
           '/bird-management/cloud-canaries',
+          '/bird-management/container-canaries',
           '/bird-management/notes',
           '/bird-management/notifications',
           '/bird-management/operations',
@@ -174,6 +175,7 @@ module.exports = {
           '/flocks-settings/hostname-ignore-list',
           '/flocks-settings/source-port-ignore-list',
           '/flocks-settings/webhooks',
+          '/flocks-settings/auto-commission',
         ]
       },
       {
