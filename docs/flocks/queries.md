@@ -580,8 +580,10 @@ print(r.json())
       "enabled_tokens": 7,
       "global_settings": {
         "console_change_alerts_enabled": false,
+        "console_public_key": "<Console's Public Key>",
         "device_change_alerts_enabled": false,
         "email_notifications": true,
+        "listen_domain": "<Console's Listen Domain>",
         "sms_notifications": false,
         "summary_emails": true,
         "webhook_notifications": false,
