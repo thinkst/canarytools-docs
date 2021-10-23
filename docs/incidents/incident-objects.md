@@ -1,6 +1,6 @@
 # Incident Objects
 
-Each log entry is termed an event, and consists of actions such as a single SSH login attempt, or a single POST to a web site, or a single SIP request. An event will result in an incident being created, but subsequent similar events from the same source will be bundled together if they occur in close proximity. This means that if someone launches a brute-force attack, there is a single incident created with an event assigned to each login attempt.
+Each log entry is termed an event, and consists of actions such as a single SSH login attempt, or a single POST to a website, or a single SIP request. An event will result in an incident being created, but subsequent similar events from the same source will be bundled together if they occur in close proximity. This means that if someone launches a brute-force attack, there is a single incident created with an event assigned to each login attempt.
 
 The incident object contains a record of the individual events that constitute the incident.
 
@@ -98,7 +98,7 @@ The “events” field contains a list of `<EVENT_DICT>` s. In the incident type
 
 All fields will be present in each incident, unless noted otherwise.
 
-The actual data returned by the API may include additional fields. However any field not described in this document should be considered experimental and likely to disappear.
+The actual data returned by the API may include additional fields. However, any field not described in this document should be considered experimental and likely to disappear.
 
 ## Canarytokens
 
@@ -181,8 +181,8 @@ Hostname of the DNS Canarytoke <br><br>
 
 There are six types of port scans incidents.
 
- 1. A host port scan occurs when a single Canary is port scanned by a single source.
- 2. A consolidated network port scan occurs when multiple Canaries are scanned by a single source.
+ 1. A host port scan occurs when a single Canary is a port scanned by a single source.
+ 2. A consolidated network port scan occurs when the multiple Canaries are scanned by a single source.
  3. An NMAP FIN scan was run against the Canary.
  4. An NMAP NULL scan was run against the Canary.
  5. An NMAP OS scan was run against the Canary.
@@ -832,7 +832,7 @@ The response code eg. `200` <br><br>
 
 Triggered by any attempt to authenticate to the MS-SQL Server module.
 
-SQL Server supports multiple authentication modes, and the fields that come through depend on the mode.
+SQL Server supports multiple authentication modes, and the fields that come through depending on the mode.
 
 <div class="section-container">
   <div class="details-content">
@@ -841,7 +841,7 @@ SQL Server supports multiple authentication modes, and the fields that come thro
 
 **LOGTYPE** 
 `9001` for SQL Server authentication <br> 
-`9002` for Windows authetication <br><br>
+`9002` for Windows authentication <br><br>
 **USERNAME** 
 Attacker supplied database username. <br><br>
 **PASSWORD** 
@@ -944,7 +944,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 ## MySQL Login Attempt
 Triggered by an authentication attempt against the MySQL service.
 
-The client sends a hashed password, not a cleartext password. The Canary will try crack the hash with passwords one might expect in a brute-force.
+The client sends a hashed password, not a cleartext password. The Canary will try to crack the hash with passwords one might expect in a brute-force.
 
 <div class="section-container">
   <div class="details-content">
@@ -1025,7 +1025,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 </div> 
 
 ## Redis Command
-Triggered by an attacker connecting to the Redis service and issuing valid Redis commands.
+Triggered by an attacker connecting to the Redis service and issuing a valid Redis commands.
 
 <div class="section-container">
   <div class="details-content">
@@ -1064,7 +1064,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 </div> 
 
 ## SIP Request
-Triggered by an attacker connecting to the SIP service and issuing valid SIP request.
+Triggered by an attacker connecting to the SIP service and issuing a valid SIP request.
 
 <div class="section-container">
   <div class="details-content">
@@ -1111,7 +1111,7 @@ Username supplied by the attacker.<br><br>
 **FILENAME** 
 Name of file on the Canary that was accessed.<br><br>
 **AUDITACTION** 
-Type of file action. Currently only `'pread'`.<br><br>
+Type of file action. Currently, only `'pread'`.<br><br>
 **DOMAIN** 
 Name of domain or workgroup.<br><br>
 **LOCALNAME** 
@@ -1121,7 +1121,7 @@ Windows Name of Canary machine.<br><br>
 **OFFSET** 
 Starting position of the read.<br><br>
 **REMOTENAME** 
-Windows Name of client machine.<br><br>
+Windows Name of the client machine.<br><br>
 **SHARENAME** 
 Name of the share on which the file resides.<br><br>
 **SIZE** 
@@ -1131,7 +1131,7 @@ Guess of the remote machine's Windows version.<br><br>
 **SMBVER** 
 Version of the SMB protocol that was used.<br><br>
 **STATUS** 
-Result of the file read. Currently only `'ok'`.<br><br>
+Result of the file read. Currently, only `'ok'`.<br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1179,7 +1179,7 @@ Triggered by an incoming SNMP query against the Canary.
 ::: attribute-details
 
 **COMMUNITY_STRING** 
-SNMP community string supplied by attacker.<br><br>
+SNMP community string supplied by the attacker.<br><br>
 **REQUESTS** 
 SNMP OID requested by the attacker.<br><br>
 **timestamp** 
@@ -1220,15 +1220,15 @@ It is also possible to configure “Watched Credentials”, which says to only a
 ::: attribute-details
 
 **USERNAME** 
-Username supplied by attacker.<br><br>
+Username supplied by the attacker.<br><br>
 **PASSWORD** 
-Optional. Attacker's supplied password in password-based auth.<br><br>
+Optional. The attacker's supplied password in password-based auth.<br><br>
 **LOCALVERSION** 
 Canary's SSH version string.<br><br>
 **REMOTEVERSION** 
-Attacker's supplied version string.<br><br>
+The attacker's supplied version string.<br><br>
 **KEY** 
-Optional. Attacker's supplied public key in key-based auth.<br><br>
+Optional. The attacker's supplied public key in key-based auth.<br><br>
 **WATCHED_CREDENTIALS** 
 Optional. Set to `'Yes'` if Watched Credentials are enabled.<br><br>
 **timestamp** 
@@ -1263,7 +1263,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 </div> 
 
 ## Custom TCP Service Request
-The Custom TCP Service module let’s the Canary administrator create simple services that either immediately print a banner on connection, or wait for the client to send data before responding.
+The Custom TCP Service module lets the Canary administrator create simple services that either immediately prints a banner on connection, or wait for the client to send data before responding.
 
 <div class="section-container">
   <div class="details-content">
@@ -1272,11 +1272,11 @@ The Custom TCP Service module let’s the Canary administrator create simple ser
 
 **LOGTYPE** 
 `20001` - Banner sent immediately on connection.<br>
-`20002` - Banner sent after client sent a line.<br><br>
+`20002` - Banner sent after the client sent a line.<br><br>
 **BANNER_ID** 
 Multiple banners are supported, the id identifies which banner service was triggered.<br><br>
 **DATA** 
-Optional. Attacker's supplied data.<br><br>
+Optional. The attacker's supplied data.<br><br>
 **FUNCTION** 
 Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was sent after the attacker sent data, or `'CONNECTION_MADE'` for when a banner was sent immediately on connection.<br><br>
 **timestamp** 
@@ -1396,9 +1396,9 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 </div> 
 
 ## VNC Login Attempt
-Triggered by an attempt to login to Canary’s password protected VNC service.
+Triggered by an attempt to login to Canary’s password-protected VNC service.
 
-VNC passwords are not transmitted in the clear. Instead a hashed version is sent. The Canary will test the hashed password against a handful of common passwords to guess the password, but the hash parameters are also reported so the administrator can crack the hash on more powerful rigs.
+VNC passwords are not transmitted in the clear. Instead, a hashed version is sent. The Canary will test the hashed password against a handful of common passwords to guess the password, but the hash parameters are also reported so the administrator can crack the hash on more powerful rigs.
 
 <div class="section-container">
   <div class="details-content">
