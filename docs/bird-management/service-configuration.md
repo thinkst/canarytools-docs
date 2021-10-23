@@ -27,7 +27,7 @@ endpoints:
     name: Configure Bird with Personality
     url: /api/v1/device/configure_personality
     method: POST
-    description: Configure a Bird with a with a supplied personality.
+    description: Configure a Bird with a supplied personality.
     params:
       - name: auth_token
         required: true
