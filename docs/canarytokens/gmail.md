@@ -141,7 +141,7 @@ flows and parameters needed, making your life a lot easier.
 <APIDetails :endpoint="$page.frontmatter.endpoints.save_gmail_mail_template"></APIDetails>
 
 ::: tip
-We will embed a Canarytoken in the mail template. We will place the Canarytoken'ed url in the
+We will embed a Canarytoken in the mail template. We will place the Canarytoken'ed URL in the
 placeholder `{url}`. We will also check for `{user}` and replace that with the user's name of
 each Gmail address.
 :::
