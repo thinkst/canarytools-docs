@@ -427,9 +427,9 @@ print(r.json())
 
 ## Summary Emails
 
-If you want, we can send you a weekly summary of your Console activity. Along with that, we'll include any Canary related news that we deem useful (this usually includes a couple worthy news items).
+If you want, we can send you a weekly summary of your Console activity. Along with that, we'll include any Canary related news that we deem useful (this usually includes a couple of worthy news items).
 
-Simply [enable](#enable-summary-emails) and [set a list of email addresses](#set-summary-emails) and lookout for the weekly mail on Mondays!
+Simply [enable](#enable-summary-emails) and [set a list of email addresses](#set-summary-emails) and look out for the weekly mail on Mondays!
 
 ### Disable Summary Emails
 
