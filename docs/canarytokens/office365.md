@@ -15,7 +15,7 @@ endpoints:
         type: string
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
-    response: A JSON structure with a result indicator and state value used for oauth process.
+    response: A JSON structure with a result indicator and state value used for OAuth process.
   list_office_365_users:
     name: List Office365 users
     url: /api/v1/canarytoken/office365/users/list
@@ -124,7 +124,7 @@ endpoints:
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
     response: A JSON structure with the html, subject and sender information with a result indicator
   office_365_oauth_token:
-    name: Request Office365 oauth token
+    name: Request Office365 OAuth token
     url: /api/v1/canarytoken/office365/oauth/token
     method: POST
     description: Requests the Office365 access token.
@@ -136,7 +136,7 @@ endpoints:
       - name: user_email
         required: true
         type: string
-        description: Email used to complete Office oauth process
+        description: Email used to complete Office OAuth process
       - name: state
         required: true
         type: string
@@ -193,7 +193,7 @@ flows and parameters needed, making your life a lot easier.
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.save_office_365_mail_template"></APIDetails>
 
-## Requests Office365 oauth access token
+## Requests Office365 OAuth access token
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.office_365_oauth_token"></APIDetails>
 
