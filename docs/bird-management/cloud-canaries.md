@@ -19,7 +19,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints related to Cloud Canaries. Currently this includes **Azure**, **AWS EC2**, and **GCP** Canaries.
+These are a collection of endpoints related to Cloud Canaries. Currently, this includes **Azure**, **AWS EC2**, and **GCP** Canaries.
 
 :::::
 
