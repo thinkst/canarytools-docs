@@ -26,7 +26,7 @@ endpoints:
     name: Set Custom User Domains
     url: /api/v1/settings/canarytokens/user_domains/save
     method: POST
-    description: Set the custom canarytokens domains for your Console.
+    description: Set the custom Canarytokens domains for your Console.
     params:
       - name: auth_token
         required: true
@@ -90,9 +90,9 @@ Apart from the [Canarytokens](/canarytokens/actions.html) section which allows y
 
 ## Custom Webroot
 
-Along with your Console, you have your own running Canarytokens server. This server runs on the `<your_unique_hash>.o3n.io` domain and is unique to your Canarytokens server. Any Canarytoken you create will reach out on this domain to trigger its alert.
+Along with your Console, you have your own running Canarytokens server. This server runs on the `<your_unique_hash>.o3n.io` domain and is unique to your Canarytokens server. Any Canarytoken you create will reach out to this domain to trigger its alert.
 
-We do however allow you to set a custom domain. This will mean that all new tokens will be create used the custom domain but will still reach out to your Console and create an alert if triggered.
+We do however allow you to set a custom domain. This will mean that all new tokens will be created using the custom domain but will still reach out to your Console and create an alert if triggered.
 
 ::: tip Custom User Domain
 In order for your Canarytokens to successfully reach out to your Console using your custom domain, you'll need to correctly setup the DNS records for the domain to point to your Console.
