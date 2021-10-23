@@ -1,10 +1,10 @@
 ---
 endpoints:
   list_gmail_users:
-    name: List gmail users of Gsuite organisation
+    name: List Gmail users of G Suite organisation
     url: /api/v1/canarytoken/gmail/users/list
     method: POST
-    description: Lists the gmail users in the auth'ed Gsuite organisation.
+    description: Lists the gmail users in the auth'ed G Suite organisation.
     params:
       - name: auth_token
         required: true
@@ -17,17 +17,17 @@ endpoints:
       - name: domain
         required: true
         type: string
-        description: The Gsuite organisation's domain (eg. thinkstcorp.om)
+        description: The G Suite organisation's domain (eg. thinkstcorp.om)
       - name: email
         required: true
         type: string
-        description: The Gsuite organisation's admin email.
+        description: The G Suite organisation's admin email.
     response: A JSON structure with the users information and a result indicator
   create_gmail_token:
     name: Insert Gmail Canarytokens
     url: /api/v1/canarytoken/gmail/create
     method: POST
-    description: Inserts the Gmail Canarytoken into specified gmail addresses.
+    description: Inserts the Gmail Canarytoken into specified Gmail addresses.
     params:
       - name: auth_token
         required: true
@@ -40,7 +40,7 @@ endpoints:
       - name: emails
         required: false
         type: string
-        description: A comma separated list of the gmail addresses to insert the Canarytoken into.
+        description: A comma separated list of the Gmail addresses to insert the Canarytoken into.
       - name: users
         required: false
         type: string
@@ -73,7 +73,7 @@ endpoints:
         required: false
         type: string
         description: The from address of the Canarytoken'ed email
-    response: A JSON structure with the html, subject, sender information and the used gsuite organisation
+    response: A JSON structure with the html, subject, sender information and the used G Suite organisation
               domain with a result indicator
   get_gmail_mail_template:
     name: Get Gmail mail template
@@ -113,7 +113,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you to insert Canarytoken Mails into every selected Gsuite Gmail address in your organisation.
+These are a collection of endpoints that allow you to insert Canarytoken Mails into every selected G Suite Gmail address in your organisation.
 
 :::::
 
