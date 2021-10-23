@@ -214,7 +214,7 @@ endpoints:
 
 If you want to ignore traffic from a specific IP address and/or traffic hitting a specific port on your Birds, you can use these endpoints.
 
-There are times when you see alerts that are generated from known, expected IPs (such as scanners). In cases like this, you can add the known IP to an Ignore List which allows your Flock to filter traffic and only alerted you on unexpected incidents.
+There are times when you see alerts that are generated from known, expected IPs (such as scanners). In cases like this, you can add the known IP to an Ignore List which allows your Flock to filter traffic and only alerts you on unexpected incidents.
 
 ::: tip
 These endpoints will set the Ignore Lists for specified Flocks. For Globally defined Ignore lists, you can take a look at the [Console Settings](/console-settings/ignore-lists.html#default-ignore-lists).
@@ -601,7 +601,7 @@ print(r.json())
 
 ## Inherit Global List
 
-By default, enabling the IP Ignore List for a Flock will ignore the Global settings and only use the Flock's settings. You can optionally chose to allow the Flock to set it's own custom Ignore List and still inherit from the Global IP Ignore List.
+By default, enabling the IP Ignore List for a Flock will ignore the Global settings and only use the Flock's settings. You can optionally choose to allow the Flock to set its own custom Ignore List and still inherit from the Global IP Ignore List.
 
 ### Disable Inherit From Global
 
