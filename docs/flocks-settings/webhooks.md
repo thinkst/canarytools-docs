@@ -447,7 +447,7 @@ print(r.json())
 
 </APIDetails>
 
-## Enable Flock Wehooks
+## Enable Flock Webhooks
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_enable">
 
@@ -498,7 +498,7 @@ print(r.json())
 
 </APIDetails>
 
-## Use Global for Flock Wehooks
+## Use Global for Flock Webhooks
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.webhooks_use_global">
 
