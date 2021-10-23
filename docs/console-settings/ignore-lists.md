@@ -314,7 +314,7 @@ endpoints:
 
 ::::: slot details
 
-There are times when you see alerts that are generated from known, expected sources (such as scanners). In cases like this, you can add the known sources to an Ignore List which allows your Console to filter traffic and only alerted you on unexpected incidents.
+There are times when you see alerts that are generated from known, expected sources (such as scanners). In cases like this, you can add the known sources to an Ignore List which allows your Console to filter traffic and only alerts you on unexpected incidents.
 
 :::::
 
@@ -322,7 +322,7 @@ There are times when you see alerts that are generated from known, expected sour
 
 ## Default Ignore Lists
 
-You can add IP addresses and optional destination ports to this list to ignore traffic that originates from the specified IP. If a ports are specified, we'll only ignore the traffic from the specified IP to the destination port.
+You can add IP addresses and optional destination ports to this list to ignore traffic that originates from the specified IP. If ports are specified, we'll only ignore the traffic from the specified IP to the destination port.
 
 ### Ignore IP and Port
 
