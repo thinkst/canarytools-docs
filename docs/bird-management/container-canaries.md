@@ -19,7 +19,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints related to Container Canaries. Currently these relate to **Docker** Canaries.
+These are a collection of endpoints related to Container Canaries. Currently, these relate to **Docker** Canaries.
 
 :::::
 
