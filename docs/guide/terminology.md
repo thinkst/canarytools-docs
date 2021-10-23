@@ -1,6 +1,6 @@
 # Terminology
 
-Throughout the documentation (as well as in support exchanges), we'll use terminology that we've grown use to but may not be immediately obvious. In order to address that, we've listed and explained common ideas that we use freely in our descriptions.
+Throughout the documentation (as well as in support exchanges), we'll use terminology that we've grown used to but may not be immediately obvious. In order to address that, we've listed and explained common ideas that we use freely in our descriptions.
 
 If any of these still don't make sense, or if you feel we are missing some, please feel free to [drop us a mail](mailto:support@canary.tools) and we'll gladly look at updating our docs.
 
