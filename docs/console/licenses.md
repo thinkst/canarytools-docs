@@ -29,7 +29,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you query your existing Bird licenses attached to your Console.
+These are a collection of endpoints that allow you to query your existing Bird licenses attached to your Console.
 
 :::::
 
