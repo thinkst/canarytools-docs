@@ -91,7 +91,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you query and view your Canarytokens.
+These are a collection of endpoints that allow you to query and view your Canarytokens.
 
 :::::
 
