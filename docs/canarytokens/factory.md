@@ -107,10 +107,10 @@ endpoints:
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
     response: A JSON structure with the generated Canarytoken.
   factory_download:
-    name: Download Canarytoken using Factory auth string
+    name: Download Canarytoken using the Factory auth string
     url: /api/v1/canarytoken/factory/download
     method: GET
-    description: Download the generated file (if one exists) for the supplied Canarytoken using Factory auth string
+    description: Download the generated file (if one exists) for the supplied Canarytoken using the Factory auth string
     params:
       - name: factory_auth
         required: true

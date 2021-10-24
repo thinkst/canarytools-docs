@@ -65,7 +65,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you interact with Bird personalities. This includes the built in Bird personalities as well as custom personalities that you create.
+These are a collection of endpoints that allow you to interact with Bird personalities. This includes the built-in Bird personalities as well as custom personalities that you create.
 
 :::::
 

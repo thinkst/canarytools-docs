@@ -80,7 +80,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints that allow you interact with the Audit Trail. These are audit logs that are generated whenever an action is performed on your Console.
+These are a collection of endpoints that allow you to interact with the Audit Trail. These are audit logs that are generated whenever an action is performed on your Console.
 
 :::::
 

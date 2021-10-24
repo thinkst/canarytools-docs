@@ -5,7 +5,7 @@ In this example we'll show you how to use a few API's to navigate your Console's
 <div class="section-container">
   <div class="details-content">
 
-We'll start by using the [Audit Trail](/console/audit-trail.html#fetch) API to obtain list of Console actions.
+We'll start by using the [Audit Trail](/console/audit-trail.html#fetch) API to obtain a list of Console actions.
 
 To make handling a little easier, we'll set the optional `limit` parameter to 5.
 

@@ -208,7 +208,7 @@ The major difference between an Outside Bird and a normal Canary is how they gen
 
 Outside Bird alerts only store the IP address of the attacker and a tally of the number of times any service was targeted. These alerts will not appear on the Canary Console as an incident and are instead accessed from the Canary modal or the API.
 
-Additionally, Outside Birds do not send alert notifications (Email , SMS etc) to users, with the exception of separately configured webhooks. 
+Additionally, Outside Birds do not send alert notifications (Email, SMS etc) to users, with the exception of separately configured webhooks. 
 
 :::::
 
@@ -682,7 +682,7 @@ with open(filename, 'wb') as f:
 
 ## Webhooks
 
-Outside Birds do not send notifications to the same channels that regular birds do - due to the large quanity of alerts they generate.
+Outside Birds do not send notifications to the same channels that regular birds do - due to the large quantity of alerts they generate.
 
 If you need a way to consume the alerts in real-time, add a hook and we'll send you alerts as they arrive!
 

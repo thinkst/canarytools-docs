@@ -30,7 +30,7 @@ endpoints:
     name: Send Syslog Test Message
     url: /api/v1/syslog/test
     method: GET
-    description: Test your syslog setup by sending a dummy test message.
+    description: Test your Syslog setup by sending a dummy test message.
     params:
       - name: auth_token
         required: true

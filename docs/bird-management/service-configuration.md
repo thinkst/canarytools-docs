@@ -27,7 +27,7 @@ endpoints:
     name: Configure Bird with Personality
     url: /api/v1/device/configure_personality
     method: POST
-    description: Configure a Bird with a with a supplied personality.
+    description: Configure a Bird with a supplied personality.
     params:
       - name: auth_token
         required: true
@@ -464,7 +464,7 @@ To get around this, you can remotely enable Share Upload on a Bird (from version
 
 Using the [Configure Bird](service-configuration.html#configure-bird) endpoint, you are able to select a pre-defined site to expose on your HTTP service. These pre-defined webroots are useful and mimic a multitude of existing systems that you'd expect to find on a network.
 
-However, if you'd like to expose your own site, we allow you to upload your own custom webroot to your Birds (from version 2.2 onwards). In order to do this, you can enable a temporary endpoint on your Bird that will allow you access it over the network, and upload a zip containing your site. 
+However, if you'd like to expose your own site, we allow you to upload your own custom webroot to your Birds (from version 2.2 onwards). In order to do this, you can enable a temporary endpoint on your Bird that will allow you to access it over the network, and upload a zip containing your site. 
 
 ::: tip
 For details about how the zip should be structured, you can look at [our help article](https://help.canary.tools/hc/en-gb/articles/360002426457-Creating-a-customized-page-for-my-Canary-s-web-server).

@@ -72,7 +72,7 @@ endpoints:
 
 ::::: slot details
 
-These are a collection of endpoints related to Virtual Canaries. Currently this includes **CanaryVM** (for VMWare) and **Hyper-V** Canaries.
+These are a collection of endpoints related to Virtual Canaries. Currently, this includes **CanaryVM** (for VMWare) and **Hyper-V** Canaries.
 
 :::::
 

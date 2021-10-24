@@ -277,7 +277,7 @@ These are a collection of endpoints that allow you to deal with user management.
 
 ## 2FA
 
-Currently we support TOTP and WebAuthn as Two-factor Authentication methods. Enforcing users to use one of these is a great way to ensure that extra bit of security for your users.
+Currently, we support TOTP and WebAuthn as Two-factor Authentication methods. Enforcing users to use one of these is a great way to ensure that extra bit of security for your users.
 
 ### Disable Globally Enforcing 2FA
 

@@ -239,7 +239,7 @@ with open('incident_archive_04102020.txt', 'wb') as f:
 <div class="section-container">
   <div class="details-content">
 
-Finally, with all of the incidents safely archived, we will used the [Delete Multiple Incidents](/incidents/actions.html#delete-multiple-incidents) API to remove the incidents from the Console.
+Finally, with all of the incidents safely archived, we will use the [Delete Multiple Incidents](/incidents/actions.html#delete-multiple-incidents) API to remove the incidents from the Console.
 
 Once again, we'll set the optional `older_than` parameter to `0h`.
 

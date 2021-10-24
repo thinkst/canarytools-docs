@@ -175,7 +175,7 @@ endpoints:
 
 If you want to ignore traffic from a specific source hostname, you can use these endpoints.
 
-There are times when you see alerts that are generated from known, expected hostnames (such as scanners). In cases like this, you can add the known hostname to an Ignore List which allows your Flock to filter traffic and only alerted you on unexpected incidents.
+There are times when you see alerts that are generated from known, expected hostnames (such as scanners). In cases like this, you can add the known hostname to an Ignore List which allows your Flock to filter traffic and only alerts you on unexpected incidents.
 
 ::: tip
 These endpoints will set the Ignore Lists for specified Flocks. For Globally defined Ignore lists, you can take a look at the [Console Settings](/console-settings/ignore-lists.html#hostname-ignore-lists).

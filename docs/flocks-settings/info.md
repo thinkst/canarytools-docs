@@ -53,7 +53,7 @@ endpoints:
 
 ::::: slot details
 
-You an easily query a Flock's individual settings config by calling the below endpoints. For a Flock's full settings, you can call the [Flock Settings](/flocks/queries.html#flock-settings) endpoint.
+You can easily query a Flock's individual settings config by calling the below endpoints. For a Flock's full settings, you can call the [Flock Settings](/flocks/queries.html#flock-settings) endpoint.
 
 :::::
 
