@@ -181,8 +181,8 @@ Hostname of the DNS Canarytoke <br><br>
 
 There are six types of port scans incidents.
 
- 1. A host port scan occurs when a single Canary is a port scanned by a single source.
- 2. A consolidated network port scan occurs when the multiple Canaries are scanned by a single source.
+ 1. A host port scan occurs when a single Canary is port scanned by a single source.
+ 2. A consolidated network port scan occurs when multiple Canaries are scanned by a single source.
  3. An NMAP FIN scan was run against the Canary.
  4. An NMAP NULL scan was run against the Canary.
  5. An NMAP OS scan was run against the Canary.
@@ -1025,7 +1025,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 </div> 
 
 ## Redis Command
-Triggered by an attacker connecting to the Redis service and issuing a valid Redis commands.
+Triggered by an attacker connecting to the Redis service and issuing valid Redis commands.
 
 <div class="section-container">
   <div class="details-content">
