@@ -99,6 +99,14 @@ endpoints:
         required: false
         type: string
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
+      - name: doc
+        type: file
+        description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
+                     `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
+      - name: pdf
+        type: file
+        description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
+                    `-F pdf=@upload-me.pdf; type=application/pdf`
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
@@ -523,7 +531,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/download \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d canarytoken=EXAMPLE_CANARYTOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
   -G -L -O -J
 ```
 
