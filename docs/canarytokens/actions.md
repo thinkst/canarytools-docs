@@ -328,6 +328,7 @@ print(r.json())
     "slack-api":"Slack API Key",
     "slow-redirect":"Slow HTTP Redirect",
     "web-image":"Remote Web Image",
+    "wireguard": "WireGuard VPN",
     "windows-dir":"Windows Directory Browsing"
   },
   "result":"success"
