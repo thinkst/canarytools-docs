@@ -267,6 +267,11 @@ print(r.json())
         "url": "<slack_webhook>"
       }
     ],
+    "splunk_webhook": {
+        "host": "<domain/IP>",
+        "port": "<port>",
+        "token": "<HEC token>"
+    }
     "webhooks_enabled": true
   }
 }
