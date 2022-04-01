@@ -261,6 +261,78 @@ endpoints:
         type: string
         description: A valid Slack webhook 
     response: A JSON structure with the result indicator.
+  splunk_get:
+    name: Show Splunk Webhook on flock
+    url: /api/v1/flock/settings/webhooks/splunk
+    method: GET
+    description: Retrieve Splunk webhook for a Flock.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
+    response: A JSON structure with Splunk webhook configuration.
+  splunk_add:
+    name: Add Splunk Webhook
+    url: /api/v1/flock/settings/webhooks/splunk/add
+    method: POST
+    description: Add a Splunk webhook to a Flock
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
+      - name: host
+        required: true
+        type: string
+        description: A domain or IP of the Splunk HEC
+      - name: port
+        required: true
+        type: string
+        description: The port the Splunk HEC runs on
+      - name: token
+        required: true
+        type: string
+        description: The Splunk HEC token
+    response: A JSON structure with the result indicator.
+  splunk_remove:
+    name: Remove Splunk Webhook
+    url: /api/v1/flock/settings/webhooks/splunk/remove
+    method: POST
+    description: Remove the Splunk Webhook from a Flock
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
+    response: A JSON structure with the result indicator.
+  splunk_test:
+    name: Test Splunk Webhook
+    url: /api/v1/flock/settings/webhooks/splunk/test
+    method: POST
+    description: Test the Splunk Webhook already configured on a Flock
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
+    response: A JSON structure with the result indicator.
   webhooks_use_global:
     name: Use Global for Flock Wehooks
     url: /api/v1/flock/settings/webhooks/use_global
@@ -1161,6 +1233,228 @@ print(r.json())
 {
   "result": "success",
   "webhook": "<slack_webhook_url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Splunk Webhooks
+
+Want to ingest your Console alerts into your Splunk? Setting it up is as as simple as setting
+the [Splunk HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/8.2.5/Data/UsetheHTTPEventCollector) Webhook on your flock.
+
+### Add Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -d host=EXAMPLE_HOST \
+  -d port=EXAMPLE_PORT \
+  -d token=EXAMPLE_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+  'host': 'EXAMPLE_HOST',
+  'port': 'EXAMPLE_PORT',
+  'token': 'EXAMPLE_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### List Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "splunk_webhook": {
+    "host": "<domain/IP>",
+    "port": "<port>",
+    "token": "<HEC token>"
+  },
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Remove Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### Test Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/splunk/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID',
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
 }
 ```
 :::
