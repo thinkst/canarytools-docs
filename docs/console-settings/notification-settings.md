@@ -105,7 +105,7 @@ endpoints:
       - name: clear
         required: false
         type: boolean
-        description: If set to true, clears the list of cellphone numbers
+        description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator.
 ---
 
