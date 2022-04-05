@@ -109,9 +109,13 @@ endpoints:
         type: string
         description: A valid flock_id
       - name: addresses
-        required: true
+        required: false
         type: string
         description: A comma separated list of valid email addresses
+      - name: clear
+        required: false
+        type: boolean
+        description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator.
   flock_email_use_global:
     name: Use Global for Notification Emails
@@ -237,9 +241,13 @@ endpoints:
         type: string
         description: A valid flock_id
       - name: addresses
-        required: true
+        required: false
         type: string
         description: A comma separated list of valid cellphone numbers
+      - name: clear
+        required: false
+        type: boolean
+        description: If set to true, clears the list of cellphone numbers
     response: A JSON structure with result indicator.
   flock_sms_use_global:
     name: Use Global for SMS Notifications
