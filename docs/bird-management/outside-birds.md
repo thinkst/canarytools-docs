@@ -425,7 +425,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incident/delete \
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incident/outside_bird/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID \
   -d src_ip=EXAMPLE_SRC_IP
@@ -438,7 +438,7 @@ curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incident/delete \
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/incident/delete'
+url = 'https://EXAMPLE.canary.tools/api/v1/incident/outside_bird/delete'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -479,7 +479,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incidents/delete \
+curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incidents/outside_bird/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d node_id=EXAMPLE_NODE_ID
 ```
@@ -491,7 +491,7 @@ curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incidents/delete \
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/incidents/delete'
+url = 'https://EXAMPLE.canary.tools/api/v1/incidents/outside_bird/delete'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
