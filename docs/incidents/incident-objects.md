@@ -1438,3 +1438,49 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 :::
   </div>
 </div> 
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**BUILD**
+Optional. Shows the build number of the attacker's RDP client if that is exposed, otherwise absent. <br><br>
+**DOMAINNAME**
+Attacker supplied domain name <br><br>
+**MAJORVERSION**
+The major version of the attacker's RDP client (ie. 6 for 6.1). <br><br>
+**MINORVERSION**
+The minor version of the attacker's RDP client (ie. 1 for 6.1). <br><br>
+**USERNAME**
+Attacker supplied username. <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+::: api-response
+``` json
+<EVENT_DESCRIPTION> = "RDP Login Attempt"
+<LOGTYPE> = "14003"
+<EVENT_DICT> = {
+                  "BUILD": "...", 
+                  "DOMAINNAME": "...", 
+                  "MAJORVERSION": "...", 
+                  "MINORVERSION": "...", 
+                  "USERNAME": "...", 
+                  "timestamp": ..., 
+                  "timestamp_std": "..."
+               }
+```
+
+:::
+  </div>
+</div>
