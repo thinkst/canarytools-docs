@@ -1439,6 +1439,9 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
+## RDP Login Attempt
+Triggered by an attempt to join the Canary's RDP service.
+
 <div class="section-container">
   <div class="details-content">
 
@@ -1483,4 +1486,59 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 :::
   </div>
+</div>
+
+## WinRM Login Attempt
+Triggered by an attempt to connect to the Canary using a WinRM agent.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**USERNAME**
+Attacker supplied username. <br><br>
+**PASSWORD**
+Optional. Attacker supplied password. This will not be present for Kerberos or NTLM authentication. <br><br>
+**WORKSTATION**
+Present for Kerberos auth attempts. Gives the workstation name of the attacker. <br><br>
+**DOMAINNAME**
+Attacker supplied domain name. <br><br>
+**USERAGENT**
+Optional. Gives the agent used by the attacker to connect. <br><br>
+**AUTHTYPE**
+The authentication type used to connect to WinRM. If present, this will be one of `'basic'`, `'ntlm'`, `'certificate'`, `'kerberos'` or `'digest'`, otherwise this will be `'unknown'`. <br><br>
+**SNAME**
+Present for Kerberos auth attempts. Gives the service name of the request. <br><br>
+**REALM**
+Present for Kerberos auth attempts. Gives the Kerberos realm. <br><br>
+**TKTVNO**
+Present for Kerberos auth attempts. Gives the ticket format version number of the request. <br><br>
+**WINRMPAYLOAD**
+The xml payload of the WinRM connection attempt. <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+::: api-response
+``` json
+<EVENT_DESCRIPTION> = "WinRM Login Attempt"
+<LOGTYPE> = "29001"
+<EVENT_DICT> = {
+                  "AUTHTYPE": "...",
+                  "PASSWORD": "...",
+                  "USERAGENT": "...",
+                  "USERNAME": "...",
+                  "WINRMPAYLOAD": "..."
+               }
+```
+</div>
 </div>
