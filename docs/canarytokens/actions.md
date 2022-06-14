@@ -303,35 +303,36 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "canarytokens":{
-    "apeeper":"EC2 Meta-data Service",
-    "autoreg-google-docs":"Google Document",
-    "autoreg-google-sheets":"Google Sheet",
-    "aws-id":"Amazon API Key",
-    "aws-s3":"Amazon S3",
-    "cloned-web":"Cloned Website",
-    "dns":"DNS",
-    "doc-msword":"MS Word .docx Document",
-    "fast-redirect":"Fast HTTP Redirect",
-    "gmail":"Gmail",
-    "google-docs":"Google Document",
-    "google-sheets":"Google Sheet",
-    "googledocs_factorydoc":"Document Factory",
-    "googlesheets_factorydoc":"Document Factory",
-    "http":"Web",
-    "msexcel-macro":"MS Excel .xlsm Document",
-    "msword-macro":"MS Word .docm Document",
-    "office365mail":"Office 365 email token",
-    "pdf-acrobat-reader":"Acrobat Reader PDF Document",
-    "qr-code":"QR Code",
-    "signed-exe":"Signed Exe",
-    "slack-api":"Slack API Key",
-    "slow-redirect":"Slow HTTP Redirect",
-    "web-image":"Remote Web Image",
-    "wireguard": "WireGuard VPN",
-    "windows-dir":"Windows Directory Browsing"
-  },
-  "result":"success"
+  "canarytokens": {
+    "apeeper": "EC2 Meta-data Service", 
+    "autoreg-google-docs": "Google Doc", 
+    "autoreg-google-sheets": "Google Sheet", 
+    "aws-id": "AWS API Key", 
+    "aws-s3": "AWS S3 Bucket", 
+    "cloned-web": "Cloned Website", 
+    "dns": "DNS", 
+    "doc-msexcel": "MS Excel Document", 
+    "doc-msword": "MS Word Document", 
+    "fast-redirect": "Fast Redirect", 
+    "gmail": "Gmail", 
+    "google-docs": "Google Doc", 
+    "google-sheets": "Google Sheet", 
+    "googledocs_factorydoc": "Document Factory", 
+    "googlesheets_factorydoc": "Document Factory", 
+    "http": "Web Bug", 
+    "msexcel-macro": "MS Excel Macro Document", 
+    "msword-macro": "MS Word Macro Document", 
+    "office365mail": "Office 365 Mail Bug", 
+    "pdf-acrobat-reader": "Acrobat PDF", 
+    "qr-code": "QR Code", 
+    "signed-exe": "Custom Exe/Binary", 
+    "slack-api": "Slack API Key", 
+    "slow-redirect": "Slow Redirect", 
+    "web-image": "Custom Web Image", 
+    "windows-dir": "Windows Folder", 
+    "wireguard": "WireGuard VPN"
+  }, 
+  "result": "success"
 }
 ```
 :::
