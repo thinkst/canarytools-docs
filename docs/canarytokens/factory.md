@@ -163,7 +163,8 @@ response to this Canarytoken Factory API and use `cloned-web` to define the Cana
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/canarytokens/factory/list?auth_token=EXAMPLE_AUTH_TOKEN
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/factory/list? \ 
+     auth_token=EXAMPLE_AUTH_TOKEN
 ```
 
 :::
