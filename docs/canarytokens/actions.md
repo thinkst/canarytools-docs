@@ -97,8 +97,10 @@ endpoints:
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
       - name: web_image
         required: false
-        type: string
-        description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
+        type: file
+        description: Upload an Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
+                     `-F 'web_image=@upload-me.png; type=image/png'`
+                     `-F 'web_image=@upload-me.jpg; type=image/jpeg'`
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
