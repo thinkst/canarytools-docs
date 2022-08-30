@@ -100,8 +100,8 @@ endpoints:
         type: file
         description: Upload an Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
                      With curl use the following flag:
-                     `-F 'web_image=@upload-me.png; type=image/png'` for png files or  `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files`
-                    `
+                     `-F 'web_image=@upload-me.png; type=image/png'` for png files
+                     `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files                    
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
