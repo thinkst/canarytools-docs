@@ -1,7 +1,7 @@
 ---
 endpoints:
   list_canarytokens:
-    name: List available Canarytokens
+    name: List Kinds of Canarytokens
     url: /api/v1/canarytokens/list
     method: GET
     description: Lists the available Canarytokens on your Canary Console.
@@ -110,6 +110,10 @@ endpoints:
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
+      - name: process_name
+        required: false
+        type: string
+        description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
@@ -328,6 +332,7 @@ print(r.json())
     "office365mail": "Office 365 Mail Bug", 
     "pdf-acrobat-reader": "Acrobat PDF", 
     "qr-code": "QR Code", 
+    "sensitive-cmd": "Sensitive Command",
     "signed-exe": "Custom Exe/Binary", 
     "slack-api": "Slack API Key", 
     "slow-redirect": "Slow Redirect", 
