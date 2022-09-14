@@ -81,11 +81,6 @@ endpoints:
         default: true
         description: Enables a Javascript scanner to retrieve more information
                      (only valid with 'http' Canarytokens)
-      - name: aws_id_username
-        required: false
-        type: string
-        description: AWS ID Username is optional if the client wants to create an AWS API key linked to certain NameError
-                     otherwise its randomly generated (optional when creating aws-id tokens)
       - name: browser_redirect_url
         required: false
         type: string
