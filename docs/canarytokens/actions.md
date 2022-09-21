@@ -66,7 +66,7 @@ endpoints:
       - name: s3_log_bucket
         required: false
         type: string
-        description: S3 bucket where logs will be stored (optional when creating aws-s3 tokens)
+        description: S3 bucket where logs will be stored (required when creating aws-s3 tokens)
       - name: aws_access_key
         required: false
         type: string
