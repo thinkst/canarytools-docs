@@ -62,7 +62,7 @@ endpoints:
       - name: s3_source_bucket
         required: false
         type: string
-        description: S3 bucket to monitor for access  (optional when creating aws-s3 tokens)
+        description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
       - name: s3_log_bucket
         required: false
         type: string
