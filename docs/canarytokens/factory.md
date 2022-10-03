@@ -108,6 +108,10 @@ endpoints:
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
+      - name: process_name
+        required: false
+        type: string
+        description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
     response: A JSON structure with the generated Canarytoken.
   factory_download:
     name: Download Canarytoken using the Factory auth string
