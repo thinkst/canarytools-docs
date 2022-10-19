@@ -307,7 +307,7 @@ print(r.json())
 {
   "canarytokens": {
     "apeeper": "EC2 Meta-data Service", 
-    "autoreg-google-docs": "Google Doc", 
+    "autoreg-google-docs": "Google Docs", 
     "autoreg-google-sheets": "Google Sheet", 
     "aws-id": "AWS API Key", 
     "aws-s3": "AWS S3 Bucket", 
@@ -317,7 +317,7 @@ print(r.json())
     "doc-msword": "MS Word Document", 
     "fast-redirect": "Fast Redirect", 
     "gmail": "Gmail", 
-    "google-docs": "Google Doc", 
+    "google-docs": "Google Docs", 
     "google-sheets": "Google Sheet", 
     "googledocs_factorydoc": "Document Factory", 
     "googlesheets_factorydoc": "Document Factory", 
