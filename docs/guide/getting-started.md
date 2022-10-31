@@ -105,6 +105,86 @@ If you instead see an `error` result, you can examine the `message` field to det
   </div>
 </div>
 
+## API Key as an HTTP header
+
+
+<div class="section-container">
+
+  <div class="details-content">
+
+This documentation defaults to using the API key as a URL parameter, but it can also be specified as an HTTP header.
+
+The header name is `X-Canary-Auth-Token`, and is case insensitive. Here's how to use the Header authentication option.
+
+  </div>
+  <div class="example-content">
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/ping \
+  -H 'X-Canary-Auth-Token: EXAMPLE_AUTH_TOKEN' \
+  -G
+```
+
+:::
+
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/ping'
+
+headers = {
+  'X-Canary-Auth-Token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, headers=headers)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+:::  api-response 
+``` json
+{
+  "result": "success"
+}
+```
+:::
+
+  </div>
+</div>
+<div class="section-container">
+  <div class="details-content">
+
+
+
+If you instead see an `error` result, you can examine the `message` field to determine what the cause might be. For example, if you used an invalid `X-Canary-Auth-Token` you would see a response similar to:
+
+  </div>
+
+  <div class="example-content">
+
+::: api-response
+```json
+{
+  "message": "Unauthorized",
+  "result": "error"
+}
+```
+:::
+
+  </div>
+</div>
+
 ## Hello Birds
 
 <div class="section-container">
