@@ -262,7 +262,7 @@ endpoints:
         description: A valid Slack webhook 
     response: A JSON structure with the result indicator.
   splunk_get:
-    name: Show Splunk Webhook on the flock
+    name: Show Splunk Webhook for a Flock
     url: /api/v1/flock/settings/webhooks/splunk
     method: GET
     description: Retrieve Splunk webhook for a Flock.
