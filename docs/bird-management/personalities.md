@@ -18,6 +18,16 @@ endpoints:
         required: false
         type: string
         description: A valid version number
+      - name: include_settings
+        required: false
+        type: boolean
+        default: true
+        description: Whether to include the settings object for each personality
+      - name: as_string
+        required: false
+        type: boolean
+        default: true
+        description: Whether to dump the personalities object to a string
     response: JSON structure with personalities for the specified node id's version or specified version.
   personalities_delete:
     name: Delete Personality
@@ -78,7 +88,7 @@ These are a collection of endpoints that allow you to interact with Bird persona
 ::: slot optional-parameters-notes
 
 ::: tip
-At least one of the optional parameters is required.
+Either `node_id` or `version` is required.
 :::
 
 ::::: slot example
