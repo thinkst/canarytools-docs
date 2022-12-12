@@ -14,7 +14,7 @@ endpoints:
   syslog_fake_alerts:
     name: Send Fake Syslog Alerts
     url: /api/v1/syslog/fake_alert/<incident_count>
-    method: GET
+    method: POST
     description: Send fake alerts to your syslog setup.
     params:
       - name: auth_token
@@ -29,7 +29,7 @@ endpoints:
   syslog_test:
     name: Send Syslog Test Message
     url: /api/v1/syslog/test
-    method: GET
+    method: POST
     description: Test your Syslog setup by sending a dummy test message.
     params:
       - name: auth_token
@@ -114,7 +114,6 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/syslog/fake_alert/1 \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -G
 ```
 
 :::
@@ -131,7 +130,7 @@ payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN'
 }
 
-r = requests.get(url, params=payload)
+r = requests.post(url, params=payload)
 
 print(r.json())
 ```
@@ -164,8 +163,7 @@ print(r.json())
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/syslog/test \
-  -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -G
+  -d auth_token=EXAMPLE_AUTH_TOKEN
 ```
 
 :::
@@ -182,7 +180,7 @@ payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN'
 }
 
-r = requests.get(url, params=payload)
+r = requests.post(url, params=payload)
 
 print(r.json())
 ```
