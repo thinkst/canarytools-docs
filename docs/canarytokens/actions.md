@@ -114,7 +114,8 @@ endpoints:
     name: Delete Canarytoken
     url: /api/v1/canarytoken/delete
     method: POST
-    description: Delete a Canarytoken.
+    description: Delete a Canarytoken. You'll need to delete all incidents on a token before you can delete the token itself. If there are still incidents
+                  attached to the token, you can specify `clear_incidents=true` to delete them all.
     params:
       - name: auth_token
         required: true
@@ -124,6 +125,10 @@ endpoints:
         required: true
         type: string
         description: A valid Canarytoken
+      - name: clear_incidents
+        required: false
+        type: boolean
+        description: Delete associated incidents
     response: A JSON structure with result indicator.
   disable:
     name: Disable Canarytoken
