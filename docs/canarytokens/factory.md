@@ -112,6 +112,12 @@ endpoints:
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
+        
+      - name: azure_id_cert_file_name
+        required: false
+        type: string
+        description: Azure ID config will use this as the file path to the certificate (required when creating Azure ID tokens).
+       
     response: A JSON structure with the generated Canarytoken.
   factory_download:
     name: Download Canarytoken using the Factory auth string
