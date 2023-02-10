@@ -272,7 +272,7 @@ endpoints:
 
 ::::: slot details
 
-Below are endpoints that allow you to configure your Email and SMS notification settings for a Flock. We do also have a section for [Webhooks](/flock-settings/webhooks.html) if you need to configure webhook settings.
+Below are endpoints that allow you to configure your Email and SMS notification settings for a Flock. We do also have a section for [Webhooks](/flocks-settings/webhooks.html) if you need to configure webhook settings.
 
 :::::
 
