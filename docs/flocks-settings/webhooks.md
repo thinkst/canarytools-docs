@@ -1071,7 +1071,7 @@ Have an MS Teams account and want us to pipe Flock notifications directly into y
 
 We currently don't expose the Slack add process via the API directly as it requires a multi-step process which includes Authenticating with Slack and granting permissions for the webhook to POST data to your channels.
 
-A step-by-step guide to adding a Slack webhook via the Console UI can be found [here](https://help.canary.tools/help/edit-delete-how-do-i-webhook-notifications).
+A step-by-step guide to adding a Slack webhook via the Console UI can be found [here](https://help.canary.tools/hc/en-gb/articles/360012819778-How-do-I-configure-Slack-Webhook-notifications-).
 
 ### List Slack Webhooks
 
