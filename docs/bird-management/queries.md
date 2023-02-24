@@ -583,7 +583,7 @@ print(r.json())
     "settings": { 
       ...
     },
-    "unacknowleged_incidents": [],
+    "unacknowledged_incidents": [],
     "uptime": "4014",
     "uptime_age": "1 hour",
     "was_rollback": "False"

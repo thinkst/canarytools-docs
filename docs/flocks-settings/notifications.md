@@ -613,7 +613,7 @@ print(r.json())
 curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/email/save \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
-  -d addressess=EXAMPLE_ADDRESSES_LIST
+  -d addresses=EXAMPLE_ADDRESSES_LIST
 ```
 
 :::
