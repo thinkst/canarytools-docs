@@ -170,6 +170,40 @@ URL of the HTTP Canarytoken
   </div>
 </div>
 
+### DNS
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**type** 
+A string containing the token type (`http` or `dns`) <br><br>
+**canarytoken** 
+Unique string that acts as the Canarytoken. <br><br>
+**hostname** 
+Hostname of the DNS Canarytoke <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Canarytoken triggered"
+<LOGTYPE> = "16000"
+<EVENT_DICT> = {
+                 "type": "dns",
+                 "canarytoken": "<tokenvalue>",      
+                 "hostname": "<tokenhostname>"       
+               }
+```
+:::
+  </div>
+</div> 
+                     
 ## Custom TCP Service Request
 The Custom TCP Service module lets the Canary administrator create simple services that either immediately prints a banner on connection, or wait for the client to send data before responding.
 
@@ -210,40 +244,6 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
                  "FUNCTION": "...",          
                  "timestamp": ...,        
                  "timestamp_std": "..."   
-               }
-```
-:::
-  </div>
-</div> 
-
-### DNS
-<div class="section-container">
-  <div class="details-content">
-
-::: attribute-details
-
-**type** 
-A string containing the token type (`http` or `dns`) <br><br>
-**canarytoken** 
-Unique string that acts as the Canarytoken. <br><br>
-**hostname** 
-Hostname of the DNS Canarytoke <br><br>
-
-:::
-
-  </div>
-  <div class="example-content">
-
-<br>
-
-:::  api-response 
-``` json
-<EVENT_DESCRIPTION> = "Canarytoken triggered"
-<LOGTYPE> = "16000"
-<EVENT_DICT> = {
-                 "type": "dns",
-                 "canarytoken": "<tokenvalue>",      
-                 "hostname": "<tokenhostname>"       
                }
 ```
 :::
