@@ -44,7 +44,7 @@ endpoints:
       - name: memo
         required: true
         type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken
+        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
       - name: kind
         required: true
         type: string
@@ -250,7 +250,7 @@ endpoints:
       - name: memo
         required: true
         type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken
+        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
     response: A JSON structure with result indicator.
 ---
 
