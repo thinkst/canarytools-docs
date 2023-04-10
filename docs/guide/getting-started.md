@@ -16,11 +16,9 @@ Before being able to use the examples, you're going to need to find out your `DO
 
 Both of these can be obtained by navigating to `/settings` on your Console, and looking at the API section.
 
-`AUTH_TOKEN` will be hidden by default can can be viewed by clicking the 'eye' icon next to the key. Viewing the key has been deprecated and in the future will only be available during the initial creation of the API key.
+`AUTH_TOKEN` can be viewed by clicking the 'eye' icon next to the key. (In the future (when?), the auth_token will only be shown when it is created, so viewing after creation should be considered deprecated)
 
-The creation of multiple API key's is supported, both for `Admin` and `Read-Only` token types. Each API key will use a `Key ID` to help identify them in logs as they are used.
-
-A `Note` is also assigned to the API key during creation as a reminder to what the purpose of the key is.
+API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help identify them in logs, and a `Note` to remind you of it's purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. You can create and use multiple API keys at any time.
 
 NOTE: If you had a console key generated before the `Read-Only` API key feature was released your `AUTH_TOKEN` will be migrated and assigned a note of `Default API Key` and a `Key ID` of `ffffffff`
 
