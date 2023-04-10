@@ -16,11 +16,18 @@ Before being able to use the examples, you're going to need to find out your `DO
 
 Both of these can be obtained by navigating to `/settings` on your Console, and looking at the API section.
 
+`AUTH_TOKEN` can be viewed by clicking the 'eye' icon next to the key. (In the future, the auth_token will only be shown when it is created, so viewing after creation should be considered deprecated)
+
+API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help identify them in logs, and a `Note` to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. You can create and use multiple API keys at any time.
+
+NOTE: If you had a console key generated before the `Read-Only` API key feature was released your `AUTH_TOKEN` will be migrated and assigned a note of `Default API Key` and a `Key ID` of `ffffffff`
+
   </div>
 
   <div class="example-content">
 
 ![Get API Details](../images/get-api-details.png)
+![Get API Details](../images/create-new-token.png)
 
   </div>
 </div>
