@@ -48,7 +48,7 @@ endpoints:
     name: Delete the API Token
     url: /api/v1/token/remove
     method: DELETE
-    description: Delete the existing API token.
+    description: Delete an existing Global API key.
     params:
       - name: auth_token
         required: true
