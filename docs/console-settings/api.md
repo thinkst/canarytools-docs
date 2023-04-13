@@ -54,6 +54,10 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+      - name: key_id
+        required: true
+        type: string
+        description: The key_id of Global API key to remove
     response: A JSON structure with result indicator.
 ---
 
@@ -135,7 +139,7 @@ print(r.json())
 
 ``` bash
 curl -X DELETE https://EXAMPLE.canary.tools/api/v1/token/remove \
-  -d auth_token=EXAMPLE_AUTH_TOKEN
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d key_id=EXAMPLE_KEY_ID
 ```
 
 :::
@@ -148,7 +152,8 @@ import requests
 url = 'https://EXAMPLE.canary.tools/api/v1/token/remove'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'key_id': 'EXAMPLE_KEY_ID'
 }
 
 r = requests.delete(url, data=payload)
