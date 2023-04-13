@@ -23,10 +23,10 @@ endpoints:
         description: A valid auth token
     response: JSON structure with result indicator.
   add:
-    name: Add an API token.
+    name: Add a Global API key
     url: /api/v1/token/add
     method: POST
-    description: Create a new API token.
+    description: Create a new Global API key.
     params:
       - name: auth_token
         required: true
@@ -79,7 +79,7 @@ API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help ide
 
 </APIEndpoints>
 
-## Add an API token
+## Add a Global API key
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.add">
 
