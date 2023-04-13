@@ -36,6 +36,10 @@ endpoints:
         required: true
         type: string
         description: The type of auth token to created. Either 'admin' or 'read-only'.
+      - name: note
+        required: true
+        type: string
+        description: A note for the token on who/where it is used.
     response: JSON structure with the new API token.
   download:
     name: Download the API Configuration File
@@ -87,7 +91,8 @@ API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help ide
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/token/add \
-  -d auth_token=EXAMPLE_AUTH_TOKEN -d auth_token_type=admin
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d auth_token_type=admin \
+  -d note='Infrastructure Team'
 ```
 
 :::
@@ -101,7 +106,8 @@ url = 'https://EXAMPLE.canary.tools/api/v1/token/add'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'auth_token_type': 'admin'
+  'auth_token_type': 'admin',
+  'note': 'Infrastructure Team'
 }
 
 r = requests.post(url, data=payload)
