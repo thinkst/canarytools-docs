@@ -32,6 +32,10 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+      - name: auth_token_type
+        required: true
+        type: string
+        description: The type of auth token to created. Either 'admin' or 'read-only'.
     response: JSON structure with the new API token.
   download:
     name: Download the API Configuration File
@@ -63,17 +67,15 @@ endpoints:
 
 ::::: slot details
 
-Currently, your Console can only have a single API key (auth_token). Managing this key, as well as enabling and disabling the use of the API can be done using the following endpoints.
+Your Console supports having multiple API keys (auth_token). Managing these keys, as well as enabling and disabling the use of the API can be done using the following endpoints.
+
+API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help identify them in logs, and a `Note` to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key.
 
 :::::
 
 </APIEndpoints>
 
 ## Add an API token
-
-::: tip
-This will generate a new API token for you, overwriting the existing token if there is one.
-:::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.add">
 
@@ -85,7 +87,7 @@ This will generate a new API token for you, overwriting the existing token if th
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/token/add \
-  -d auth_token=EXAMPLE_AUTH_TOKEN
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d auth_token_type=admin
 ```
 
 :::
@@ -98,7 +100,8 @@ import requests
 url = 'https://EXAMPLE.canary.tools/api/v1/token/add'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'auth_token_type': 'admin'
 }
 
 r = requests.post(url, data=payload)
