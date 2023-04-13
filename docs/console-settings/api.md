@@ -40,7 +40,7 @@ endpoints:
         required: true
         type: string
         description: A note for the token on who/where it is used.
-    response: JSON structure with the new API token.
+    response: JSON structure with the new Global API key.
   download:
     name: Download the API Configuration File
     url: /api/v1/token/download
