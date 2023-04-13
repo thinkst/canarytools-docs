@@ -45,7 +45,7 @@ endpoints:
         description: A valid auth token
     response: File containing the API configuration.
   delete:
-    name: Delete the API Token
+    name: Delete Global API key
     url: /api/v1/token/remove
     method: DELETE
     description: Delete an existing Global API key.
