@@ -116,8 +116,15 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "result": "success",
-  "token": "<auth_token>"
+    "global_api_key": {
+        "auth_token": "<auth_token>",
+        "auth_token_type": "Admin",
+        "created": "2023-04-13 19:12:15 UTC+0000",
+        "created_by": "Global-API-Token[key_id:ffffffff]",
+        "key_id": "<key_id>",
+        "note": "Infrastructure Team"
+    },
+    "result": "success"
 }
 ```
 :::
