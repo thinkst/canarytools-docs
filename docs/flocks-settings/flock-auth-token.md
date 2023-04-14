@@ -35,7 +35,7 @@ endpoints:
         description: A valid existing Flock specific auth token.
     response: A JSON structure with the result indicator.
   flock_auth_token_list:
-    name: List Flock auth tokens
+    name: List Flock API keys
     url: /api/v1/flock/auth_token/list
     method: GET
     description: Fetch list of Flock specific auth tokens
