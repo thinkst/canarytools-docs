@@ -57,7 +57,7 @@ endpoints:
 
 ::::: slot details
 
-Create a new Flock specific API auth token.
+Create a new Flock specific API key.
 
 :::::
 
