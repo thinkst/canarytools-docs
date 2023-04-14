@@ -188,7 +188,7 @@ print(r.json())
 
 </APIDetails>
 
-## List Flock Auth Tokens
+## List Flock API keys
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_list">
 
