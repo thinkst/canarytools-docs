@@ -137,7 +137,7 @@ print(r.json())
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_remove">
 
 ::::: slot description
-Delete an existing Flock specific API auth token.
+Delete an existing Flock specific API key.
 :::::
 
 ::::: slot example
