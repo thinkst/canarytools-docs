@@ -20,7 +20,7 @@ endpoints:
         description: A note for the Flock API key on who/where it is used.
     response: A JSON structure with the new Flock API Key.
   flock_auth_token_remove:
-    name: Remove Flock auth token
+    name: Remove Flock API key
     url: /api/v1/flock/auth_token/remove
     method: POST
     description: Deletes a Flock specific auth token
