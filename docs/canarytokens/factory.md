@@ -46,7 +46,7 @@ endpoints:
         type: string
         description: An existing factory auth string
     response: A JSON structure with result indicator.
-  list_factory_auth_strings:
+  list_factories:
     name: List Canarytoken Factory Auth String
     url: /api/v1/canarytoken/list_factories
     method: GET
@@ -169,7 +169,7 @@ Canarytokens via the Canarytokens Factory. As an example, if you wanted to creat
 response to this Canarytoken Factory API and use `cloned-web` to define the Canarytoken type you wish to create via the Canarytoken Factory.
 :::
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.list_factory_canarytokens">
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_factories">
 
 ::::: slot example
 
