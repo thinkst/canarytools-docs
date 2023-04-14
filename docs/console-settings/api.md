@@ -23,16 +23,24 @@ endpoints:
         description: A valid auth token
     response: JSON structure with result indicator.
   add:
-    name: Add an API token.
+    name: Add a Global API key
     url: /api/v1/token/add
     method: POST
-    description: Create a new API token.
+    description: Create a new Global API key.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
-    response: JSON structure with the new API token.
+      - name: auth_token_type
+        required: true
+        type: string
+        description: The type of auth token to created. Either 'admin' or 'read-only'.
+      - name: note
+        required: true
+        type: string
+        description: A note for the token on who/where it is used.
+    response: JSON structure with the new Global API key.
   download:
     name: Download the API Configuration File
     url: /api/v1/token/download
@@ -63,17 +71,15 @@ endpoints:
 
 ::::: slot details
 
-Currently, your Console can only have a single API key (auth_token). Managing this key, as well as enabling and disabling the use of the API can be done using the following endpoints.
+Your Console supports having multiple API keys (auth_token). Managing these keys, as well as enabling and disabling the use of the API can be done using the following endpoints.
+
+API keys are created with an `Admin` or `Read-Only` role, a `Key ID` to help identify them in logs, and a `Note` to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key.
 
 :::::
 
 </APIEndpoints>
 
-## Add an API token
-
-::: tip
-This will generate a new API token for you, overwriting the existing token if there is one.
-:::
+## Add a Global API key
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.add">
 
@@ -85,7 +91,8 @@ This will generate a new API token for you, overwriting the existing token if th
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/token/add \
-  -d auth_token=EXAMPLE_AUTH_TOKEN
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d auth_token_type=admin \
+  -d note='Infrastructure Team'
 ```
 
 :::
@@ -98,7 +105,9 @@ import requests
 url = 'https://EXAMPLE.canary.tools/api/v1/token/add'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'auth_token_type': 'admin',
+  'note': 'Infrastructure Team'
 }
 
 r = requests.post(url, data=payload)
@@ -113,8 +122,15 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "result": "success",
-  "token": "<auth_token>"
+    "global_api_key": {
+        "auth_token": "<auth_token>",
+        "auth_token_type": "Admin",
+        "created": "2023-04-13 19:12:15 UTC+0000",
+        "created_by": "Global-API-Token[key_id:ffffffff]",
+        "key_id": "<key_id>",
+        "note": "Infrastructure Team"
+    },
+    "result": "success"
 }
 ```
 :::
