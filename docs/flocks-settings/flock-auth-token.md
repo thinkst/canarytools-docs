@@ -69,7 +69,7 @@ Create a new Flock specific API key.
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_add">
 
 ::::: slot description
-Create a new Flock specific API auth token.
+Create a new Flock specific API key.
 :::::
 
 ::::: slot example
