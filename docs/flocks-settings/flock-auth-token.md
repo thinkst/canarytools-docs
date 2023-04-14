@@ -23,7 +23,7 @@ endpoints:
     name: Remove Flock API key
     url: /api/v1/flock/auth_token/remove
     method: POST
-    description: Deletes a Flock specific auth token
+    description: Deletes a Flock specific API key
     params:
       - name: auth_token
         required: true
