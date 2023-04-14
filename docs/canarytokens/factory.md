@@ -12,7 +12,7 @@ endpoints:
         description: A valid auth token
     response: A JSON structure with result indicator and Canarytokens Factory information.
   create_factory:
-    name: Create Canarytoken Factory
+    name: Create Canarytoken Factory Auth String
     url: /api/v1/canarytoken/create_factory
     method: POST
     description: Create an auth string for the Canarytoken Factory endpoint.
@@ -32,7 +32,7 @@ endpoints:
         description: A reminder that will be included in the alert to let you know where you placed this Canarytoken
     response: A JSON structure with auth string and Canarytoken factory endpoint.
   delete_factory:
-    name: Delete Canarytoken Factory
+    name: Delete Canarytoken Factory Auth String
     url: /api/v1/canarytoken/delete_factory
     method: DELETE
     description: Delete an auth string for the Canarytoken Factory endpoint.
@@ -46,6 +46,17 @@ endpoints:
         type: string
         description: An existing factory auth string
     response: A JSON structure with result indicator.
+  list_factory_auth_strings:
+    name: List Canarytoken Factory Auth Strings
+    url: /api/v1/canarytoken/list_factories
+    method: GET
+    description: List all Factory auth strings for the Canarytoken Factory endpoint.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with a list of factory auth strings.
   factory:
     name: Create Canarytokens Using Factory
     url: /api/v1/canarytoken/factory/create
@@ -452,6 +463,66 @@ print(r.json())
 ```json
 {
   "msg": "TokenFactory auth string deleted",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## List Canarytoken Factory Auth Strings
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_factory_auth_strings">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/list_factories \
+  -d auth_token=EXAMPLE_AUTH_TOKEN -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/list_factories'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "factories": [
+    {
+      "factory_auth": "<Factory Auth String>", 
+      "memo": "Example Memo"
+    }, 
+    {
+      "factory_auth": "<Factory Auth String 2>", 
+      "memo": "Example Memo 2"
+    }
+  ], 
   "result": "success"
 }
 ```
