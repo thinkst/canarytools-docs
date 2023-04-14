@@ -474,7 +474,7 @@ print(r.json())
 
 ## List Canarytoken Factory Auth Strings
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.list_factories">
+<APIDetails :endpoint="$page.frontmatter.endpoints.list_factory_auth_strings">
 
 ::::: slot example
 
