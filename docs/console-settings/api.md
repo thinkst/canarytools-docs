@@ -53,15 +53,19 @@ endpoints:
         description: A valid auth token
     response: File containing the API configuration.
   delete:
-    name: Delete the API Token
+    name: Delete a Global API key
     url: /api/v1/token/remove
     method: DELETE
-    description: Delete the existing API token.
+    description: Delete an existing Global API key.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
+      - name: key_id
+        required: true
+        type: string
+        description: The key_id of Global API key to remove
     response: A JSON structure with result indicator.
 ---
 
@@ -139,7 +143,7 @@ print(r.json())
 
 </APIDetails>
 
-## Delete the API Token
+## Delete a Global API key
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.delete">
 
@@ -151,7 +155,7 @@ print(r.json())
 
 ``` bash
 curl -X DELETE https://EXAMPLE.canary.tools/api/v1/token/remove \
-  -d auth_token=EXAMPLE_AUTH_TOKEN
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d key_id=EXAMPLE_KEY_ID
 ```
 
 :::
@@ -164,7 +168,8 @@ import requests
 url = 'https://EXAMPLE.canary.tools/api/v1/token/remove'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'key_id': 'EXAMPLE_KEY_ID'
 }
 
 r = requests.delete(url, data=payload)
