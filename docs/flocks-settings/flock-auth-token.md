@@ -64,7 +64,7 @@ Create a new Flock specific API auth token.
 </APIEndpoints>
 
 
-## Add Flock Auth Token
+## Add Flock API Keys
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_add">
 
