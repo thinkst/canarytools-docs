@@ -18,7 +18,7 @@ endpoints:
         required: true
         type: string
         description: A note for the Flock API key on who/where it is used.
-    response: A JSON structure with the created API Key's info.
+    response: A JSON structure with the new Flock API Key.
   flock_auth_token_remove:
     name: Remove Flock auth token
     url: /api/v1/flock/auth_token/remove
