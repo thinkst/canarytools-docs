@@ -47,7 +47,7 @@ endpoints:
         description: An existing factory auth string
     response: A JSON structure with result indicator.
   list_factory_auth_strings:
-    name: List Canarytoken Factory Auth String
+    name: List Canarytoken Factory Auth Strings
     url: /api/v1/canarytoken/list_factories
     method: GET
     description: List all Factory auth strings for the Canarytoken Factory endpoint.

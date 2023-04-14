@@ -176,6 +176,7 @@ module.exports = {
           '/flocks-settings/source-port-ignore-list',
           '/flocks-settings/webhooks',
           '/flocks-settings/auto-commission',
+          '/flocks-settings/flock-auth-token',
         ]
       },
       {
