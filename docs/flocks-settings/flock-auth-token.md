@@ -38,7 +38,7 @@ endpoints:
     name: List Flock API keys
     url: /api/v1/flock/auth_token/list
     method: GET
-    description: Fetch list of Flock specific auth tokens
+    description: Fetch list of Flock specific API keys
     params:
       - name: auth_token
         required: true
