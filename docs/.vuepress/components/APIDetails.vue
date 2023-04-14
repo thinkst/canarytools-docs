@@ -2,6 +2,11 @@
   <div>
     <p>
       <code>{{endpoint.method}} {{endpoint.url}}</code>
+      <span v-if=endpoint.endpoint_deprecated class="endpoint-details-deprecated">DEPRECATED</span>
+    </p>
+    <p v-if=endpoint.deprecated_url>
+      <code>{{endpoint.method}} {{endpoint.deprecated_url}}</code>
+      <span class="endpoint-details-deprecated">DEPRECATED</span>
     </p>
     <slot name="description">
       <p>{{endpoint.description}}</p>
