@@ -132,7 +132,7 @@ print(r.json())
 
 </APIDetails>
 
-## Remove Flock Auth Token
+## Remove Flock API key
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_remove">
 
