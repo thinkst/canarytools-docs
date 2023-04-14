@@ -51,7 +51,7 @@ endpoints:
     response: A JSON structure with the Flock specific auth tokens.
 ---
 
-# Flock Auth Tokens
+# Flock API Keys
 
 <APIEndpoints :endpoints="$page.frontmatter.endpoints" :path="$page.regularPath">
 
