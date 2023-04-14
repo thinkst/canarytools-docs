@@ -65,6 +65,10 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+      - name: key_id
+        required: true
+        type: string
+        description: The key_id of Global API key to download.
     response: File containing the API configuration.
   delete:
     name: Delete a Global API key
