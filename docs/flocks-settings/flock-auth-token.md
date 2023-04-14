@@ -1,7 +1,7 @@
 ---
 endpoints:
   flock_auth_token_add:
-    name: Add Flock auth token
+    name: Add Flock API key
     url: /api/v1/flock/auth_token/add
     method: POST
     description: Add a Flock specific auth token.
