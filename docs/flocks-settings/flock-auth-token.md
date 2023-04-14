@@ -193,7 +193,7 @@ print(r.json())
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_auth_token_list">
 
 ::::: slot description
-List all auth tokens assigned to a specific flock.
+List all API keys assigned to a specific flock.
 :::::
 
 ::::: slot example
