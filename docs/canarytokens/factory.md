@@ -22,10 +22,9 @@ endpoints:
         type: string
         description: A valid auth token
       - name: flock_id
-        required: false
+        required: true
         type: string
-        default: "'flock:default'"
-        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
+        description: A valid flock_id
       - name: memo
         required: true
         type: string
@@ -70,8 +69,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        default: "'flock:default'"
-        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
+        default: "flock_id of factory"
+        description: A valid flock_id (defaults to the flock_id of the token factory)
       - name: memo
         required: true
         type: string
@@ -377,7 +376,7 @@ $ ls -l
 
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/create_factory \
-  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d auth_token=EXAMPLE_AUTH_TOKEN -d flock_id=flock:default \
   -d memo='Example Memo'
 ```
 
@@ -392,6 +391,7 @@ url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/create_factory'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'flock:default',
   'memo': 'Example Memo'
 }
 
