@@ -515,11 +515,13 @@ print(r.json())
 {
   "factories": [
     {
-      "factory_auth": "<Factory Auth String>", 
+      "factory_auth": "<Factory Auth String>",
+      "flock_id": "flock:default",
       "memo": "Example Memo"
     }, 
     {
-      "factory_auth": "<Factory Auth String 2>", 
+      "factory_auth": "<Factory Auth String 2>",
+      "flock_id": "flock:default",
       "memo": "Example Memo 2"
     }
   ], 
