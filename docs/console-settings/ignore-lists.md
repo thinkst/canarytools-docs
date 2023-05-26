@@ -971,7 +971,10 @@ print(r.json())
 
 ## Annotation-based Ignore Lists
 
-You can ignore incidents based on matched annotations. Currently, this is only available for PDF token triggers that match our Palo Alto Wildfire annotation (you can read more about it [here](https://help.canary.tools/hc/en-gb/articles/360013051378-Alert-Annotation-Palo-Alto-Wildfire-PDF-Token)).
+You can ignore incidents based on matched annotations.
+Currently, this is only available for two sources:
+* PDF token triggers that match our [Palo Alto Wildfire annotation](https://help.canary.tools/hc/en-gb/articles/360013051378-Alert-Annotation-Palo-Alto-Wildfire-PDF-Token)
+* Activity that is associated with [Microsoft Defender](https://help.canary.tools/hc/en-gb/articles/9212577972125-Alert-annotation-Microsoft-Defender-Scan)
 
 ### Disable Annotation Ignore List
 
