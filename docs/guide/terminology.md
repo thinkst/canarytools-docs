@@ -57,6 +57,12 @@ Managers are users that can manage assigned Flocks. This gives them the ability 
 A user can be a Manager for multiple Flocks. They can also be a Watcher for some Flocks, and Manager for others. The authorization is on a per-Flock basis.
 :::
 
+## Node ID
+
+A node ID is a unique identifier for your deployed [Sensors](#sensors), these will come in the form of [Canarytokens](#Canarytokens) and [Birds](#birds).
+
+Node ID's can be referenced to specify a specific [Token](/canarytokens/actions.md#fetch-a-canarytoken) or [Canary](/bird-management/queries.html#bird-info) when using the API.
+
 ## Sensors
 
 <sub>Also known by: [Birds](#sensors), [Devices](#devices), [Canarytokens](#canarytokens)</sub>
