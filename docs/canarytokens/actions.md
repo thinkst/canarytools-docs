@@ -36,37 +36,15 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
-      - name: flock_id
-        required: false
-        type: string
-        default: "'flock:default'"
-        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
-      - name: memo
-        required: true
-        type: string
-        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
       - name: kind
         required: true
         type: string
         description: Specifies the type of Canarytoken. Please check "[List Canarytokens](/canarytokens/actions.html#list-canarytokens)" for available
                      Canarytoken kind values.
-      - name: web_image
-        required: false
+      - name: memo
+        required: true
         type: string
-        description: An image file for use with web-image tokens (request must be multipart/form-data encoded
-                     if parameter is present, required when using web-image)
-      - name: cloned_web
-        required: false
-        type: string
-        description: Domain to check against (required when creating cloned-web tokens)
-      - name: s3_source_bucket
-        required: false
-        type: string
-        description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
-      - name: s3_log_bucket
-        required: false
-        type: string
-        description: S3 bucket where logs will be stored (required when creating aws-s3 tokens)
+        description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
       - name: aws_access_key
         required: false
         type: string
@@ -75,32 +53,38 @@ endpoints:
         required: false
         type: string
         description: AWS region (required if automating creation of AWS S3 token)
+      - name: azure_id_cert_file_name
+        required: false
+        type: string
+        description: Azure ID config will use this as the file path to the certificate (required when creating Azure ID tokens).
+      - name: browser_redirect_url
+        required: false
+        type: string
+        description: Browser redirect URL is the URL you want your Canarytoken server to redirect attackers to after they have
+                     triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
       - name: browser_scanner_enabled
         required: false
         type: boolean
         default: true
         description: Enables a Javascript scanner to retrieve more information
                      (only valid with 'http' Canarytokens)
-      - name: browser_redirect_url
+      - name: cloned_web
         required: false
         type: string
-        description: Browser redirect URL is the URL you want your Canarytoken server to redirect attackers to after they have
-                     triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
+        description: Domain to check against (required when creating cloned-web tokens)
       - name: exe
         required: false
         type: string
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
-      - name: web_image
-        required: false
-        type: file
-        description: Upload an Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
-                     With curl use the following flag&#58;
-                     `-F 'web_image=@upload-me.png; type=image/png'` for png files
-                     `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
                      `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
+      - name: flock_id
+        required: false
+        type: string
+        default: "'flock:default'"
+        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
       - name: pdf
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
@@ -109,10 +93,21 @@ endpoints:
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
-      - name: azure_id_cert_file_name
+      - name: s3_log_bucket
         required: false
         type: string
-        description: Azure ID config will use this as the file path to the certificate (required when creating Azure ID tokens).
+        description: S3 bucket where logs will be stored (required when creating aws-s3 tokens)
+      - name: s3_source_bucket
+        required: false
+        type: string
+        description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
+      - name: web_image
+        required: false
+        type: file
+        description: Upload an Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
+                     With curl use the following flag&#58;
+                     `-F 'web_image=@upload-me.png; type=image/png'` for png files
+                     `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
