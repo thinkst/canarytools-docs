@@ -404,34 +404,34 @@ print(r.json())
   "tokens": {
       {
         "browser_scanner_enabled": "True",
-        "canarytoken": "ahy2pxg0yuorop0ta6t3elpbb'",
+        "canarytoken": "<token_code>",
         "created": "1685958255.606980'",
         "created_printable": "2023-06-05 09:44:15 (UTC)'",
         "enabled": "True",
         "flock_id": "flock:default'",
-        "hostname": "hy2pxg0yuorop1ta6t3elpbb.a9534a2b80e6.o3n.io'",
-        "key": "canarydrop:ahy2pxg0yuorop0ta6t3elpbb'",
+        "hostname": "<token_hostname>",
+        "key": "<token_key>",
         "kind": "http'",
         "memo": "desktop",
-        "node_id": "ahy2pxg0yuorop0ta6t3elpbb'", 
+        "node_id": "<token_node_id>", 
         "triggered_count": "0",
         "updated_id": "1",
-        "url": "http://a9534a2b80e6.o3n.io/cdn/ahy2pxg0yuorop0ta6t3elpbb/doc.gif'}"
+        "url": "<token_url>"
       },
       {
-        "canarytoken": "3jg5ifrpnb01s5fjl9qlwutkd",
+        "canarytoken": "<token_code>",
         "created": "1688122821.384507",
         "created_printable": "2023-06-30 11:00:21 (UTC)",
         "enabled": "True",
         "flock_id": "flock:default",
-        "hostname": "3jg5ifrpnb01s5fjl9qlwutkd.a9534a2b80e6.o3n.io",
-        "key": "canarydrop:3jg5ifrpnb01s5fjl9qlwutkd",
+        "hostname": "<token_hostname>",
+        "key": "<token_key>",
         "kind": "dns",
         "memo": "mail inbox",
-        "node_id": "3jg5ifrpnb01s5fjl9qlwutkd",
+        "node_id": "<token_node_id>",
         "triggered_count": "0",
         "updated_id": "2",
-        "url": "http://a9534a2b80e6.o3n.io/cdn/3jg5ifrpnb01s5fjl9qlwutkd/logo.gif'}"
+        "url": "<token_url>"
       }
   }, 
   "result": "success"
