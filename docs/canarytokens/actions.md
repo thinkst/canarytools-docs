@@ -409,7 +409,7 @@ print(r.json())
         "created_printable": "2023-06-05 09:44:15 (UTC)'",
         "enabled": "True",
         "flock_id": "flock:default'",
-        "hostname": '"hy2pxg0yuorop1ta6t3elpbb.a9534a2b80e6.o3n.io'",
+        "hostname": "hy2pxg0yuorop1ta6t3elpbb.a9534a2b80e6.o3n.io'",
         "key": "canarydrop:ahy2pxg0yuorop0ta6t3elpbb'",
         "kind": "http'",
         "memo": "desktop",
