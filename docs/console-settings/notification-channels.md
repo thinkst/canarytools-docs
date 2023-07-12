@@ -97,7 +97,7 @@ endpoints:
     name: List Generic Webhooks
     url: /api/v1/settings/generic/list
     method: GET
-    description: Retrieve generic webhooks and list the names of the headers configured for the webhook. (Header values are not show as they may be sensitive.)
+    description: Retrieve generic webhooks and list the names of the headers configured for the webhook. (Header values are not shown as they may be sensitive.)
     params:
       - name: auth_token
         required: true
