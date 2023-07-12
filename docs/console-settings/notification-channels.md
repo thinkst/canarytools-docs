@@ -93,6 +93,17 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of cellphone numbers
     response: A JSON structure with result indicator and the current list of cellphone numbers.
+  generic_get:
+    name: List Generic Webhooks
+    url: /api/v1/settings/generic/list
+    method: GET
+    description: Retrieve generic webhooks and list the names of the headers configured for the webhook. (Header values are not show as they may be sensitive.)
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with the list of generic webhooks.
   generic_add:
     name: Add a Generic Webhook
     url: /api/v1/settings/generic/add
@@ -107,6 +118,10 @@ endpoints:
         required: true
         type: string
         description: The URL of the webhook that we'll post data to
+      - name: headers
+        required: false
+        type: string
+        description: JSON structure of the headers to configure for the webhook.
     response: A JSON structure with result indicator.
   generic_remove:
     name: Remove a Generic Webhook
@@ -669,9 +684,91 @@ We don't currently have endpoints publicly available to enable and manage your S
 
 If you simply want us to POST JSON data to a URL, the Generic Webhook is perfect for you.
 
+### List Generic Webhooks
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/generic/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/generic/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "generic_webhooks": [
+    {
+      "header_names": [
+          "Header-Name",
+          "Header-Name-2",
+          "Header-Name-3"
+      ],
+      "url": "<webhook_url>",
+      "webhook_id": "<webhook_id>"
+    },
+    {
+      "header_names": [],
+      "url": "<webhook_url>",
+      "webhook_id": "<webhook_id>"
+    }
+  ],
+  "result": "success",
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
 #### Add a Generic Webhook
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.generic_add">
+
+::: slot optional-parameters-notes
+
+::: tip Webhook headers JSON structure:
+The headers are specified as `"Name": "Value"`
+
+```json
+{
+  "Header-Name-1": "Value",
+  "Header-Name-2": "Value_2",
+  "Header-Name-3": "Value_3"
+}
+```
+
+:::
 
 ::::: slot example
 
