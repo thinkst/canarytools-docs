@@ -30,11 +30,27 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with result indicator.
-  generic_get:
+  generic_get_old:
     name: List Generic Webhooks
     url: /api/v1/flock/settings/webhooks/generic
+    endpoint_deprecated: true
     method: GET
     description: Retrieve generic webhooks for a Flock.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: A valid flock_id
+    response: A JSON structure with the list of generic webhooks.
+  generic_get:
+    name: List Generic Webhooks
+    url: /api/v1/flock/settings/webhooks/generic/list
+    method: GET
+    description: Retrieve generic webhooks for a Flock and list the names of the headers configured for the webhook. (Header values are not shown as they may be sensitive.)
     params:
       - name: auth_token
         required: true
@@ -63,6 +79,10 @@ endpoints:
         required: true
         type: string
         description: A valid URL that can accept POSTed data
+      - name: headers
+        required: false
+        type: string
+        description: JSON structure of the headers to configure for the webhook.
     response: A JSON structure with the result indicator.
   generic_remove:
     name: Remove Generic Webhook
@@ -629,6 +649,21 @@ If you have an endpoint that accepts JSON data, we can setup a webhook to POST a
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.generic_add">
 
+::: slot optional-parameters-notes
+
+::: tip Webhook headers JSON structure:
+The headers are specified as `"Name": "Value"`
+
+```json
+{
+  "Header-Name-1": "Value",
+  "Header-Name-2": "Value_2",
+  "Header-Name-3": "Value_3"
+}
+```
+
+:::
+
 ::::: slot example
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -680,7 +715,7 @@ print(r.json())
 
 ### List Generic Webhooks
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get">
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get_old">
 
 ::::: slot example
 
@@ -724,6 +759,75 @@ print(r.json())
   "generic_webhooks": [
     "<webhook_url>",
     "<webhook_url>"
+  ],
+  "result": "success",
+  "webhooks_enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+### List Generic Webhooks
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_get">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/webhooks/generic/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "generic_webhooks": [
+    {
+      "header_names": [
+          "Header-Name",
+          "Header-Name-2",
+          "Header-Name-3"
+      ],
+      "url": "<webhook_url>",
+      "webhook_id": "<webhook_id>"
+    },
+    {
+      "header_names": [],
+      "url": "<webhook_url>",
+      "webhook_id": "<webhook_id>"
+    }
   ],
   "result": "success",
   "webhooks_enabled": true
