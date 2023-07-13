@@ -41,6 +41,47 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator and the current list of emails.
+  connection_status_email_disable:
+    name: Disable Connection Status Email Notifications
+    url: /api/v1/settings/notifications/connection_status_email/disable
+    method: POST
+    description: Disable connection status email notifications.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  connection_status_email_enable:
+    name: Enable Connection Status Email Notifications
+    url: /api/v1/settings/notifications/connection_status_email/enable
+    method: POST
+    description: Enable connection status email notifications. If enabled, Device Reconnected and Disconnected alerts will be emailed to the Connection Status Email Notifications addresses only. 
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  connection_status_email_save:
+    name: Set Connection Status Email Notifications List
+    url: /api/v1/settings/notifications/connection_status_email/save
+    method: POST
+    description: Set the list of connection status email addresses to send notifications to.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: addresses
+        required: false
+        type: string
+        description: A comma separated list of email addresses
+      - name: clear
+        required: false
+        type: boolean
+        description: If set to true, clears the list of email addresses
+    response: A JSON structure with result indicator and the current list of emails.
   info:
     name: View Notification Information
     url: /api/v1/settings/notifications/info
@@ -429,6 +470,168 @@ curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save \
 import requests
 
 url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'addresses': 'EXAMPLE_ADDRESSES_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "emails": "<email_address>,<email_address>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Connection Status Email
+
+Redirect all Device Disconnected or Reconnected alert email notifications to a different set of email addresses. 
+
+#### Disable Connection Status Email Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Enable Connection Status Email Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Set Connection Status Email Notifications List
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d addresses=EXAMPLE_ADDRESSES_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/save'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
