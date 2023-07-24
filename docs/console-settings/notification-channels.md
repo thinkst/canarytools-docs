@@ -41,33 +41,33 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator and the current list of emails.
-  connection_status_email_disable:
-    name: Disable Connection Status Email Notifications
-    url: /api/v1/settings/notifications/connection_status_email/disable
+  operational_email_disable:
+    name: Disable Operational Email Notifications
+    url: /api/v1/settings/notifications/operational_email/disable
     method: POST
-    description: Disable connection status email notifications.
+    description: Disable operational email notifications.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
     response: A JSON structure with result indicator.
-  connection_status_email_enable:
-    name: Enable Connection Status Email Notifications
-    url: /api/v1/settings/notifications/connection_status_email/enable
+  operational_email_enable:
+    name: Enable Operational Email Notifications
+    url: /api/v1/settings/notifications/operational_email/enable
     method: POST
-    description: Enable connection status email notifications. If enabled, Device Reconnected and Disconnected alerts will be emailed to the Connection Status Email Notifications addresses only. 
+    description: Enable operational email notifications. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to Operational Email Notifications addresses only.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
     response: A JSON structure with result indicator.
-  connection_status_email_save:
-    name: Set Connection Status Email Notifications List
-    url: /api/v1/settings/notifications/connection_status_email/save
+  operational_email_save:
+    name: Set Operational Email Notifications List
+    url: /api/v1/settings/notifications/operational_email/save
     method: POST
-    description: Set the list of connection status email addresses to send notifications to.
+    description: Set the list of operational email addresses to send notifications to.
     params:
       - name: auth_token
         required: true
@@ -498,13 +498,13 @@ print(r.json())
 
 </APIDetails>
 
-## Connection Status Email
+## Operational Email
 
-Redirect all Device Disconnected or Reconnected alert email notifications to a different set of email addresses. 
+Set a separate list of email addresses to receive all operational alert email notifications. 
 
-#### Disable Connection Status Email Notifications
+#### Disable Operational Email Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_disable">
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_disable">
 
 ::::: slot example
 
@@ -513,7 +513,7 @@ Redirect all Device Disconnected or Reconnected alert email notifications to a d
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/disable \
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN 
 ```
 
@@ -524,7 +524,7 @@ curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_statu
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/disable'
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/disable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN'
@@ -551,9 +551,9 @@ print(r.json())
 
 </APIDetails>
 
-#### Enable Connection Status Email Notifications
+#### Enable Operational Email Notifications
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_enable">
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_enable">
 
 ::::: slot example
 
@@ -562,7 +562,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/enable \
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN 
 ```
 
@@ -573,7 +573,7 @@ curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_statu
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/enable'
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/enable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN'
@@ -600,9 +600,9 @@ print(r.json())
 
 </APIDetails>
 
-#### Set Connection Status Email Notifications List
+#### Set Operational Email Notifications List
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.connection_status_email_save">
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_save">
 
 ::: slot optional-parameters-notes
 
@@ -619,7 +619,7 @@ At least one of the optional parameters is required.
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/save \
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/save \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d addresses=EXAMPLE_ADDRESSES_LIST
 ```
@@ -631,7 +631,7 @@ curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_statu
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/connection_status_email/save'
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/save'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',

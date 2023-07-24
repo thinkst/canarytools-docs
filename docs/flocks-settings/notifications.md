@@ -132,11 +132,11 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with result indicator.
-  flock_connection_status_email_get:
-    name: List Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email
+  flock_operational_email_get:
+    name: List Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email
     method: GET
-    description: Retrieve the list of connection status notification emails for a Flock.
+    description: Retrieve the list of operational notification emails for a Flock.
     params:
       - name: auth_token
         required: true
@@ -146,12 +146,12 @@ endpoints:
         required: true
         type: string
         description: A valid flock_id
-    response: A JSON structure with the list of connection status notification emails.
-  flock_connection_status_email_add:
-    name: Add Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email/add
+    response: A JSON structure with the list of operational notification emails.
+  flock_operational_email_add:
+    name: Add Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email/add
     method: POST
-    description: Add a new email(s) to the connection status notifications list.
+    description: Add a new email(s) to the operational notifications list.
     params:
       - name: auth_token
         required: true
@@ -166,11 +166,11 @@ endpoints:
         type: string
         description: A comma separated list of valid email addresses to add
     response: A JSON structure with result indicator.
-  flock_connection_status_email_disable:
-    name: Disable Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email/disable
+  flock_operational_email_disable:
+    name: Disable Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email/disable
     method: POST
-    description: Disable connection status notification emails for a Flock.
+    description: Disable operational notification emails for a Flock.
     params:
       - name: auth_token
         required: true
@@ -181,11 +181,11 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with result indicator.
-  flock_connection_status_email_enable:
-    name: Enable Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email/enable
+  flock_operational_email_enable:
+    name: Enable Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email/enable
     method: POST
-    description: Enable connection status notification emails for a Flock. If enabled, Device Reconnected and Disconnected alerts will be emailed to the Connection Status Email Notifications addresses only.
+    description: Enable operational notification emails for a Flock. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to the Operational Email Notifications addresses only.
     params:
       - name: auth_token
         required: true
@@ -196,11 +196,11 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with result indicator.
-  flock_connection_status_email_enabled:
-    name: Check if Connection Status Notification Emails are Enabled
-    url: /api/v1/flock/settings/notifications/connection_status_email/is_enabled
+  flock_operational_email_enabled:
+    name: Check if Operational Notification Emails are Enabled
+    url: /api/v1/flock/settings/notifications/operational_email/is_enabled
     method: GET
-    description: Check if connection status notification emails are enabled for a Flock.
+    description: Check if operational notification emails are enabled for a Flock.
     params:
       - name: auth_token
         required: true
@@ -211,11 +211,11 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with the enabled state.
-  flock_connection_status_email_global:
-    name: Check if Connection Status Notification Emails are Global
-    url: /api/v1/flock/settings/notifications/connection_status_email/is_global
+  flock_operational_email_global:
+    name: Check if Operational Notification Emails are Global
+    url: /api/v1/flock/settings/notifications/operational_email/is_global
     method: GET
-    description: Check if connection status notification emails are set to Global for a Flock.
+    description: Check if operational notification emails are set to Global for a Flock.
     params:
       - name: auth_token
         required: true
@@ -226,11 +226,11 @@ endpoints:
         type: string
         description: A valid flock_id
     response: A JSON structure with the Global state.
-  flock_connection_status_email_set:
-    name: Set Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email/save
+  flock_operational_email_set:
+    name: Set Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email/save
     method: POST
-    description: Set the email connection status notification list for a Flock
+    description: Set the email operational notification list for a Flock
     params:
       - name: auth_token
         required: true
@@ -249,11 +249,11 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator.
-  flock_connection_status_email_use_global:
-    name: Use Global for Connection Status Notification Emails
-    url: /api/v1/flock/settings/notifications/connection_status_email/use_global
+  flock_operational_email_use_global:
+    name: Use Global for Operational Notification Emails
+    url: /api/v1/flock/settings/notifications/operational_email/use_global
     method: POST
-    description: Set the Flock's connection status notification email state to Global.
+    description: Set the Flock's operational notification email state to Global.
     params:
       - name: auth_token
         required: true
@@ -731,13 +731,13 @@ print(r.json())
 
 </APIDetails>
 
-## Connection Status Emails
+## Operational Emails
 
 Redirect all Device Disconnected or Reconnected alert email notifications to a different set of email addresses. 
 
-### Add Connection Status Notification Emails
+### Add Operational Notification Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_add">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_add">
 
 ::::: slot example
 
@@ -746,7 +746,7 @@ Redirect all Device Disconnected or Reconnected alert email notifications to a d
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/add \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/add \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
   -d addresses=EXAMPLE_ADDRESSES_LIST
@@ -759,7 +759,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/add'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/add'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -788,9 +788,9 @@ print(r.json())
 
 </APIDetails>
 
-### Check if Connection Status Notification Emails are Enabled
+### Check if Operational Notification Emails are Enabled
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_enabled">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_enabled">
 
 ::::: slot example
 
@@ -799,7 +799,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/is_enabled \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/is_enabled \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
   -G
@@ -812,7 +812,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/is_enabled'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/is_enabled'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -841,9 +841,9 @@ print(r.json())
 
 </APIDetails>
 
-### Check if Connection Status Notification Emails are Global
+### Check if Operational Notification Emails are Global
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_global">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_global">
 
 ::::: slot example
 
@@ -852,7 +852,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/is_global \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/is_global \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
   -G
@@ -865,7 +865,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/is_global'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/is_global'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -894,9 +894,9 @@ print(r.json())
 
 </APIDetails>
 
-### Disable Connection Status Notification Emails
+### Disable Operational Notification Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_disable">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_disable">
 
 ::::: slot example
 
@@ -905,7 +905,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/disable \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/disable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID 
 ```
@@ -917,7 +917,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/disable'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/disable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -945,9 +945,9 @@ print(r.json())
 
 </APIDetails>
 
-### Enable Connection Status Notification Emails
+### Enable Operational Notification Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_enable">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_enable">
 
 ::::: slot example
 
@@ -956,7 +956,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/enable \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/enable \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID 
 ```
@@ -968,7 +968,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email/enable'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email/enable'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -996,9 +996,9 @@ print(r.json())
 
 </APIDetails>
 
-### List Connection Status Notification Emails
+### List Operational Notification Emails
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.flock_connection_status_email_get">
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_operational_email_get">
 
 ::::: slot example
 
@@ -1007,7 +1007,7 @@ print(r.json())
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email \
+curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
   -G
@@ -1020,7 +1020,7 @@ curl https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/connection_status_email'
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/settings/notifications/operational_email'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
@@ -1056,7 +1056,7 @@ print(r.json())
 
 Receive notifications directly to your cellphone. Simple, yet effective.
 
-### Add Connection Status Notification Numbers
+### Add Operational Notification Numbers
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.flock_sms_add">
 
