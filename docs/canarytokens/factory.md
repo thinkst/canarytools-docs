@@ -209,24 +209,28 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "factory_canarytokens":{
-    "aws-id":"Amazon API Key",
-    "cloned-web":"Cloned Website",
-    "dns":"DNS",
-    "doc-msword":"MS Word .docx Document",
-    "fast-redirect":"Fast HTTP Redirect",
-    "http":"Web",
-    "msexcel-macro":"MS Excel .xlsm Document",
-    "msword-macro":"MS Word .docm Document",
-    "pdf-acrobat-reader":"Acrobat Reader PDF Document",
-    "qr-code":"QR Code",
-    "signed-exe":"Signed Exe",
-    "slack-api":"Slack API Key",
-    "slow-redirect":"Slow HTTP Redirect",
-    "web-image":"Remote Web Image",
-    "windows-dir":"Windows Directory Browsing"
-  },
-  "result":"success"
+    "factory_canarytokens": {
+        "aws-id": "AWS API Key",
+        "azure-id": "Azure Login Certificate and Config",
+        "cloned-web": "Cloned Website",
+        "dns": "DNS",
+        "doc-msexcel": "MS Excel Document",
+        "doc-msword": "MS Word Document",
+        "fast-redirect": "Fast Redirect",
+        "http": "Web Bug",
+        "msexcel-macro": "MS Excel Macro Document",
+        "msword-macro": "MS Word Macro Document",
+        "pdf-acrobat-reader": "Acrobat PDF",
+        "qr-code": "QR Code",
+        "sensitive-cmd": "Sensitive Command",
+        "signed-exe": "Custom Exe/Binary",
+        "slack-api": "Slack API Key",
+        "slow-redirect": "Slow Redirect",
+        "web-image": "Custom Web Image",
+        "windows-dir": "Windows Folder",
+        "wireguard": "WireGuard VPN"
+    },
+    "result": "success"
 }
 ```
 :::
