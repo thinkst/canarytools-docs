@@ -41,6 +41,47 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of email addresses
     response: A JSON structure with result indicator and the current list of emails.
+  operational_email_disable:
+    name: Disable Operational Email Notifications
+    url: /api/v1/settings/notifications/operational_email/disable
+    method: POST
+    description: Disable operational email notifications.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  operational_email_enable:
+    name: Enable Operational Email Notifications
+    url: /api/v1/settings/notifications/operational_email/enable
+    method: POST
+    description: Enable operational email notifications. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to Operational Email Notifications addresses only.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  operational_email_save:
+    name: Set Operational Email Notifications List
+    url: /api/v1/settings/notifications/operational_email/save
+    method: POST
+    description: Set the list of operational email addresses to send notifications to.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: addresses
+        required: false
+        type: string
+        description: A comma separated list of email addresses
+      - name: clear
+        required: false
+        type: boolean
+        description: If set to true, clears the list of email addresses
+    response: A JSON structure with result indicator and the current list of emails.
   info:
     name: View Notification Information
     url: /api/v1/settings/notifications/info
@@ -429,6 +470,168 @@ curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save \
 import requests
 
 url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/email/save'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'addresses': 'EXAMPLE_ADDRESSES_LIST'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "emails": "<email_address>,<email_address>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Operational Email
+
+Set a separate list of email addresses to receive all operational alert email notifications. 
+
+#### Disable Operational Email Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Enable Operational Email Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN 
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Set Operational Email Notifications List
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.operational_email_save">
+
+::: slot optional-parameters-notes
+
+::: tip
+At least one of the optional parameters is required.
+:::
+
+:::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/save \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d addresses=EXAMPLE_ADDRESSES_LIST
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/operational_email/save'
 
 payload = {
   'auth_token': 'EXAMPLE_AUTH_TOKEN',
