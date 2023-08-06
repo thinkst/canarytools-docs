@@ -127,6 +127,76 @@ Empty, no additional event data. <br>
   </div>
 </div> 
 
+## Canary Settings Changed
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+**SETTINGS**
+A string containing the changed settings <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Canary Settings Changed"
+<LOGTYPE> = "23002"
+<EVENT_DICT> ={
+                "timestamp": ..., 
+                "timestamp_std": "...", 
+                "SETTINGS": "..."
+            }                   
+```
+:::
+  </div>
+</div> 
+
+## Console Settings Changed
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+**SETTINGS**
+A string containing the changed settings. <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Console Settings Changed"
+<LOGTYPE> = "23001"
+<EVENT_DICT> ={
+                "timestamp": ..., 
+                "timestamp_std": "...", 
+                "SETTINGS": "..."
+            }                   
+```
+:::
+  </div>
+</div> 
+
 ## Canarytokens
 
 There are two types of Canarytokens, HTTP and DNS.
@@ -181,7 +251,7 @@ A string containing the token type (`http` or `dns`) <br><br>
 **canarytoken** 
 Unique string that acts as the Canarytoken. <br><br>
 **hostname** 
-Hostname of the DNS Canarytoke <br><br>
+Hostname of the DNS Canarytoken <br><br>
 
 :::
 
@@ -202,8 +272,10 @@ Hostname of the DNS Canarytoke <br><br>
 ```
 :::
   </div>
-</div> 
-                     
+</div>
+
+---
+
 ## Custom TCP Service Request
 The Custom TCP Service module lets the Canary administrator create simple services that either immediately prints a banner on connection, or wait for the client to send data before responding.
 
@@ -245,6 +317,42 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
                  "timestamp": ...,        
                  "timestamp_std": "..."   
                }
+```
+:::
+  </div>
+</div>
+
+## Dummy Incident
+Alert data sent via Syslog or Webhook when testing connections.
+
+<div class="section-container">
+  <div class="details-content">
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "This is a dummy incident"
+<EVENT_DICT> = {
+                "ReverseDNS": "theattackers.ip.local",
+                "CanaryName": "DummyDevice",
+                "CanaryIP": "1.1.1.1",
+                "AlertType": "CanaryIncident",
+                "AdditionalDetails": {
+                  "Field2": "VALUE2",
+                  "Field3": "VALUE3",
+                  "Field1": "VALUE1"
+                },
+                "CanaryID": "0000000testnode",
+                "Description": "Fake Location",
+                "Timestamp": "1691096157",
+                "Intro": "This is a dummy incident.",
+                "Flock": "flock:dummyincidentflock",
+                "CanaryLocation": "Fake Location",
+                "SourceIP": "2.2.2.2"
+              }
 ```
 :::
   </div>
@@ -333,7 +441,69 @@ Two types of HTTP Incidents:
 1. Page loads, triggered by GET requests. They are disabled by default as they’re noisy, and needs to be specifically enabled.
 2. Login attempts, triggered by GET requests. They are always enabled.
 
-### HTTP Page Load
+## HTTP API Request
+
+Triggered by a HTTP request to a Canary configured as an [API server.](https://help.canary.tools/hc/en-gb/articles/360019295837-Use-a-custom-configuration-file-to-configure-my-custom-webroot)
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**HEADERS**
+Headers Present in the request. <br><br>
+**HOSTNAME**
+Destination Hostname. <br><br>
+**METHOD**
+HTTP Method. <br><br>
+**PATH**
+Web path requested by the source. <br><br>
+**POSTDATA**
+Additional POST data sent by source. <br><br>
+**RESPONSE**
+The response code eg. `200` <br><br>
+**SKIN**
+Which Webserver skin was used eg. `nasLogin` <br><br>
+**timestamp_std**
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**USERAGENT** 
+Useragent of the source's browser. <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "HTTP API Request"
+<LOGTYPE> = "3005"
+<EVENT_DICT> = {
+                 "POSTDATA": {
+                     "...": "..."
+                 }, 
+                 "timestamp": ..., 
+                 "HOSTNAME": "...", 
+                 "RESPONSE": ..., 
+                 "HEADERS": {
+                     "...": "...", 
+                     }, 
+                 "timestamp_std": "...", 
+                 "SKIN": "...", 
+                 "PATH": "...", 
+                 "USERAGENT": "...", 
+                 "METHOD": "..."
+                }
+```
+:::
+  </div>
+</div> 
+
+## HTTP Page Load
 
 <div class="section-container">
   <div class="details-content">
@@ -383,7 +553,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
-### HTTP Login Attempt
+## HTTP Login Attempt
 
 <div class="section-container">
   <div class="details-content">
@@ -517,6 +687,102 @@ The response code eg. `200` <br><br>
                  "PATH": "...",           
                  "RESPONSE": ...,         
                }            
+```
+:::
+  </div>
+</div> 
+
+
+
+## LDAP Bind Attempt
+
+Triggered by a LDAP BIND request.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**DN** 
+Distinguished Name. <br><br>
+**MECH** 
+SASL Mechanism. <br><br>
+**VER** 
+Version. <br><br>
+**SEARCH_ATTRIBUTE**
+Search Target. <br><br>
+**REQ** 
+Request. <br><br>
+**PASSWORD**
+Password. <br><br>
+**TYPE** 
+Authentication type. <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "LDAP Bind Attempt Detected"
+<LOGTYPE> = "31001"
+<EVENT_DICT> =  {
+                 "DN": "...",
+                 "MECH": "...", 
+                 "VER": "...", 
+                 "timestamp": ..., 
+                 "REQ": "...", 
+                 "timestamp_std": "...", 
+                 "PASSWORD": "...", 
+                 "TYPE": "..."
+                }
+```
+:::
+  </div>
+</div> 
+
+## Local Tampering Detected
+
+Triggered by local tampering with a Canary host.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**MESSAGE** 
+Tampering cause summary. <br><br>
+**MESSAGE_THINKST**
+Tampering cause details.  <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Local Tampering Detected"
+<LOGTYPE> = "30001"
+<EVENT_DICT> = {
+                "timestamp": ..., 
+                "timestamp_std": "...",
+                "MESSAGE": "...",  
+                "MESSAGE_THINKST": "...", 
+               }     
 ```
 :::
   </div>
