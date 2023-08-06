@@ -190,6 +190,14 @@ module.exports = {
         ]
       },
       {
+        title: 'Syslog',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+          '/syslog/rfc5424',
+        ]
+      },
+      {
         title: 'User Management',
         collapsable: false,
         sidebarDepth: 3,
