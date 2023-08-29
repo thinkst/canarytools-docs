@@ -78,10 +78,9 @@ endpoints:
       - name: kind
         required: true
         type: string
-        description:  Specifies the type of Canarytoken. Supported classes include
-                      http, dns, cloned-web, doc-msword, web-image, windows-dir,
-                      pdf-acrobat-reader, msword-macro, msexcel-macro, aws-id, qr-code,
-                      fast-redirect, slow-redirect, slack-api
+        description:  Specifies the type of Canarytoken. Please check "[List Factory Tokens](/canarytokens/factory.html#list)" for available
+                     Canarytoken kind values.
+                      
       - name: web_image
         required: false
         type: string
