@@ -36,7 +36,7 @@ endpoints:
       - name: auth_token_type
         required: true
         type: string
-        description: The type of auth token to created. Either 'admin' or 'read-only'.
+        description: The type of auth token to created. Either 'read-only', 'analyst' or 'admin'.
       - name: note
         required: true
         type: string
@@ -96,7 +96,7 @@ endpoints:
 
 Your Console supports having multiple API keys (auth_token).
 
-API keys are created with an `Admin` or `Read-Only` role and a `Note` to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. Additionally a `Key ID` will be generated for each API Key that is used to help identify the key used in logs, and for use in key management endpoints.
+API keys are created with an `Admin`, `Analyst` or `Read-Only` role and a `Note` (or `Name`) to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. Additionally a `Key ID` will be generated for each API Key that is used to help identify the key used in logs, and for use in key management endpoints.
 
 :::::
 

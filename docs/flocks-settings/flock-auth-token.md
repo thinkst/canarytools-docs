@@ -13,7 +13,7 @@ endpoints:
       - name: auth_token_type
         required: false
         type: string
-        description: The access level of the key. Either 'read-only' or 'admin'
+        description: The access level of the key. Either 'read-only', 'analyst', or 'admin'
       - name: flock_id
         required: true
         type: string
