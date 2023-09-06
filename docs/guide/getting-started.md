@@ -18,7 +18,7 @@ Both of these can be obtained by navigating to `/settings` on your Console, and 
 
 `AUTH_TOKEN` can be viewed by clicking the 'eye' icon next to the key. (In the future, the auth_token will only be shown when it is created, so viewing after creation should be considered deprecated)
 
-API keys are created with an `Admin` or `Read-Only` role and a `Note` to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. Additionally a `Key ID` will be generated for each API Key that is used to help identify the key used in logs, and for use in key management endpoints.
+API keys are created with an `Admin`, `Analyst`, or `Read-Only` role and a `Note` (or `Name`) to remind you of its purpose. These are fixed at creation. To change these, simply create a new API Key, rotate out the use of the old API Key, and delete the old API Key. Additionally a `Key ID` will be generated for each API Key that is used to help identify the key used in logs, and for use in key management endpoints.
 
 NOTE: If you had a console key generated before the `Read-Only` API key feature was released your `AUTH_TOKEN` will be migrated and assigned a note of `Default API Key` and a `Key ID` of `ffffffff`
 

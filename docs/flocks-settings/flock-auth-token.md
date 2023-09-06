@@ -13,7 +13,7 @@ endpoints:
       - name: auth_token_type
         required: false
         type: string
-        description: The access level of the key. Either 'read-only' or 'admin'
+        description: The access level of the key. Either 'read-only', 'analyst', or 'admin'
       - name: flock_id
         required: true
         type: string
@@ -117,16 +117,17 @@ print(r.json())
 ```json
 {
   "flock_api_key": {
-    "auth_token": "<flock_auth_token>", 
-    "created": "2023-04-14 09:23:22 UTC+0000", 
-    "created_by": "Global-API-Token[key_id:ffffffff]", 
-    "key_id": "<key_id>", 
+    "auth_token": "<flock_auth_token>",
+    "auth_token_type": "admin",
+    "created": "2023-04-14 09:23:22 UTC+0000",
+    "created_by": "Global-API-Token[key_id:ffffffff]",
+    "key_id": "<key_id>",
     "managed_flocks": [
       "flock:<flock_id>"
-    ], 
-    "note": "Example Memo", 
+    ],
+    "note": "Example Memo",
     "watched_flocks": []
-  }, 
+  },
   "result": "success"
 }
 ```
@@ -241,28 +242,30 @@ print(r.json())
 {
   "flock_api_keys": [
     {
-      "auth_token": "<Flock Auth Token>", 
-      "created": "2023-04-13 08:58:39 UTC+0000", 
-      "created_by": "admin@inyoni.co.za", 
-      "key_id": "<Key ID>", 
+      "auth_token": "<Flock Auth Token>",
+      "auth_token_type": "admin",
+      "created": "2023-04-13 08:58:39 UTC+0000",
+      "created_by": "admin@inyoni.co.za",
+      "key_id": "<Key ID>",
       "managed_flocks": [
         "flock:<Flock ID>"
-      ], 
-      "note": "Example Note", 
+      ],
+      "note": "Example Note",
       "watched_flocks": []
-    }, 
+    },
     {
-      "auth_token": "<Flock Auth Token>", 
-      "created": "2023-04-14 09:28:45 UTC+0000", 
-      "created_by": "Global-API-Token[key_id:ffffffff]", 
-      "key_id": "<Key ID>", 
+      "auth_token": "<Flock Auth Token>",
+      "auth_token_type": "admin",
+      "created": "2023-04-14 09:28:45 UTC+0000",
+      "created_by": "Global-API-Token[key_id:ffffffff]",
+      "key_id": "<Key ID>",
       "managed_flocks": [
         "flock:<Flock ID>"
-      ], 
-      "note": "Example Note", 
+      ],
+      "note": "Example Note",
       "watched_flocks": []
     }
-  ], 
+  ],
   "result": "success"
 }
 ```
