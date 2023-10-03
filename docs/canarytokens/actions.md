@@ -275,7 +275,7 @@ endpoints:
       - name: redirect_url
         required: true
         type: string
-        description: A valid url that the user should be redirected to after opening the Canarytoken.
+        description: A valid url that the user should be redirected to after opening the Canarytoken
     response: A JSON structure with result indicator.
 ---
 
