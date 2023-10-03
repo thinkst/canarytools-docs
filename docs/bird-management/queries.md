@@ -86,7 +86,7 @@ endpoints:
         description: Whether to include a dict of the Bird settings
       - name: exclude_fixed_settings
         required: false
-        type: string
+        type: boolean
         default: false
         description:  Whether to include settings which the user can not change
     response: JSON structure of Bird's current information.

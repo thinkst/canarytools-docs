@@ -199,7 +199,7 @@ A string containing the changed settings. <br><br>
 
 ## Canarytokens
 
-There are two types of Canarytokens, HTTP and DNS.
+Most Canarytokens make use of `HTTP` and `DNS` as their underlying communication channel.
 
 ### HTTP
 <div class="section-container">
@@ -207,14 +207,44 @@ There are two types of Canarytokens, HTTP and DNS.
 
 ::: attribute-details
 
+**LOGTYPE**
+`17001` - TOKENS HTTP REMOTE IMAGE <br>
+`17003` - TOKENS HTTP CLONED SITE <br>
+`17004` - TOKENS DOC MSWORD <br>
+`17005` - TOKENS HTTP AWS S3 <br>
+`17006` - TOKENS HTTP GOOGLE DOCS <br>
+`17007` - TOKENS HTTP GOOGLE SHEETS <br>
+`17008` - TOKENS HTTP SIGNED EXE <br>
+`17009` - TOKENS HTTP QR CODE <br>
+`17012` - TOKENS HTTP AWS ID <br>
+`17016` - TOKENS HTTP FAST REDIRECT <br>
+`17017` - TOKENS HTTP SLOW REDIRECT <br>
+`17019` - TOKENS HTTP OFFICE365 MAIL <br>
+`17020` - TOKENS HTTP SLACK API <br>
+`17021` - TOKENS HTTP GMAIL <br>
+`17024` - TOKENS HTTP AZURE ID <br><br> 
 **type** 
-A string containing the token type [`http` or `dns`]<br><br>
+A string containing the token type. <br><br>
 **canarytoken**
-Unique string that acts as the Canarytoken <br><br>
+Unique string that acts as the Canarytoken. <br><br>
 **headers**
-Headers is a dict. Only present for HTTP Canarytokens. <br><br>
+Headers is a dict. <br><br>
+**kind**
+Type of Canarytoken triggered. <br><br>
 **url**
-URL of the HTTP Canarytoken 
+URL of the HTTP Canarytoken. <br><br>
+**geoip**
+Geographic lookup of source ip. <br><br>
+**ip_blocklist**
+Lookup object of where the source ip is a known proxy, tor or vpn source. <br><br> 
+**cloned_site**
+`Cloned Site` - URL of cloned site. <br><br>
+**original_site**
+`Cloned Site` - Domain of protected site. <br><br>
+**referer**
+`Cloned Site` - HTTP referer. <br><br>
+**additional_info**
+Stores Token specific data dependent on service, for example S3 bucket operation details received from AWS API's. <br><br>
 
 :::
 
@@ -226,14 +256,14 @@ URL of the HTTP Canarytoken
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
-<LOGTYPE> = "17000"
+<LOGTYPE> = "17000 | 17001 | 17003 | 17004 | 17005 | 17006 | 17007 | 17008 | 17009 | 17012 | 17016 | 17017 | 17019 | 17020 | 17021 | 17024"
 <EVENT_DICT> = {
                  "type": "http",
                  "canarytoken": "<tokenvalue>",      
                  "headers" : {                      
                    <headername_1>: <headervalue_1> , <headername_2>: <headervalue_2> , ...
                  },
-                 "url": "<tokenurl>",                  
+                 "url": "<tokenurl>"                  
                }
 ```
 :::
@@ -246,12 +276,39 @@ URL of the HTTP Canarytoken
 
 ::: attribute-details
 
+**LOGTYPE**
+`16006` - TOKENS DNS DESKTOPINI <br>
+`16008` - TOKENS DNS PDF ACROBAT_READER <br>
+`16009` - TOKENS DNS MSWORD MACRO <br>
+`16010` - TOKENS DNS MSEXCEL MACRO <br>
+`16011` - TOKENS DNS SENSITIVE CMD <br>
+`17023` - TOKENS DOC MSEXCEL <br><br>
 **type** 
-A string containing the token type (`http` or `dns`) <br><br>
+A string containing the token type. <br><br>
 **canarytoken** 
 Unique string that acts as the Canarytoken. <br><br>
 **hostname** 
-Hostname of the DNS Canarytoken <br><br>
+Hostname of the DNS Canarytoken. <br><br>
+**generic_data** 
+Encoded additional information. See [Encoding additional information in your token](https://docs.canarytokens.org/guide/dns-token.html#encoding-additional-information-in-your-token) <br><br>
+**windows_desktopini_access_username** 
+`Windows Folder` - Host username. <br><br>
+**windows_desktopini_access_domain** 
+`Windows Folder` - Host domain. <br><br>
+**windows_desktopini_computer_name** 
+`Windows Folder` - Host computer name. <br><br>
+**ms_macro_os** 
+`MS Excel / Word Macro` - Host OS. <br><br>
+**ms_macro_username** 
+`MS Excel / Word Macro` - Host username. <br><br>
+**ms_macro_ip** 
+`MS Excel / Word Macro` - Host local ip. <br><br>
+**cmd_computer_name** 
+`Sensitive Command` - Host computer name. <br><br>
+**cmd_user_name** 
+`Sensitive Command` - Host user name. <br><br>
+**cmd_invocation_id** 
+`Sensitive Command` - Unique identifier per command's executed instance, this changes every execution. <br><br>
 
 :::
 
@@ -263,13 +320,62 @@ Hostname of the DNS Canarytoken <br><br>
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
-<LOGTYPE> = "16000"
+<LOGTYPE> = "16000 | 16006 | 16008 | 16009 | 16010 | 16011"
 <EVENT_DICT> = {
                  "type": "dns",
                  "canarytoken": "<tokenvalue>",      
-                 "hostname": "<tokenhostname>"       
+                 "hostname": "<tokenhostname>",
+                 "generic_data": "<only present when additional data is encoded>",
+                 "windows_desktopini_access_username": "<only present for windows folder alerts>",
+                 "windows_desktopini_access_domain": "<only present for windows folder alerts>",
+                 "windows_desktopini_computer_name": "<only present for windows folder alerts>",
+                 "ms_macro_os": "<only present for MS Word / Excel alerts>",
+                 "ms_macro_username": "<only present for MS Word / Excel alerts>",
+                 "ms_macro_ip": "<only present for MS Word / Excel alerts>",
+                 "cmd_computer_name": "<only present for sensitive command alerts>",
+                 "cmd_user_name": "<only present for sensitive command alerts>",
+                 "cmd_invocation_id": "<only present for sensitive command alerts>" 
                }
-```
+```  
+:::
+  </div>
+</div>
+
+Other Tokens use their own communication channel.
+
+### Wireguard
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**LOGTYPE**
+`17022` - TOKENS WIREGUARD <br><br>
+**type** 
+A string containing the token type <br><br>
+**canarytoken** 
+Unique string that acts as the Canarytoken. <br><br>
+**client_public_key** 
+Connecting client's public key. <br><br>
+**client_session_index** 
+Connecting client session ID. <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Canarytoken triggered"
+<LOGTYPE> = "17022"
+<EVENT_DICT> = {
+                 "client_public_key": "...",
+                 "client_session_index": "..."
+               }
+```  
 :::
   </div>
 </div>
@@ -285,14 +391,18 @@ The Custom TCP Service module lets the Canary administrator create simple servic
 ::: attribute-details
 
 **LOGTYPE** 
-`20001` - Banner sent immediately on connection.<br>
-`20002` - Banner sent after the client sent a line.<br><br>
+`20001` - TCP banner sent immediately on connection. <br>
+`20002` - TCP banner sent after the client sent a line. <br>
+`20003` - TCP banner keep alive connection made. <br>
+`20004` - TCP banner keep alive secret received. <br>
+`20005` - TCP banner keep alive data received. <br>
+`20006` - TCP banner connection refused. <br><br>
 **BANNER_ID** 
-Multiple banners are supported, the id identifies which banner service was triggered.<br><br>
+Multiple banners are supported, the id identifies which banner service was triggered. <br><br>
 **DATA** 
-Optional. The attacker's supplied data.<br><br>
+Optional. The attacker's supplied data. <br><br>
 **FUNCTION** 
-Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was sent after the attacker sent data, or `'CONNECTION_MADE'` for when a banner was sent immediately on connection.<br><br>
+Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was sent after the attacker sent data, or `'CONNECTION_MADE'` for when a banner was sent immediately on connection. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -308,8 +418,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Custom TCP Service Request"
-<LOGTYPE> = "20001"                          
-<LOGTYPE> = "20002"                          
+<LOGTYPE> = "20001 | 20002 | 20003 | 20004 | 20005 | 20006"                        
 <EVENT_DICT> = {
                  "BANNER_ID": "...",         
                  "DATA": "...",              
@@ -510,6 +619,10 @@ Useragent of the source's browser. <br><br>
 
 ::: attribute-details
 
+**LOGTYPE** 
+`3000` - HTTP GET <br>
+`3002` - HTTP POST <br>
+`3003` - HTTP ERROR <br><br>
 **PATH** 
 Web path requested by the source. <br><br>
 **USERAGENT** 
@@ -537,7 +650,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "HTTP Page Load"
-<LOGTYPE> = "3000"
+<LOGTYPE> = "3000 | 3002 | 3003"
 <EVENT_DICT> = {
                  "PATH": "...",           
                  "USERAGENT": "...",     
@@ -841,6 +954,55 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
+## Mongo Request
+
+Triggered by any valid MongoDB request.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**LOGTYPE** 
+`28001` - Mongo Command <br>
+`28002` - Mongo Auth Command <br><br>
+**cmd** 
+Command attempted. <br><br>
+**db** 
+Database accessed. <br><br>
+**user** 
+Attacker supplied database username.  <br><br>
+**password** 
+Attacker supplied database password. <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Mongo Authentication Attempt"
+<LOGTYPE> = "28001 | 28002"
+<EVENT_DICT> = {
+                 "timestamp": "...",
+                 "cmd": "...",
+                 "db": "...",
+                 "timestamp_std": "...",
+                 "user": "...",
+                 "password": "..."
+               }      
+```
+:::
+  </div>
+</div> 
+
 ## MSSQL Login Attempt
 
 Triggered by any attempt to authenticate to the MS-SQL Server module.
@@ -948,6 +1110,36 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
+## Network Settings Roll-back
+Triggered by a Canary reverting it's network settings after a settings push if it can't connect to the Console.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**Rollback time** 
+The timestamp of the rollback eg. `1580378197` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "Network Settings Roll-back"
+<LOGTYPE> = "22011"
+<EVENT_DICT> = [
+                 "Rollbacktime: 1580378197"
+               ]  
+```
+:::
+  </div>
+</div> 
+
 ## NTP Monlist Request
 Triggered by the NTP Monlist command.
 
@@ -957,7 +1149,7 @@ Triggered by the NTP Monlist command.
 ::: attribute-details
 
 **NTP_CMD** 
-Name of the NTP command sent. Currently is `'monlist'`.<br><br>
+Name of the NTP command sent. Currently is `'monlist'`. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1001,10 +1193,16 @@ There are six types of port scans incidents.
 
 ::: attribute-details
 
+**LOGTYPE** 
+`5001` - PORT SYN<br>
+`5002` - PORT SCAN NET<br>
+`5009` - PORT RUNFINGER SCAN<br>
+`5011` - PORT RUNFINGER DIALECT<br>
+`5012` - PORT RUNFINGER LANMAN<br>
 **ports** 
-List of comma-separated ports.<br><br>
+List of comma-separated ports. <br><br>
 **timestamp** 
-The timestamp of the request eg. `1580378197`.<br><br>
+The timestamp of the request eg. `1580378197`. <br><br>
 **timestamp_std** 
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
@@ -1018,7 +1216,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Host Port Scan"
-<LOGTYPE> = "5003"
+<LOGTYPE> = "5001 | 5002 | 5003 | 5009 | 5011 | 5012"
 <EVENT_DICT> = {
                  "ports": "23,80,443"         
                  "timestamp": ...,            
@@ -1099,7 +1297,7 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. `1580378197`.<br><br>
+The timestamp of the request eg. `1580378197`. <br><br>
 **timestamp_std** 
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
@@ -1166,7 +1364,7 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. `1580378197`.<br><br>
+The timestamp of the request eg. `1580378197`. <br><br>
 **timestamp_std** 
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
@@ -1233,7 +1431,7 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. `1580378197`.<br><br>
+The timestamp of the request eg. `1580378197`. <br><br>
 **timestamp_std** 
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
@@ -1300,7 +1498,7 @@ Indicates whether the SYN flag is set. Present if the flag is there, absent othe
 **ACK** 
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
 **timestamp** 
-The timestamp of the request eg. `1580378197`.<br><br>
+The timestamp of the request eg. `1580378197`. <br><br>
 **timestamp_std** 
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
@@ -1344,6 +1542,11 @@ Triggered by an attempt to join the Canary's RDP service.
 
 ::: attribute-details
 
+**LOGTYPE**
+`14001` - RDP NEW CONNECTION<br>
+`14002` - RDP FAILED CONNECTION<br>
+`14003` - RDP CONFIRMED CONNECTION<br>
+`14004` - RDP LOGIN ATTEMPT<br>
 **BUILD**
 Optional. Shows the build number of the attacker's RDP client if that is exposed, otherwise absent. <br><br>
 **DOMAINNAME**
@@ -1369,7 +1572,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 ::: api-response
 ``` json
 <EVENT_DESCRIPTION> = "RDP Login Attempt"
-<LOGTYPE> = "14003"
+<LOGTYPE> = "14001 | 14002 | 14003 | 14004"
 <EVENT_DICT> = {
                   "BUILD": "...", 
                   "DOMAINNAME": "...", 
@@ -1394,9 +1597,9 @@ Triggered by an attacker connecting to the Redis service and issuing valid Redis
 ::: attribute-details
 
 **CMD** 
-Redis command issued by the attacker.<br><br>
+Redis command issued by the attacker. <br><br>
 **ARGS** 
-Arguments to the command.<br><br>
+Arguments to the command. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1432,32 +1635,37 @@ Triggered by the opening of a file on the Canary’s Windows File Share.
 
 ::: attribute-details
 
+**LOGTYPE** 
+`5000` - SMB FILE OPEN <br>
+`5010` - SMB LOGIN <br>
+`5013` - SMB GROUP ENUM <br><br>
+`5014` - SMB SHARE CONNECT <br><br>
 **USER** 
-Username supplied by the attacker.<br><br>
+Username supplied by the attacker. <br><br>
 **FILENAME** 
-Name of file on the Canary that was accessed.<br><br>
+Name of file on the Canary that was accessed. <br><br>
 **AUDITACTION** 
-Type of file action. Currently, only `'pread'`.<br><br>
+Type of file action. Currently, only `'pread'`. <br><br>
 **DOMAIN** 
-Name of domain or workgroup.<br><br>
+Name of domain or workgroup. <br><br>
 **LOCALNAME** 
-Windows Name of Canary machine.<br><br>
+Windows Name of Canary machine. <br><br>
 **MODE** 
 `'workgroup'` or `'domain'`<br><br>
 **OFFSET** 
-Starting position of the read.<br><br>
+Starting position of the read. <br><br>
 **REMOTENAME** 
-Windows Name of the client machine.<br><br>
+Windows Name of the client machine. <br><br>
 **SHARENAME** 
-Name of the share on which the file resides.<br><br>
+Name of the share on which the file resides. <br><br>
 **SIZE** 
-Amount of bytes read.<br><br>
+Amount of bytes read. <br><br>
 **SMBARCH** 
-Guess of the remote machine's Windows version.<br><br>
+Guess of the remote machine's Windows version. <br><br>
 **SMBVER** 
-Version of the SMB protocol that was used.<br><br>
+Version of the SMB protocol that was used. <br><br>
 **STATUS** 
-Result of the file read. Currently, only `'ok'`.<br><br>
+Result of the file read. Currently, only `'ok'`. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1473,7 +1681,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Shared File Opened"
-<LOGTYPE> = "5000"
+<LOGTYPE> = "5000 | 5010 | 5013 | 5014"
 <EVENT_DICT> = {
                  "USER": "...",                       
                  "FILENAME": "...",                   
@@ -1505,7 +1713,7 @@ Triggered by an attacker connecting to the SIP service and issuing a valid SIP r
 ::: attribute-details
 
 **HEADERS** 
-Dict of the SIP headers included in the request.<br><br>
+Dict of the SIP headers included in the request. <br><br>
 
 :::
 
@@ -1540,9 +1748,9 @@ Triggered by an incoming SNMP query against the Canary.
 ::: attribute-details
 
 **COMMUNITY_STRING** 
-SNMP community string supplied by the attacker.<br><br>
+SNMP community string supplied by the attacker. <br><br>
 **REQUESTS** 
-SNMP OID requested by the attacker.<br><br>
+SNMP OID requested by the attacker. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1580,18 +1788,22 @@ It is also possible to configure “Watched Credentials”, which says to only a
 
 ::: attribute-details
 
+**LOGTYPE** 
+`4000` - SSH NEW CONNECTION <br>
+`4001` - SSH REMOTE VERSION SENT <br>
+`4002` - SSH LOGIN ATTEMPT <br><br>
 **USERNAME** 
-Username supplied by the attacker.<br><br>
+Username supplied by the attacker. <br><br>
 **PASSWORD** 
-Optional. The attacker's supplied password in password-based auth.<br><br>
+Optional. The attacker's supplied password in password-based auth. <br><br>
 **LOCALVERSION** 
-Canary's SSH version string.<br><br>
+Canary's SSH version string. <br><br>
 **REMOTEVERSION** 
-The attacker's supplied version string.<br><br>
+The attacker's supplied version string. <br><br>
 **KEY** 
-Optional. The attacker's supplied public key in key-based auth.<br><br>
+Optional. The attacker's supplied public key in key-based auth. <br><br>
 **WATCHED_CREDENTIALS** 
-Optional. Set to `'Yes'` if Watched Credentials are enabled.<br><br>
+Optional. Set to `'Yes'` if Watched Credentials are enabled. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1607,7 +1819,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "SSH Login Attempt"
-<LOGTYPE> = "4002"
+<LOGTYPE> = "4000 | 4001 | 4002"
 <EVENT_DICT> = {
                  "USERNAME": "...",              
                  "PASSWORD": "...",             
@@ -1632,9 +1844,9 @@ Triggered by a Telnet authentication attempt.
 ::: attribute-details
 
 **USERNAME** 
-Attacker supplied username.<br><br>
+Attacker supplied username. <br><br>
 **PASSWORD** 
-Attacker supplied password.<br><br>
+Attacker supplied password. <br><br>
 **TERMSIZE** 
 The size of the terminal<br><br>
 **TERMTYPE** 
@@ -1677,11 +1889,11 @@ Triggered by a TFTP request against the Canary.
 ::: attribute-details
 
 **FILENAME** 
-Name of file the attacker tried to act on.<br><br>
+Name of file the attacker tried to act on. <br><br>
 **OPCODE** 
 File action, either `'READ'` or `'WRITE'`<br><br>
 **MODE** 
-TFTP defines three modes of transfer: `netascii`, `octet`, and `mail`.<br><br>
+TFTP defines three modes of transfer: `netascii`, `octet`, and `mail`. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
@@ -1710,6 +1922,43 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
   </div>
 </div> 
 
+## TN3270 Login
+Triggered by a TN3270 request against the Canary.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**USERNAME** 
+Attacker supplied username. <br><br>
+**PASSWORD** 
+Attacker supplied password. <br><br>
+**timestamp** 
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std** 
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response 
+``` json
+<EVENT_DESCRIPTION> = "TN3270 Login Attempt"
+<LOGTYPE> = "32001"
+<EVENT_DICT> = {
+                 "USERNAME": "...",        
+                 "PASSWORD": "..."
+               }
+```
+:::
+  </div>
+</div> 
+
 ## VNC Login Attempt
 Triggered by an attempt to login to Canary’s password-protected VNC service.
 
@@ -1721,11 +1970,11 @@ VNC passwords are not transmitted in the clear. Instead, a hashed version is sen
 ::: attribute-details
 
 **PASSWORD** 
-Cracked password if very weak.<br><br>
+Cracked password if very weak. <br><br>
 **SERVER_CHALLENGE** 
-VNC password hashing parameter.<br><br>
+VNC password hashing parameter. <br><br>
 **CLIENT_RESPONSE** 
-VNC password hashing parameter.<br><br>
+VNC password hashing parameter. <br><br>
 **timestamp** 
 The timestamp of the request eg. `1580378197` <br><br>
 **timestamp_std** 
