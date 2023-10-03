@@ -140,6 +140,22 @@ endpoints:
         type: boolean
         description: Delete associated incidents
     response: A JSON structure with result indicator.
+  bulk_delete:
+    name: Bulk Delete Canarytokens
+    url: /api/v1/canarytokens/delete
+    method: POST
+    description: Bulk delete Canarytokens that match the specified criterion. You'll need to delete all incidents on the matching tokens
+                  before you can delete the tokens, otherwise no tokens will be deleted and an error returned.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: domains
+        required: true
+        type: string
+        description: A comma separated list of custom domains from which all tokens should be deleted.
+    response: A JSON structure with result indicator.
   disable:
     name: Disable Canarytoken
     url: /api/v1/canarytoken/disable
@@ -562,6 +578,60 @@ print(r.json())
 ```json
 {
   "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Bulk Delete Canarytokens
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.bulk_delete">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/delete \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d domains="EXAMPLE_DOMAIN1,EXAMPLE_DOMAIN2"
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/delete'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'domains': 'EXAMPLE_DOMAIN1,EXAMPLE_DOMAIN2'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+  "deleted_count": 1
 }
 ```
 :::
