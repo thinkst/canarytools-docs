@@ -258,6 +258,25 @@ endpoints:
         type: string
         description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
     response: A JSON structure with result indicator.
+  update_redirect_url:
+    name: Update Canarytoken Redirect URL
+    url: /api/v1/canarytoken/update/redirect_url
+    method: POST
+    description: Update the redirect URL of a Canarytoken that supports redirects.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Canarytoken that support redirects (e.g. slow redirect token or QR code token)
+      - name: redirect_url
+        required: true
+        type: string
+        description: A valid url that the user should be redirected to after opening the Canarytoken
+    response: A JSON structure with result indicator.
 ---
 
 # Actions
@@ -860,6 +879,61 @@ print(r.json())
     "updated_id": 4,
     "url": "<token_url>"
   }
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Update Canarytoken Redirect URL
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.update_redirect_url">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/update/redirect_url \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
+  -d redirect_url='https://example.com'
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/update/redirect_url'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN',
+  'redirect_url': 'https://example.com'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
 }
 ```
 :::
