@@ -196,7 +196,7 @@ print(r.json())
 curl https://EXAMPLE.canary.tools/api/v1/hypervcanary/download \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d version=EXAMPLE_VERSION \
-  -d format=zip
+  -d format=zip \
   -G
 ```
 :::
