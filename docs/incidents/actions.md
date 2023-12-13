@@ -109,7 +109,7 @@ endpoints:
         type: string
         description: The string used when searching for incidents to be acknowledged.
                      This string will attempt to match against incident details such as
-                     the following fields: Source IP, Canary Name, Token Name, NodeID and Reverse IP Lookup.
+                     Source IP, Canary Name, Token Name, NodeID and Reverse IP Lookup.
       - name: filter_logtypes
         required: false
         type: string
