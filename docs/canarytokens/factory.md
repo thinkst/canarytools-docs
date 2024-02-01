@@ -80,7 +80,7 @@ endpoints:
         type: string
         description:  Specifies the type of Canarytoken. Please check "[List Factory Tokens](/canarytokens/factory.html#list)" for available
                      Canarytoken kind values.
-                      
+
       - name: web_image
         required: false
         type: string
@@ -121,12 +121,17 @@ endpoints:
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
-        
+
       - name: azure_id_cert_file_name
         required: false
         type: string
         description: Azure ID config will use this as the file path to the certificate (required when creating Azure ID tokens).
-       
+
+      - name: tokened_usernames
+        required: false
+        type: string
+        description: A comma separated list of Active Directory usernames to token (required when creating active-directory-login tokens)
+
     response: A JSON structure with the generated Canarytoken.
   factory_download:
     name: Download Canarytoken using the Factory auth string
@@ -209,6 +214,7 @@ print(r.json())
 ```json
 {
   "factory_canarytokens": {
+    "active-directory-login": "Active Directory Login",
     "aws-id": "AWS API Key",
     "azure-id": "Azure Login Certificate and Config",
     "cloned-web": "Cloned Website",
@@ -521,13 +527,13 @@ print(r.json())
       "factory_auth": "<Factory Auth String>",
       "flock_id": "flock:default",
       "memo": "Example Memo"
-    }, 
+    },
     {
       "factory_auth": "<Factory Auth String 2>",
       "flock_id": "flock:default",
       "memo": "Example Memo 2"
     }
-  ], 
+  ],
   "result": "success"
 }
 ```
