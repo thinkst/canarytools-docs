@@ -47,71 +47,87 @@ endpoints:
         required: true
         type: string
         description: A valid auth token
+
       - name: kind
         required: true
         type: string
         description: Specifies the type of Canarytoken. Please check "[List Canarytokens](/canarytokens/actions.html#list-canarytokens)" for available
                      Canarytoken kind values.
+
       - name: memo
         required: true
         type: string
         description: A reminder that will be included in the alert to let you know where you placed this Canarytoken, limited to 10000 characters.
+
       - name: aws_access_key
         required: false
         type: string
         description: AWS Secret Access Key (required if automating creation of AWS S3 token)
+
       - name: aws_region
         required: false
         type: string
         description: AWS region (required if automating creation of AWS S3 token)
+
       - name: azure_id_cert_file_name
         required: false
         type: string
         description: Azure ID config will use this as the file path to the certificate (required when creating Azure ID tokens).
+
       - name: browser_redirect_url
         required: false
         type: string
         description: Browser redirect URL is the URL you want your Canarytoken server to redirect attackers to after they have
                      triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
+
       - name: browser_scanner_enabled
         required: false
         type: boolean
         default: true
         description: Enables a Javascript scanner to retrieve more information
                      (only valid with 'http' Canarytokens)
+
       - name: cloned_web
         required: false
         type: string
         description: Domain to check against (required when creating cloned-web tokens)
+
       - name: exe
         required: false
         type: string
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
+
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
                      `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
+
       - name: flock_id
         required: false
         type: string
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
+
       - name: pdf
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
+
       - name: process_name
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
+
       - name: s3_log_bucket
         required: false
         type: string
         description: S3 bucket where logs will be stored (required when creating aws-s3 tokens)
+
       - name: s3_source_bucket
         required: false
         type: string
         description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
+
       - name: web_image
         required: false
         type: file
@@ -119,6 +135,11 @@ endpoints:
                      With curl use the following flag&#58;
                      `-F 'web_image=@upload-me.png; type=image/png'` for png files
                      `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files
+
+      - name: tokened_usernames
+        required: false
+        type: string
+        description: A comma separated list of Active Directory usernames to token (required when creating active-directory-login tokens)
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
@@ -356,35 +377,35 @@ print(r.json())
 ```json
 {
   "canarytokens": {
-    "apeeper": "EC2 Meta-data Service", 
-    "autoreg-google-docs": "Google Doc", 
-    "autoreg-google-sheets": "Google Sheet", 
-    "aws-id": "AWS API Key", 
-    "aws-s3": "AWS S3 Bucket", 
-    "cloned-web": "Cloned Website", 
-    "dns": "DNS", 
-    "doc-msexcel": "MS Excel Document", 
-    "doc-msword": "MS Word Document", 
-    "fast-redirect": "Fast Redirect", 
-    "gmail": "Gmail", 
-    "google-docs": "Google Doc", 
-    "google-sheets": "Google Sheet", 
-    "googledocs_factorydoc": "Document Factory", 
-    "googlesheets_factorydoc": "Document Factory", 
-    "http": "Web Bug", 
-    "msexcel-macro": "MS Excel Macro Document", 
-    "msword-macro": "MS Word Macro Document", 
-    "office365mail": "Office 365 Mail Bug", 
-    "pdf-acrobat-reader": "Acrobat PDF", 
-    "qr-code": "QR Code", 
+    "active-directory-login": "Active Directory Login",
+    "autoreg-google-docs": "Google Doc",
+    "autoreg-google-sheets": "Google Sheet",
+    "aws-id": "AWS API Key",
+    "aws-s3": "AWS S3 Bucket",
+    "cloned-web": "Cloned Website",
+    "dns": "DNS",
+    "doc-msexcel": "MS Excel Document",
+    "doc-msword": "MS Word Document",
+    "fast-redirect": "Fast Redirect",
+    "gmail": "Gmail",
+    "google-docs": "Google Doc",
+    "google-sheets": "Google Sheet",
+    "googledocs_factorydoc": "Document Factory",
+    "googlesheets_factorydoc": "Document Factory",
+    "http": "Web Bug",
+    "msexcel-macro": "MS Excel Macro Document",
+    "msword-macro": "MS Word Macro Document",
+    "office365mail": "Office 365 Mail Bug",
+    "pdf-acrobat-reader": "Acrobat PDF",
+    "qr-code": "QR Code",
     "sensitive-cmd": "Sensitive Command",
-    "signed-exe": "Custom Exe/Binary", 
-    "slack-api": "Slack API Key", 
-    "slow-redirect": "Slow Redirect", 
-    "web-image": "Custom Web Image", 
-    "windows-dir": "Windows Folder", 
+    "signed-exe": "Custom Exe/Binary",
+    "slack-api": "Slack API Key",
+    "slow-redirect": "Slow Redirect",
+    "web-image": "Custom Web Image",
+    "windows-dir": "Windows Folder",
     "wireguard": "WireGuard VPN"
-  }, 
+  },
   "result": "success"
 }
 ```
@@ -448,7 +469,7 @@ print(r.json())
         "key": "<token_key>",
         "kind": "http'",
         "memo": "desktop",
-        "node_id": "<token_node_id>", 
+        "node_id": "<token_node_id>",
         "triggered_count": "0",
         "updated_id": "1",
         "url": "<token_url>"
@@ -468,7 +489,7 @@ print(r.json())
         "updated_id": "2",
         "url": "<token_url>"
       }
-  }, 
+  },
   "result": "success"
 }
 ```
