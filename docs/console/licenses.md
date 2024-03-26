@@ -1,16 +1,5 @@
 ---
 endpoints:
-  licenses:
-    name: Bird Licenses
-    url: /api/v1/license
-    method: GET
-    description: Retrieve a summary of available Bird licenses.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-    response: A JSON structure containing a list of Canary license information.
   licenses_detailed_info:
     name: Bird Licenses Detailed Information
     url: /api/v1/license/detailed/info
@@ -34,70 +23,6 @@ These are a collection of endpoints that allow you to query your existing Bird l
 :::::
 
 </APIEndpoints>
-
-## Bird Licenses
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.licenses">
-
-::::: slot example
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-
-``` bash
-curl https://EXAMPLE.canary.tools/api/v1/license \
-  -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -G
-```
-
-:::
-
-
-::: tab "Python"
-
-``` python
-import requests
-
-url = 'https://EXAMPLE.canary.tools/api/v1/license'
-
-payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN',
-}
-
-r = requests.get(url, params=payload)
-
-print(r.json())
-```
-
-:::
-
-::::
-
-
-::: api-response
-```json
-{
-  "cloud": {
-    "total": 5,
-    "used": 0
-  },
-  "devices": {
-    "total": 0,
-    "used": 1
-  },
-  "vm": {
-    "total": 5,
-    "used": 0
-  },
-  "result": "success",
-}
-```
-:::
-
-:::::
-
-</APIDetails>
 
 ## Detailed Bird License Information
 
