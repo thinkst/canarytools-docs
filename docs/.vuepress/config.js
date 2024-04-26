@@ -113,6 +113,15 @@ module.exports = {
         ]
       },
       {
+        title: 'Breadcrumbs',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+          '/breadcrumbs/overview',
+          '/breadcrumbs/mass-deployment',
+        ]
+      },
+      {
         title: 'Canarytokens',
         collapsable: false,
         sidebarDepth: 3,
