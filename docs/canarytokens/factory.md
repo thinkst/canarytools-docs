@@ -86,6 +86,12 @@ endpoints:
         type: string
         description: An image file for use with web-image tokens (request must be multipart/form-data encoded
                      if parameter is present, required when using web-image)
+
+      - name: expected_referrer
+        required: false
+        type: string
+        description: Expected domain to check against (required when creating cloned-css tokens)
+
       - name: cloned_web
         required: false
         type: string
@@ -217,6 +223,7 @@ print(r.json())
     "active-directory-login": "Active Directory Login",
     "aws-id": "AWS API Key",
     "azure-id": "Azure Login Certificate and Config",
+    "cloned-css": "CSS Cloned Site",
     "cloned-web": "Cloned Website",
     "dns": "DNS",
     "doc-msexcel": "MS Excel Document",
