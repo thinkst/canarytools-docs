@@ -51,7 +51,7 @@ endpoints:
       - name: kind
         required: true
         type: string
-        description: Specifies the type of Canarytoken. Please check "[List Canarytokens](/canarytokens/actions.html#list-canarytokens)" for available
+        description: Specifies the type of Canarytoken. Please check "[List Canarytokens](/canarytokens/actions.html#list-kinds-of-canarytokens)" for available
                      Canarytoken kind values.
 
       - name: memo
