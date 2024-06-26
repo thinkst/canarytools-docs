@@ -62,7 +62,17 @@ endpoints:
       - name: aws_access_key
         required: false
         type: string
+        description: AWS Access Key ID (required if automating creation of AWS S3 token)
+
+      - name: aws_secret_key
+        required: false
+        type: string
         description: AWS Secret Access Key (required if automating creation of AWS S3 token)
+
+      - name: aws_session_token
+        required: false
+        type: string
+        description: AWS Session Token (required if automating creation of AWS S3 token, using temporary credentials)
 
       - name: aws_region
         required: false
@@ -260,6 +270,12 @@ endpoints:
         required: true
         type: string
         description: AWS Secret Access Key (this is not stored on the Console and is only used
+                     for the duration of the operation)
+      - name: aws_session_token
+        required: false
+        type: string
+        description: AWS Session Token. Required when using temporary AWS authentication (this
+                     is not stored on the Console and is only used
                      for the duration of the operation)
       - name: aws_region
         required: true
@@ -907,7 +923,62 @@ print(r.json())
 
 ## Remove AWS S3 Canarytoken
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.remove_s3"/>
+<APIDetails :endpoint="$page.frontmatter.endpoints.remove_s3">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/remove/s3 \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
+  -d aws_access_key=EXAMPLE_AWS_ACCESS_KEY \
+  -d aws_secret_key=EXAMPLE_AWS_SECRET_KEY \
+  -d aws_region=EXAMPLE_AWS_REGION
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/remove/s3'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN',
+  'aws_access_key': 'EXAMPLE_AWS_ACCESS_KEY',
+  'aws_secret_key': 'EXAMPLE_AWS_SECRET_KEY',
+  'aws_region': 'EXAMPLE_AWS_REGION'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+
+```json
+{
+  "result": "success"
+}
+```
+
+:::
+
+:::::
+
+</APIDetails>
 
 ## Update Canarytoken Memo
 
