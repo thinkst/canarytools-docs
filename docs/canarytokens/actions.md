@@ -433,6 +433,11 @@ print(r.json())
 
 ## Fetch all Canarytokens
 
+::: tip
+This will return all your Canarytokens in a single list. This may cause issues if you have many Canarytokens
+minted on your Console. A cleaner option is to use [Search Canarytokens](/canarytokens/queries.html#search-canarytokens) or [Paginate Canarytokens](/canarytokens/queries.html#paginate-canarytokens) as they will paginate the results and allow you to cycle through them.
+:::
+
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch_canarytokens">
 
 ::::: slot example
