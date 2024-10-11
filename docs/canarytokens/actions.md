@@ -11,17 +11,31 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON structure with result indicator and Canarytokens information.
-  fetch_canarytokens:
-    name: Fetch all Canarytokens
-    url: /api/v1/canarytokens/fetch
+  paginate:
+    name: Paginate Canarytokens
+    url: /api/v1/canarytokens/paginate
     method: GET
-    description: Fetches all Canarytokens on your Canary Console.
+    description: Fetch a page of all your Canarytokens with a specified limit per page, as well as cursors that allow you to iterate through the remaining pages.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
-    response: A JSON structure with result indicator and Canarytokens information.
+      - name: flock_id
+        required: false
+        type: string
+        description: A valid flock_id (for returning Canarytokens for a specific Flock)
+      - name: limit
+        required: false
+        type: string
+        default: 10
+        description: The size of the pages
+      - name: cursor
+        required: false
+        type: string
+        description: A valid page cursor retrieved from the cursor element returned along with a page while
+                     doing pagination
+    response: A JSON structure with the current page of Canarytokens and cursors pointing to your next and previous pages.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -431,14 +445,9 @@ print(r.json())
 
 </APIDetails>
 
-## Fetch all Canarytokens
+## Paginate Canarytokens
 
-::: tip
-This will return all your Canarytokens in a single list. This may cause issues if you have many Canarytokens
-minted on your Console. A cleaner option is to use [Search Canarytokens](/canarytokens/queries.html#search-canarytokens) or [Paginate Canarytokens](/canarytokens/queries.html#paginate-canarytokens) as they will paginate the results and allow you to cycle through them.
-:::
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch_canarytokens">
+<APIDetails :endpoint="$page.frontmatter.endpoints.paginate">
 
 ::::: slot example
 
