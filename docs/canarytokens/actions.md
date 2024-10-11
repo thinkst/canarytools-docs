@@ -11,17 +11,31 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON structure with result indicator and Canarytokens information.
-  fetch_canarytokens:
-    name: Fetch all Canarytokens
-    url: /api/v1/canarytokens/fetch
+  paginate:
+    name: Paginate Canarytokens
+    url: /api/v1/canarytokens/paginate
     method: GET
-    description: Fetches all Canarytokens on your Canary Console.
+    description: Fetch a page of all your Canarytokens with a specified limit per page, as well as cursors that allow you to iterate through the remaining pages.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
-    response: A JSON structure with result indicator and Canarytokens information.
+      - name: flock_id
+        required: false
+        type: string
+        description: A valid flock_id (for returning Canarytokens for a specific Flock)
+      - name: limit
+        required: false
+        type: string
+        default: 10
+        description: The size of the pages
+      - name: cursor
+        required: false
+        type: string
+        description: A valid page cursor retrieved from the cursor element returned along with a page while
+                     doing pagination
+    response: A JSON structure with the current page of Canarytokens and cursors pointing to your next and previous pages.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -431,20 +445,21 @@ print(r.json())
 
 </APIDetails>
 
-## Fetch all Canarytokens
+## Paginate Canarytokens
 
-<APIDetails :endpoint="$page.frontmatter.endpoints.fetch_canarytokens">
+<APIDetails :endpoint="$page.frontmatter.endpoints.paginate">
 
 ::::: slot example
-
 
 :::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab "cURL"
 
 ``` bash
-curl https://EXAMPLE.canary.tools/api/v1/canarytokens/fetch \
-  -d auth_token=EXAMPLE_AUTH_TOKEN -G
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/paginate \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d limit=3
+  -G
 ```
 
 :::
@@ -454,10 +469,11 @@ curl https://EXAMPLE.canary.tools/api/v1/canarytokens/fetch \
 ``` python
 import requests
 
-url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/fetch'
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/paginate'
 
 payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'limit':'3'
 }
 
 r = requests.get(url, params=payload)
@@ -473,39 +489,79 @@ print(r.json())
 ::: api-response
 ```json
 {
-  "tokens": {
-      {
-        "browser_scanner_enabled": "True",
-        "canarytoken": "<token_code>",
-        "created": "1685958255.606980'",
-        "created_printable": "2023-06-05 09:44:15 (UTC)'",
-        "enabled": "True",
-        "flock_id": "flock:default'",
-        "hostname": "<token_hostname>",
-        "key": "<token_key>",
-        "kind": "http'",
-        "memo": "desktop",
-        "node_id": "<token_node_id>",
-        "triggered_count": "0",
-        "updated_id": "1",
-        "url": "<token_url>"
+  "canarytokens": [
+    {
+      "access_key_id": "<aws_access_key_id>",
+      "canarytoken": "<token_code>",
+      "created": "1586249510.069870",
+      "created_printable": "2020-04-07 08:51:50 (UTC)",
+      "enabled": true,
+      "factory_auth": "<factory_auth_token>",
+      "flock_id": "flock:default",
+      "hostname": "<token_hostname>",
+      "key": "<token_key>",
+      "kind": "aws-id",
+      "memo": "Example Memo",
+      "node_id": "<node_id>",
+      "renders": {
+        "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key_id>\n    aws_secret_access_key = <aws_secret_access_key>"
       },
-      {
-        "canarytoken": "<token_code>",
-        "created": "1688122821.384507",
-        "created_printable": "2023-06-30 11:00:21 (UTC)",
-        "enabled": "True",
-        "flock_id": "flock:default",
-        "hostname": "<token_hostname>",
-        "key": "<token_key>",
-        "kind": "dns",
-        "memo": "mail inbox",
-        "node_id": "<token_node_id>",
-        "triggered_count": "0",
-        "updated_id": "2",
-        "url": "<token_url>"
-      }
+      "secret_access_key": "<aws_secret_access_key>",
+      "triggered_count": 0,
+      "updated_id": 17,
+      "url": "<token_url>",
+      "username": "<user_name>"
+    },
+    {
+      "access_key_id": "<aws_access_key_id>",
+      "canarytoken": "<token_code>",
+      "created": "1586246956.323499",
+      "created_printable": "2020-04-07 08:09:16 (UTC)",
+      "enabled": true,
+      "factory_auth": "<factory_auth_token>",
+      "flock_id": "flock:default",
+      "hostname": "<token_hostname>",
+      "key": "<token_key>",
+      "kind": "aws-id",
+      "memo": "Example Memo",
+      "node_id": "<node_id>",
+      "renders": {
+        "aws-id": "\n    [default]\n    aws_access_key_id = <aws_access_key_id>\n    aws_secret_access_key = <aws_secret_access_key>"
+      },
+      "secret_access_key": "<aws_secret_access_key>",
+      "triggered_count": 4,
+      "updated_id": 14,
+      "url": "<token_url>",
+      "username": "<user_name>"
+    },
+    {
+      "canarytoken": "<token_code>",
+      "cloned_web": "<cloned_domain>",
+      "created": "1586183526.183108",
+      "created_printable": "2020-04-06 14:32:06 (UTC)",
+      "enabled": true,
+      "flock_id": "flock:default",
+      "hostname": "<token_hostname>",
+      "key": "<token_key>",
+      "kind": "cloned-web",
+      "memo": "Cloned website detector on <cloned_domain>",
+      "node_id": "<node_id>",
+      "renders": {
+        "cloned-web": "<script>\n    if (document.domain != \"<cloned_domain>\" && document.domain != \"<cloned_domain>\") {\n        var l = location.href;\n        var r = document.referrer;\n        var m = new Image();\n        m.src = \"<token_url>\" + encodeURI(l) + \"&r=\" + encodeURI(r);\n    }\n</script>"
+      },
+      "triggered_count": 0,
+      "updated_id": 12,
+      "url": "<token_url>"
+    }
+  ],
+  "cursor": {
+    "next": "MToxMjozOjQ6Mjo0",
+    "next_link": "https://EXAMPLE.canary.tools/api/v1/canarytokens/paginate?cursor=MToxMjozOjQ6Mjo0&auth_token=EXAMPLE_AUTH_TOKEN",
+    "prev": null,
+    "prev_link": null
   },
+  "page_num": 1,
+  "page_total": 4,
   "result": "success"
 }
 ```

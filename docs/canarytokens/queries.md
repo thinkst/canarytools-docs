@@ -61,7 +61,7 @@ endpoints:
       - name: search_string
         required: false
         type: string
-        description: A search string to filter on
+        description: A search string to filter on. This is a word-delimited prefix search on the canarytoken ID and memo fields.
       - name: kind
         required: false
         type: string
