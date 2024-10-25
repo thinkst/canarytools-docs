@@ -694,9 +694,7 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
   "services": {
     "http": {
       "enabled": false, 
-      "instance_defaults": {
-        "max_post_args": 10
-      }, 
+      "instance_defaults": {}, 
       "instances": [
         {
           "banner": "Apache/2.2.22 (Ubuntu)", 
@@ -714,9 +712,7 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
     }, 
     "https": {
       "enabled": false, 
-      "instance_defaults": {
-        "max_post_args": 10
-      }, 
+      "instance_defaults": {}, 
       "instances": [
         {
           "banner": "Apache/2.2.22 (Ubuntu)", 
@@ -740,7 +736,7 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
           "name": "Default SSH server", 
           "port": 22, 
           "preauth_banner": "", 
-          "version": "SSH-2.0-Custom"
+          "version": "SSH-2.0-OpenSSH_5.1p1 Debian-4"
         }
       ]
     }
