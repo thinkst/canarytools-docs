@@ -36,6 +36,11 @@ endpoints:
         type: string
         description: Only return logs that have a field matching this query term. '%20' should be used in place of any spaces between words.
 
+      - name: after_id
+        required: false
+        type: int
+        description: Return audit log entries whose ID is greater than the supplied ID. Mutually exclusive with `cursor`.
+
       - name: start_date
         required: false
         type: string 
