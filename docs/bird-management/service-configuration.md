@@ -665,21 +665,10 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
   "ftp.port": 21,
   "git.enabled": false,
   "git.port": 9418,
-  "http.banner": "Apache/2.2.22 (Ubuntu)",
-  "http.enabled": false,
-  "http.headers": {},
-  "http.headers.enabled": false,
-  "http.port": 80,
-  "http.skin": "nasLogin",
-  "http.userwebroot_present": false,
   "httpproxy.banner": "",
   "httpproxy.enabled": false,
   "httpproxy.port": 8080,
   "httpproxy.skin": "squid",
-  "https.enabled": false,
-  "https.headers": {},
-  "https.headers.enabled": false,
-  "https.redirect_http.enabled": false,
   "modbus.enabled": false,
   "modbus.majorminorrevision": "1.2",
   "modbus.modelname": "",
@@ -702,6 +691,56 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
   "redis.port": 6379,
   "remoteupdates.enabled": true,
   "rollback.enabled": true,
+  "services": {
+    "http": {
+      "enabled": false, 
+      "instance_defaults": {}, 
+      "instances": [
+        {
+          "banner": "Apache/2.2.22 (Ubuntu)", 
+          "enabled": false, 
+          "headers": {
+            "enabled": false, 
+            "items": {}
+          }, 
+          "name": "Default Webserver", 
+          "port": 80, 
+          "skin": "nasLogin"
+        }
+      ], 
+      "userwebroot_present": false
+    }, 
+    "https": {
+      "enabled": false, 
+      "instance_defaults": {}, 
+      "instances": [
+        {
+          "banner": "Apache/2.2.22 (Ubuntu)", 
+          "enabled": false, 
+          "headers": {
+            "enabled": false, 
+            "items": {}
+          }, 
+          "name": "Default Webserver", 
+          "port": 443, 
+          "skin": "nasLogin"
+        }
+      ]
+    }, 
+    "ssh": {
+      "enabled": false, 
+      "instance_defaults": {}, 
+      "instances": [
+        {
+          "enabled": false, 
+          "name": "Default SSH server", 
+          "port": 22, 
+          "preauth_banner": "", 
+          "version": "SSH-2.0-OpenSSH_5.1p1 Debian-4"
+        }
+      ]
+    }
+  }, 
   "sip.enabled": false,
   "sip.port": 5060,
   "smb.advanced.enabled": false,
@@ -768,10 +807,6 @@ We've provided a full example `bare-canary` Bird settings object for you to insp
   "smb.workgroup": "OFFICE",
   "snmp.enabled": false,
   "snmp.port": 161,
-  "ssh.enabled": false,
-  "ssh.port": 22,
-  "ssh.preauth_banner": "",
-  "ssh.version": "SSH-2.0-MS_1.100",
   "tcpbanner.enabled": false,
   "tcpbanner_1.alertstring": "",
   "tcpbanner_1.alertstring.enabled": false,
