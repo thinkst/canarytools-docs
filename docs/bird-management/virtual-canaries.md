@@ -17,6 +17,7 @@ endpoints:
       - name: format
         required: false
         type: string
+        default: "vmx"
         description: "The format of the Virtual Canary archive. Options are: `vmx` and `ova`"
     response: A JSON Structure containing the download URL for the specified version of the CanaryVM image.
   canaryvm_download_seed:
