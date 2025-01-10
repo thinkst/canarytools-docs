@@ -37,6 +37,17 @@ endpoints:
         type: string
         description: A newline separated list of custom domains to set
     response: A JSON structure with result indicator.
+  custom_domains_list:
+    name: List Custom User Domains
+    url: /api/v1/settings/canarytokens/user_domains/list
+    method: GET
+    description: List the custom Canarytokens domains for your Console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with a list of user domains.
   custom_webroot_disable:
     name: Disable Custom Canarytokens Site
     url: /api/v1/settings/canarytokens/webroot/disable
@@ -246,6 +257,60 @@ print(r.json())
 ```json
 {
   "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+</APIDetails>
+
+### List Custom User Domains
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.custom_domains_list">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/list \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/canarytokens/user_domains/list'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "user_domains": [
+    "your-user-domain.com"
+  ]
 }
 ```
 :::
