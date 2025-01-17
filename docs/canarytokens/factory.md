@@ -232,6 +232,7 @@ print(r.json())
     "http": "Web Bug",
     "msexcel-macro": "MS Excel Macro Document",
     "msword-macro": "MS Word Macro Document",
+    "mysql-dump": "MySQL Dump file",
     "pdf-acrobat-reader": "Acrobat PDF",
     "qr-code": "QR Code",
     "sensitive-cmd": "Sensitive Command",
