@@ -472,7 +472,7 @@ Triggered by login attempts on Windows File Shares.
 
 They are disabled by default. Contact support to have them enabled.
 
-The incident object is the same as the [Shared File Opened](#shared-file-opened) object.
+This incident object is the same as the [Shared File Opened](#shared-file-opened) object.
 
 `5010` - SMB LOGIN <br>
 
