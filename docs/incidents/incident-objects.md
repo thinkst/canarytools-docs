@@ -467,6 +467,15 @@ Alert data sent via Syslog or Webhook when testing connections.
   </div>
 </div> 
 
+## File Share Login
+Triggered by login attempts on Windows File Shares.
+
+They are disabled by default. Contact support to have them enabled.
+
+The incident object is the same as the [Shared File Opened](#shared-file-opened) object.
+
+`5010` - SMB LOGIN <br>
+
 ## FTP Login Attempt
 
 <div class="section-container">
