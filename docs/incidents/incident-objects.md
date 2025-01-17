@@ -222,7 +222,15 @@ Most Canarytokens make use of `HTTP` and `DNS` as their underlying communication
 `17019` - TOKENS HTTP OFFICE365 MAIL <br>
 `17020` - TOKENS HTTP SLACK API <br>
 `17021` - TOKENS HTTP GMAIL <br>
-`17024` - TOKENS HTTP AZURE ID <br><br> 
+`17022` - TOKENS HTTP WIREGUARD <br>
+`17023` - TOKENS HTTP DOC MSEXCEL <br>
+`17024` - TOKENS HTTP AZURE ID <br>
+`17025` - TOKENS HTTP CLONED CSS <br>
+`17026` - TOKENS HTTP AZURE ENTRA LOGIN <br>
+`17027` - TOKENS HTTP CREDIT CARD <br>
+`17028` - TOKENS HTTP PWA <br>
+`17029` - TOKENS HTTP MYSQL DUMP <br>
+<br>
 **type** 
 A string containing the token type. <br><br>
 **canarytoken**
@@ -256,7 +264,7 @@ Stores Token specific data dependent on service, for example S3 bucket operation
 :::  api-response 
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
-<LOGTYPE> = "17000 | 17001 | 17003 | 17004 | 17005 | 17006 | 17007 | 17008 | 17009 | 17012 | 17016 | 17017 | 17019 | 17020 | 17021 | 17024"
+<LOGTYPE> = "17000 | 17001 | 17003 | 17004 | 17005 | 17006 | 17007 | 17008 | 17009 | 17012 | 17016 | 17017 | 17019 | 17020 | 17021 | 17022 | 17023 | 17024 | 17025 | 17026 | 17027 | 17028 | 17029 "
 <EVENT_DICT> = {
                  "type": "http",
                  "canarytoken": "<tokenvalue>",      

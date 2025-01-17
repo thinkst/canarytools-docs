@@ -425,6 +425,7 @@ print(r.json())
     "http": "Web Bug",
     "msexcel-macro": "MS Excel Macro Document",
     "msword-macro": "MS Word Macro Document",
+    "mysql-dump": "MySQL Dump file",
     "office365mail": "Office 365 Mail Bug",
     "pdf-acrobat-reader": "Acrobat PDF",
     "qr-code": "QR Code",
