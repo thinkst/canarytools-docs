@@ -111,10 +111,17 @@ endpoints:
         required: false
         type: string
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
+
+      - name: expected_referrer
+        required: false
+        type: string
+        description: The expected referrer to make a request when creating the `Cloned CSS` and `Azure Entra Login` Canarytokens.
+
       - name: web_image
         required: false
         type: string
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
+
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
@@ -127,6 +134,16 @@ endpoints:
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
+
+      - name: pwa_app_name
+        required: false
+        type: string
+        description: Name of the Fake App for the `pwa` Canarytoken
+
+      - name: pwa_icon
+        required: false
+        type: file
+        description: Icon used by your Fake App for the `pwa` Canarytoken
 
       - name: azure_id_cert_file_name
         required: false
@@ -223,8 +240,10 @@ print(r.json())
     "active-directory-login": "Active Directory Login",
     "aws-id": "AWS API Key",
     "azure-id": "Azure Login Certificate and Config",
-    "cloned-css": "CSS Cloned Site",
+    "azure-entra-login": "Azure Entra Login",
+    "cloned-css": "Cloned CSS",
     "cloned-web": "Cloned Website",
+    "credit-card": "Credit Card",
     "dns": "DNS",
     "doc-msexcel": "MS Excel Document",
     "doc-msword": "MS Word Document",
