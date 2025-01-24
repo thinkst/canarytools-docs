@@ -121,6 +121,11 @@ endpoints:
         type: string
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
 
+      - name: expected_referrer
+        required: false
+        type: string
+        description: The expected referrer to make a request when creating the `Cloned CSS` and `Azure Entra Login` Canarytokens.
+
       - name: doc
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
@@ -141,6 +146,16 @@ endpoints:
         required: false
         type: string
         description: Name of the process you want to monitor (required when creating sensitive-cmd tokens)
+
+      - name: pwa_app_name
+        required: false
+        type: string
+        description: Name of the Fake App for the `pwa` Canarytoken
+
+      - name: pwa_icon
+        required: false
+        type: file
+        description: Icon used by your Fake App for the `pwa` Canarytoken
 
       - name: s3_log_bucket
         required: false
@@ -412,7 +427,11 @@ print(r.json())
     "autoreg-google-sheets": "Google Sheet",
     "aws-id": "AWS API Key",
     "aws-s3": "AWS S3 Bucket",
+    "azure-entra-login": "Azure Entra Login",
+    "azure-id": "Azure Login Certificate and Config",
+    "cloned-css": "Cloned CSS",
     "cloned-web": "Cloned Website",
+    "credit-card": "Credit Card",
     "dns": "DNS",
     "doc-msexcel": "MS Excel Document",
     "doc-msword": "MS Word Document",
@@ -428,6 +447,7 @@ print(r.json())
     "mysql-dump": "MySQL Dump file",
     "office365mail": "Office 365 Mail Bug",
     "pdf-acrobat-reader": "Acrobat PDF",
+    "pwa": "Fake App",
     "qr-code": "QR Code",
     "sensitive-cmd": "Sensitive Command",
     "signed-exe": "Custom Exe/Binary",
@@ -435,7 +455,7 @@ print(r.json())
     "slow-redirect": "Slow Redirect",
     "web-image": "Custom Web Image",
     "windows-dir": "Windows Folder",
-    "wireguard": "WireGuard VPN"
+    "wireguard": "WireGuard VPN",
   },
   "result": "success"
 }

@@ -13,7 +13,7 @@ Incident feeds have this basic structure:
 
 ::: attribute-details
 
-**updated** 
+**updated**
 Human readable date when the incident was updated<br><br>
 **updated_std**
 The date/time when the incident was updated in the format `YYYY-MM-DD HH:MM:SS TZ` <br><br>
@@ -51,7 +51,7 @@ The source port of the attacker <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 {
   "feed": "Unacknowledged Incidents",
@@ -60,31 +60,31 @@ The source port of the attacker <br><br>
     {
       "id": "...",
       "summary": "<EVENT_DESCRIPTION>",
-      "updated": "...",           
-      "updated_std": "...",       
-      "updated_time": "..."       
+      "updated": "...",
+      "updated_std": "...",
+      "updated_time": "..."
 [...]
       "description": {
 [...]
         "logtype": "<LOGTYPE>",
         "description": "<EVENT_DESCRIPTION>",
-        "created": "...",         
-        "created_std": "...",     
-        "dst_host": "...",        
-        "dst_port": "...",        
+        "created": "...",
+        "created_std": "...",
+        "dst_host": "...",
+        "dst_port": "...",
         "events": [
           <EVENT_DICT>,
           <EVENT_DICT>,
           ...,
         ]
-        "events_count": "...",      
+        "events_count": "...",
         "flock_id": "...",
         "flock_name": "...",
-        "name": "...",              
-        "node_id": "...",           
-        "src_host": "...",          
-        "src_host_reverse": "...",  
-        "src_port": "..."           
+        "name": "...",
+        "node_id": "...",
+        "src_host": "...",
+        "src_host_reverse": "...",
+        "src_port": "..."
       }
     }
   ]
@@ -107,7 +107,7 @@ The actual data returned by the API may include additional fields. However, any 
 
 ::: attribute-details
 
-**EVENT_DICT** 
+**EVENT_DICT**
 Empty, no additional event data. <br>
 
 :::
@@ -117,15 +117,15 @@ Empty, no additional event data. <br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Canary Disconnected"
 <LOGTYPE> = "1004"
-<EVENT_DICT> = { }                    
+<EVENT_DICT> = { }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Canary Settings Changed
 
@@ -134,9 +134,9 @@ Empty, no additional event data. <br>
 
 ::: attribute-details
 
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 **SETTINGS**
 A string containing the changed settings <br><br>
@@ -148,19 +148,19 @@ A string containing the changed settings <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Canary Settings Changed"
 <LOGTYPE> = "23002"
 <EVENT_DICT> ={
-                "timestamp": ..., 
-                "timestamp_std": "...", 
+                "timestamp": ...,
+                "timestamp_std": "...",
                 "SETTINGS": "..."
-            }                   
+            }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Console Settings Changed
 
@@ -169,9 +169,9 @@ A string containing the changed settings <br><br>
 
 ::: attribute-details
 
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 **SETTINGS**
 A string containing the changed settings. <br><br>
@@ -183,19 +183,19 @@ A string containing the changed settings. <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Console Settings Changed"
 <LOGTYPE> = "23001"
 <EVENT_DICT> ={
-                "timestamp": ..., 
-                "timestamp_std": "...", 
+                "timestamp": ...,
+                "timestamp_std": "...",
                 "SETTINGS": "..."
-            }                   
+            }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Canarytokens
 
@@ -231,7 +231,7 @@ Most Canarytokens make use of `HTTP` and `DNS` as their underlying communication
 `17028` - TOKENS HTTP PWA <br>
 `17029` - TOKENS HTTP MYSQL DUMP <br>
 <br>
-**type** 
+**type**
 A string containing the token type. <br><br>
 **canarytoken**
 Unique string that acts as the Canarytoken. <br><br>
@@ -244,13 +244,28 @@ URL of the HTTP Canarytoken. <br><br>
 **geoip**
 Geographic lookup of source ip. <br><br>
 **ip_blocklist**
-Lookup object of where the source ip is a known proxy, tor or vpn source. <br><br> 
+Lookup object of where the source ip is a known proxy, tor or vpn source. <br><br>
 **cloned_site**
-`Cloned Site` - URL of cloned site. <br><br>
+`Cloned Site/CSS` - URL of cloned site. <br><br>
 **original_site**
-`Cloned Site` - Domain of protected site. <br><br>
+`Cloned Site/CSS` - Domain of protected site. <br><br>
 **referer**
 `Cloned Site` - HTTP referer. <br><br>
+**masked_card_number**
+`Credit Card` - Credit Card Number. <br><br>
+**transaction_amount**
+`Credit Card` - Transaction Amount. <br><br>
+**transaction_currency**
+`Credit Card` - Transaction Currency. <br><br>
+**transaction_date**
+`Credit Card` - Transaction Date. <br><br>
+**transaction_type**
+`Credit Card` - Transaction Type. <br><br>
+**merchant**
+`Credit Card` - Merchant. <br><br>
+**location**
+`PWA` - Location. <br><br>
+
 **additional_info**
 Stores Token specific data dependent on service, for example S3 bucket operation details received from AWS API's. <br><br>
 
@@ -261,17 +276,17 @@ Stores Token specific data dependent on service, for example S3 bucket operation
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
 <LOGTYPE> = "17000 | 17001 | 17003 | 17004 | 17005 | 17006 | 17007 | 17008 | 17009 | 17012 | 17016 | 17017 | 17019 | 17020 | 17021 | 17022 | 17023 | 17024 | 17025 | 17026 | 17027 | 17028 | 17029 "
 <EVENT_DICT> = {
                  "type": "http",
-                 "canarytoken": "<tokenvalue>",      
-                 "headers" : {                      
+                 "canarytoken": "<tokenvalue>",
+                 "headers" : {
                    <headername_1>: <headervalue_1> , <headername_2>: <headervalue_2> , ...
                  },
-                 "url": "<tokenurl>"                  
+                 "url": "<tokenurl>"
                }
 ```
 :::
@@ -290,34 +305,44 @@ Stores Token specific data dependent on service, for example S3 bucket operation
 `16009` - TOKENS DNS MSWORD MACRO <br>
 `16010` - TOKENS DNS MSEXCEL MACRO <br>
 `16011` - TOKENS DNS SENSITIVE CMD <br>
+`16012` - TOKENS DNS ACTIVE DIRECTORY LOGIN <br>
 `17023` - TOKENS DOC MSEXCEL <br><br>
-**type** 
+**type**
 A string containing the token type. <br><br>
-**canarytoken** 
+**canarytoken**
 Unique string that acts as the Canarytoken. <br><br>
-**hostname** 
+**hostname**
 Hostname of the DNS Canarytoken. <br><br>
-**generic_data** 
+**generic_data**
 Encoded additional information. See [Encoding additional information in your token](https://docs.canarytokens.org/guide/dns-token.html#encoding-additional-information-in-your-token) <br><br>
-**windows_desktopini_access_username** 
+**windows_desktopini_access_username**
 `Windows Folder` - Host username. <br><br>
-**windows_desktopini_access_domain** 
+**windows_desktopini_access_domain**
 `Windows Folder` - Host domain. <br><br>
-**windows_desktopini_computer_name** 
+**windows_desktopini_computer_name**
 `Windows Folder` - Host computer name. <br><br>
-**ms_macro_os** 
+**ms_macro_os**
 `MS Excel / Word Macro` - Host OS. <br><br>
-**ms_macro_username** 
+**ms_macro_username**
 `MS Excel / Word Macro` - Host username. <br><br>
-**ms_macro_ip** 
+**ms_macro_ip**
 `MS Excel / Word Macro` - Host local ip. <br><br>
-**cmd_computer_name** 
+**cmd_computer_name**
 `Sensitive Command` - Host computer name. <br><br>
-**cmd_user_name** 
+**cmd_user_name**
 `Sensitive Command` - Host user name. <br><br>
-**cmd_invocation_id** 
+**cmd_invocation_id**
 `Sensitive Command` - Unique identifier per command's executed instance, this changes every execution. <br><br>
-
+**cmd_resolved_ip**
+`ACTIVE DIRECTORY LOGIN` - Source IP address. <br><br>
+**cmd_workstation**
+`ACTIVE DIRECTORY LOGIN` - Source Hostname. <br><br>
+**cmd_user_name**
+`ACTIVE DIRECTORY LOGIN` - Username. <br><br>
+**cmd_machine_name**
+`ACTIVE DIRECTORY LOGIN` - Domain Controller. <br><br>
+**cmd_event_record_id**
+`ACTIVE DIRECTORY LOGIN` - Event record ID. <br><br>
 :::
 
   </div>
@@ -325,13 +350,13 @@ Encoded additional information. See [Encoding additional information in your tok
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
-<LOGTYPE> = "16000 | 16006 | 16008 | 16009 | 16010 | 16011"
+<LOGTYPE> = "16000 | 16006 | 16008 | 16009 | 16010 | 16011 | 16012"
 <EVENT_DICT> = {
                  "type": "dns",
-                 "canarytoken": "<tokenvalue>",      
+                 "canarytoken": "<tokenvalue>",
                  "hostname": "<tokenhostname>",
                  "generic_data": "<only present when additional data is encoded>",
                  "windows_desktopini_access_username": "<only present for windows folder alerts>",
@@ -342,9 +367,14 @@ Encoded additional information. See [Encoding additional information in your tok
                  "ms_macro_ip": "<only present for MS Word / Excel alerts>",
                  "cmd_computer_name": "<only present for sensitive command alerts>",
                  "cmd_user_name": "<only present for sensitive command alerts>",
-                 "cmd_invocation_id": "<only present for sensitive command alerts>" 
+                 "cmd_invocation_id": "<only present for sensitive command alerts>",
+                 "cmd_resolved_ip": "<only present for active directory login alerts>",
+                 "cmd_workstation": "<only present for active directory login alerts>",
+                 "cmd_user_name": "<only present for active directory login alerts>",
+                 "cmd_machine_name": "<only present for active directory login alerts>",
+                 "cmd_event_record_id": "<only present for active directory login alerts>"
                }
-```  
+```
 :::
   </div>
 </div>
@@ -359,13 +389,13 @@ Other Tokens use their own communication channel.
 
 **LOGTYPE**
 `17022` - TOKENS WIREGUARD <br><br>
-**type** 
+**type**
 A string containing the token type <br><br>
-**canarytoken** 
+**canarytoken**
 Unique string that acts as the Canarytoken. <br><br>
-**client_public_key** 
+**client_public_key**
 Connecting client's public key. <br><br>
-**client_session_index** 
+**client_session_index**
 Connecting client session ID. <br><br>
 
 :::
@@ -375,7 +405,7 @@ Connecting client session ID. <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Canarytoken triggered"
 <LOGTYPE> = "17022"
@@ -383,7 +413,7 @@ Connecting client session ID. <br><br>
                  "client_public_key": "...",
                  "client_session_index": "..."
                }
-```  
+```
 :::
   </div>
 </div>
@@ -398,22 +428,22 @@ The Custom TCP Service module lets the Canary administrator create simple servic
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `20001` - TCP banner sent immediately on connection. <br>
 `20002` - TCP banner sent after the client sent a line. <br>
 `20003` - TCP banner keep alive connection made. <br>
 `20004` - TCP banner keep alive secret received. <br>
 `20005` - TCP banner keep alive data received. <br>
 `20006` - TCP banner connection refused. <br><br>
-**BANNER_ID** 
+**BANNER_ID**
 Multiple banners are supported, the id identifies which banner service was triggered. <br><br>
-**DATA** 
+**DATA**
 Optional. The attacker's supplied data. <br><br>
-**FUNCTION** 
+**FUNCTION**
 Indicates which trigger fired, either `'DATA_RECEIVED'` for when a banner was sent after the attacker sent data, or `'CONNECTION_MADE'` for when a banner was sent immediately on connection. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -423,16 +453,16 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Custom TCP Service Request"
-<LOGTYPE> = "20001 | 20002 | 20003 | 20004 | 20005 | 20006"                        
+<LOGTYPE> = "20001 | 20002 | 20003 | 20004 | 20005 | 20006"
 <EVENT_DICT> = {
-                 "BANNER_ID": "...",         
-                 "DATA": "...",              
-                 "FUNCTION": "...",          
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "BANNER_ID": "...",
+                 "DATA": "...",
+                 "FUNCTION": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
@@ -449,7 +479,7 @@ Alert data sent via Syslog or Webhook when testing connections.
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "This is a dummy incident"
 <EVENT_DICT> = {
@@ -473,16 +503,7 @@ Alert data sent via Syslog or Webhook when testing connections.
 ```
 :::
   </div>
-</div> 
-
-## File Share Login
-Triggered by login attempts on Windows File Shares.
-
-They are disabled by default. Contact support to have them enabled.
-
-This incident object is the same as the [Shared File Opened](#shared-file-opened) object.
-
-`5010` - SMB LOGIN <br>
+</div>
 
 ## FTP Login Attempt
 
@@ -491,13 +512,13 @@ This incident object is the same as the [Shared File Opened](#shared-file-opened
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Attacker supplied username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Attacker supplied password. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -507,20 +528,20 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "FTP Login Attempt"
 <LOGTYPE> = "2000"
 <EVENT_DICT> = {
-                 "USERNAME": "...",       
-                 "PASSWORD": "..."        
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }                   
+                 "USERNAME": "...",
+                 "PASSWORD": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Git Repository Clone Attempt
 
@@ -529,13 +550,13 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 ::: attribute-details
 
-**HOST** 
+**HOST**
 Git client's view of the Canary's hostname. <br><br>
-**REPO** 
+**REPO**
 Name of the repository the client attempted to clone. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -545,29 +566,47 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Git Repository Clone Attempt"
 <LOGTYPE> = "19001"
 <EVENT_DICT> = {
-                 "HOST": "...",           
-                 "REPO": "..."            
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }                  
+                 "HOST": "...",
+                 "REPO": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## HTTP Incidents
 
-Two types of HTTP Incidents:
+Currently, there are 7 types of HTTP Incidents:
 
 1. Page loads, triggered by GET requests. They are disabled by default as they’re noisy, and needs to be specifically enabled.
-2. Login attempts, triggered by GET requests. They are always enabled.
+2. Login attempts, triggered by POST requests. They are always enabled.
+3. POST requests to non login pages.
+4. Error page requested. This is usually triggered by tools trying random urls.
+5. A scan of the HTTP web skin detected. This is triggered by many many GET requests to random urls.
+6. HTTP API requested received. This is only on certain HTTP web skins that support HTTP API.
+7. POST request that resulted in a error page. This is usually triggered by tools trying POSTs to random urls.
 
-## HTTP API Request
+::: attribute-details
+
+**LOGTYPE**
+`3000` - HTTP GET <br>
+`3001` - HTTP LOGIN ATTEMPT <br>
+`3002` - HTTP POST <br>
+`3003` - HTTP ERROR <br>
+`3004` - HTTP SCAN <br>
+`3005` - HTTP API REQUEST <br>
+`3006` - HTTP POST ERROR PAGE <br>
+
+:::
+
+### HTTP API Request
 
 Triggered by a HTTP request to a Canary configured as an [API server.](https://help.canary.tools/hc/en-gb/articles/360019295837-Use-a-custom-configuration-file-to-configure-my-custom-webroot)
 
@@ -592,9 +631,9 @@ The response code eg. `200` <br><br>
 Which Webserver skin was used eg. `nasLogin` <br><br>
 **timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**USERAGENT** 
+**USERAGENT**
 Useragent of the source's browser. <br><br>
 
 :::
@@ -604,57 +643,53 @@ Useragent of the source's browser. <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "HTTP API Request"
 <LOGTYPE> = "3005"
 <EVENT_DICT> = {
                  "POSTDATA": {
                      "...": "..."
-                 }, 
-                 "timestamp": ..., 
-                 "HOSTNAME": "...", 
-                 "RESPONSE": ..., 
+                 },
+                 "timestamp": ...,
+                 "HOSTNAME": "...",
+                 "RESPONSE": ...,
                  "HEADERS": {
-                     "...": "...", 
-                     }, 
-                 "timestamp_std": "...", 
-                 "SKIN": "...", 
-                 "PATH": "...", 
-                 "USERAGENT": "...", 
+                     "...": "...",
+                     },
+                 "timestamp_std": "...",
+                 "SKIN": "...",
+                 "PATH": "...",
+                 "USERAGENT": "...",
                  "METHOD": "..."
                 }
 ```
 :::
   </div>
-</div> 
+</div>
 
-## HTTP Page Load
+### HTTP Page Load
 
 <div class="section-container">
   <div class="details-content">
 
 ::: attribute-details
 
-**LOGTYPE** 
-`3000` - HTTP GET <br>
-`3002` - HTTP POST <br>
-`3003` - HTTP ERROR <br><br>
-**PATH** 
+**PATH**
 Web path requested by the source. <br><br>
-**USERAGENT** 
+**USERAGENT**
 Useragent of the source's browser. <br><br>
-**CHANNEL** 
+**CHANNEL**
 Optional. Set to `'TLS'` if an encrypted site is configured, otherwise absent. <br><br>
-**METHOD** 
+**METHOD**
 The HTTP request method used eg. `GET/POST/DELETE` <br><br>
-**RESPONSE** 
+**RESPONSE**
 The response code eg. `200` <br><br>
-**SKIN** 
+**SKIN**
 Which Webserver skin was used eg. `nasLogin` <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -664,51 +699,51 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "HTTP Page Load"
 <LOGTYPE> = "3000 | 3002 | 3003"
 <EVENT_DICT> = {
-                 "PATH": "...",           
-                 "USERAGENT": "...",     
-                 "CHANNEL": "...",        
-                 "METHOD": "...",         
-                 "RESPONSE": ...,         
-                 "SKIN": "...",           
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }                 
+                 "PATH": "...",
+                 "USERAGENT": "...",
+                 "CHANNEL": "...",
+                 "METHOD": "...",
+                 "RESPONSE": ...,
+                 "SKIN": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
-## HTTP Login Attempt
+### HTTP Login Attempt
 
 <div class="section-container">
   <div class="details-content">
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Attacker supplied username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Attacker supplied password. <br><br>
-**PATH** 
+**PATH**
 Web path requested by the source. <br><br>
-**USERAGENT** 
+**USERAGENT**
 Useragent of the source's browser. <br><br>
-**CHANNEL** 
+**CHANNEL**
 Optional. Set to `'TLS'` if an encrypted site is configured, otherwise absent. <br><br>
-**METHOD** 
+**METHOD**
 The HTTP request method used eg. `GET/POST/DELETE` <br><br>
-**RESPONSE** 
+**RESPONSE**
 The response code eg. `200` <br><br>
-**SKIN** 
+**SKIN**
 Which Webserver skin was used eg. `nasLogin` <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -718,26 +753,114 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "HTTP Login Attempt"
 <LOGTYPE> = "3001"
 <EVENT_DICT> = {
-               "USERNAME": "...",       
-               "PASSWORD": "..."       
-               "PATH": "...",           
-               "USERAGENT": "...",      
-               "CHANNEL": "...",        
-               "METHOD": "...",         
-               "RESPONSE": "...",       
-               "SKIN": "...",           
-               "timestamp": ...,        
-               "timestamp_std": "..."   
-               }               
+               "USERNAME": "...",
+               "PASSWORD": "..."
+               "PATH": "...",
+               "USERAGENT": "...",
+               "CHANNEL": "...",
+               "METHOD": "...",
+               "RESPONSE": "...",
+               "SKIN": "...",
+               "timestamp": ...,
+               "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
+
+### HTTP POST ERROR PAGE
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**PATH**
+Web path requested by the source. <br><br>
+**USERAGENT**
+Useragent of the source's browser. <br><br>
+**CHANNEL**
+Optional. Set to `'TLS'` if an encrypted site is configured, otherwise absent. <br><br>
+**METHOD**
+The HTTP request method used eg. `GET/POST/DELETE` <br><br>
+**RESPONSE**
+The response code eg. `200` <br><br>
+**SKIN**
+Which Webserver skin was used eg. `nasLogin` <br><br>
+**timestamp**
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std**
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response
+``` json
+<EVENT_DESCRIPTION> = "HTTP Post Request to an Error Page"
+<LOGTYPE> = "3006"
+<EVENT_DICT> = {
+               "PATH": "...",
+               "USERAGENT": "...",
+               "CHANNEL": "...",
+               "METHOD": "...",
+               "RESPONSE": "...",
+               "SKIN": "...",
+               "timestamp": ...,
+               "timestamp_std": "..."
+               }
+```
+:::
+  </div>
+</div>
+
+### HTTP Service Scan
+
+Triggered by scans for HTTP services
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**METHOD**
+The HTTP request method used eg. `GET/POST/DELETE` <br><br>
+**PATH**
+Web path requested by the source. <br><br>
+**RESPONSE**
+The response code eg. `200` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response
+``` json
+<EVENT_DESCRIPTION> = "HTTP Service Scan"
+<LOGTYPE> = "3004"
+<EVENT_DICT> = {
+                 "METHOD": "...",
+                 "PATH": "...",
+                 "RESPONSE": ...,
+               }
+```
+:::
+  </div>
+</div>
+
 
 ## HTTP Proxy Request
 
@@ -748,17 +871,17 @@ Triggered by any request through the HTTP proxy module.
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Optional. Attacker supplied proxy username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Optional. Attacker supplied proxy password. <br><br>
-**URL** 
+**URL**
 URL requested by the source. <br><br>
-**USERAGENT** 
+**USERAGENT**
 Useragent of the source's browser. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -768,61 +891,22 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "HTTP Proxy Request"
 <LOGTYPE> = "7001"
 <EVENT_DICT> = {
-                 "USERNAME": "...",       
-                 "PASSWORD": "..."        
-                 "URL": "...",            
-                 "USERAGENT": "..."       
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }              
+                 "USERNAME": "...",
+                 "PASSWORD": "..."
+                 "URL": "...",
+                 "USERAGENT": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
-
-## HTTP Service Scan
-
-Triggered by scans for HTTP services
-
-<div class="section-container">
-  <div class="details-content">
-
-::: attribute-details
-
-**METHOD** 
-The HTTP request method used eg. `GET/POST/DELETE` <br><br>
-**PATH** 
-Web path requested by the source. <br><br>
-**RESPONSE** 
-The response code eg. `200` <br><br>
-
-:::
-
-  </div>
-  <div class="example-content">
-
-<br>
-
-:::  api-response 
-``` json
-<EVENT_DESCRIPTION> = "HTTP Service Scan"
-<LOGTYPE> = "3004"
-<EVENT_DICT> = {
-                 "METHOD": "...",         
-                 "PATH": "...",           
-                 "RESPONSE": ...,         
-               }            
-```
-:::
-  </div>
-</div> 
-
-
+</div>
 
 ## LDAP Bind Attempt
 
@@ -833,23 +917,23 @@ Triggered by a LDAP BIND request.
 
 ::: attribute-details
 
-**DN** 
+**DN**
 Distinguished Name. <br><br>
-**MECH** 
+**MECH**
 SASL Mechanism. <br><br>
-**VER** 
+**VER**
 Version. <br><br>
 **SEARCH_ATTRIBUTE**
 Search Target. <br><br>
-**REQ** 
+**REQ**
 Request. <br><br>
 **PASSWORD**
 Password. <br><br>
-**TYPE** 
+**TYPE**
 Authentication type. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -859,24 +943,24 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "LDAP Bind Attempt Detected"
 <LOGTYPE> = "31001"
 <EVENT_DICT> =  {
                  "DN": "...",
-                 "MECH": "...", 
-                 "VER": "...", 
-                 "timestamp": ..., 
-                 "REQ": "...", 
-                 "timestamp_std": "...", 
-                 "PASSWORD": "...", 
+                 "MECH": "...",
+                 "VER": "...",
+                 "timestamp": ...,
+                 "REQ": "...",
+                 "timestamp_std": "...",
+                 "PASSWORD": "...",
                  "TYPE": "..."
                 }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Local Tampering Detected
 
@@ -887,13 +971,13 @@ Triggered by local tampering with a Canary host.
 
 ::: attribute-details
 
-**MESSAGE** 
+**MESSAGE**
 Tampering cause summary. <br><br>
 **MESSAGE_THINKST**
 Tampering cause details.  <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -903,20 +987,20 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Local Tampering Detected"
 <LOGTYPE> = "30001"
 <EVENT_DICT> = {
-                "timestamp": ..., 
+                "timestamp": ...,
                 "timestamp_std": "...",
-                "MESSAGE": "...",  
-                "MESSAGE_THINKST": "...", 
-               }     
+                "MESSAGE": "...",
+                "MESSAGE_THINKST": "...",
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## ModBus Request
 
@@ -927,23 +1011,23 @@ Triggered by any valid ModBus request.
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `18001` - Modbus Query Function <br>
 `18002` - Modbus Read Function <br>
 `18003` - Modbus Write Function <br><br>
-**UNIT_ID** 
+**UNIT_ID**
 ModBus unit target. <br><br>
-**FUNC_CODE** 
+**FUNC_CODE**
 ModBus function code. <br><br>
-**FUNC_NAME** 
+**FUNC_NAME**
 Optional. ModBus function name, if available.  <br><br>
-**SFUNC_CODE** 
+**SFUNC_CODE**
 Optional. ModBus subfunction code, if available. <br><br>
-**SFUNC_NAME** 
+**SFUNC_NAME**
 Optional. ModBus subfunction name, if available. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -953,23 +1037,23 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "ModBus Request"
 <LOGTYPE> = "18001 | 18002 | 18003"
 <EVENT_DICT> = {
-                 "UNIT_ID": "...",       
-                 "FUNC_CODE": "...",     
-                 "FUNC_NAME": "...",     
-                 "SFUNC_CODE": "...",    
-                 "SFUNC_NAME": "...",    
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }      
+                 "UNIT_ID": "...",
+                 "FUNC_CODE": "...",
+                 "FUNC_NAME": "...",
+                 "SFUNC_CODE": "...",
+                 "SFUNC_NAME": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Mongo Request
 
@@ -980,20 +1064,20 @@ Triggered by any valid MongoDB request.
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `28001` - Mongo Command <br>
 `28002` - Mongo Auth Command <br><br>
-**cmd** 
+**cmd**
 Command attempted. <br><br>
-**db** 
+**db**
 Database accessed. <br><br>
-**user** 
+**user**
 Attacker supplied database username.  <br><br>
-**password** 
+**password**
 Attacker supplied database password. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1003,7 +1087,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Mongo Authentication Attempt"
 <LOGTYPE> = "28001 | 28002"
@@ -1014,11 +1098,11 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
                  "timestamp_std": "...",
                  "user": "...",
                  "password": "..."
-               }      
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## MSSQL Login Attempt
 
@@ -1031,26 +1115,26 @@ SQL Server supports multiple authentication modes, and the fields that come thro
 
 ::: attribute-details
 
-**LOGTYPE** 
-`9001` for SQL Server authentication <br> 
+**LOGTYPE**
+`9001` for SQL Server authentication <br>
 `9002` for Windows authentication <br><br>
-**USERNAME** 
+**USERNAME**
 Attacker supplied database username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Optional. Attacker supplied database password. <br><br>
-**HOSTNAME** 
+**HOSTNAME**
 Optional. Attacker supplied hostname. <br><br>
-**DOMANNAME** 
+**DOMANNAME**
 Optional. Attacker supplied Active Directory name. <br><br>
-**APPNAME** 
+**APPNAME**
 Name of the app with which the query was made eg. `SQLCMD` <br><br>
-**HOSTNAME** 
+**HOSTNAME**
 Hostname of the attacker <br><br>
-**SERVERNAME** 
+**SERVERNAME**
 IP address of the attacker <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1060,25 +1144,25 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "MSSQL Login Attempt"
-<LOGTYPE> = "9001 | 9002"                        
+<LOGTYPE> = "9001 | 9002"
 <EVENT_DICT> = {
-                 "USERNAME": "...",       
-                 "PASSWORD": "..."        
-                 "HOSTNAME": "...",       
-                 "DOMAINNAME": "..."      
-                 "APPNAME": "...",        
-                 "HOSTNAME": "...",      
-                 "SERVERNAME": "...",     
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }         
+                 "USERNAME": "...",
+                 "PASSWORD": "..."
+                 "HOSTNAME": "...",
+                 "DOMAINNAME": "..."
+                 "APPNAME": "...",
+                 "HOSTNAME": "...",
+                 "SERVERNAME": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## MySQL Login Attempt
 Triggered by an authentication attempt against the MySQL service.
@@ -1090,17 +1174,17 @@ The client sends a hashed password, not a cleartext password. The Canary will tr
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Attacker supplied database username. <br><br>
-**CLIENT_HASH** 
+**CLIENT_HASH**
 Attacker supplied database password hash. <br><br>
-**SALT** 
+**SALT**
 Attacker supplied database password hash salt. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Recovered password if possible, otherwise <br>`<Password not in common list>` <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1110,22 +1194,22 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "MySQL Login Attempt"
 <LOGTYPE> = "8001"
 <EVENT_DICT> = {
-                 "USERNAME": "...",       
-                 "CLIENT_HASH": "...",    
-                 "SALT": "...",           
-                 "PASSWORD": "..."        
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }   
+                 "USERNAME": "...",
+                 "CLIENT_HASH": "...",
+                 "SALT": "...",
+                 "PASSWORD": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Network Settings Roll-back
 Triggered by a Canary reverting it's network settings after a settings push if it can't connect to the Console.
@@ -1135,7 +1219,7 @@ Triggered by a Canary reverting it's network settings after a settings push if i
 
 ::: attribute-details
 
-**Rollback time** 
+**Rollback time**
 The timestamp of the rollback eg. `1580378197` <br><br>
 
 :::
@@ -1145,17 +1229,17 @@ The timestamp of the rollback eg. `1580378197` <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Network Settings Roll-back"
 <LOGTYPE> = "22011"
 <EVENT_DICT> = [
                  "Rollbacktime: 1580378197"
-               ]  
+               ]
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## NTP Monlist Request
 Triggered by the NTP Monlist command.
@@ -1165,11 +1249,11 @@ Triggered by the NTP Monlist command.
 
 ::: attribute-details
 
-**NTP_CMD** 
+**NTP_CMD**
 Name of the NTP command sent. Currently is `'monlist'`. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1179,19 +1263,19 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "NTP Monlist Request"
 <LOGTYPE> = "11001"
 <EVENT_DICT> = {
-                 "NTP_CMD": "..."      
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               }  
+                 "NTP_CMD": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Port Scans
 
@@ -1210,17 +1294,17 @@ There are six types of port scans incidents.
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `5001` - PORT SYN<br>
 `5002` - PORT SCAN NET<br>
 `5009` - PORT RUNFINGER SCAN<br>
 `5011` - PORT RUNFINGER DIALECT<br>
 `5012` - PORT RUNFINGER LANMAN<br>
-**ports** 
+**ports**
 List of comma-separated ports. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197`. <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
@@ -1230,14 +1314,14 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Host Port Scan"
 <LOGTYPE> = "5001 | 5002 | 5003 | 5009 | 5011 | 5012"
 <EVENT_DICT> = {
-                 "ports": "23,80,443"         
-                 "timestamp": ...,            
-                 "timestamp_std": "..."       
+                 "ports": "23,80,443"
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
@@ -1252,9 +1336,9 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 **EVENT_DICT**
 The dict's keys are port numbers, and the values are lists of IP addresses. <br><br>
-**port** 
+**port**
 Port number on the Canary <br><br>
-**canary_IP** 
+**canary_IP**
 Canaries that were targeted <br><br>
 
 :::
@@ -1264,13 +1348,13 @@ Canaries that were targeted <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Consolidated Network Port Scan"
 <LOGTYPE> = "5007"
-<EVENT_DICT> = {                                      
-                 "<port>": [                             
-                   "<canary_IP>",                     
+<EVENT_DICT> = {
+                 "<port>": [
+                   "<canary_IP>",
                    "<canary_IP>"
                  ],
                  "<port>": [
@@ -1289,33 +1373,33 @@ Canaries that were targeted <br><br>
 
 ::: attribute-details
 
-**ID** 
+**ID**
 IP packet ID <br><br>
-**LEN** 
+**LEN**
 Length of IP packet <br><br>
-**MAC** 
+**MAC**
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
-**PREC** 
+**PREC**
 Precedent bits, almost always `0x00` <br><br>
-**PROTO** 
+**PROTO**
 The protocol used <br><br>
-**RES** 
+**RES**
 Reserved bits, almost always `0x0`  <br><br>
-**TOS** 
+**TOS**
 IP Type of Service field, almost always `0x00` <br><br>
-**TTL** 
+**TTL**
 Time-to-live on the IP packet <br><br>
-**URGP** 
+**URGP**
 Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
-**WINDOW** 
+**WINDOW**
 TCP Window size  <br><br>
-**SYN** 
+**SYN**
 Indicates whether the SYN flag is set. Present if the flag is there, absent otherwise. <br><br>
-**ACK** 
+**ACK**
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197`. <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
@@ -1325,30 +1409,30 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "NMAP FIN Scan Detected"
 <LOGTYPE> = "5008"
 <EVENT_DICT> = {
-                    "ID": "...",                 
-                    "LEN": "...",                
-                    "MAC": "...",               
-                    "PREC": "...",               
-                    "PROTO": "...",              
-                    "RES": "...",                
-                    "TOS": "...",                
-                    "TTL": "...",                
-                    "URGP": "...",               
-                    "WINDOW": "...",             
-                    "SYN": "...",                
-                    "ACK": "...",                
-                    "timestamp": ...,            
-                    "timestamp_std": "..."      
+                    "ID": "...",
+                    "LEN": "...",
+                    "MAC": "...",
+                    "PREC": "...",
+                    "PROTO": "...",
+                    "RES": "...",
+                    "TOS": "...",
+                    "TTL": "...",
+                    "URGP": "...",
+                    "WINDOW": "...",
+                    "SYN": "...",
+                    "ACK": "...",
+                    "timestamp": ...,
+                    "timestamp_std": "..."
 }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ### NMAP NULL Scan
 <div class="section-container">
@@ -1356,33 +1440,33 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 ::: attribute-details
 
-**ID** 
+**ID**
 IP packet ID <br><br>
-**LEN** 
+**LEN**
 Length of IP packet <br><br>
-**MAC** 
+**MAC**
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
-**PREC** 
+**PREC**
 Precedent bits, almost always `0x00` <br><br>
-**PROTO** 
+**PROTO**
 The protocol used <br><br>
-**RES** 
+**RES**
 Reserved bits, almost always `0x0`  <br><br>
-**TOS** 
+**TOS**
 IP Type of Service field, almost always `0x00` <br><br>
-**TTL** 
+**TTL**
 Time-to-live on the IP packet <br><br>
-**URGP** 
+**URGP**
 Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
-**WINDOW** 
+**WINDOW**
 TCP Window size  <br><br>
-**SYN** 
+**SYN**
 Indicates whether the SYN flag is set. Present if the flag is there, absent otherwise. <br><br>
-**ACK** 
+**ACK**
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197`. <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
@@ -1392,30 +1476,30 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "NMAP NULL Scan Detected"
 <LOGTYPE> = "5005"
 <EVENT_DICT> = {
-                  "ID": "...",                 
-                  "LEN": "...",                
-                  "MAC": "...",                
-                  "PREC": "...",               
-                  "PROTO": "...",              
-                  "RES": "...",                
-                  "TOS": "...",                
-                  "TTL": "...",                
-                  "URGP": "...",               
-                  "WINDOW": "...",             
-                  "SYN": "...",                
-                  "ACK": "...",                
-                  "timestamp": ...,            
-                  "timestamp_std": "..."       
+                  "ID": "...",
+                  "LEN": "...",
+                  "MAC": "...",
+                  "PREC": "...",
+                  "PROTO": "...",
+                  "RES": "...",
+                  "TOS": "...",
+                  "TTL": "...",
+                  "URGP": "...",
+                  "WINDOW": "...",
+                  "SYN": "...",
+                  "ACK": "...",
+                  "timestamp": ...,
+                  "timestamp_std": "..."
               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ### NMAP OS Scan
 <div class="section-container">
@@ -1423,33 +1507,33 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 ::: attribute-details
 
-**ID** 
+**ID**
 IP packet ID <br><br>
-**LEN** 
+**LEN**
 Length of IP packet <br><br>
-**MAC** 
+**MAC**
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
-**PREC** 
+**PREC**
 Precedent bits, almost always `0x00` <br><br>
-**PROTO** 
+**PROTO**
 The protocol used <br><br>
-**RES** 
+**RES**
 Reserved bits, almost always `0x0`  <br><br>
-**TOS** 
+**TOS**
 IP Type of Service field, almost always `0x00` <br><br>
-**TTL** 
+**TTL**
 Time-to-live on the IP packet <br><br>
-**URGP** 
+**URGP**
 Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
-**WINDOW** 
+**WINDOW**
 TCP Window size  <br><br>
-**SYN** 
+**SYN**
 Indicates whether the SYN flag is set. Present if the flag is there, absent otherwise. <br><br>
-**ACK** 
+**ACK**
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197`. <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
@@ -1459,30 +1543,30 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "NMAP OS Scan Detected"
 <LOGTYPE> = "5004"
 <EVENT_DICT> = {
-                  "ID": "...",                 
-                  "LEN": "...",                
-                  "MAC": "...",                
-                  "PREC": "...",               
-                  "PROTO": "...",            
-                  "RES": "...",                
-                  "TOS": "...",                
-                  "TTL": "...",                
-                  "URGP": "...",               
-                  "WINDOW": "...",             
-                  "SYN": "...",                
-                  "ACK": "...",                
-                  "timestamp": ...,            
-                  "timestamp_std": "..."       
+                  "ID": "...",
+                  "LEN": "...",
+                  "MAC": "...",
+                  "PREC": "...",
+                  "PROTO": "...",
+                  "RES": "...",
+                  "TOS": "...",
+                  "TTL": "...",
+                  "URGP": "...",
+                  "WINDOW": "...",
+                  "SYN": "...",
+                  "ACK": "...",
+                  "timestamp": ...,
+                  "timestamp_std": "..."
               }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ### NMAP XMAS Scan
 <div class="section-container">
@@ -1490,33 +1574,33 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 ::: attribute-details
 
-**ID** 
+**ID**
 IP packet ID <br><br>
-**LEN** 
+**LEN**
 Length of IP packet <br><br>
-**MAC** 
+**MAC**
 First N bytes from the packet. Destination MAC (i.e. Canary) is the first 6 bytes, source MAC is the next 6 bytes, and the remainder is a peek into the reset of the packet <br><br>
-**PREC** 
+**PREC**
 Precedent bits, almost always `0x00` <br><br>
-**PROTO** 
+**PROTO**
 The protocol used <br><br>
-**RES** 
+**RES**
 Reserved bits, almost always `0x0`  <br><br>
-**TOS** 
+**TOS**
 IP Type of Service field, almost always `0x00` <br><br>
-**TTL** 
+**TTL**
 Time-to-live on the IP packet <br><br>
-**URGP** 
+**URGP**
 Indicates whether the TCP Urgent Pointer is used in the packet. Indicates the offset. `0` indicates it’s not used. <br><br>
-**WINDOW** 
+**WINDOW**
 TCP Window size  <br><br>
-**SYN** 
+**SYN**
 Indicates whether the SYN flag is set. Present if the flag is there, absent otherwise. <br><br>
-**ACK** 
+**ACK**
 Indicates whether the ACK flag is set. Present if the flag is there, absent otherwise. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197`. <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><br>
 
 :::
@@ -1526,33 +1610,39 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000`<br><b
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "NMAP XMAS Scan Detected"
 <LOGTYPE> = "5006"
 <EVENT_DICT> = {
-                  "ID": "...",                 
-                  "LEN": "...",                
-                  "MAC": "...",                
-                  "PREC": "...",               
-                  "PROTO": "...",              
-                  "RES": "...",                
-                  "TOS": "...",                
-                  "TTL": "...",               
-                  "URGP": "...",               
-                  "WINDOW": "...",             
-                  "SYN": "...",                
-                  "ACK": "...",                
-                  "timestamp": ...,            
-                  "timestamp_std": "..."       
+                  "ID": "...",
+                  "LEN": "...",
+                  "MAC": "...",
+                  "PREC": "...",
+                  "PROTO": "...",
+                  "RES": "...",
+                  "TOS": "...",
+                  "TTL": "...",
+                  "URGP": "...",
+                  "WINDOW": "...",
+                  "SYN": "...",
+                  "ACK": "...",
+                  "timestamp": ...,
+                  "timestamp_std": "..."
                 }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## RDP Login Attempt
-Triggered by an attempt to join the Canary's RDP service.
+Triggered by interacting with the Canary's RDP service.
+
+Currently, there are 4 different RDP service incident types:
+1. RDP New Connection Incident
+2. RDP Failed Connection Incident
+3. RDP Confirmed Connection Incident
+4. RDP Login Attenpt
 
 <div class="section-container">
   <div class="details-content">
@@ -1574,9 +1664,9 @@ The major version of the attacker's RDP client (ie. 6 for 6.1). <br><br>
 The minor version of the attacker's RDP client (ie. 1 for 6.1). <br><br>
 **USERNAME**
 Attacker supplied username. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1591,12 +1681,12 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 <EVENT_DESCRIPTION> = "RDP Login Attempt"
 <LOGTYPE> = "14001 | 14002 | 14003 | 14004"
 <EVENT_DICT> = {
-                  "BUILD": "...", 
-                  "DOMAINNAME": "...", 
-                  "MAJORVERSION": "...", 
-                  "MINORVERSION": "...", 
-                  "USERNAME": "...", 
-                  "timestamp": ..., 
+                  "BUILD": "...",
+                  "DOMAINNAME": "...",
+                  "MAJORVERSION": "...",
+                  "MINORVERSION": "...",
+                  "USERNAME": "...",
+                  "timestamp": ...,
                   "timestamp_std": "..."
                }
 ```
@@ -1613,13 +1703,13 @@ Triggered by an attacker connecting to the Redis service and issuing valid Redis
 
 ::: attribute-details
 
-**CMD** 
+**CMD**
 Redis command issued by the attacker. <br><br>
-**ARGS** 
+**ARGS**
 Arguments to the command. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1629,63 +1719,86 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Redis Command"
 <LOGTYPE> = "21001"
 <EVENT_DICT> = {
-                 "CMD": "...",        
-                 "ARGS": "..."       
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
-               } 
+                 "CMD": "...",
+                 "ARGS": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
+               }
 ```
 :::
   </div>
-</div> 
+</div>
 
-## Shared File Opened
-Triggered by the opening of a file on the Canary’s Windows File Share.
+
+## Windows File Share Incidents
+Triggered by interacting with the Canary’s Windows File Share.
+
+Currently there are 5 Windows File Share incident types:
+1. Windows File Share File Opened Incident
+2. Windows File Share Login Incident
+3. Windows File Share Enumeration Incident
+4. Windows File Share Connected Incident
+5. Windows File Share Registry Connected Incident
 
 <div class="section-container">
   <div class="details-content">
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `5000` - SMB FILE OPEN <br>
 `5010` - SMB LOGIN <br>
-`5013` - SMB GROUP ENUM <br><br>
-`5014` - SMB SHARE CONNECT <br><br>
-**USER** 
+`5013` - SMB GROUP ENUM <br>
+`5014` - SMB SHARE CONNECT <br>
+`5015` - SMB REGISTRY <br><br>
+**USER**
 Username supplied by the attacker. <br><br>
-**FILENAME** 
+**FILENAME**
 Name of file on the Canary that was accessed. <br><br>
-**AUDITACTION** 
+**AUDITACTION**
 Type of file action. Currently, only `'pread'`. <br><br>
-**DOMAIN** 
+**DOMAIN**
 Name of domain or workgroup. <br><br>
-**LOCALNAME** 
+**LOCALNAME**
 Windows Name of Canary machine. <br><br>
-**MODE** 
+**MODE**
 `'workgroup'` or `'domain'`<br><br>
-**OFFSET** 
+**OFFSET**
 Starting position of the read. <br><br>
-**REMOTENAME** 
+**REMOTENAME**
 Windows Name of the client machine. <br><br>
-**SHARENAME** 
+**SHARENAME**
 Name of the share on which the file resides. <br><br>
-**SIZE** 
+**SIZE**
 Amount of bytes read. <br><br>
-**SMBARCH** 
+**SMBARCH**
 Guess of the remote machine's Windows version. <br><br>
-**SMBVER** 
+**SMBVER**
 Version of the SMB protocol that was used. <br><br>
-**STATUS** 
+**STATUS**
 Result of the file read. Currently, only `'ok'`. <br><br>
-**timestamp** 
+**LOGINTYPE**
+`LOGIN` - Login Type. <br><br>
+**RID**
+`GROUP ENUM` - Relative Identifier. <br><br>
+**SID**
+`GROUP ENUM` - Security Identifier. <br><br>
+**SGROUPNAME**
+`GROUP ENUM` - Security Group Name. <br><br>
+**AUDITACTION**
+`GROUP ENUM` - Windows API Queried. <br><br>
+**HIVE**
+`REGISTRY` - Registry Hive. <br><br>
+**REGISTRY_KEY**
+`REGISTRY` - Registry Key. <br><br>
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1695,31 +1808,31 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Shared File Opened"
-<LOGTYPE> = "5000 | 5010 | 5013 | 5014"
+<LOGTYPE> = "5000 | 5010 | 5013 | 5014 | 5015"
 <EVENT_DICT> = {
-                 "USER": "...",                       
-                 "FILENAME": "...",                   
-                 "AUDITACTION": "...",                
-                 "DOMAIN": "...",                    
-                 "LOCALNAME": "...",                  
-                 "MODE": "...",                       
-                 "OFFSET": "...",                     
-                 "REMOTENAME": "...",                 
-                 "SHARENAME": "...",                  
-                 "SIZE": "...",                       
-                 "SMBARCH": "...",                    
-                 "SMBVER": "...",                     
-                 "STATUS": "..."                     
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "USER": "...",
+                 "FILENAME": "...",
+                 "AUDITACTION": "...",
+                 "DOMAIN": "...",
+                 "LOCALNAME": "...",
+                 "MODE": "...",
+                 "OFFSET": "...",
+                 "REMOTENAME": "...",
+                 "SHARENAME": "...",
+                 "SIZE": "...",
+                 "SMBARCH": "...",
+                 "SMBVER": "...",
+                 "STATUS": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## SIP Request
 Triggered by an attacker connecting to the SIP service and issuing a valid SIP request.
@@ -1729,7 +1842,7 @@ Triggered by an attacker connecting to the SIP service and issuing a valid SIP r
 
 ::: attribute-details
 
-**HEADERS** 
+**HEADERS**
 Dict of the SIP headers included in the request. <br><br>
 
 :::
@@ -1739,12 +1852,12 @@ Dict of the SIP headers included in the request. <br><br>
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "SIP Request"
 <LOGTYPE> = "15001"
 <EVENT_DICT> = {
-                 "HEADERS": {                          
+                 "HEADERS": {
                    "<header_name1>": "<header_value1>",
                    "<header_name2>": "<header_value2>",
                    "<header_name3>": "<header_value3>",
@@ -1754,7 +1867,7 @@ Dict of the SIP headers included in the request. <br><br>
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## SNMP Request
 Triggered by an incoming SNMP query against the Canary.
@@ -1764,13 +1877,13 @@ Triggered by an incoming SNMP query against the Canary.
 
 ::: attribute-details
 
-**COMMUNITY_STRING** 
+**COMMUNITY_STRING**
 SNMP community string supplied by the attacker. <br><br>
-**REQUESTS** 
+**REQUESTS**
 SNMP OID requested by the attacker. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1780,20 +1893,20 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "SNMP Request"
 <LOGTYPE> = "13001"
 <EVENT_DICT> = {
-                 "COMMUNITY_STRING": "...",          
-                 "REQUESTS": "..."                   
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "COMMUNITY_STRING": "...",
+                 "REQUESTS": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## SSH Login Attempt
 Triggered by an attempt to login to the Canary using SSH. Both password-based and key-based authentication is possible.
@@ -1805,25 +1918,25 @@ It is also possible to configure “Watched Credentials”, which says to only a
 
 ::: attribute-details
 
-**LOGTYPE** 
+**LOGTYPE**
 `4000` - SSH NEW CONNECTION <br>
 `4001` - SSH REMOTE VERSION SENT <br>
 `4002` - SSH LOGIN ATTEMPT <br><br>
-**USERNAME** 
+**USERNAME**
 Username supplied by the attacker. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Optional. The attacker's supplied password in password-based auth. <br><br>
-**LOCALVERSION** 
+**LOCALVERSION**
 Canary's SSH version string. <br><br>
-**REMOTEVERSION** 
+**REMOTEVERSION**
 The attacker's supplied version string. <br><br>
-**KEY** 
+**KEY**
 Optional. The attacker's supplied public key in key-based auth. <br><br>
-**WATCHED_CREDENTIALS** 
+**WATCHED_CREDENTIALS**
 Optional. Set to `'Yes'` if Watched Credentials are enabled. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1833,24 +1946,24 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "SSH Login Attempt"
 <LOGTYPE> = "4000 | 4001 | 4002"
 <EVENT_DICT> = {
-                 "USERNAME": "...",              
-                 "PASSWORD": "...",             
-                 "LOCALVERSION": "...",          
-                 "REMOTEVERSION": "...",         
-                 "KEY": "...",                   
-                 "WATCHED_CREDENTIALS": "...",   
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "USERNAME": "...",
+                 "PASSWORD": "...",
+                 "LOCALVERSION": "...",
+                 "REMOTEVERSION": "...",
+                 "KEY": "...",
+                 "WATCHED_CREDENTIALS": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## Telnet Login Attempt
 Triggered by a Telnet authentication attempt.
@@ -1860,17 +1973,17 @@ Triggered by a Telnet authentication attempt.
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Attacker supplied username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Attacker supplied password. <br><br>
-**TERMSIZE** 
+**TERMSIZE**
 The size of the terminal<br><br>
-**TERMTYPE** 
+**TERMTYPE**
 The terminal type<br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1880,22 +1993,22 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "Telnet Login Attempt"
 <LOGTYPE> = "6001"
 <EVENT_DICT> = {
-                 "USERNAME": "...",       
-                 "PASSWORD": "..."        
+                 "USERNAME": "...",
+                 "PASSWORD": "..."
                  "TERMSIZE": "..."        ,
                  "TERMTYPE": "..."        ,
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## TFTP request
 Triggered by a TFTP request against the Canary.
@@ -1905,15 +2018,15 @@ Triggered by a TFTP request against the Canary.
 
 ::: attribute-details
 
-**FILENAME** 
+**FILENAME**
 Name of file the attacker tried to act on. <br><br>
-**OPCODE** 
+**OPCODE**
 File action, either `'READ'` or `'WRITE'`<br><br>
-**MODE** 
+**MODE**
 TFTP defines three modes of transfer: `netascii`, `octet`, and `mail`. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1923,21 +2036,21 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "TFTP Request"
 <LOGTYPE> = "10001"
 <EVENT_DICT> = {
-                 "FILENAME": "...",        
-                 "OPCODE": "..."           
-                 "MODE": "..."             
-                 "timestamp": ...,         
-                 "timestamp_std": "..."    
+                 "FILENAME": "...",
+                 "OPCODE": "..."
+                 "MODE": "..."
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## TN3270 Login
 Triggered by a TN3270 request against the Canary.
@@ -1947,13 +2060,13 @@ Triggered by a TN3270 request against the Canary.
 
 ::: attribute-details
 
-**USERNAME** 
+**USERNAME**
 Attacker supplied username. <br><br>
-**PASSWORD** 
+**PASSWORD**
 Attacker supplied password. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -1963,18 +2076,18 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "TN3270 Login Attempt"
 <LOGTYPE> = "32001"
 <EVENT_DICT> = {
-                 "USERNAME": "...",        
+                 "USERNAME": "...",
                  "PASSWORD": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## VNC Login Attempt
 Triggered by an attempt to login to Canary’s password-protected VNC service.
@@ -1986,15 +2099,15 @@ VNC passwords are not transmitted in the clear. Instead, a hashed version is sen
 
 ::: attribute-details
 
-**PASSWORD** 
+**PASSWORD**
 Cracked password if very weak. <br><br>
-**SERVER_CHALLENGE** 
+**SERVER_CHALLENGE**
 VNC password hashing parameter. <br><br>
-**CLIENT_RESPONSE** 
+**CLIENT_RESPONSE**
 VNC password hashing parameter. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
@@ -2004,21 +2117,21 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 
 <br>
 
-:::  api-response 
+:::  api-response
 ``` json
 <EVENT_DESCRIPTION> = "VNC Login Attempt"
 <LOGTYPE> = "12001"
 <EVENT_DICT> = {
-                 "PASSWORD": "...",               
-                 "SERVER_CHALLENGE": "...",       
-                 "CLIENT_RESPONSE": "...",        
-                 "timestamp": ...,        
-                 "timestamp_std": "..."   
+                 "PASSWORD": "...",
+                 "SERVER_CHALLENGE": "...",
+                 "CLIENT_RESPONSE": "...",
+                 "timestamp": ...,
+                 "timestamp_std": "..."
                }
 ```
 :::
   </div>
-</div> 
+</div>
 
 ## WinRM Login Attempt
 Triggered by an attempt to connect to the Canary using a WinRM agent.
@@ -2048,9 +2161,9 @@ Present for Kerberos auth attempts. Gives the Kerberos realm. <br><br>
 Present for Kerberos auth attempts. Gives the ticket format version number of the request. <br><br>
 **WINRMPAYLOAD**
 The xml payload of the WinRM connection attempt. <br><br>
-**timestamp** 
+**timestamp**
 The timestamp of the request eg. `1580378197` <br><br>
-**timestamp_std** 
+**timestamp_std**
 Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
