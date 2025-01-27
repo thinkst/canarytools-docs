@@ -359,7 +359,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/canarytoken/factory/download \
   -d factory_auth=EXAMPLE_FACTORY_AUTH \
-  -d canarytoken=EXAMPLE_CANARYTOKEN
+  -d canarytoken=EXAMPLE_CANARYTOKEN \
   -G -L -O -J
 ```
 
