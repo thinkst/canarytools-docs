@@ -251,7 +251,7 @@ print(r.json())
       "http": "Web Bug",
       "msexcel-macro": "MS Excel Macro Document",
       "msword-macro": "MS Word Macro Document",
-      "mysql-dump": "MySQL Dump",
+      "mysql-dump": "MySQL Dump File",
       "pdf-acrobat-reader": "Acrobat PDF",
       "pwa": "Fake App",
       "qr-code": "QR Code",

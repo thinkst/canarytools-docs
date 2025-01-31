@@ -442,7 +442,7 @@ print(r.json())
       "http": "Web Bug",
       "msexcel-macro": "MS Excel Macro Document",
       "msword-macro": "MS Word Macro Document",
-      "mysql-dump": "MySQL Dump",
+      "mysql-dump": "MySQL Dump File",
       "office365mail": "Office 365 Mail Bug",
       "pdf-acrobat-reader": "Acrobat PDF",
       "pwa": "Fake App",
