@@ -453,7 +453,7 @@ print(r.json())
       "slow-redirect": "Slow Redirect",
       "web-image": "Custom Web Image",
       "windows-dir": "Windows Folder",
-      "wireguard": "WireGuard VPN"
+      "wireguard": "WireGuard VPN",
   },
     "result": "success"
 }
