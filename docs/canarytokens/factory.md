@@ -83,7 +83,7 @@ endpoints:
 
       - name: web_image
         required: false
-        type: string
+        type: file
         description: An image file for use with web-image tokens (request must be multipart/form-data encoded
                      if parameter is present, required when using web-image)
 
@@ -109,7 +109,7 @@ endpoints:
                      triggered your Canarytoken token (required when creating fast-redirect and slow-redirect tokens)
       - name: exe
         required: false
-        type: string
+        type: file
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
 
       - name: expected_referrer
@@ -119,7 +119,7 @@ endpoints:
 
       - name: web_image
         required: false
-        type: string
+        type: file
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
 
       - name: doc
@@ -142,8 +142,8 @@ endpoints:
 
       - name: pwa_icon
         required: false
-        type: file
-        description: Icon used by your Fake App for the `pwa` Canarytoken
+        type: string
+        description: Name of the icon used by your Fake App for the `pwa` Canarytoken
 
       - name: azure_id_cert_file_name
         required: false
@@ -237,30 +237,33 @@ print(r.json())
 ```json
 {
   "factory_canarytokens": {
-    "active-directory-login": "Active Directory Login",
-    "aws-id": "AWS API Key",
-    "azure-id": "Azure Login Certificate and Config",
-    "azure-entra-login": "Azure Entra Login",
-    "cloned-css": "Cloned CSS",
-    "cloned-web": "Cloned Website",
-    "credit-card": "Credit Card",
-    "dns": "DNS",
-    "doc-msexcel": "MS Excel Document",
-    "doc-msword": "MS Word Document",
-    "fast-redirect": "Fast Redirect",
-    "http": "Web Bug",
-    "msexcel-macro": "MS Excel Macro Document",
-    "msword-macro": "MS Word Macro Document",
-    "mysql-dump": "MySQL Dump file",
-    "pdf-acrobat-reader": "Acrobat PDF",
-    "qr-code": "QR Code",
-    "sensitive-cmd": "Sensitive Command",
-    "signed-exe": "Custom Exe/Binary",
-    "slack-api": "Slack API Key",
-    "slow-redirect": "Slow Redirect",
-    "web-image": "Custom Web Image",
-    "windows-dir": "Windows Folder",
-    "wireguard": "WireGuard VPN"
+      "active-directory-login": "Active Directory Login",
+      "aws-id": "AWS API Key",
+      "azure-entra-login": "Azure Entra Login",
+      "azure-id": "Azure Login Certificate and Config",
+      "cloned-css": "CSS cloned site",
+      "cloned-web": "Cloned Website",
+      "credit-card": "Credit Card",
+      "dns": "DNS",
+      "doc-msexcel": "MS Excel Document",
+      "doc-msword": "MS Word Document",
+      "fast-redirect": "Fast Redirect",
+      "http": "Web Bug",
+      "msexcel-macro": "MS Excel Macro Document",
+      "msword-macro": "MS Word Macro Document",
+      "mysql-dump": "MySQL Dump File",
+      "pdf-acrobat-reader": "Acrobat PDF",
+      "pwa": "Fake App",
+      "qr-code": "QR Code",
+      "sensitive-cmd": "Sensitive Command",
+      "signed-exe": "Custom Exe/Binary",
+      "slack-api": "Slack API Key",
+      "slow-redirect": "Slow Redirect",
+      "sql": "SQL Server",
+      "svn": "SVN Repo",
+      "web-image": "Custom Web Image",
+      "windows-dir": "Windows Folder",
+      "wireguard": "WireGuard VPN",
   },
   "result": "success"
 }

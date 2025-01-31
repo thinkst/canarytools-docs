@@ -118,7 +118,7 @@ endpoints:
 
       - name: exe
         required: false
-        type: string
+        type: file
         description: The Windows executable that you would like tokened (required when creating signed-exe tokens)
 
       - name: expected_referrer
@@ -154,8 +154,8 @@ endpoints:
 
       - name: pwa_icon
         required: false
-        type: file
-        description: Icon used by your Fake App for the `pwa` Canarytoken
+        type: string
+        description: Name of the icon used by your Fake App for the `pwa` Canarytoken
 
       - name: s3_log_bucket
         required: false
@@ -422,42 +422,40 @@ print(r.json())
 ```json
 {
   "canarytokens": {
-    "active-directory-login": "Active Directory Login",
-    "autoreg-google-docs": "Google Doc",
-    "autoreg-google-sheets": "Google Sheet",
-    "aws-id": "AWS API Key",
-    "aws-s3": "AWS S3 Bucket",
-    "azure-entra-login": "Azure Entra Login",
-    "azure-id": "Azure Login Certificate and Config",
-    "cloned-css": "Cloned CSS",
-    "cloned-web": "Cloned Website",
-    "credit-card": "Credit Card",
-    "dns": "DNS",
-    "doc-msexcel": "MS Excel Document",
-    "doc-msword": "MS Word Document",
-    "fast-redirect": "Fast Redirect",
-    "gmail": "Gmail",
-    "google-docs": "Google Doc",
-    "google-sheets": "Google Sheet",
-    "googledocs_factorydoc": "Document Factory",
-    "googlesheets_factorydoc": "Document Factory",
-    "http": "Web Bug",
-    "msexcel-macro": "MS Excel Macro Document",
-    "msword-macro": "MS Word Macro Document",
-    "mysql-dump": "MySQL Dump file",
-    "office365mail": "Office 365 Mail Bug",
-    "pdf-acrobat-reader": "Acrobat PDF",
-    "pwa": "Fake App",
-    "qr-code": "QR Code",
-    "sensitive-cmd": "Sensitive Command",
-    "signed-exe": "Custom Exe/Binary",
-    "slack-api": "Slack API Key",
-    "slow-redirect": "Slow Redirect",
-    "web-image": "Custom Web Image",
-    "windows-dir": "Windows Folder",
-    "wireguard": "WireGuard VPN",
+      "active-directory-login": "Active Directory Login",
+      "autoreg-google-docs": "Google Doc",
+      "autoreg-google-sheets": "Google Sheet",
+      "aws-id": "AWS API Key",
+      "aws-s3": "AWS S3 Bucket",
+      "azure-entra-login": "Azure Entra Login",
+      "azure-id": "Azure Login Certificate and Config",
+      "cloned-css": "CSS cloned site",
+      "cloned-web": "Cloned Website",
+      "credit-card": "Credit Card",
+      "dns": "DNS",
+      "doc-msexcel": "MS Excel Document",
+      "doc-msword": "MS Word Document",
+      "fast-redirect": "Fast Redirect",
+      "gmail": "Gmail",
+      "google-docs": "Google Doc",
+      "google-sheets": "Google Sheet",
+      "http": "Web Bug",
+      "msexcel-macro": "MS Excel Macro Document",
+      "msword-macro": "MS Word Macro Document",
+      "mysql-dump": "MySQL Dump File",
+      "office365mail": "Office 365 Mail Bug",
+      "pdf-acrobat-reader": "Acrobat PDF",
+      "pwa": "Fake App",
+      "qr-code": "QR Code",
+      "sensitive-cmd": "Sensitive Command",
+      "signed-exe": "Custom Exe/Binary",
+      "slack-api": "Slack API Key",
+      "slow-redirect": "Slow Redirect",
+      "web-image": "Custom Web Image",
+      "windows-dir": "Windows Folder",
+      "wireguard": "WireGuard VPN",
   },
-  "result": "success"
+    "result": "success"
 }
 ```
 :::
