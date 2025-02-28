@@ -121,6 +121,11 @@ endpoints:
         type: string
         description: Specifies the custom Canarytoken domain to use (that's already been linked to the Console) when creating a Canarytoken
 
+      - name: doc
+        type: file
+        description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
+                     `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
+
       - name: exe
         required: false
         type: file
@@ -130,11 +135,6 @@ endpoints:
         required: false
         type: string
         description: The expected referrer to make a request when creating the `Cloned CSS` and `Azure Entra Login` Canarytokens.
-
-      - name: doc
-        type: file
-        description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
-                     `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
 
       - name: flock_id
         required: false
@@ -172,6 +172,11 @@ endpoints:
         type: string
         description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
 
+      - name: tokened_usernames
+        required: false
+        type: string
+        description: A comma separated list of Active Directory usernames to token (required when creating active-directory-login tokens)
+
       - name: web_image
         required: false
         type: file
@@ -180,10 +185,6 @@ endpoints:
                      `-F 'web_image=@upload-me.png; type=image/png'` for png files
                      `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files
 
-      - name: tokened_usernames
-        required: false
-        type: string
-        description: A comma separated list of Active Directory usernames to token (required when creating active-directory-login tokens)
     response: A JSON structure with the created Canarytoken information.
   delete:
     name: Delete Canarytoken
