@@ -116,6 +116,11 @@ endpoints:
         type: string
         description: Domain to check against (required when creating cloned-web tokens)
 
+      - name: custom_domain
+        required: false
+        type: string
+        description: Specifies the custom Canarytoken domain to use (that's already been linked to the Console) when creating a Canarytoken
+
       - name: exe
         required: false
         type: file
