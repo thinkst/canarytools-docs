@@ -122,6 +122,7 @@ endpoints:
         description: Specifies the custom Canarytoken domain to use (that's already been linked to the Console) when creating a Canarytoken
 
       - name: doc
+        required: false
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
                      `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
@@ -143,6 +144,7 @@ endpoints:
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
 
       - name: pdf
+        required: false
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
