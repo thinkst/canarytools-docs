@@ -129,10 +129,12 @@ endpoints:
         description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
 
       - name: doc
+        required: false
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
                      `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
       - name: pdf
+        required: false
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
