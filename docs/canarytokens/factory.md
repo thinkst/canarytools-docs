@@ -118,11 +118,6 @@ endpoints:
         type: string
         description: The expected referrer to make a request when creating the `Cloned CSS` and `Azure Entra Login` Canarytokens.
 
-      - name: web_image
-        required: false
-        type: file
-        description: Image file (jpeg or png) that will be displayed on the Canarytokens URL (required when creating web-image tokens)
-
       - name: doc
         required: false
         type: file
