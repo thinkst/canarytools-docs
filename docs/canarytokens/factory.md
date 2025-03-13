@@ -87,11 +87,6 @@ endpoints:
         description: An image file for use with web-image tokens (request must be multipart/form-data encoded
                      if parameter is present, required when using web-image)
 
-      - name: expected_referrer
-        required: false
-        type: string
-        description: Expected domain to check against (required when creating cloned-css tokens)
-
       - name: cloned_web
         required: false
         type: string
