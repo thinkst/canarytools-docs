@@ -163,6 +163,11 @@ endpoints:
         type: string
         description: A comma separated list of Active Directory usernames to token (required when creating active-directory-login tokens)
 
+      - name: idp_app_type
+        required: false
+        type: string
+        description: Type of the Fake App for the IdP App Canarytoken
+
     response: A JSON structure with the generated Canarytoken.
   factory_download:
     name: Download Canarytoken using the Factory auth string
