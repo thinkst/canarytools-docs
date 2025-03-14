@@ -143,6 +143,11 @@ endpoints:
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
 
+      - name: idp_app_type
+        required: false
+        type: string
+        description: Type of the Fake App for the IdP App Canarytoken
+
       - name: pdf
         required: false
         type: file
@@ -186,11 +191,6 @@ endpoints:
                      With curl use the following flag&#58;
                      `-F 'web_image=@upload-me.png; type=image/png'` for png files
                      `-F 'web_image=@upload-me.jpg; type=image/jpeg'` for jpeg files
-
-      - name: idp_app_type
-        required: false
-        type: string
-        description: Type of the Fake App for the IdP App Canarytoken
 
     response: A JSON structure with the created Canarytoken information.
   delete:
