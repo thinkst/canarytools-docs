@@ -146,7 +146,7 @@ endpoints:
       - name: idp_app_type
         required: false
         type: string
-        description: Type of the Fake App for the IdP App Canarytoken
+        description: Type of the Fake App for the IdP App Canarytoken. Valid options are: `aws, azure, bitwarden, dropbox, duo, elasticsearch, freshbooks, gcloud, gdrive, github, gitlab, gmail, intune, jamf, jira, kibana, lastpass, ms365, msteams, onedrive, onepassword, outlook, pagerduty, sage, salesforce, sap, slack, virtru, zendesk, zoho, zoom`.
 
       - name: pdf
         required: false
