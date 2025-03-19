@@ -128,6 +128,12 @@ endpoints:
         type: file
         description: Upload PDF file to canarytoken; optionally used with Adobe PDF canarytoken (pdf-acrobat-reader). With curl use the following flag
                     `-F pdf=@upload-me.pdf; type=application/pdf`
+
+      - name: idp_app_type
+        required: false
+        type: string
+        description: Type of the Fake App for the IdP App Canarytoken
+
       - name: process_name
         required: false
         type: string
