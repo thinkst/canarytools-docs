@@ -4,7 +4,7 @@ endpoints:
     name: Initiate Office365 Canarytoken creation
     url: /api/v1/canarytoken/office365/initiate
     method: POST
-    description: Initiates the creation of an Office365 Canarytoken.
+    description: Initiates the creation of an Office365 Canarytoken and starts the OAuth process.
     params:
       - name: auth_token
         required: true
@@ -15,7 +15,7 @@ endpoints:
         type: string
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
-    response: A JSON structure with a result indicator and state value used for OAuth process.
+    response: A JSON structure with a result indicator and the URL used for the OAuth flow.
   list_office_365_users:
     name: List Office365 users
     url: /api/v1/canarytoken/office365/users/list
@@ -31,25 +31,12 @@ endpoints:
         type: string
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
-      - name: is_exchange
-        required: false
-        type: boolean
-        default: false
-        description: If your email is hosted by a Microsoft Exchange server instead of Office365.
-      - name: exchange_username
-        required: false
-        type: string
-        description: The username used to authenticate to the Office365 exchange.
-      - name: exchange_password
-        required: false
-        type: string
-        description: The password used to authenticate the specified `exchange_username` to the Office365 exchange.
     response: A JSON structure with the user_emails information and a result indicator
   create_office_365_token:
     name: Insert Office365 mail Canarytokens
     url: /api/v1/canarytoken/office365/create
     method: POST
-    description: Inserts the Office365 mail Canarytoken into specified email addresses.
+    description: Inserts the Office365 mail Canarytoken into specified email address mailboxes.
     params:
       - name: auth_token
         required: true
@@ -64,19 +51,6 @@ endpoints:
         required: true
         type: string
         description: A comma separated list of the user email addresses to insert the Canarytoken into.
-      - name: is_exchange
-        required: false
-        type: boolean
-        default: false
-        description: If your email is hosted by a Microsoft Exchange server instead of Office365.
-      - name: exchange_username
-        required: false
-        type: string
-        description: The username used to authenticate to the Office365 exchange.
-      - name: exchange_password
-        required: false
-        type: string
-        description: The password used to authenticate the specified `exchange_username` to the Office365 exchange.
     response: A JSON structure with a result indicator
   save_office_365_mail_template:
     name: Save Office365 mail template
@@ -123,25 +97,6 @@ endpoints:
         default: "'flock:default'"
         description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
     response: A JSON structure with the html, subject and sender information with a result indicator
-  office_365_oauth_token:
-    name: Request Office365 OAuth token
-    url: /api/v1/canarytoken/office365/oauth/token
-    method: POST
-    description: Requests the Office365 access token.
-    params:
-      - name: code
-        required: true
-        type: string
-        description: Value returned after sign in with Office365 is successful and redirects
-      - name: user_email
-        required: true
-        type: string
-        description: Email used to complete Office OAuth process
-      - name: state
-        required: true
-        type: string
-        description: Value returned after sign in with Office365 is successful and redirects
-    response: A JSON structure with a result indicator
   office_365_status:
     name: Get status of Office365 tokening
     url: /api/v1/canarytoken/office365/status
@@ -192,10 +147,6 @@ flows and parameters needed, making your life a lot easier.
 ## Save email template for Office365 Canarytoken
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.save_office_365_mail_template"></APIDetails>
-
-## Requests Office365 OAuth access token
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.office_365_oauth_token"></APIDetails>
 
 ## Get the status of the Office365 Canarytoken process
 
