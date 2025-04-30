@@ -197,6 +197,35 @@ A string containing the changed settings. <br><br>
   </div>
 </div>
 
+## Flock Settings Changed
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**SETTINGS**
+A string containing the changed settings. <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+:::  api-response
+``` json
+<EVENT_DESCRIPTION> = "Console Settings Changed"
+<LOGTYPE> = "23003"
+<EVENT_DICT> ={
+                "SETTINGS": "enable_emails_notifications=True\nModified by user"
+            }
+```
+:::
+  </div>
+</div>
+
 ## Canarytokens
 
 Most Canarytokens make use of `HTTP` and `DNS` as their underlying communication channel.
