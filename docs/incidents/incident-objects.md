@@ -1248,8 +1248,20 @@ Triggered by a Canary reverting it's network settings after a settings push if i
 
 ::: attribute-details
 
+**Canary Status**
+The status of the canary after the rollback <br><br>
+**Erroneous network settings**
+The settings which changed, causing the rollback <br><br>
+**Restored network settings**
+The settings restored after the rollback <br><br>
 **Rollback time**
 The timestamp of the rollback eg. `1580378197` <br><br>
+**User**
+The user that deployed the erroneous settings <br><br>
+**timestamp**
+The timestamp of the incident eg. `1580378197` <br><br>
+**timestamp_std**
+Human readable timestamp of the incident eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
 
 :::
 
@@ -1262,9 +1274,15 @@ The timestamp of the rollback eg. `1580378197` <br><br>
 ``` json
 <EVENT_DESCRIPTION> = "Network Settings Roll-back"
 <LOGTYPE> = "22011"
-<EVENT_DICT> = [
-                 "Rollbacktime: 1580378197"
-               ]
+<EVENT_DICT> = {
+                 "Canary Status": "Canary is currently ONLINE.",
+                 "Erroneous network settings": "Canary IP address: 192.168.1.114; Netmask: 255.255.255.0; Gateway: 192.168.1.1; DNS server 1: 8.7.6.5; DNS server 2: 8.7.6.5; DHCP: Disabled",
+                 "Restored network settings": "Canary IP address: 192.168.1.206; DHCP: Enabled",
+                 "Rollback time": "1746085804.66",
+                 "User": "user",
+                 "timestamp": 1746085866,
+                 "timestamp_std": "2025-05-01 07:51:06 UTC+0000"
+               }
 ```
 :::
   </div>
