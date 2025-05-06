@@ -632,6 +632,8 @@ The easiest way to achieve this is to call the [Bird Info](queries.html#bird-inf
 
 We've provided a full example `bare-canary` Bird settings object for you to inspect.
 
+Note that some settings have additional key-value pairs that are required if that setting is enabled (like [adding a certificate and key for the HTTPS service](https://help.canary.tools/hc/en-gb/articles/360002426177-Enabling-SSL-on-the-Canary-webserver)).
+
   </div>
   <div class="example-content">
 
