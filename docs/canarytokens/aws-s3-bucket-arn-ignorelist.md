@@ -95,7 +95,7 @@ The same S3 bucket can be accessed by legitimate AWS resources that can be ident
 For the AWS S3 Bucket Canarytoken to not generate an alert when a legitimate AWS resource accesses your chosen bucket,
 you must add that resource's ARN to the ARN ignorelist of an AWS S3 Bucket Canarytoken.
 
-![AWS S3 Bucket ARN Ignore](../images/aws-s3-bucket-arn-ignorelist.png)
+![AWS S3 Bucket ARN Ignore](../images/aws-s3-bucket-arn-ignorelist-image.png)
 
 :::::
 
