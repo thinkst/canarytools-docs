@@ -90,10 +90,8 @@ endpoints:
 
 
 An AWS S3 Bucket Canarytoken monitors a S3 bucket of your choosing and generates alerts when that bucket is accessed.
-The same S3 bucket can be accessed by legitimate AWS resources that can be identified with an Amazon Resource Name (ARN).
 
-For the AWS S3 Bucket Canarytoken to not generate an alert when a legitimate AWS resource accesses your chosen bucket,
-you must add that resource's ARN to the ARN ignorelist of an AWS S3 Bucket Canarytoken.
+The Amazon Resource Names (ARNs) of AWS resources that legitimately need access to the bucket can be added to the ARN ignore list of the Canarytoken, preventing alerts from being generated when they access the bucket.
 
 ![AWS S3 Bucket ARN Ignore](../images/aws-s3-bucket-arn-ignorelist-image.png)
 
