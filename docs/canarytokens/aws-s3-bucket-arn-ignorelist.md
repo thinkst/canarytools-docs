@@ -89,7 +89,7 @@ endpoints:
 ::::: slot details
 
 
-An AWS S3 Bucket Canarytoken monitors a S3 bucket of your choosing and generates alerts when that bucket is accessed.
+An AWS S3 Bucket Canarytoken monitors an S3 bucket of your choosing and generates an alert when that bucket is accessed.
 
 The Amazon Resource Names (ARNs) of AWS resources that legitimately need access to the bucket can be added to the ARN ignore list of the Canarytoken, preventing alerts from being generated when they access the bucket.
 
