@@ -128,6 +128,7 @@ module.exports = {
         children: [
           '/canarytokens/actions',
           '/canarytokens/clonedweb-ignorelist',
+          '/canarytokens/aws-s3-bucket-arn-ignorelist',
           '/canarytokens/factory',
           '/canarytokens/queries',
           '/canarytokens/office365',
