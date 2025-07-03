@@ -52,7 +52,7 @@ async function sendAPIRequest(endpoint, method, authKey, body = null) {
 export async function getReghost () {
     const response = await fetch('https://register.canary.tools/regconsole', {
         method: 'GET', 
-        credentials: "same-origin"
+        credentials: "include"
     });
     
     if (!response.ok) {
