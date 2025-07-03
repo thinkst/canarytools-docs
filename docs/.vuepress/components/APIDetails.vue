@@ -184,20 +184,21 @@ export default {
       errorMessage: false,
       authToken: '',
       subDomain: '',
+      reghostDomain: '',
     };
   },
   mounted() {
     this.endpoint.params?.forEach(param => {
       this.$set(this.paramValues, param.name, '')
     })
+    // Fetch console name
     getReghost()
     .then((res) => {
-      console.log(res)
+      this.reghostDomain = res.console
     })
     .catch(err => {
-      console.log(err);
+      console.log('Error fetching reghost');
     })
-    console.log(document.cookie)
   },
   computed: {
     requiredParams() {
@@ -207,8 +208,7 @@ export default {
       return this.endpoint.params.filter(p => !p.required);
     },
     baseUrl() {
-      // console.log(this.getCookie('reghost'));
-      // if (this.getCookie('reghost')) return this.getCookie('reghost');
+      if (this.reghostDomain) return this.reghostDomain;
       return `https://${this.subDomain ? this.subDomain : 'EXAMPLE'}.canary.tools`
     },
     fullUrl() {
@@ -272,7 +272,7 @@ print(r.json())`
         if (this.paramValues[param] !== '') params[param] = this.paramValues[param]
       })
 
-      sendAPIRequest(this.endpoint.url, this.endpoint.method, this.authToken, params)
+      sendAPIRequest(this.fullUrl, this.endpoint.method, this.authToken, params)
       .then(res => {
         console.log(res)
         this.apiResponse = res
@@ -310,21 +310,6 @@ print(r.json())`
         console.error('Async: Could not copy code: ', err);
       });
     },
-    // getCookie(cname) {
-    //   let name = cname + "=";
-    //   let decodedCookie = decodeURIComponent(document.cookie);
-    //   let ca = decodedCookie.split(';');
-    //   for(let i = 0; i <ca.length; i++) {
-    //     let c = ca[i];
-    //     while (c.charAt(0) == ' ') {
-    //       c = c.substring(1);
-    //     }
-    //     if (c.indexOf(name) == 0) {
-    //       return c.substring(name.length, c.length);
-    //     }
-    //   }
-    //   return "";
-    // }
   }
 }
 </script>

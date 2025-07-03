@@ -222,12 +222,12 @@ module.exports = {
     ],
     smoothScroll: true,
   },
-  devServer: {
-    proxy: {
-      '/api': {
-        target: process.env.CANARY_API_URL,
-        changeOrigin: true,
-      },
-    },
-  },
+  // devServer: {
+  //   proxy: {
+  //     '/api': {
+  //       target: process.env.CANARY_API_URL,
+  //       changeOrigin: true,
+  //     },
+  //   },
+  // },
 }

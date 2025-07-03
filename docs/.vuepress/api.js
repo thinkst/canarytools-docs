@@ -18,9 +18,10 @@ async function sendAPIRequest(endpoint, method, authKey, body = null) {
         const requestOptions = {
             method: method.toUpperCase(),
             headers: headers,
+            credentials: 'include'
         };
 
-        let url = `${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
+        let url = endpoint;
         if (method.toUpperCase() === 'GET' && body) {
             const params = new URLSearchParams();
             Object.entries(body).forEach(([key, value]) => {
