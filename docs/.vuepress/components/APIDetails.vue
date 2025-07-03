@@ -121,7 +121,6 @@
             <label for="subdomain">Canary Subdomain</label>
             <input type="text" name="subdomain" v-model="subDomain" placeholder="Console subdomain">
           </div> -->
-          Console: {{ getCookie('reghost') }}
           <div class="input-group">
             <label for="authToken">API Key</label>
             <input type="password" name="authToken" v-model="authToken" placeholder="API Auth Key">
@@ -208,8 +207,8 @@ export default {
       return this.endpoint.params.filter(p => !p.required);
     },
     baseUrl() {
-      console.log(this.getCookie('reghost'));
-      if (this.getCookie('reghost')) return this.getCookie('reghost');
+      // console.log(this.getCookie('reghost'));
+      // if (this.getCookie('reghost')) return this.getCookie('reghost');
       return `https://${this.subDomain ? this.subDomain : 'EXAMPLE'}.canary.tools`
     },
     fullUrl() {
@@ -311,21 +310,21 @@ print(r.json())`
         console.error('Async: Could not copy code: ', err);
       });
     },
-    getCookie(cname) {
-      let name = cname + "=";
-      let decodedCookie = decodeURIComponent(document.cookie);
-      let ca = decodedCookie.split(';');
-      for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
+    // getCookie(cname) {
+    //   let name = cname + "=";
+    //   let decodedCookie = decodeURIComponent(document.cookie);
+    //   let ca = decodedCookie.split(';');
+    //   for(let i = 0; i <ca.length; i++) {
+    //     let c = ca[i];
+    //     while (c.charAt(0) == ' ') {
+    //       c = c.substring(1);
+    //     }
+    //     if (c.indexOf(name) == 0) {
+    //       return c.substring(name.length, c.length);
+    //     }
+    //   }
+    //   return "";
+    // }
   }
 }
 </script>
