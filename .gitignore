@@ -4,4 +4,5 @@ venv/
 *.DS_Store
 docs/.vuepress/dist
 scripts/
+.env
 

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   title: 'Canary API Docs',
   description: 'Documentation for the Canary Console.',
@@ -219,5 +221,13 @@ module.exports = {
       },
     ],
     smoothScroll: true,
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: process.env.CANARY_API_URL,
+        changeOrigin: true,
+      },
+    },
   },
 }
