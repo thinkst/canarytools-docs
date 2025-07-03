@@ -122,7 +122,6 @@
             <input type="text" name="subdomain" v-model="subDomain" placeholder="Console subdomain">
           </div> -->
           Console: {{ getCookie('reghost') }}
-          {{ document.cookie }}
           <div class="input-group">
             <label for="authToken">API Key</label>
             <input type="password" name="authToken" v-model="authToken" placeholder="API Auth Key">
