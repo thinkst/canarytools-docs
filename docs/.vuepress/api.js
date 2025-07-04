@@ -1,14 +1,6 @@
-/**
- * Send a request through the proxy server
- * @param {string} endpoint - The API endpoint (e.g., '/users')
- * @param {string} method - The HTTP method ('GET', 'POST', etc.)
- * @param {string} authKey - The authorization key to be included in headers
- * @param {object} [body] - Optional request body for GET & POST methods
- * @returns {Promise} - Returns a promise that resolves with the response data
- */
-export default 
-async function sendAPIRequest(endpoint, method, authKey, body = null) {
-    
+
+// Send GET and POST requests for the Canary Console API
+export default async function sendAPIRequest(endpoint, method, authKey, body = null) {
     try {
         const headers = {
             'X-Canary-Auth-Token': authKey,
@@ -50,6 +42,8 @@ async function sendAPIRequest(endpoint, method, authKey, body = null) {
         throw error;
     }
 }
+
+// Get the console name of the logged in user from reghost cookie
 export async function getReghost () {
     const response = await fetch('https://register.canary.tools/regconsole', {
         method: 'GET', 

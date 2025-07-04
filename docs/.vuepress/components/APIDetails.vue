@@ -43,7 +43,7 @@
             <div class="endpoint-details-description" v-html="transform(param.description)">
             </div>
               <input
-                v-if="testingMode && param.name !== 'auth_token'"
+                v-if="testingMode"
                 class="testing-input"
                 v-model="paramValues[param.name]"
                 :placeholder="param.placeholder || `Enter ${param.name}`"
@@ -115,17 +115,6 @@
             <span class="tooltip">{{ testingMode ? 'Finish testing' : 'Test this endpoint' }}</span>
           </div>
         </h4>
-
-        <div class="console-details">
-          <!-- <div class="input-group">
-            <label for="subdomain">Canary Subdomain</label>
-            <input type="text" name="subdomain" v-model="subDomain" placeholder="Console subdomain">
-          </div> -->
-          <div class="input-group">
-            <label for="authToken">API Key</label>
-            <input type="password" name="authToken" v-model="authToken" placeholder="API Auth Key">
-          </div>
-        </div>
         <div class="testing-code-block">
           <div class="tabs">
             <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id"
@@ -182,7 +171,6 @@ export default {
       ],
       apiResponse: null,
       errorMessage: false,
-      authToken: '',
       subDomain: '',
       reghostDomain: '',
     };
@@ -209,7 +197,7 @@ export default {
     },
     baseUrl() {
       if (this.reghostDomain) return this.reghostDomain;
-      return `https://${this.subDomain ? this.subDomain : 'EXAMPLE'}.canary.tools`
+      return `https://EXAMPLE.canary.tools`
     },
     fullUrl() {
       return `${this.baseUrl}${this.endpoint.url}`
@@ -269,10 +257,9 @@ print(r.json())`
       this.errorMessage = false
       const params = { };
       Object.keys(this.paramValues).forEach(param => {
-        if (this.paramValues[param] !== '') params[param] = this.paramValues[param]
-      })
-
-      sendAPIRequest(this.fullUrl, this.endpoint.method, this.authToken, params)
+        if (this.paramValues[param] !== '' && param !== 'auth_token') params[param] = this.paramValues[param]
+      })      
+      sendAPIRequest(this.endpoint.url, this.endpoint.method, this.paramValues.auth_token, params)
       .then(res => {
         console.log(res)
         this.apiResponse = res
@@ -287,7 +274,6 @@ print(r.json())`
       const params = this.endpoint.params
         .map(param => {
           const value = this.paramValues[param.name] || param.placeholder || `EXAMPLE_${param.name.toUpperCase()}`
-          if (param.name === 'auth_token' && this.authToken) return `-d ${param.name}=${'*'.repeat(this.authToken.length)}`;
           return `-d ${param.name}=${value}`
         })
         .join(' \\\n  ')
@@ -298,7 +284,6 @@ print(r.json())`
       return this.endpoint.params
         .map(param => {
           const value = this.paramValues[param.name] || param.placeholder || `EXAMPLE_${param.name.toUpperCase()}`
-          if (param.name === 'auth_token' && this.authToken) return `\n  '${param.name}': '${'*'.repeat(this.authToken.length)}'`;
           return `\n  '${param.name}': '${value}'`
         })
         .join(',') + (this.endpoint.params.length > 0 ? '\n' : '')
@@ -423,8 +408,8 @@ button:focus {
 
 .console-details  .input-group {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 12px;
 }
 
 .console-details  .input-group input, .testing-input {
