@@ -259,7 +259,7 @@ print(r.json())`
       Object.keys(this.paramValues).forEach(param => {
         if (this.paramValues[param] !== '' && param !== 'auth_token') params[param] = this.paramValues[param]
       })      
-      sendAPIRequest(this.endpoint.url, this.endpoint.method, this.paramValues.auth_token, params)
+      sendAPIRequest(this.fullUrl, this.endpoint.method, this.paramValues.auth_token, params)
       .then(res => {
         console.log(res)
         this.apiResponse = res
