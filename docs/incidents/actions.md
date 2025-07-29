@@ -177,7 +177,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Unacknowledge incidents for a valid Canary or Canarytoken node_id
+        description: Unacknowledge incidents associated with a valid Canary or Canarytoken node_id
                      (cannot be used in conjunction with src_host)
       - name: src_host
         required: false
