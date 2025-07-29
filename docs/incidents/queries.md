@@ -13,7 +13,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific node
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
@@ -27,7 +27,7 @@ endpoints:
       - name: event_limit
         required: false
         type: int
-        description: Specify the maximum number of event logs to be returned with the incident     
+        description: Specify the maximum number of event logs to be returned with the incident
       - name: limit
         required: false
         type: int
@@ -42,8 +42,8 @@ endpoints:
         required: false
         type: boolean
         default: true
-        description: A 'true' value will remove duplicated entries  
-                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+        description: A 'true' value will remove duplicated entries
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about
                      it if you’re on one of those consoles)
       - name: tz
         required: false
@@ -64,7 +64,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific node_id
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
@@ -82,11 +82,11 @@ endpoints:
         deprecated_message: This parameter is deprecated as it may not function as expected in all cases.
                             Rather use `incidents_since`.
         description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
-                     after this timestamp will be returned. 
+                     after this timestamp will be returned.
       - name: event_limit
         required: false
         type: int
-        description: Specify the maximum number of event logs to be returned with the incident     
+        description: Specify the maximum number of event logs to be returned with the incident
       - name: limit
         required: false
         type: int
@@ -101,8 +101,8 @@ endpoints:
         required: false
         type: boolean
         default: true
-        description: A 'true' value will remove duplicated entries  
-                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+        description: A 'true' value will remove duplicated entries
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about
                      it if you’re on one of those consoles)
       - name: tz
         required: false
@@ -143,7 +143,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Only return incidents for a specific device.
+        description: Only return incidents associated with a specific Canary or Canarytoken node_id.
       - name: flock_id
         required: false
         type: string
@@ -187,7 +187,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific node
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
@@ -201,7 +201,7 @@ endpoints:
       - name: event_limit
         required: false
         type: int
-        description: Specify the maximum number of event logs to be returned with the incident     
+        description: Specify the maximum number of event logs to be returned with the incident
       - name: limit
         required: false
         type: int
@@ -216,8 +216,8 @@ endpoints:
         required: false
         type: boolean
         default: true
-        description: A 'true' value will remove duplicated entries  
-                    (some older Consoles will have this defaulted to `false`, but you’d already know about 
+        description: A 'true' value will remove duplicated entries
+                    (some older Consoles will have this defaulted to `false`, but you’d already know about
                      it if you’re on one of those consoles)
       - name: tz
         required: false

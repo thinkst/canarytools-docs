@@ -55,7 +55,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: ID of Bird or Canarytoken to move
+        description: A valid node_id of a Canary or Canarytoken that's to be moved
       - name: clear_incidents
         required: false
         type: boolean
@@ -162,7 +162,7 @@ The supplied list will overwrite the existing Managers list, meaning it'll remov
 curl https://EXAMPLE.canary.tools/api/v1/users/flock/assign/managers \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
-  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL' 
+  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL'
 ```
 
 :::
@@ -230,7 +230,7 @@ The supplied list will overwrite the existing Watchers list, meaning it'll remov
 curl https://EXAMPLE.canary.tools/api/v1/users/flock/assign/watchers \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
   -d flock_id=EXAMPLE_FLOCK_ID \
-  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL' 
+  -d emails='EXAMPLE_EMAIL,EXAMPLE_EMAIL'
 ```
 
 :::
@@ -292,7 +292,7 @@ Flocks are defined by a unique `flock_id` which is returned in the response when
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/flock/create \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d name='EXAMPLE_FLOCK_NAME' 
+  -d name='EXAMPLE_FLOCK_NAME'
 ```
 
 :::
@@ -340,7 +340,7 @@ print(r.json())
 
 Deleting a Flock will remove it from your Console. You can only delete an empty FLock, meaning you'll need to move (or remove) any [Sensors](/guide/terminology.html#sensors) from the Flock before deleting it.
 
-::: warning 
+::: warning
 You cannot delete the [Default Flock](/guide/terminology.html#default-flock), but you can [Rename](#rename-flock) it if you want to.
 :::::
 

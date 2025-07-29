@@ -34,9 +34,9 @@ ID of the Flock in which the incident occurred <br><br>
 **flock_name**
 Name of the Flock in which the incident occurred <br><br>
 **name**
-Optional - The name of the device on which the incident occurred <br><br>
+Optional - The name of the Canary on which the incident occurred <br><br>
 **node_id**
-Optional - The node_id of the device on which the incident occurred <br><br>
+Optional - The node_id of the Canary or Canarytoken on which the incident occurred <br><br>
 **src_host**
 The source IP address of the attacker <br><br>
 **src_host_reverse**
