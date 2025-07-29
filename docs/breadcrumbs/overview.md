@@ -13,7 +13,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: A valid node_id
+        description: A valid Canary or Canarytoken node_id
       - name: kind
         required: true
         type: string
@@ -33,7 +33,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: A valid node_id
+        description: A valid Canary or Canarytoken node_id
       - name: kind
         required: false
         type: string
@@ -72,7 +72,7 @@ The following services and breadcrumb kinds are currently supported:
 | windows-http-shortcut | Webserver | Windows HTTP Shortcut. This crumb creates a Windows web page shortcut. The crumb file can simply be dropped somewhere that an attacker might click into it. |
 | windows-https-shortcut | Webserver | Windows HTTPS Shortcut. This crumb creates a Windows web page shortcut. The crumb file can simply be dropped somewhere that an attacker might click into it. |
 
-::: tip 
+::: tip
 Remember to make sure that the desired services are enabled and reachable on the Canary, before deploying breadcrumbs. The services can either be enabled on the Console UI, or via the "[device configuration](/bird-management/service-configuration.html)" endpoints.
 :::
 

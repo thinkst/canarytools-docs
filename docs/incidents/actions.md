@@ -90,7 +90,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Acknowledge incidents for a specific node
+        description: Acknowledge incidents for a valid Canary or Canarytoken node_id
                      (cannot be used in conjunction with src_host)
       - name: src_host
         required: false
@@ -132,7 +132,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Delete incidents for a specific node
+        description: Delete incidents for a valid Canary or Canarytoken node_id
                      (cannot be used in conjunction with src_host)
       - name: src_host
         required: false
@@ -177,7 +177,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Unacknowledge incidents for a specific node
+        description: Unacknowledge incidents for a valid Canary or Canarytoken node_id
                      (cannot be used in conjunction with src_host)
       - name: src_host
         required: false
@@ -228,7 +228,7 @@ These are a collection of endpoints that allow you to interact with incidents.
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incident/acknowledge \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d incident=EXAMPLE_INCIDENT_KEY 
+  -d incident=EXAMPLE_INCIDENT_KEY
 ```
 
 :::
@@ -283,7 +283,7 @@ print(r.json())
 ``` bash
 curl -X DELETE https://EXAMPLE.canary.tools/api/v1/incident/delete \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d incident=EXAMPLE_INCIDENT_KEY 
+  -d incident=EXAMPLE_INCIDENT_KEY
 ```
 
 :::
@@ -430,7 +430,7 @@ print(r.json())
 ``` bash
 curl https://EXAMPLE.canary.tools/api/v1/incident/unacknowledge \
   -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d incident=EXAMPLE_INCIDENT_KEY 
+  -d incident=EXAMPLE_INCIDENT_KEY
 ```
 
 :::
