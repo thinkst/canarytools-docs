@@ -90,7 +90,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Acknowledge incidents for a valid Canary or Canarytoken node_id
+        description: Acknowledge incidents associated with a valid Canary or Canarytoken node_id
                      (cannot be used in conjunction with src_host)
       - name: src_host
         required: false
