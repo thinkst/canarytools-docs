@@ -55,7 +55,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: A valid Canary or Canarytoken node_id to move
+        description: A valid node_id of a Canary or Canarytoken that's to be moved
       - name: clear_incidents
         required: false
         type: boolean
