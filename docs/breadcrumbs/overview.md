@@ -13,7 +13,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: A valid Canary or Canarytoken node_id
+        description: A valid Canary node_id
       - name: kind
         required: true
         type: string
@@ -33,7 +33,7 @@ endpoints:
       - name: node_id
         required: true
         type: string
-        description: A valid Canary or Canarytoken node_id
+        description: A valid Canary node_id
       - name: kind
         required: false
         type: string
