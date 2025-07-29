@@ -13,7 +13,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific Canary or Canarytoken node_id
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
@@ -64,7 +64,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific Canary or Canarytoken node_id
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
@@ -143,7 +143,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Only return incidents for a specific Canary or Canarytoken node_id.
+        description: Only return incidents associated with a specific Canary or Canarytoken node_id.
       - name: flock_id
         required: false
         type: string
@@ -187,7 +187,7 @@ endpoints:
       - name: node_id
         required: false
         type: string
-        description: Get all incidents for a specific Canary or Canarytoken node_id
+        description: Get all incidents associated with a specific Canary or Canarytoken node_id
       - name: flock_id
         required: false
         type: string
