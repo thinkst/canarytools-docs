@@ -29,7 +29,7 @@ endpoints:
         type: string
         description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
                      strictly after this timestamp will be returned. Incidents may be missed when using this for polling, and it
-                     is advised to use 'incidents_since' instead.
+                     is advised to use `incidents_since` for that purpose instead.
       - name: older_than
         required: false
         type: string
@@ -91,7 +91,7 @@ endpoints:
         type: string
         description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
                      strictly after this timestamp will be returned. Incidents may be missed when using this for polling, and it
-                     is advised to use 'incidents_since' instead.
+                     is advised to use `incidents_since` for that purpose instead.
       - name: older_than
         required: false
         type: string
@@ -176,7 +176,7 @@ endpoints:
         type: string
         description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
                      strictly after this timestamp will be returned. Incidents may be missed when using this for polling, and it
-                     is advised to use 'incidents_since' instead.
+                     is advised to use `incidents_since` for that purpose instead.
       - name: older_than
         required: false
         type: string
@@ -228,7 +228,7 @@ endpoints:
         type: string
         description: Timestamp used to filter returned incidents in the format `yyyy-mm-dd-hh:mm:ss`. All incidents created
                      strictly after this timestamp will be returned. Incidents may be missed when using this for polling, and it
-                     is advised to use 'incidents_since' instead.
+                     is advised to use `incidents_since` for that purpose instead.
       - name: older_than
         required: false
         type: string
