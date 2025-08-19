@@ -1,8 +1,8 @@
 export default async (request, context) => {
-  if (Deno.env.get("ENVIRONMENT") !== "staging") {
+  if (Deno.env.get("ENVIRONMENT") !== "STAGING") {
     return context.next();
   }
-  
+
   const allowedCIDRs = [
     "3.10.136.218/32",
     "18.202.69.244/32",
