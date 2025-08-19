@@ -1,4 +1,7 @@
 export default async (request, context) => {
+  const env = Deno.env.get("ENVIRONMENT");
+  console.log("ENVIRONMENT:", env); 
+
   if (Deno.env.get("ENVIRONMENT") !== "STAGING") {
     return context.next();
   }
