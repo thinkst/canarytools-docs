@@ -68,11 +68,6 @@
 /canarytoken/office365/users/list
 
 
-# this is a utility endpoint not reachable by an api token
-/canarytoken/registerdoc
-/canarytoken/factorydoc/generate
-/canarytoken/factorydoc/sharehistory
-
 # this will be added once we have a clean way to demonstrate the process
 /remotead/configuration
 /remotead/newjob
