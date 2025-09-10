@@ -133,7 +133,6 @@ module.exports = {
           '/canarytokens/queries',
           '/canarytokens/office365',
           '/canarytokens/gmail',
-          '/canarytokens/googledocs',
           '/canarytokens/idp-app',
         ]
       },
