@@ -191,6 +191,15 @@ The Canarytoken factory gives you a limited use key that is able to create other
 
 </APIEndpoints>
 
+::: warning NOTE
+We recommend that you use the Canarytoken Deploy [Flock API Key type](/flocks-settings/flock-auth-token.html), instead of Factory Auth Tokens.
+
+The Canarytoken Deploy Flock API type is specifically designed to only be able to create and download (deploy) Canarytokens within a specific flock, and can be viewed/managed from the Console UI [Flock API settings](https://help.canary.tools/hc/en-gb/articles/7111549805213-Flock-API-Keys) in the same way as your other Flock API keys.
+
+Existing Canarytoken Factory Endpoints and factory auth strings continue to work as before to support existing deployments. They are now simpler to manage in the Console UI as they're transparently converted to Canarytoken Deploy Flock API keys.
+:::
+
+
 ## List Canarytokens available via Canarytoken Factory
 
 ::: tip
