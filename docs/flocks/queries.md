@@ -83,14 +83,14 @@ endpoints:
     name: List FLocks for User
     url: /api/v1/flocks/list
     method: GET
-    description: Retrieve a list of Flocks for a given `email`.
+    description: Retrieve a list of Flocks. If an `email` is provided, restricts the output to just the Flocks that user can view.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
       - name: email
-        required: true
+        required: false
         type: string
         description: Email of a valid user
     response: A JSON structure with the list of Flocks. 
