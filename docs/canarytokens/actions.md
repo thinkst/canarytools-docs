@@ -140,8 +140,8 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        default: "'flock:default'"
-        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock))
+        default: "'flock:default' or flock_id of auth_token"
+        description: A valid flock_id (defaults to the [Default Flock](/guide/terminology.html#default-flock) or flock id of auth_token if using Canarytoken Deploy Flock API key type)
 
       - name: idp_app_type
         required: false
