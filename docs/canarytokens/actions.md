@@ -121,6 +121,11 @@ endpoints:
         type: string
         description: Specifies the custom Canarytoken domain to use (that's already been linked to the Console) when creating a Canarytoken
 
+      - name: expiry
+        required: false
+        type: string
+        description: Specifies the expiry when creating a Canarytoken. String format using y, mo, w, d, h are supported. E.g. 12h, 6mo (Only AWS API Key token)
+
       - name: doc
         required: false
         type: file
