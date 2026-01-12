@@ -247,6 +247,7 @@ print(r.json())
       "created": "2023-04-13 08:58:39 UTC+0000",
       "created_by": "admin@inyoni.co.za",
       "key_id": "<Key ID>",
+      "last_used": "2026-01-12 09:17:29 UTC+0000",
       "managed_flocks": [
         "flock:<Flock ID>"
       ],
@@ -259,6 +260,7 @@ print(r.json())
       "created": "2023-04-14 09:28:45 UTC+0000",
       "created_by": "Global-API-Token[key_id:ffffffff]",
       "key_id": "<Key ID>",
+      "last_used": null,
       "managed_flocks": [
         "flock:<Flock ID>"
       ],
