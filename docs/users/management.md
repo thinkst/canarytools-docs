@@ -58,7 +58,7 @@ endpoints:
     name: Disable User
     url: /api/v1/user/disable
     method: POST
-    description: Disables a specified user. This user will not be able to login.
+    description: Disables a specified user. This user will not be able to login. Also disables weekly summary mails.
     params:
       - name: auth_token
         required: true
@@ -109,7 +109,7 @@ endpoints:
     name: Enable User
     url: /api/v1/user/enable
     method: POST
-    description: Enables a specified user. This user will be able to login if previously disabled.
+    description: Enables a specified user. This user will be able to login if previously disabled. Also enables weekly summary mails.
     params:
       - name: auth_token
         required: true
