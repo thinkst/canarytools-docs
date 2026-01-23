@@ -75,7 +75,7 @@ The following services and breadcrumb kinds are currently supported:
 
 ### Available Breadcrumb Kinds
 | Kind | Service | Creates Credentials | Description |
-|---|---|---|---|---|
+|---|---|---|---|
 | ssh-key | SSH | Yes | SSH Key. This crumb generates a valid SSH key pair and a sample config entry. We will provide an extra alert if the public key is detected in any future SSH events on your Canary. You can deploy this breadcrumb by placing the public and private key files into a host's `.ssh/` folder, and copying the Host entry into `.ssh/config`.|
 | putty-profile | SSH | No | SSH PuTTY Profile. This crumb creates a session profile for the Canary on the PuTTY SSH client. On a Windows host that runs PuTTY, you can import the session by double clicking the crumb file, or by running `reg import putty-sessions.reg` in PowerShell or `regedit /i putty-sessions.reg` in a terminal. |
 | rdp-profile | RDP | No | Remote Desktop Profile. This crumb can either be treated like a Canarytoken and left in place somewhere on a host where an attacker might stumble onto it, or it can be imported into Microsoft Remote Desktop as a profile. |
