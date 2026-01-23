@@ -2248,6 +2248,8 @@ Triggered when the public key from an SSH Key Breadcrumb is used in an attack.
 The public key used in the attack. <br><br>
 **SERVICE**
 The bird service targeted with the public key. <br><br>
+**USERNAME**
+The username used in the SSH connection attempt. <br><br>
 **reminder**
 The reminder set when the breadcrumb was created. <br><br>
 **timestamp**
@@ -2270,6 +2272,7 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
 <EVENT_DICT> = {
                   "KEY": "...",
                   "SERVICE": "...",
+                  "USERNAME": "...",
                }
 ```
 :::
