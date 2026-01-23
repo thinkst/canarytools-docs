@@ -2232,5 +2232,46 @@ Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><
                   "WINRMPAYLOAD": "..."
                }
 ```
+:::
+  </div>
 </div>
+
+## SSH Key Breadcrumb Used
+Triggered when the public key from an SSH Key Breadcrumb is used in an attack.
+
+<div class="section-container">
+  <div class="details-content">
+
+::: attribute-details
+
+**KEY**
+The public key used in the attack. <br><br>
+**SERVICE**
+The bird service targeted with the public key. <br><br>
+**reminder**
+The reminder set when the breadcrumb was created. <br><br>
+**timestamp**
+The timestamp of the request eg. `1580378197` <br><br>
+**timestamp_std**
+Human readable timestamp of the request eg. `2020-01-30 09:56:37 UTC+0000` <br><br>
+
+:::
+
+  </div>
+  <div class="example-content">
+
+<br>
+
+::: api-response
+``` json
+<EVENT_DESCRIPTION> = "SSH Key Breadcrumb Used"
+<LOGTYPE> = "29001"
+<REMINDER> = "..."
+<EVENT_DICT> = {
+                  "KEY": "...",
+                  "SERVICE": "...",
+               }
+```
+:::
+  </div>
 </div>
