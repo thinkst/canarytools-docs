@@ -208,6 +208,15 @@ module.exports = {
         ]
       },
       {
+        title: 'Webhooks',
+        collapsable: false,
+        sidebarDepth: 1,
+        children: [
+          '/webhooks/generic',
+          '/webhooks/splunk',
+        ]
+      },
+      {
         title: 'User Management',
         collapsable: false,
         sidebarDepth: 3,
