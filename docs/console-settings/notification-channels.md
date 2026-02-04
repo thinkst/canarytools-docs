@@ -138,7 +138,7 @@ endpoints:
     name: Configure Syslog audit trail notifications
     url: /api/v1/settings/notifications/audit/syslog
     method: POST
-    description: Enable or disable Syslog audit trail notifications
+    description: Enable or disable Syslog audit trail notifications.
     params:
       - name: auth_token
         required: true
@@ -226,11 +226,11 @@ endpoints:
       - name: setting
         required: true
         type: string
-        description: The setting to configure. Currently only `receive_audit_trail_records`.
+        description: The setting to configure. Currently only `receive_audit_trail_records`
       - name: value
         required: true
         type: boolean
-        description: The value of the setting. `true` or `false`.
+        description: The value of the setting. `true` or `false`
     response: A JSON structure with result indicator.
   splunk_add:
     name: Add a Splunk Webhook
@@ -245,15 +245,15 @@ endpoints:
       - name: host
         required: true
         type: string
-        description: Hostname of the Splunk HEC.
+        description: Hostname of the Splunk HEC
       - name: port
         required: true
         type: int
-        description: Port of the Splunk HEC.
+        description: Port of the Splunk HEC
       - name: token
         required: true
         type: string
-        description: The Splunk HEC token.
+        description: The Splunk HEC token
     response: A JSON structure with result indicator.
   splunk_remove:
     name: Remove a Splunk Webhook
@@ -290,11 +290,11 @@ endpoints:
       - name: setting
         required: true
         type: string
-        description: The setting to configure. Currently only `receive_audit_trail_records`.
+        description: The setting to configure. Currently only `receive_audit_trail_records`
       - name: value
         required: true
         type: boolean
-        description: The value of the setting. `true` or `false`.
+        description: The value of the setting. `true` or `false`
     response: A JSON structure with result indicator.
   msteams_add:
     name: Add a Generic Webhook
