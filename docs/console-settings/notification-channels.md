@@ -230,7 +230,7 @@ endpoints:
       - name: value
         required: true
         type: boolean
-        description: The value of the setting. `true` or `false`
+        description: The value of the setting
     response: A JSON structure with result indicator.
   splunk_add:
     name: Add a Splunk Webhook
@@ -981,7 +981,7 @@ print(r.json())
 
 ## Syslog
 
-We don't currently have endpoints publicly available to enable and set up your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from you to get it done. We have a KB article that will [explain the setup process](https://help.canary.tools/hc/en-gb/articles/360002432118-How-can-I-get-alerts-via-Syslog).
+We don't currently have endpoints publicly available to enable and set up your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from you to get it done. We have a KB article that [explains the setup process](https://help.canary.tools/hc/en-gb/articles/360002432118-How-can-I-get-alerts-via-Syslog).
 
 ### Configure Syslog audit trail notifications
 
