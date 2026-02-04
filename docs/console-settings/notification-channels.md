@@ -134,6 +134,21 @@ endpoints:
         type: boolean
         description: If set to true, clears the list of cellphone numbers
     response: A JSON structure with result indicator and the current list of cellphone numbers.
+  syslog_configure:
+    name: Configure Syslog audit trail notifications
+    url: /api/v1/settings/notifications/audit/syslog
+    method: POST
+    description: Enable or disable Syslog audit trail notifications
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: enabled
+        required: true
+        type: boolean
+        description: If set to true, audit trail records will be sent to Syslog
+    response: A JSON structure with result indicator.
   generic_get:
     name: List Generic Webhooks
     url: /api/v1/settings/generic/list
@@ -193,6 +208,93 @@ endpoints:
         required: true
         type: string
         description: The URL of the webhook that we'll send test data to
+    response: A JSON structure with result indicator.
+  generic_configure:
+    name: Configure an Existing Generic Webhook
+    url: /api/v1/settings/webhook/configure
+    method: POST
+    description: Configure an existing generic webhook's settings by providing a setting and a value.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: url
+        required: true
+        type: string
+        description: The URL of the webhook that we'll send test data to
+      - name: setting
+        required: true
+        type: string
+        description: The setting to configure. Currently only `receive_audit_trail_records`.
+      - name: value
+        required: true
+        type: boolean
+        description: The value of the setting. `true` or `false`.
+    response: A JSON structure with result indicator.
+  splunk_add:
+    name: Add a Splunk Webhook
+    url: /api/v1/settings/splunk/add
+    method: POST
+    description: Add a new Splunk webhook.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: host
+        required: true
+        type: string
+        description: Hostname of the Splunk HEC.
+      - name: port
+        required: true
+        type: int
+        description: Port of the Splunk HEC.
+      - name: token
+        required: true
+        type: string
+        description: The Splunk HEC token.
+    response: A JSON structure with result indicator.
+  splunk_remove:
+    name: Remove a Splunk Webhook
+    url: /api/v1/settings/splunk/remove
+    method: POST
+    description: Remove an existing Splunk webhook.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  splunk_test:
+    name: Test an Existing Splunk Webhook
+    url: /api/v1/settings/splunk/test
+    method: POST
+    description: Test an existing Splunk webhook endpoint by sending it test data.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure with result indicator.
+  splunk_configure:
+    name: Configure an Existing Splunk Webhook
+    url: /api/v1/settings/splunk/configure
+    method: POST
+    description: Configure an existing Splunk webhook's settings by providing a setting and a value.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: setting
+        required: true
+        type: string
+        description: The setting to configure. Currently only `receive_audit_trail_records`.
+      - name: value
+        required: true
+        type: boolean
+        description: The value of the setting. `true` or `false`.
     response: A JSON structure with result indicator.
   msteams_add:
     name: Add a Generic Webhook
@@ -326,7 +428,7 @@ When an alert is triggered on your Birds, or a change happens on your Console, w
 
 These notifications can be sent to different channels and they can also be customized so that you only receive the notifications that matter to you (take a look at [Ignore Lists](/console-settings/ignore-lists.html) to filter alerts generated from your Birds).
 
-The following endpoints will allow you to configure your notification channels such as [Webhooks](#webhooks) ([Slack](#slack), [MS Teams](#ms-teams), [Generic](#generic)), [SMS](#sms), [Email](#email) and [Syslog](#syslog).
+The following endpoints will allow you to configure your notification channels such as [Webhooks](#webhooks) ([Slack](#slack), [MS Teams](#ms-teams), [Generic](#generic), [Splunk](#splunk)), [SMS](#sms), [Email](#email) and [Syslog](#syslog).
 
 ::: tip
 Viewing your Console's current notification setup is as easy as querying the [Info](#info) endpoint.
@@ -879,7 +981,59 @@ print(r.json())
 
 ## Syslog
 
-We don't currently have endpoints publicly available to enable and manage your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from you to get it done. We have a KB article that will [explain the setup process](https://help.canary.tools/hc/en-gb/articles/360002432118-How-can-I-get-alerts-via-Syslog).
+We don't currently have endpoints publicly available to enable and set up your Syslog setup. Instead, we deal with all the setup and simply require the Syslog details from you to get it done. We have a KB article that will [explain the setup process](https://help.canary.tools/hc/en-gb/articles/360002432118-How-can-I-get-alerts-via-Syslog).
+
+### Configure Syslog audit trail notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.syslog_configure">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/notifications/audit/syslog \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d enabled=true
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/notifications/audit/syslog'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'enabled': True
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
+  "enabled": true
+}
+```
+:::
+
+:::::
+
+</APIDetails>
 
 ## Webhooks
 
@@ -1116,6 +1270,272 @@ print(r.json())
 {
   "result": "success",
   "webhook": "<url>"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Configure an Existing Generic Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.generic_configure">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/webhook/configure \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d url=EXAMPLE_URL \
+  -d setting=receive_audit_trail_records \
+  -d value=true
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/webhook/configure'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'url': 'EXAMPLE_URL',
+  'setting': 'receive_audit_trail_records',
+  'value': True
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+
+### Splunk
+
+If you simply want us to POST JSON data to your Splunk server's HEC, the Splunk webhook is perfect for you.
+
+#### Add a Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_add">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/splunk/add \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d host=SPLUNK_HEC_HOST \
+  -d port=8088 \
+  -d token=SPLUNK_HEC_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/splunk/add'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'host': 'SPLUNK_HEC_HOST',
+  'port': 8088,
+  'token': 'SPLUNK_HEC_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Remove a Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_remove">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/splunk/remove \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/splunk/remove'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Test an Existing Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_test">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/splunk/test \
+  -d auth_token=EXAMPLE_AUTH_TOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/splunk/test'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+#### Configure an Existing Splunk Webhook
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.splunk_configure">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/settings/splunk/configure \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d setting=receive_audit_trail_records \
+  -d value=true
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/settings/splunk/configure'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'setting': 'receive_audit_trail_records',
+  'value': True
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success",
 }
 ```
 :::
