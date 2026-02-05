@@ -230,7 +230,7 @@ endpoints:
       - name: value
         required: true
         type: boolean
-        description: The value of the setting
+        description: The value for `setting`
     response: A JSON structure with result indicator.
   splunk_add:
     name: Add a Splunk Webhook
