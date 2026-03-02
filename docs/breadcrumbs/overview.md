@@ -93,11 +93,11 @@ Remember to make sure that the desired services are enabled and reachable on the
 :::
 
 ### Breadcrumb Credentials
-Certain Breadcrumbs generate and store valid credentials that act as an identifier for the Breadcrumb and make them more appealing to attackers. When creating these Breadcrumbs you must provide a reminder, which we will alert you with if the credentials are used in an attack on any of your Canaries.
+Certain Breadcrumbs generate and store valid credentials that act as an identifier for the Breadcrumb and make them more appealing to attackers. When creating these Breadcrumbs you must provide a reminder, which will be included in an alert if the credentials are used in an attack on any of your Canaries.
 
 As these Breadcrumb kinds produce static credentials, you can generate them without supplying a `node_id` to create a set of valid credentials which will still alert on use without creating configuration files referencing a specific Canary.
 
-These Breadcrumbs are currently excluded from the archive produced by Downloading without a specified kind.
+These Breadcrumbs are currently excluded from the archive produced by downloading without a specified kind.
 
 ## Generate Breadcrumb
 
