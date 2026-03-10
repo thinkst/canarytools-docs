@@ -1828,57 +1828,6 @@ to email, SMS, webhooks, and using the API, we also have Pub/Sub.
 If you'd like to have this enabled on your Console [drop us a mail](mailto:support@canary.tools) and we'll get you sorted!
 
 
-#### Remove a Subscriber
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_remove_subscription">
-
-::::: slot example
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-
-``` bash
-curl -X DELETE https://EXAMPLE.canary.tools/api/v1/pubsub/remove_subscription \
-  -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d subscription_name=EXAMPLE_SUB_NAME
-```
-
-:::
-
-::: tab "Python"
-
-``` python
-import requests
-
-url = 'https://EXAMPLE.canary.tools/api/v1/pubsub/remove_subscription'
-
-payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'subscription_name': 'EXAMPLE_SUB_NAME'
-}
-
-r = requests.delete(url, data=payload)
-
-print(r.json())
-```
-
-:::
-
-::::
-
-::: api-response
-```json
-{
-  "result": "success"
-}
-```
-:::
-
-:::::
-
-</APIDetails>
-
 #### Send a test message to Subscribers
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_test">
