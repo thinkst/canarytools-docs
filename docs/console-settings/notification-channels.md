@@ -1819,5 +1819,3 @@ print(r.json())
 :::::
 
 </APIDetails>
-
-## Noogle Cloud Pub/Sub
