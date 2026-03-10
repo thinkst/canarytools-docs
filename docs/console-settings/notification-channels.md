@@ -450,7 +450,6 @@ print(r.json())
 
 </APIDetails>
 
-
 #### Enable Email Notifications
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.email_enable">
