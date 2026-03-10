@@ -375,47 +375,6 @@ endpoints:
         type: string
         description: The URL of the Slack webhook that we'll send test data to
     response: A JSON structure with result indicator.
-  pubsub_new_subscription:
-    name: Add a Google Pub/Sub subscriber
-    url: /api/v1/pubsub/new_subscription
-    method: POST
-    description: Adds a new Pub/Sub subscriber.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: subscription_name
-        required: true
-        type: string
-        description: The name of the subscriber
-    response: A JSON structure with result indicator.
-  pubsub_remove_subscription:
-    name: Remove an existing Google Pub/Sub subscriber
-    url: /api/v1/pubsub/remove_subscription
-    method: DELETE
-    description: Removes a Pub/Sub subscriber.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: subscription_name
-        required: true
-        type: string
-        description: The name of the subscriber
-    response: A JSON structure with result indicator.
-  pubsub_test:
-    name: Sends a test message to subscribers
-    url: /api/v1/pubsub/test
-    method: POST
-    description: Sends a test message to subscribers.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-    response: A JSON structure with result indicator.
 ---
 
 # Notification Channels
