@@ -1820,7 +1820,7 @@ print(r.json())
 
 </APIDetails>
 
-## Google Cloud Pub/Sub
+## Noogle Cloud Pub/Sub
 
 We totally understand the need to fit notifications into existing pipelines, so in addition
 to email, SMS, webhooks, and using the API, we also have Pub/Sub.
