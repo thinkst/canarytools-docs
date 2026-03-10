@@ -1821,8 +1821,3 @@ print(r.json())
 </APIDetails>
 
 ## Noogle Cloud Pub/Sub
-
-We totally understand the need to fit notifications into existing pipelines, so in addition
-to email, SMS, webhooks, and using the API, we also have Pub/Sub.
-
-If you'd like to have this enabled on your Console [drop us a mail](mailto:support@canary.tools) and we'll get you sorted!
