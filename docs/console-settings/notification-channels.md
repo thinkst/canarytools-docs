@@ -1827,56 +1827,6 @@ to email, SMS, webhooks, and using the API, we also have Pub/Sub.
 
 If you'd like to have this enabled on your Console [drop us a mail](mailto:support@canary.tools) and we'll get you sorted!
 
-#### Add a Subscriber
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.pubsub_new_subscription">
-
-::::: slot example
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab "cURL"
-
-``` bash
-curl https://EXAMPLE.canary.tools/api/v1/pubsub/new_subscription \
-  -d auth_token=EXAMPLE_AUTH_TOKEN \
-  -d subscription_name=EXAMPLE_SUB_NAME
-```
-
-:::
-
-::: tab "Python"
-
-``` python
-import requests
-
-url = 'https://EXAMPLE.canary.tools/api/v1/pubsub/new_subscription'
-
-payload = {
-  'auth_token': 'EXAMPLE_AUTH_TOKEN',
-  'subscription_name': 'EXAMPLE_SUB_NAME'
-}
-
-r = requests.post(url, data=payload)
-
-print(r.json())
-```
-
-:::
-
-::::
-
-::: api-response
-```json
-{
-  "result": "success"
-}
-```
-:::
-
-:::::
-
-</APIDetails>
 
 #### Remove a Subscriber
 
