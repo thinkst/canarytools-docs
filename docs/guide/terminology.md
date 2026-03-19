@@ -34,7 +34,7 @@ These are the Canary devices that you purchase and connect to your Console. Thes
 
 The `Default Flock` is the original [Flock](#flocks) where all [Sensors](#sensors) will be placed. All newly added [Birds](#birds) that aren't tied to a specific Flock will be added here.
 
-It's `flock_id` will always be `flock:default`, so it is easily queryable.
+Its `flock_id` will always be `flock:default`, so it is easily queryable.
 
 ::: tip
 You **cannot delete** the Default Flock, but you can easily change its name using the [Rename Flock](/flocks/actions.html#rename-flock) endpoint.
@@ -47,6 +47,12 @@ Flocks let you place Birds, Canarytokens, and users into logical groups (with di
 Consider creating different flocks for different teams, locations, subnets, or environments.
 
 Each Flock can inherit configuration from your global settings, or you can individually configure settings as needed.
+
+## Flock pending queues
+
+Flocks can limit the number of Birds which are commissioned into them with per-flock canary limits. When a flock has reached its canary limit, the flock is full. New birds can still be assigned to a full flock by adding them to that flock's pending queue.
+
+Birds will automatically commission from the pending queue as soon as there is space for them in the flock or the limit is disabled.
 
 ## Managers
 

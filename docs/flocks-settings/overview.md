@@ -17,6 +17,8 @@ If set to `disabled`, it will be disabled for that Flock.
 
 This gives you the ability to configure settings on a Console-wide level, as well as individual Flock-level if you see fit.
 
+Some Flock settings, such as [Canary Limits](/flocks-settings/canary-limits.html), are managed through dedicated endpoints.
+
   </div>
   <div class="example-content">
 

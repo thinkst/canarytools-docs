@@ -11,6 +11,21 @@ endpoints:
         type: string
         description: A valid auth token
     response: JSON Structure of Birds pending commissions.
+  flock_pending_commissions:
+    name: Pending Bird Commissions in Flock
+    url: /api/v1/flock/commission/pending
+    method: GET
+    description: Fetch a list of Birds waiting in a specific Flock's pending queue.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: flock_id
+        required: true
+        type: string
+        description: ID of the Flock whose pending queue should be returned
+    response: JSON Structure of Birds pending commissions in the specified Flock.
   cancel_commission:
     name: Cancel Bird Commission
     url: /api/v1/device/cancel_commission
@@ -25,6 +40,21 @@ endpoints:
         required: true
         type: string
         description: A valid Canary node_id
+    response: JSON structure with result indicator.
+  bulk_cancel_commission:
+    name: Bulk Cancel Bird Commission
+    url: /api/v1/device/bulk_cancel_commission
+    method: POST
+    description: Cancel commission for multiple pending Birds.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_ids
+        required: true
+        type: string
+        description: A comma-separated list of valid Canary node_ids
     response: JSON structure with result indicator.
   confirm_commission:
     name: Confirm Bird Commission
@@ -45,6 +75,46 @@ endpoints:
         type: string
         default: "'flock:default'"
         description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
+    response: JSON structure with result indicator.
+  assign_pending:
+    name: Assign Pending Bird
+    url: /api/v1/device/assign_pending
+    method: POST
+    description: Assign a pending Bird to a Flock's pending queue.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_id
+        required: true
+        type: string
+        description: A valid Canary node_id
+      - name: flock_id
+        required: false
+        type: string
+        default: "'flock:default'"
+        description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
+    response: JSON structure with the assigned Bird node_id.
+  bulk_assign_pending:
+    name: Bulk Assign Pending Birds
+    url: /api/v1/device/bulk_assign_pending
+    method: POST
+    description: Assign multiple pending Birds to a Flock's pending queue.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: node_ids
+        required: true
+        type: string
+        description: A comma-separated list of valid Canary node_ids
+      - name: flock_id
+        required: false
+        type: string
+        default: "'flock:default'"
+        description: ID of the flock to assign the Birds to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: JSON structure with result indicator.
   decommission_device:
     name: Decommission Bird
@@ -148,6 +218,74 @@ print(r.json())
 
 </APIDetails>
 
+## Pending Bird Commissions in Flock
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.flock_pending_commissions">
+
+::::: slot description
+
+Fetch all Birds currently waiting in a specific [Flock pending queue](/guide/terminology.html#flock-pending-queues).
+
+:::::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/flock/commission/pending \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d flock_id=EXAMPLE_FLOCK_ID \
+  -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/flock/commission/pending'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "devices": [
+    {
+      "description": "",
+      "device_id": "<node_id>",
+      "device_version": "4.1.2",
+      "name": "example-bird",
+      "pending_since": 1765376090.035862,
+      "sensor": "thinkstcanary"
+    }
+  ],
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
 ## Cancel Bird Commission
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.cancel_commission">
@@ -187,6 +325,63 @@ print(r.json())
 
 ::::
 
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Bulk Cancel Bird Commission
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.bulk_cancel_commission">
+
+::::: slot description
+
+Cancel commission for multiple Birds in one request. The supplied `node_ids` must be a comma-separated list of pending Birds.
+
+:::::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/device/bulk_cancel_commission \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_ids=EXAMPLE_NODE_ID_1,EXAMPLE_NODE_ID_2
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/bulk_cancel_commission'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_ids': 'EXAMPLE_NODE_ID_1,EXAMPLE_NODE_ID_2'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
 
 ::: api-response
 ```json
@@ -244,6 +439,125 @@ print(r.json())
 ```json
 {
   "node_id": "<node_id>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Assign Pending Bird
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.assign_pending">
+
+::::: slot description
+
+Assign a pending Bird to a specific Flock's pending queue. If the destination Flock has available space, the Bird may be commissioned immediately.
+
+:::::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/device/assign_pending \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_id=EXAMPLE_NODE_ID \
+  -d flock_id=EXAMPLE_FLOCK_ID
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/assign_pending'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_id': 'EXAMPLE_NODE_ID',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "node_id": "<node_id>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Bulk Assign Pending Birds
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.bulk_assign_pending">
+
+::::: slot description
+
+Assign multiple pending Birds to a specific Flock's pending queue in a single request.
+
+:::::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/device/bulk_assign_pending \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d node_ids=EXAMPLE_NODE_ID_1,EXAMPLE_NODE_ID_2 \
+  -d flock_id=EXAMPLE_FLOCK_ID
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/device/bulk_assign_pending'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'node_ids': 'EXAMPLE_NODE_ID_1,EXAMPLE_NODE_ID_2',
+  'flock_id': 'EXAMPLE_FLOCK_ID'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
   "result": "success"
 }
 ```
