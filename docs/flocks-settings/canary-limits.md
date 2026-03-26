@@ -84,7 +84,7 @@ Canary limits let you cap how many Birds can be commissioned into a given [Flock
 
 ::::: slot description
 
-Enable Canary limits for a Flock. If the limit is already enabled, the current limit is returned unchanged.
+Enable Canary limits for a Flock. If the limit is already set, the current limit is unchanged.
 
 :::::
 
