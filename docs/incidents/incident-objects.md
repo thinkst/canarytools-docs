@@ -1249,7 +1249,7 @@ Triggered by a Canary reverting it's network settings after a settings push if i
 ::: attribute-details
 
 **Canary Status**
-The status of the canary after the rollback <br><br>
+The status of the Canary after the rollback <br><br>
 **Erroneous network settings**
 The settings which changed, causing the rollback <br><br>
 **Restored network settings**

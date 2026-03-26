@@ -86,7 +86,7 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: Acknowledge incidents for a specific flock
+        description: Acknowledge incidents for a specific Flock
       - name: node_id
         required: false
         type: string

@@ -74,7 +74,7 @@ endpoints:
         required: false
         type: string
         default: "'flock:default'"
-        description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
+        description: ID of the Flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: JSON structure with result indicator.
   assign_pending:
     name: Assign Pending Bird
@@ -94,7 +94,7 @@ endpoints:
         required: false
         type: string
         default: "'flock:default'"
-        description: ID of the flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
+        description: ID of the Flock to assign the Bird to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: JSON structure with the assigned Bird node_id.
   bulk_assign_pending:
     name: Bulk Assign Pending Birds
@@ -114,7 +114,7 @@ endpoints:
         required: false
         type: string
         default: "'flock:default'"
-        description: ID of the flock to assign the Birds to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
+        description: ID of the Flock to assign the Birds to (defaults to the [Default Flock](/guide/terminology.html#default-flock)).
     response: JSON structure with result indicator.
   decommission_device:
     name: Decommission Bird
@@ -454,7 +454,7 @@ print(r.json())
 
 ::::: slot description
 
-Assign a pending Bird to a specific Flock's pending queue. If the destination Flock has available space, the Bird may be commissioned immediately.
+Assign a pending Bird to a specific Flock's pending queue. If the destination Flock has available space, the Bird will be commissioned immediately.
 
 :::::
 

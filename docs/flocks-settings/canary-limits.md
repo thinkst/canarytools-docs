@@ -9,7 +9,7 @@ endpoints:
       - name: auth_token
         required: true
         type: string
-        description: A valid auth token
+        description: A valid global admin auth token
       - name: flock_id
         required: true
         type: string
@@ -24,7 +24,7 @@ endpoints:
       - name: auth_token
         required: true
         type: string
-        description: A valid auth token
+        description: A valid global admin auth token
       - name: flock_id
         required: true
         type: string
@@ -34,12 +34,12 @@ endpoints:
     name: Set Flock Canary Limit
     url: /api/v1/flock/settings/devices/limit/set
     method: POST
-    description: Set a non-negative Canary limit for a Flock.
+    description: Set a Canary limit for a Flock.
     params:
       - name: auth_token
         required: true
         type: string
-        description: A valid auth token
+        description: A valid global admin auth token
       - name: flock_id
         required: true
         type: string
@@ -63,7 +63,7 @@ endpoints:
         required: true
         type: string
         description: A valid flock_id
-    response: A JSON structure with the current limit (`null` if the limit is disabled).
+    response: A JSON structure with the current limit ('null' if the limit is disabled).
 ---
 
 # Canary Limits
@@ -72,7 +72,7 @@ endpoints:
 
 ::::: slot details
 
-Canary limits let you cap how many Birds can be commissioned into a given [Flock](/guide/terminology.html#flocks). The POST endpoints on this page require a global admin token. Fetching the current limit only requires access to view the Flock.
+Canary limits let you cap how many Birds can be commissioned into a given [Flock](/guide/terminology.html#flocks).
 
 :::::
 
@@ -199,7 +199,7 @@ print(r.json())
 
 ::::: slot description
 
-Set the current Canary limit for a Flock. The `limit` must be a non-negative integer.
+Set the current Canary limit for a Flock.
 
 :::::
 

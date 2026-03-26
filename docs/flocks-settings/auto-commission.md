@@ -34,7 +34,7 @@ endpoints:
     name: Retrieve Flock Auto Commission Token
     url: /api/v1/flock/settings/devices/autocommission/token
     method: GET
-    description: Fetch the Auto Commission token for a particular flock.
+    description: Fetch the Auto Commission token for a particular Flock.
     params:
       - name: auth_token
         required: true

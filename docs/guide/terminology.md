@@ -50,9 +50,9 @@ Each Flock can inherit configuration from your global settings, or you can indiv
 
 ## Flock pending queues
 
-Flocks can limit the number of Birds which are commissioned into them with per-flock canary limits. When a flock has reached its canary limit, the flock is full. New birds can still be assigned to a full flock by adding them to that flock's pending queue.
+Flocks can limit the number of Birds which are commissioned into them with per-flock Canary limits. When a Flock has reached its Canary limit, the Flock is full. New Birds can still be assigned to a full Flock by adding them to that Flock's pending queue.
 
-Birds will automatically commission from the pending queue as soon as there is space for them in the flock or the limit is disabled.
+Birds will automatically commission from the pending queue as soon as there is space for them in the Flock or the limit is disabled.
 
 ## Managers
 

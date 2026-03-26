@@ -129,7 +129,7 @@ endpoints:
     url: /api/v1/incidents/history/source
     method: GET
     description: Returns a list of incident history for a source IP.
-                 If the `flock_id` is specified the history will be confined to the flock.
+                 If the `flock_id` is specified the history will be confined to the Flock.
     params:
       - name: auth_token
         required: true
@@ -161,7 +161,7 @@ endpoints:
       - name: flock_id
         required: false
         type: string
-        description: Only return incidents for a specific flock.
+        description: Only return incidents for a specific Flock.
       - name: filter_str
         required: false
         type: string
