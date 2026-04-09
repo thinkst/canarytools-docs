@@ -222,8 +222,7 @@ endpoints:
     name: Bulk Delete Canarytokens
     url: /api/v1/canarytokens/delete
     method: POST
-    description: Bulk delete Canarytokens that match the specified criterion. You'll need to delete all incidents on the matching tokens
-                  before you can delete the tokens, otherwise no tokens will be deleted and an error returned.
+    description: Bulk delete Canarytokens that match the specified criterion. If clear_incidents is specified, all incidents on all tokens to be deleted will also be deleted. If clear_incidents is not specified or false and any incidents exist on matching tokens, no tokens will be deleted and an error returned.
     params:
       - name: auth_token
         required: true
@@ -233,6 +232,10 @@ endpoints:
         required: true
         type: string
         description: A comma separated list of custom domains from which all tokens should be deleted.
+      - name: clear_incidents
+        required: false
+        type: boolean
+        description: If true, delete all incidents on all matching tokens before deleting matching tokens
     response: A JSON structure with result indicator.
   disable:
     name: Disable Canarytoken
