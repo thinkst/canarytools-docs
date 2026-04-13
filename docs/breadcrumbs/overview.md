@@ -11,9 +11,9 @@ endpoints:
         type: string
         description: A valid auth token. Also supports read-only [Flock API keys](/flocks-settings/flock-auth-token.html).
       - name: node_id
-        required: false
+        required: true
         type: string
-        description: A valid Canary node_id.
+        description: A valid Canary node_id. This field is optional for [Credential Breadcrumb Kinds](/breadcrumbs/overview.html#credential-breadcrumb-kinds).
       - name: kind
         required: true
         type: string
@@ -39,9 +39,9 @@ endpoints:
         type: string
         description: A valid auth token. Also supports read-only [Flock API keys](/flocks-settings/flock-auth-token.html).
       - name: node_id
-        required: false
+        required: true
         type: string
-        description: A valid Canary node_id.
+        description: A valid Canary node_id. This field is optional for [Credential Breadcrumb Kinds](/breadcrumbs/overview.html#credential-breadcrumb-kinds).
       - name: kind
         required: false
         type: string
