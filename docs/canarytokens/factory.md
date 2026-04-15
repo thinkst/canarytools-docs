@@ -128,6 +128,12 @@ endpoints:
         type: file
         description: Upload MS Word Document to canarytoken; optionally used with MS Word Document (doc-msword) token. With curl use the following flag
                      `-F 'doc=@upload-me.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'`
+
+      - name: excel
+        required: false
+        type: file
+        description: Upload MS Excel Document to canarytoken; optionally used with MS Excel Document (doc-msexcel) token. With curl use the following flag
+                     `-F 'excel=@upload-me.xlsx; type=application/vnd.openxmlformats-officedocument.spreadsheethtml.sheet'`
       - name: pdf
         required: false
         type: file
