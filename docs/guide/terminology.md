@@ -12,7 +12,7 @@ These are the Canary devices that you purchase and connect to your Console. Thes
 
 ## Breadcrumbs
 
-These are small pieces of structured data (such as login profiles for Remote Desktop connection, or SSH configuration entries) that
+These are small pieces of structured data (such as webpage shortcuts or SSH configuration entries) that
 create a link from a host system to one of your Birds to lure attackers towards it.
 
 For more information, you can take a look at our [help article](https://help.canary.tools/hc/en-gb/articles/15436434187421)
