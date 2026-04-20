@@ -180,6 +180,7 @@ module.exports = {
           '/flocks-settings/overview',
           '/flocks-settings/info',
           '/flocks-settings/notifications',
+          '/flocks-settings/canary-limits',
           '/flocks-settings/change-alerts',
           '/flocks-settings/default-ignore-list',
           '/flocks-settings/hostname-ignore-list',

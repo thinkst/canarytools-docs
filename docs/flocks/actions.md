@@ -13,15 +13,15 @@ endpoints:
       - name: name
         required: true
         type: string
-        description: The name of the flock
+        description: The name of the Flock
       - name: managers
         required: false
         type: string
-        description: A comma-separated list of emails who can manage the flock
+        description: A comma-separated list of emails who can manage the Flock
       - name: watchers
         required: false
         type: string
-        description: A comma-separated list of emails who can watch the flock
+        description: A comma-separated list of emails who can watch the Flock
     response: A JSON structure with the created flock_id.
   delete:
     name: Delete Flock
