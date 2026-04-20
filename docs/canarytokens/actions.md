@@ -374,11 +374,26 @@ endpoints:
       - name: canarytoken
         required: true
         type: string
-        description: A valid Canarytoken that support redirects (e.g. slow redirect token or QR code token)
+        description: A valid Canarytoken that supports redirects (e.g. slow redirect token or QR code token)
       - name: redirect_url
         required: true
         type: string
         description: A valid url that the user should be redirected to after opening the Canarytoken
+    response: A JSON structure with result indicator.
+  remove_redirect_url:
+    name: Remove Canarytoken Redirect URL
+    url: /api/v1/canarytoken/remove/redirect_url
+    method: POST
+    description: Remove the redirect URL of a Canarytoken that supports optional redirects.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Canarytoken that supports optional redirects (e.g. QR code token)
     response: A JSON structure with result indicator.
 ---
 
@@ -1192,6 +1207,94 @@ print(r.json())
 ```json
 {
   "result": "success",
+  "token": {
+    "browser_redirect_url": "https://example.com",
+    "browser_scanner_enabled": false,
+    "canarytoken": "<token_code>",
+    "created": "1774610690.455351",
+    "created_printable": "2026-03-27 11:24:50 (UTC)",
+    "enabled": true,
+    "flock_id": "flock:default",
+    "hostname": "<token_hostname>",
+    "key": "<token_key>",
+    "kind": "fast-redirect",
+    "kind_description": "Fast Redirect",
+    "memo": "Example Memo",
+    "triggered_count": 0,
+    "updated_id": 6,
+    "canarytoken": "<token_url>"
+  }
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Remove Canarytoken Redirect URL
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.remove_redirect_url">
+
+::::: slot example
+
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/remove/redirect_url \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/remove/redirect_url'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+
+::: api-response
+```json
+{
+  "result": "success",
+  "token": {
+    "browser_redirect_url": "",
+    "browser_scanner_enabled": false,
+    "canarytoken": "<token_code>",
+    "created": "1776168497.972660",
+    "created_printable": "2026-04-14 12:08:17 (UTC)",
+    "enabled": true,
+    "flock_id": "flock:default",
+    "hostname": "<token_hostname>",
+    "key": "<token_key>",
+    "kind": "qr-code",
+    "kind_description": "QR Code",
+    "memo": "Example Memo",
+    "qr_code": "<qr_code>",
+    "triggered_count": 0,
+    "updated_id": 11,
+    "canarytoken": "<token_url>"
+  }
 }
 ```
 :::
