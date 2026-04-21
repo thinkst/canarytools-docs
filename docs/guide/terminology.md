@@ -10,6 +10,14 @@ If any of these still don't make sense, or if you feel we are missing some, plea
 
 These are the Canary devices that you purchase and connect to your Console. These currently could be one of: hardware, cloud (Azure, AWS EC2, GCP), or VM (VMWare, Hyper-V).
 
+## Breadcrumbs
+
+These are small pieces of structured data (such as webpage shortcuts or SSH configuration entries) that
+create a link from a host system to one of your Birds to lure attackers towards it.
+
+For more information, you can take a look at our [help article](https://help.canary.tools/hc/en-gb/articles/15436434187421)
+and the [Breadcrumb overview](/breadcrumbs/overview.html).
+
 ## Canarytokens
 
 <sub>Also known by: [Devices](#devices), [Sensors](#sensors)</sub>
