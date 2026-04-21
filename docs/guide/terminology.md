@@ -16,6 +16,7 @@ These are small pieces of structured data (such as webpage shortcuts or SSH conf
 create a link from a host system to one of your Birds to lure attackers towards it.
 
 For more information, you can take a look at our [help article](https://help.canary.tools/hc/en-gb/articles/15436434187421)
+and the [Breadcrumb overview](/breadcrumbs/overview.html)
 
 ## Canarytokens
 
