@@ -42,8 +42,6 @@
 /user/password/change
 /user/2fa/enable
 /user/2fa/verify
-/user/summary_email/disable
-/user/summary_email/
 
 # requires logged in user
 /webauthn/add_authenticator
