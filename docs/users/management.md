@@ -120,21 +120,6 @@ endpoints:
         type: string
         description: The email address of the user to be enabled
     response: JSON structure with result indicator.
-  enable_user_summary_email:
-    name: Enable User Summary Email
-    url: /api/v1/user/summary_email/enable
-    method: POST
-    description: Enables summary email notifications for a specified user. Admins may enable summary emails for any user, but regular users may only enable summary emails for themselves.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: email
-        required: true
-        type: string
-        description: The email address of the user whose summary emails should be enabled
-    response: JSON structure with result indicator.
   disable_user_2fa:
     name: Disable User's TOTP
     url: /api/v1/user/2fa/disable
@@ -289,6 +274,21 @@ endpoints:
         required: true
         type: string
         description: The email address of the user whose summary emails should be disabled
+    response: JSON structure with result indicator.
+  enable_user_summary_email:
+    name: Enable User Summary Email
+    url: /api/v1/user/summary_email/enable
+    method: POST
+    description: Enables summary email notifications for a specified user. Admins may enable summary emails for any user, but regular users may only enable summary emails for themselves.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: email
+        required: true
+        type: string
+        description: The email address of the user whose summary emails should be enabled
     response: JSON structure with result indicator.
 ---
 
