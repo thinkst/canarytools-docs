@@ -264,7 +264,7 @@ endpoints:
     name: Disable User Summary Email
     url: /api/v1/user/summary_email/disable
     method: POST
-    description: Disables summary email notifications for a specified user. Admins may disable summary emails for any user, but regular users may only disable summary emails for themselves
+    description: Disables summary email notifications for a specified user.
     params:
       - name: auth_token
         required: true
@@ -279,7 +279,7 @@ endpoints:
     name: Enable User Summary Email
     url: /api/v1/user/summary_email/enable
     method: POST
-    description: Enables summary email notifications for a specified user. Admins may enable summary emails for any user, but regular users may only enable summary emails for themselves.
+    description: Enables summary email notifications for a specified user.
     params:
       - name: auth_token
         required: true
