@@ -260,6 +260,36 @@ endpoints:
         type: string
         description: The email address of the user to be removed
     response: JSON structure with result indicator.
+  disable_user_summary_email:
+    name: Disable User Summary Email
+    url: /api/v1/user/summary_email/disable
+    method: POST
+    description: Disables summary email notifications for a specified user.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: email
+        required: true
+        type: string
+        description: The email address of the user whose summary emails should be disabled
+    response: JSON structure with result indicator.
+  enable_user_summary_email:
+    name: Enable User Summary Email
+    url: /api/v1/user/summary_email/enable
+    method: POST
+    description: Enables summary email notifications for a specified user.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: email
+        required: true
+        type: string
+        description: The email address of the user whose summary emails should be enabled
+    response: JSON structure with result indicator.
 ---
 
 # Management
@@ -704,6 +734,62 @@ print(r.json())
 
 </APIDetails>
 
+## Disable User Summary Email
+
+::: tip
+Users can disable summary emails for themselves. Disabling summary emails for another user requires a global admin account.
+:::
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.disable_user_summary_email">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/summary_email/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/summary_email/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "Successfully disabled summary email for email <user_email>",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
 ## Edit User
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.edit_user">
@@ -854,6 +940,62 @@ print(r.json())
 ```json
 {
   "msg": "User (<user_email>) successfully enabled.",
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Enable User Summary Email
+
+::: tip
+Users can enable summary emails for themselves. Enabling summary emails for another user requires a global admin account.
+:::
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.enable_user_summary_email">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/user/summary_email/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d email=EXAMPLE_USER_EMAIL
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/user/summary_email/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'email': 'EXAMPLE_USER_EMAIL'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "msg": "Successfully enabled summary email for email <user_email>",
   "result": "success"
 }
 ```

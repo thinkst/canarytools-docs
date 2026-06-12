@@ -427,9 +427,13 @@ print(r.json())
 
 ## Summary Emails
 
-If you want, we can send you a weekly summary of your Console activity. Along with that, we'll include any Canary related news that we deem useful (this usually includes a couple of worthy news items).
+If you want, we can send a weekly summary of your Console activity every Monday. Along with that, we'll include any Canary related news that we deem useful (this usually includes a couple of worthy news items).
 
-Simply [enable](#enable-summary-emails) and [set a list of email addresses](#set-summary-emails) and look out for the weekly mail on Mondays!
+The endpoints on this page are for configuring summary email delivery to email addresses that are not registered Console users.
+
+To enable or disable summary emails for a registered Console user, use the `/api/v1/user/summary_email/enable` and `/api/v1/user/summary_email/disable` endpoints documented on the [Users Management](../users/management.md#enable-user-summary-email) page.
+
+To configure summary emails for non-user recipient addresses, [enable](#enable-summary-emails) summary emails and [set a list of email addresses](#set-summary-emails).
 
 ### Disable Summary Emails
 
