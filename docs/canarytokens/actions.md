@@ -190,6 +190,12 @@ endpoints:
         type: string
         description: S3 bucket to monitor for access  (required when creating aws-s3 tokens)
 
+      - name: skip_create_if_exists
+        required: false
+        type: string
+        default: false
+        description: When enabled, if a canarytoken exists with matching `flock`, `memo`, and `kind` then the existing token will be returned instead of creating a new token. This parameter only applies to a subset of token kinds, and for certain token kinds additional parameters are matched on. [See how we match tokens](https://help.canary.tools/hc/en-gb/articles/36773376608029-How-do-I-not-create-duplicate-canarytokens#h_01KTVJFCWZPN3Y776882E1HT2A).
+
       - name: tokened_usernames
         required: false
         type: string
