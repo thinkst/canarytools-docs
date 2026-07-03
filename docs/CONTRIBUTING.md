@@ -69,6 +69,7 @@ A `param` can include additional properties that will further enhance the inform
   required: true | false
   type: string | int | boolean
   default: 10 | "'a string'" (can ignore if no default)
+  maximum: 2500 | "'a string'" (can ignore if no maximum)
   deprecated: true | false (can ignore and default to false)
   deprecated_message: "An optional deprecated message to show if deprecated" (can ignore if not deprecated)
   description: An example description
