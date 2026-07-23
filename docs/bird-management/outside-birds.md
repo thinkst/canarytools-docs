@@ -136,7 +136,7 @@ endpoints:
       - name: email
         required: true
         type: string
-        description: If their are more than 50,000 alerts we will email an archive of the alerts after ~15 minutes.
+        description: If there are more than 50,000 alerts we will email an archive of the alerts after ~15 minutes.
     response: An archive of the alerts.
   outside_bird_webhooks:
     name: List Outside Bird Webhooks
