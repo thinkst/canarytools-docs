@@ -35,6 +35,9 @@
             <div v-if="typeof param.default !== 'undefined'" class="endpoint-details-default">
               Default: {{param.default}}
             </div>
+            <div v-if="typeof param.maximum !== 'undefined'" class="endpoint-details-maximum">
+              Maximum value: {{param.maximum}}
+            </div>
             <div
               v-if="typeof param.deprecated_message !== 'undefined'"
               class="endpoint-details-deprecated-message"
@@ -60,6 +63,10 @@
               <div v-if="typeof param.default !== 'undefined'" class="endpoint-details-default">
                 <span class="heading">Defaults to: </span>
                 <span>{{param.default}}</span>
+              </div>
+              <div v-if="typeof param.maximum !== 'undefined'" class="endpoint-details-maximum">
+                <span class="heading">Maximum value: </span>
+                <span>{{param.maximum}}</span>
               </div>
               <div
                 v-if="typeof param.deprecated_message !== 'undefined'"
@@ -160,6 +167,12 @@ export default {
   font-size: 0.8em
 
 .endpoint-details-default
+  color: $badgeWarningColor
+  font-size: 0.8em
+  & .heading
+    font-style: italic
+
+.endpoint-details-maximum
   color: $badgeWarningColor
   font-size: 0.8em
   & .heading

@@ -29,6 +29,7 @@ endpoints:
         required: false
         type: string
         default: 10
+        maximum: 2500
         description: The size of the pages
       - name: cursor
         required: false
