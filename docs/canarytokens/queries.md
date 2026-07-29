@@ -102,8 +102,7 @@ These are a collection of endpoints that allow you to query and view your Canary
 ## All Canarytokens
 
 ::: tip
-This will return all your Canarytokens in a single list. This may cause issues if you have many Canarytokens
-minted on your Console. A cleaner option is to use [Search Canarytokens](#search-canarytokens) or [Paginate Canarytokens](#paginate-canarytokens) as they will paginate the results and allow you to cycle through them.
+This will return up to **2500** Canarytokens in a single list. If you need to fetch more tokens use [Search Canarytokens](#search-canarytokens) or [Paginate Canarytokens](#paginate-canarytokens) as they will paginate the results and allow you to cycle through them.
 :::
 
 <APIDetails :endpoint="$page.frontmatter.endpoints.fetch">
