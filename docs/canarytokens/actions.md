@@ -37,6 +37,17 @@ endpoints:
         description: A valid page cursor retrieved from the cursor element returned along with a page while
                      doing pagination
     response: A JSON structure with the current page of Canarytokens and cursors pointing to your next and previous pages.
+  limit_credit_card:
+    name: Credit Card Canarytoken Limit
+    url: /api/v1/canarytokens/limit/credit-card
+    method: GET
+    description: Retrieve the Credit Card Canarytoken limit and remaining token count for your Canary Console.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+    response: A JSON structure containing the Credit Card Canarytoken kind, remaining token count, and token limit.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -505,6 +516,64 @@ print(r.json())
       "wireguard": "WireGuard VPN",
   },
     "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Credit Card Canarytoken Limit
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.limit_credit_card">
+
+::::: slot description
+
+Retrieve the Credit Card Canarytoken limit and the number of Credit Card Canarytokens still available on the Canary Console.
+
+:::::
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytokens/limit/credit-card \
+  -d auth_token=EXAMPLE_AUTH_TOKEN -G
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytokens/limit/credit-card'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN'
+}
+
+r = requests.get(url, params=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "kind": "credit-card",
+  "limit": 4,
+  "remaining": 3,
+  "result": "success"
 }
 ```
 :::
