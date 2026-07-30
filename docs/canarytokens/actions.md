@@ -40,13 +40,13 @@ endpoints:
     name: Credit Card Canarytoken Limit
     url: /api/v1/canarytokens/limit/credit-card
     method: GET
-    description: Retrieve the number of Credit Card Canarytokens assigned and still available on your Canary Console.
+    description: Retrieve the Credit Card Canarytoken limit and remaining token count for your Canary Console.
     params:
       - name: auth_token
         required: true
         type: string
         description: A valid auth token
-    response: A JSON structure containing the Credit Card Canarytoken kind, assigned token count, and available token count.
+    response: A JSON structure containing the Credit Card Canarytoken kind, remaining token count, and token limit.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -529,7 +529,7 @@ print(r.json())
 
 ::::: slot description
 
-Retrieve the number of Credit Card Canarytokens that are assigned and the number still available on the Canary Console.
+Retrieve the Credit Card Canarytoken limit and the number of Credit Card Canarytokens still available on the Canary Console.
 
 :::::
 
@@ -570,9 +570,9 @@ print(r.json())
 ```json
 {
   "kind": "credit-card",
-  "result": "success",
-  "used_tokens": 1,
-  "available_tokens": 2
+  "limit": 4,
+  "remaining": 3,
+  "result": "success"
 }
 ```
 :::
