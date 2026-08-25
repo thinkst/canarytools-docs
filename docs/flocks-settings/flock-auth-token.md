@@ -22,6 +22,10 @@ endpoints:
         required: true
         type: string
         description: A note for the Flock API key on who/where it is used.
+      - name: allowed_ip_ranges
+        required: false
+        type: string
+        description: Comma-separated IP addresses and CIDR ranges allowed to use this auth token. By default, all IP addresses are allowed.
     response: A JSON structure with the new Flock API Key.
   flock_auth_token_remove:
     name: Remove Flock API key
