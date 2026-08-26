@@ -41,6 +41,10 @@ endpoints:
         required: true
         type: string
         description: A note for the Global API key on who/where it is used.
+      - name: allowed_ip_ranges
+        required: false
+        type: string
+        description: Comma-separated IP addresses and CIDR ranges allowed to use this auth token. By default, all IP addresses are allowed.
     response: JSON structure with the new Global API key.
   list:
     name: List the Global API Keys
