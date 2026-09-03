@@ -14,10 +14,6 @@ endpoints:
         required: false
         type: string
         description: A valid flock_id (for returning Canarytokens for a specific Flock)
-      - name: include_endpoints
-        required: false
-        type: string
-        description: Include factory endpoints (such as ApeeperFactory)
     response: A JSON structure with list of all Canarytokens.
   paginate:
     name: Paginate Canarytokens

@@ -48,21 +48,6 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON structure containing the Credit Card Canarytoken kind, remaining token count, and token limit.
-  delete_apeeper:
-    name: Delete Apeeper Canarytoken Factory
-    url: /api/v1/apeeperfactory/delete
-    method: POST
-    description: Delete an Apeeper Canarytoken factory.
-    params:
-      - name: auth_token
-        required: true
-        type: string
-        description: A valid auth token
-      - name: hash
-        required: true
-        type: string
-        description:  A valid ApeeperFactory hash
-    response: A JSON structure with result indicator.
   create:
     name: Create Canarytoken
     url: /api/v1/canarytoken/create
@@ -777,10 +762,6 @@ print(r.json())
 :::::
 
 </APIDetails>
-
-## Delete Apeeper Canarytoken Factory
-
-<APIDetails :endpoint="$page.frontmatter.endpoints.delete_apeeper"/>
 
 ## Delete Canarytoken
 
