@@ -87,6 +87,8 @@ The following services and breadcrumb kinds are currently supported:
 | macos-https-shortcut | Webserver | No | MacOS HTTPS Shortcut. This crumb creates a MacOS web page shortcut. The crumb file can simply be dropped somewhere that an attacker might click into it. |
 | windows-http-shortcut | Webserver | No | Windows HTTP Shortcut. This crumb creates a Windows web page shortcut. The crumb file can simply be dropped somewhere that an attacker might click into it. |
 | windows-https-shortcut | Webserver | No | Windows HTTPS Shortcut. This crumb creates a Windows web page shortcut. The crumb file can simply be dropped somewhere that an attacker might click into it. |
+| agent-enrolment-http | Webserver | No | Agent Deception, HTTP enrolment server. This crumb creates an agent enrolment plan that requires agents to register with our web service. This crumb requires the *Agent A2A* or the *Agent Provocateur* webskin to be enabled on the Canary. |
+| agent-enrolment-https | Webserver | No | Agent Deception, HTTPS enrolment server. This crumb creates an agent enrolment plan that requires agents to register with our web service. This crumb requires the *Agent A2A* or the *Agent Provocateur* webskin to be enabled on the Canary. |
 
 ::: tip
 Remember to make sure that the desired services are enabled and reachable on the Canary before deploying breadcrumbs. The services can either be enabled on the Console UI, or via the "[device configuration](/bird-management/service-configuration.html)" endpoints.
