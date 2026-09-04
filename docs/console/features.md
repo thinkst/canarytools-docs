@@ -72,7 +72,6 @@ print(r.json())
 {
   "features": {
     "adv_throttle_notifications": true,
-    "apeeper_token": true,
     "awsidtoken": true,
     "awsidtoken_username": false,
     "azure_canary": false,
