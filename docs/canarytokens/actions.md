@@ -48,6 +48,36 @@ endpoints:
         type: string
         description: A valid auth token
     response: A JSON structure containing the Credit Card Canarytoken kind, remaining token count, and token limit.
+  credit_card_expiry_notification_disable:
+    name: Disable Credit Card Canarytoken Expiry Notifications
+    url: /api/v1/canarytoken/credit-card/expiry/notification/disable
+    method: POST
+    description: Disable expiry reminder notifications for a Credit Card Canarytoken.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Credit Card Canarytoken
+    response: A JSON structure with result indicator.
+  credit_card_expiry_notification_enable:
+    name: Enable Credit Card Canarytoken Expiry Notifications
+    url: /api/v1/canarytoken/credit-card/expiry/notification/enable
+    method: POST
+    description: Enable expiry reminder notifications for a Credit Card Canarytoken.
+    params:
+      - name: auth_token
+        required: true
+        type: string
+        description: A valid auth token
+      - name: canarytoken
+        required: true
+        type: string
+        description: A valid Credit Card Canarytoken
+    response: A JSON structure with result indicator.
   delete_apeeper:
     name: Delete Apeeper Canarytoken Factory
     url: /api/v1/apeeperfactory/delete
@@ -573,6 +603,108 @@ print(r.json())
   "kind": "credit-card",
   "limit": 4,
   "remaining": 3,
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Disable Credit Card Canarytoken Expiry Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.credit_card_expiry_notification_disable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/credit-card/expiry/notification/disable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/credit-card/expiry/notification/disable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
+  "result": "success"
+}
+```
+:::
+
+:::::
+
+</APIDetails>
+
+## Enable Credit Card Canarytoken Expiry Notifications
+
+<APIDetails :endpoint="$page.frontmatter.endpoints.credit_card_expiry_notification_enable">
+
+::::: slot example
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab "cURL"
+
+``` bash
+curl https://EXAMPLE.canary.tools/api/v1/canarytoken/credit-card/expiry/notification/enable \
+  -d auth_token=EXAMPLE_AUTH_TOKEN \
+  -d canarytoken=EXAMPLE_CANARYTOKEN
+```
+
+:::
+
+::: tab "Python"
+
+``` python
+import requests
+
+url = 'https://EXAMPLE.canary.tools/api/v1/canarytoken/credit-card/expiry/notification/enable'
+
+payload = {
+  'auth_token': 'EXAMPLE_AUTH_TOKEN',
+  'canarytoken': 'EXAMPLE_CANARYTOKEN'
+}
+
+r = requests.post(url, data=payload)
+
+print(r.json())
+```
+
+:::
+
+::::
+
+::: api-response
+```json
+{
   "result": "success"
 }
 ```
